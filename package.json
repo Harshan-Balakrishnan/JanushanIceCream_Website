@@ -1,0 +1,32 @@
+{
+  "name": "janushan-ice-cream-web",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint",
+    "typecheck": "tsc --noEmit",
+    "check": "npm run typecheck && npm run lint && npm run build",
+    "verify:env": "node scripts/verify-production-env.mjs",
+    "release:check": "npm run check && npm run verify:env",
+    "firebase:deploy:rules": "npx firebase-tools deploy --only firestore:rules,storage"
+  },
+  "dependencies": {
+    "dotenv": "^17.4.2",
+    "firebase": "^12.2.1",
+    "framer-motion": "^11.18.2",
+    "next": "^15.5.0",
+    "react": "^19.1.0",
+    "react-dom": "^19.1.0"
+  },
+  "devDependencies": {
+    "@types/node": "^22.14.0",
+    "@types/react": "^19.1.0",
+    "@types/react-dom": "^19.1.0",
+    "eslint": "^9.23.0",
+    "eslint-config-next": "^15.5.0",
+    "typescript": "^5.8.2"
+  }
+}
