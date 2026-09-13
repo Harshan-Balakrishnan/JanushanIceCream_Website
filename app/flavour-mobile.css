@@ -1,0 +1,51 @@
+/* Janushan Ice Cream — mobile flavour universe fixes */
+
+.flavour-tabs { min-width: 0; }
+.flavour-tabs button { min-width: 0; }
+.flavour-stage { min-width: 0; }
+.flavour-scene { min-width: 0; }
+.flavour-product-image { min-width: 0; }
+
+.hero-socials { display: flex; flex-wrap: wrap; justify-content: center; gap: 9px; margin: 20px auto 0; max-width: 680px; }
+.hero-socials a { min-height: 42px; padding: 0 15px; display: inline-flex; align-items: center; justify-content: center; gap: 7px; border: 1px solid rgba(243,190,83,.42); border-radius: 999px; background: rgba(4,17,40,.58); color: rgba(255,255,255,.9); backdrop-filter: blur(12px); font-size: 10px; font-weight: 900; letter-spacing: .08em; text-transform: uppercase; text-decoration: none; transition: transform .2s ease, border-color .2s ease, background .2s ease, color .2s ease; }
+.hero-socials a:hover { transform: translateY(-2px); border-color: var(--jic-gold); background: rgba(243,190,83,.15); color: #fff; }
+.hero-socials a span { color: var(--jic-gold-soft); font-size: 15px; line-height: 1; }
+
+@media (max-width: 900px) {
+  .flavour-shell { display: grid; grid-template-columns: 1fr; gap: 28px; }
+  .flavour-copy { width: 100%; }
+  .flavour-intro { max-width: 680px; }
+  .flavour-tabs { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 9px; width: 100%; }
+  .flavour-tabs button { width: 100%; min-height: 58px; padding: 11px 12px; }
+  .flavour-tabs button:last-child { grid-column: 1 / -1; }
+  .flavour-stage { width: 100%; min-height: 520px; }
+  .flavour-scene { width: 100%; min-height: 480px; overflow: hidden; }
+  .flavour-product-image { width: min(78vw, 390px); height: min(78vw, 390px); max-width: 72%; }
+  .flavour-label { width: min(88%, 360px); max-width: 360px; }
+}
+
+@media (max-width: 560px) {
+  .flavour-shell { gap: 20px; }
+  .flavour-copy h2 { font-size: clamp(42px, 12vw, 62px); line-height: .94; }
+  .flavour-intro { font-size: 13px; line-height: 1.65; }
+  .flavour-tabs { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 7px; }
+  .flavour-tabs button { min-height: 54px; padding: 9px 8px; border-radius: 13px; }
+  .flavour-tabs button span { font-size: 8px; }
+  .flavour-tabs button strong { font-size: 11px; white-space: normal; }
+  .flavour-tabs button:last-child { grid-column: auto; }
+  .flavour-stage { min-height: 500px; }
+  .flavour-scene { min-height: 460px; border-radius: 22px; }
+  .flavour-product-image { width: 250px; height: 250px; max-width: none; top: 31%; }
+  .flavour-label { left: 50%; top: auto; bottom: 18px; transform: translateX(-50%); width: calc(100% - 28px); padding: 14px; border-radius: 17px; }
+  .flavour-label h3 { font-size: 30px; }
+  .flavour-label p { font-size: 11px; line-height: 1.45; }
+  .flavour-explore { width: 100%; min-height: 44px; }
+  .flavour-stage-caption { font-size: 8px; margin-top: 9px; }
+  .hero-socials { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); width: min(100%, 360px); gap: 7px; margin-top: 16px; }
+  .hero-socials a { min-height: 40px; padding: 0 8px; font-size: 8px; letter-spacing: .045em; }
+  .hero-socials a:last-child { grid-column: 1 / -1; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .flavour-product-image, .flavour-label, .hero-socials a { transition: none !important; }
+}

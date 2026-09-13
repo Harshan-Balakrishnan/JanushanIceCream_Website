@@ -7,36 +7,36 @@ import { useRef } from "react";
 const chapters = [
   {
     marker: "2004",
-    kicker: "WHERE THE STORY BEGINS",
-    title: "A name made to last.",
-    copy: "Janushan carries one date proudly across its identity: Since 2004. This chapter gives that beginning room to breathe — simple, confident and unmistakably ours.",
+    kicker: "WHERE IT ALL BEGAN",
+    title: "A Vavuniya favourite since 2004.",
+    copy: "Janushan Ice Cream began its journey in 2004 and has proudly carried the name through generations of customers. What started as a local ice cream business continues with the same focus on making every visit a little sweeter.",
     visual: "/brand/brand2004.webp",
     alt: "Janushan Ice Cream logo",
     type: "logo",
   },
   {
     marker: "CRAFT",
-    kicker: "MADE IN SRI LANKA",
-    title: "From flavour to feeling.",
-    copy: "The brand experience is built around the thing people remember most: the scoop itself. Rich flavour worlds, generous servings and a presentation designed to turn a treat into a moment.",
+    kicker: "MADE FOR EVERY SCOOP",
+    title: "Simple treats, made to enjoy.",
+    copy: "From creamy cups and classic cones to indulgent specials, Janushan is all about generous portions, familiar favourites and the joy of sharing something cold and delicious.",
     visual: "/products/company.jpg",
     alt: "Janushan waffle cone",
     type: "product",
   },
   {
     marker: "FLAVOUR",
-    kicker: "FIVE WORLDS · ONE BRAND",
-    title: "Every flavour has a mood.",
-    copy: "Strawberry, Mango, Chocolate, Vanilla and Mix Fruit each get their own atmosphere while staying inside one Janushan visual language.",
+    kicker: "FIVE FAVOURITES",
+    title: "Find the flavour that feels like you.",
+    copy: "Strawberry, Mango, Chocolate, Vanilla and Mix Fruit bring different moods to the menu. Pick a classic, try something fruity or explore them all.",
     visual: "/flavours/All flavour.png",
-    alt: "Janushan mango flavour presentation",
+    alt: "Janushan flavour presentation",
     type: "product",
   },
   {
     marker: "TODAY",
     kicker: "A SCOOP OF HAPPINESS",
-    title: "The story is still being served.",
-    copy: "The website brings the heritage, products and playful side of Janushan into one modern digital experience — made for phones, families and the next generation of customers.",
+    title: "Still serving the next generation.",
+    copy: "Today, Janushan continues to serve Vavuniya through its shop and mobile van — bringing familiar favourites to families, friends and new customers ready for their next scoop.",
     visual: "/products/special.webp",
     alt: "Janushan special ice cream",
     type: "product",
@@ -45,16 +45,13 @@ const chapters = [
 
 export default function StoryTimeline() {
   const sectionRef = useRef<HTMLElement>(null);
-  const { scrollYProgress } = useScroll({
-    target: sectionRef,
-    offset: ["start 70%", "end 45%"],
-  });
+  const { scrollYProgress } = useScroll({ target: sectionRef, offset: ["start 70%", "end 45%"] });
   const progress = useSpring(scrollYProgress, { stiffness: 90, damping: 24, mass: 0.35 });
   const yearOpacity = useTransform(progress, [0, 0.1, 0.92, 1], [0.55, 1, 1, 0.55]);
   const haloScale = useTransform(progress, [0, 1], [0.82, 1.18]);
 
   return (
-    <section className="story-world" id="story" ref={sectionRef}>
+    <section className="story-world" id="story">
       <div className="story-ambient story-ambient-a" />
       <div className="story-ambient story-ambient-b" />
       <div className="story-shell">
@@ -66,32 +63,29 @@ export default function StoryTimeline() {
             <motion.i style={{ scale: haloScale }} />
             <Image src="/brand/Brand Logo.png" alt="" width={123} height={123} />
           </div>
-          <p className="story-sticky-copy">Scroll through the chapters</p>
+          <p className="story-sticky-copy">Our story, one scoop at a time</p>
         </aside>
 
         <div className="story-track-wrap">
-          <div className="story-line" aria-hidden="true">
-            <motion.span style={{ scaleY: progress }} />
-          </div>
+          <div className="story-line" aria-hidden="true"><motion.span style={{ scaleY: progress }} /></div>
 
           <header className="story-intro">
             <p className="section-kicker">OUR STORY · SINCE 2004</p>
-            <h2>Some brands have a timeline.<br /><em>Janushan has a flavour trail.</em></h2>
-            <p>Instead of inventing dates or events, this experience tells the story using the brand facts and product world already established by Janushan.</p>
+            <h2>Good ice cream has a history.<br /><em>Ours is still being served.</em></h2>
+            <p>From our Vavuniya roots to today&apos;s shop and mobile van, follow the story behind Janushan and the flavours customers keep coming back for.</p>
+            <div className="story-intro-meta" aria-label="Story highlights">
+              <span><strong>04</strong> chapters</span>
+              <span><strong>2004</strong> founded</span>
+              <span><strong>VAVUNIYA</strong> roots</span>
+            </div>
           </header>
 
           {chapters.map((chapter, index) => (
-            <motion.article
-              className="story-chapter"
-              key={chapter.marker}
-              initial={{ opacity: 0, y: 70 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, amount: 0.28 }}
-              transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
-            >
+            <motion.article className="story-chapter" key={chapter.marker} initial={{ opacity: 0, y: 70 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, amount: 0.28 }} transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}>
               <div className="story-node" aria-hidden="true"><span>{String(index + 1).padStart(2, "0")}</span></div>
               <div className="story-card">
                 <div className="story-card-copy">
+                  <div className="story-chapter-meta"><span>{String(index + 1).padStart(2, "0")}</span><span>OF {String(chapters.length).padStart(2, "0")}</span></div>
                   <span className="story-marker">{chapter.marker}</span>
                   <p className="section-kicker">{chapter.kicker}</p>
                   <h3>{chapter.title}</h3>
@@ -105,17 +99,11 @@ export default function StoryTimeline() {
             </motion.article>
           ))}
 
-          <motion.div
-            className="story-finale"
-            initial={{ opacity: 0, scale: 0.96 }}
-            whileInView={{ opacity: 1, scale: 1 }}
-            viewport={{ once: true, amount: 0.45 }}
-            transition={{ duration: 0.8 }}
-          >
+          <motion.div className="story-finale" initial={{ opacity: 0, scale: 0.96 }} whileInView={{ opacity: 1, scale: 1 }} viewport={{ once: true, amount: 0.45 }} transition={{ duration: 0.8 }}>
             <span>2004 → TODAY</span>
             <h3>One brand. Many flavours.<br />One story still unfolding.</h3>
             <p>JANUSHAN ICE CREAM</p>
-            <a href="#locations" className="button button-primary">Continue the Journey ↓</a>
+            <a href="#locations" className="button button-primary">Find Janushan ↓</a>
           </motion.div>
         </div>
       </div>

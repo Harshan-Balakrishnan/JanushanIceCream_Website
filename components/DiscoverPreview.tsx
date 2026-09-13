@@ -11,30 +11,23 @@ export default function DiscoverPreview() {
   return (
     <>
       <section className="discover section" id="discover">
-        <p className="section-kicker">WELCOME TO OUR WORLD</p>
-        <h2>Ice cream should feel like an <em>experience.</em></h2>
-        <p className="section-intro">Janushan Ice Cream is designed as a digital flavour journey: cinematic movement, product-first presentation and touch-friendly interaction that feels equally natural on a phone or a large screen.</p>
+        <p className="section-kicker">THE JANUSHAN EXPERIENCE</p>
+        <h2>Made for moments.<br /><em>Remembered by flavour.</em></h2>
+        <p className="section-intro">Since 2004, Janushan Ice Cream has been part of everyday moments in Vavuniya. Explore the menu, discover your flavour, create your own scoop and order your favourite the easy way.</p>
         <div className="feature-grid">
-          <article><strong>01</strong><h3>Discover</h3><p>Products become immersive stories instead of ordinary cards.</p></article>
-          <article><strong>02</strong><h3>Play</h3><p>Flavour, motion and interaction respond naturally to the visitor.</p></article>
-          <article><strong>03</strong><h3>Crave</h3><p>Large food imagery and controlled motion keep the product as the hero.</p></article>
+          <article><strong>01</strong><h3>Discover</h3><p>Explore our signature ice creams, cones and special treats through a premium product-first menu.</p></article>
+          <article><strong>02</strong><h3>Create</h3><p>Choose your base, flavour, scoops, toppings and sauce to make a creation that is yours.</p></article>
+          <article><strong>03</strong><h3>Enjoy</h3><p>When you know what you want, order directly through WhatsApp or find us in Vavuniya.</p></article>
         </div>
       </section>
 
       <ProductUniverse />
-
       <FlavourUniverse />
-
       <IceCreamBuilder />
-
       <StoryTimeline />
-
       <PromotionRibbon />
-
       <ScoopWall />
-
       <FindJanushan />
-
       <ContactExperience />
     </>
   );
