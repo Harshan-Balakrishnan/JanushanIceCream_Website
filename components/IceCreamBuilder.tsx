@@ -2,7 +2,7 @@
 
 import { motion, useReducedMotion } from "framer-motion";
 import Image from "next/image";
-import { useMemo, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 
 const bases = [
   { id: "cup", name: "Cup", icon: "◒" },
@@ -48,6 +48,15 @@ export default function IceCreamBuilder() {
   const toppingName = toppings.find((item) => item.id === topping)?.name ?? "No Topping";
   const orderMessage = `Hi Janushan Ice Cream, I would like to order a custom creation: ${creationName}, ${toppingName}, ${activeSauce.name === "No Sauce" ? "no sauce" : `${activeSauce.name} sauce`}. Please let me know availability and price.`;
   const orderHref = `https://wa.me/94776015041?text=${encodeURIComponent(orderMessage)}`;
+
+  useEffect(() => {
+    const handleFlavourSelection = (event: Event) => {
+      const selected = (event as CustomEvent<FlavourId>).detail;
+      if (flavours.some((item) => item.id === selected)) setFlavour(selected);
+    };
+    window.addEventListener("jic:select-flavour", handleFlavourSelection);
+    return () => window.removeEventListener("jic:select-flavour", handleFlavourSelection);
+  }, []);
 
   const shareCreation = async () => {
     const text = `My Janushan creation: ${creationName} with ${toppingName}${sauce !== "none" ? ` and ${activeSauce.name} sauce` : ""}.`;
