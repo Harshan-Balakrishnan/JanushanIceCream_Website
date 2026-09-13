@@ -69,10 +69,10 @@ export default function ProductUniverse() {
       <div className="product-orbit-glow" aria-hidden="true" />
       <div className="product-section-head">
         <div>
-          <p className="section-kicker">CHOOSE YOUR CRAVING</p>
-          <h2 id="craving-title">Scroll into your <em>next favourite.</em></h2>
+          <p className="section-kicker">OUR MENU · SIGNATURE COLLECTION</p>
+          <h2 id="craving-title">Made for your <em>next favourite.</em></h2>
         </div>
-        <p className="product-section-copy">Explore the Janushan menu. Swipe on mobile, drag on desktop, or use the arrow controls below.</p>
+        <p className="product-section-copy">Explore the Janushan collection. Choose a favourite, open the details, and send your order directly to us.</p>
       </div>
 
       <div className="product-track-wrap">
