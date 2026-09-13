@@ -7,66 +7,74 @@
   --jic-navy: #041128;
 }
 
-/* Prevent horizontal page drift while preserving intentional carousels. */
 html, body { max-width: 100%; overflow-x: hidden; }
 
-/* Stronger keyboard focus for real-world accessibility. */
 :where(a, button, select):focus-visible {
   outline: 3px solid var(--jic-gold);
   outline-offset: 4px;
 }
 
+/* Hero milk splash / melting cream accent */
+.milk-splash {
+  position: absolute;
+  left: 50%;
+  top: 54%;
+  width: 390px;
+  height: 150px;
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+  z-index: 2;
+  filter: drop-shadow(0 18px 26px rgba(0,0,0,.16));
+}
+.milk-puddle {
+  position: absolute;
+  left: 50%;
+  bottom: 20px;
+  width: 310px;
+  height: 74px;
+  transform: translateX(-50%);
+  border-radius: 50%;
+  background:
+    radial-gradient(ellipse at 50% 48%, rgba(255,255,255,.98) 0 48%, rgba(255,247,232,.96) 68%, rgba(255,255,255,0) 72%);
+  box-shadow: 0 10px 30px rgba(255,247,232,.18);
+}
+.milk-drip {
+  position: absolute;
+  display: block;
+  background: linear-gradient(180deg, #fff 0%, var(--jic-cream) 100%);
+  border-radius: 0 0 999px 999px;
+  box-shadow: inset -5px -5px 10px rgba(224,196,147,.12);
+}
+.milk-drip-a { left: 92px; bottom: 24px; width: 22px; height: 62px; }
+.milk-drip-b { left: 185px; bottom: 18px; width: 28px; height: 82px; }
+.milk-drip-c { right: 86px; bottom: 27px; width: 18px; height: 55px; }
+.milk-drop {
+  position: absolute;
+  display: block;
+  width: 13px;
+  height: 18px;
+  border-radius: 60% 60% 55% 55%;
+  background: #fff;
+  box-shadow: 0 8px 14px rgba(0,0,0,.1);
+}
+.milk-drop-a { left: 54px; top: 42px; transform: rotate(18deg); }
+.milk-drop-b { right: 62px; top: 35px; transform: rotate(-20deg) scale(.82); }
+.milk-drop-c { left: 140px; top: 16px; transform: rotate(8deg) scale(.58); }
+
 /* Product discovery controls */
 .product-track-wrap { position: relative; }
-.product-track {
-  scroll-behavior: smooth;
-  scroll-snap-type: x mandatory;
-  overscroll-behavior-x: contain;
-  cursor: grab;
-  touch-action: pan-x pinch-zoom;
-}
+.product-track { scroll-behavior: smooth; scroll-snap-type: x mandatory; overscroll-behavior-x: contain; cursor: grab; touch-action: pan-x pinch-zoom; }
 .product-track:active { cursor: grabbing; }
-.product-card {
-  scroll-snap-align: center;
-  scroll-snap-stop: always;
-}
-.product-navigation {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 16px;
-  margin-top: 18px;
-}
+.product-card { scroll-snap-align: center; scroll-snap-stop: always; }
+.product-navigation { display: flex; align-items: center; justify-content: space-between; gap: 16px; margin-top: 18px; }
 .product-nav-buttons { display: flex; gap: 8px; }
-.product-nav-button {
-  width: 48px;
-  height: 48px;
-  display: grid;
-  place-items: center;
-  border: 1px solid rgba(255,255,255,.16);
-  border-radius: 50%;
-  background: rgba(255,255,255,.06);
-  color: #fff;
-  font-size: 21px;
-  cursor: pointer;
-  transition: transform .2s ease, background .2s ease, border-color .2s ease;
-}
+.product-nav-button { width: 48px; height: 48px; display: grid; place-items: center; border: 1px solid rgba(255,255,255,.16); border-radius: 50%; background: rgba(255,255,255,.06); color: #fff; font-size: 21px; cursor: pointer; transition: transform .2s ease, background .2s ease, border-color .2s ease; }
 .product-nav-button:hover:not(:disabled) { transform: translateY(-2px); background: rgba(255,255,255,.12); border-color: rgba(243,190,83,.55); }
 .product-nav-button:disabled { opacity: .32; cursor: not-allowed; }
-.product-scroll-hint {
-  display: flex;
-  align-items: center;
-  gap: 9px;
-  color: rgba(255,255,255,.62);
-  font-size: 11px;
-  font-weight: 800;
-  letter-spacing: .12em;
-  text-transform: uppercase;
-}
+.product-scroll-hint { display: flex; align-items: center; gap: 9px; color: rgba(255,255,255,.62); font-size: 11px; font-weight: 800; letter-spacing: .12em; text-transform: uppercase; }
 .product-scroll-hint i { width: 32px; height: 1px; background: linear-gradient(90deg, var(--jic-gold), transparent); }
 .product-source-note { display: none; }
 
-/* Better mobile product experience */
 @media (max-width: 700px) {
   .product-section-head { gap: 14px; }
   .product-section-copy { max-width: 42rem; }
@@ -77,73 +85,56 @@ html, body { max-width: 100%; overflow-x: hidden; }
   .product-nav-button { width: 44px; height: 44px; }
 }
 
-/* Social layer */
-.social-links {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 10px;
-  margin: 26px 0 4px;
-}
+/* High-visibility social actions */
+.social-links { display: flex; flex-wrap: wrap; justify-content: center; gap: 12px; margin: 26px 0 4px; }
 .social-link {
-  min-height: 44px;
-  padding: 0 16px;
+  min-height: 50px;
+  padding: 0 20px;
   display: inline-flex;
   align-items: center;
-  gap: 8px;
-  border: 1px solid rgba(255,255,255,.14);
+  justify-content: center;
+  gap: 10px;
+  border: 1px solid rgba(243,190,83,.52);
   border-radius: 999px;
-  background: rgba(255,255,255,.045);
-  color: rgba(255,255,255,.82);
+  background: linear-gradient(135deg, rgba(243,190,83,.16), rgba(255,255,255,.06));
+  color: #fff;
   font-size: 12px;
-  font-weight: 850;
-  letter-spacing: .06em;
-  transition: transform .2s ease, background .2s ease, border-color .2s ease, color .2s ease;
+  font-weight: 900;
+  letter-spacing: .075em;
+  box-shadow: 0 8px 24px rgba(0,0,0,.16), inset 0 1px 0 rgba(255,255,255,.08);
+  transition: transform .2s ease, background .2s ease, border-color .2s ease, color .2s ease, box-shadow .2s ease;
 }
-.social-link:hover { transform: translateY(-2px); background: rgba(255,255,255,.09); border-color: rgba(243,190,83,.55); color: var(--jic-gold-soft); }
-.social-link .social-icon { font-size: 16px; line-height: 1; }
-
+.social-link:hover { transform: translateY(-3px) scale(1.02); background: linear-gradient(135deg, rgba(243,190,83,.28), rgba(255,255,255,.1)); border-color: var(--jic-gold); color: #fff; box-shadow: 0 12px 30px rgba(0,0,0,.24), 0 0 0 3px rgba(243,190,83,.08); }
+.social-link .social-icon { font-size: 18px; line-height: 1; }
 .contact-socials { margin-top: 18px; justify-content: flex-start; }
+.contact-socials .social-link { min-width: 142px; }
 
-/* Mobile navigation should feel like an intentional sheet, not a hidden div. */
+@media (max-width: 560px) {
+  .social-links { width: 100%; }
+  .social-link { flex: 1 1 150px; min-width: 0; }
+  .contact-socials .social-link { flex: 1 1 140px; min-width: 0; }
+}
+
+/* Mobile navigation */
 @media (max-width: 900px) {
   .nav-wrap { padding: 12px 14px; }
   .nav { width: 100%; }
   .brand-mark span { max-width: 150px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
-  .mobile-navigation {
-    max-width: 1380px;
-    margin: 10px auto 0;
-    border: 1px solid rgba(255,255,255,.11);
-    background: rgba(2,10,25,.92);
-    backdrop-filter: blur(22px);
-    border-radius: 22px;
-    box-shadow: 0 24px 60px rgba(0,0,0,.3);
-    padding: 8px;
-  }
+  .mobile-navigation { max-width: 1380px; margin: 10px auto 0; border: 1px solid rgba(255,255,255,.11); background: rgba(2,10,25,.92); backdrop-filter: blur(22px); border-radius: 22px; box-shadow: 0 24px 60px rgba(0,0,0,.3); padding: 8px; }
   .mobile-navigation.open { max-height: min(78vh, 620px); overflow-y: auto; }
   .mobile-navigation a { border-radius: 15px; }
 }
 
-/* Contact actions */
 .contact-cards { position: relative; z-index: 2; }
 .contact-card { min-height: 170px; }
-.contact-social-label {
-  margin: 22px 0 0;
-  color: rgba(255,255,255,.45);
-  font-size: 10px;
-  font-weight: 800;
-  letter-spacing: .2em;
-  text-transform: uppercase;
-}
-
-/* Footer polish */
+.contact-social-label { margin: 22px 0 0; color: rgba(255,255,255,.55); font-size: 10px; font-weight: 800; letter-spacing: .2em; text-transform: uppercase; }
 .cinematic-footer { position: relative; overflow: hidden; }
 .footer-bottom { position: relative; z-index: 2; }
 
-/* Reduce expensive motion on small devices. */
 @media (max-width: 700px) {
   .cinematic-hero .scoop-stage { min-height: 430px; }
   .premium-scoop { max-width: 230px; }
+  .milk-splash { width: 330px; transform: translate(-50%, -50%) scale(.86); }
   .cinematic-hero { min-height: 100svh; }
   .hero h1 { letter-spacing: -.045em; }
   .section { padding-top: 88px; padding-bottom: 88px; }
