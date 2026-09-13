@@ -82,7 +82,7 @@ export default function ProductUniverse() {
               <span className="product-index">{String(index + 1).padStart(2, "0")}</span>
               <span className="product-image-shell"><Image src={product.image} alt={`${product.name} from the Janushan Ice Cream menu`} fill sizes="(max-width: 700px) 76vw, 370px" className="product-photo" unoptimized={product.image.startsWith("http")} /></span>
               <span className="product-meta"><small>{product.eyebrow}</small><strong>{product.name}</strong><span className="product-price">Rs. {formatter.format(product.price)}/-</span></span>
-              <span className="product-open">Explore <i aria-hidden="true">↗</i></span>
+              <span className="product-open"><span>View &amp; order</span><i aria-hidden="true">↗</i></span>
             </motion.button>
           ))}
         </div>
