@@ -3,6 +3,7 @@ import EntranceExperience from "@/components/EntranceExperience";
 import DiscoverPreview from "@/components/DiscoverPreview";
 import CinematicFooter from "@/components/CinematicFooter";
 import StructuredData from "@/components/StructuredData";
+import MobileOrderShortcut from "@/components/MobileOrderShortcut";
 
 export default function Home() {
   return (
@@ -12,6 +13,7 @@ export default function Home() {
       <EntranceExperience />
       <DiscoverPreview />
       <CinematicFooter />
+      <MobileOrderShortcut />
     </main>
   );
 }
