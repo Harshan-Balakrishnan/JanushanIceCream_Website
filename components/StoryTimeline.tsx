@@ -72,7 +72,7 @@ export default function StoryTimeline() {
           <header className="story-intro">
             <p className="section-kicker">OUR STORY · SINCE 2004</p>
             <h2>Good ice cream has a history.<br /><em>Ours is still being served.</em></h2>
-            <p>From our Vavuniya roots to today's shop and mobile van, follow the story behind Janushan and the flavours customers keep coming back for.</p>
+            <p>From our Vavuniya roots to today&apos;s shop and mobile van, follow the story behind Janushan and the flavours customers keep coming back for.</p>
           </header>
 
           {chapters.map((chapter, index) => (
