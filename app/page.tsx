@@ -6,7 +6,7 @@ import StructuredData from "@/components/StructuredData";
 
 export default function Home() {
   return (
-    <main>
+    <main id="main-content">
       <StructuredData />
       <NavBar />
       <EntranceExperience />
