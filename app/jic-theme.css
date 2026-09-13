@@ -1,7 +1,6 @@
 /* Janushan Ice Cream — International Brand Layer
-   Brand direction: deep navy + white, with restrained gold and flavour accents.
-   Inspired by the structure of premium food brands: discovery, product storytelling,
-   flavour exploration, customization, heritage, trust, and store/order conversion.
+   Deep navy + white foundation with restrained gold and flavour accents.
+   Motion principle: noticeable enough to feel premium, quiet enough to never distract.
 */
 
 :root {
@@ -14,515 +13,129 @@
   --jic-gold-soft: #f1d79d;
   --jic-ink: #071426;
   --jic-muted: #667085;
-  --jic-border: rgba(7, 20, 38, .10);
-}
-
-/* =========================================================
-   GLOBAL BRAND LANGUAGE
-   ========================================================= */
-body {
-  background: var(--jic-deep-navy);
-}
-
-::selection {
-  background: var(--jic-gold);
-  color: var(--jic-deep-navy);
-}
-
-/* The page should feel like one premium brand, not a collection of effects. */
-.section-kicker,
-.eyebrow {
-  font-family: Inter, ui-sans-serif, system-ui, sans-serif;
-  font-weight: 800;
-  letter-spacing: .20em;
-  text-transform: uppercase;
-}
-
-.section h2,
-.product-section-head h2,
-.flavour-universe h2,
-.builder h2,
-.story-tease h2,
-.location-tease h2 {
-  letter-spacing: -.045em;
-}
-
-/* =========================================================
-   HERO — SIGNATURE JANUSHAN OPENING
-   ========================================================= */
-.cinematic-hero,
-.hero {
-  background:
-    radial-gradient(circle at 72% 32%, rgba(39, 88, 157, .30), transparent 28%),
-    radial-gradient(circle at 80% 78%, rgba(215, 170, 85, .10), transparent 25%),
-    linear-gradient(135deg, #020a1b 0%, #03102a 48%, #071d41 100%);
-}
-
-.cinematic-hero::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  pointer-events: none;
-  background:
-    linear-gradient(90deg, rgba(3, 16, 42, .96) 0%, rgba(3, 16, 42, .68) 38%, rgba(3, 16, 42, .08) 74%),
-    linear-gradient(0deg, rgba(1, 7, 18, .58), transparent 34%);
-  z-index: -1;
-}
-
-.hero-copy {
-  max-width: 760px;
-}
-
-.hero h1 {
-  font-weight: 900;
-  text-wrap: balance;
-}
-
-.hero h1 span {
-  color: var(--jic-gold-soft);
-}
-
-.tagline {
-  color: rgba(255,255,255,.88);
-}
-
-.hero-actions .button-primary {
-  background: var(--jic-white);
-  color: var(--jic-deep-navy);
-  box-shadow: 0 16px 42px rgba(0,0,0,.20);
-}
-
-.hero-actions .button-primary:hover {
-  transform: translateY(-2px);
-}
-
-.hero-actions .button-ghost {
-  border-color: rgba(255,255,255,.28);
-  background: rgba(255,255,255,.06);
-}
-
-/* Premium but quiet hero product treatment. */
-.cinematic-hero .scoop-stage {
-  filter: drop-shadow(0 38px 60px rgba(0,0,0,.42));
-}
-
-.cinematic-hero .brand-aura {
-  background: radial-gradient(circle, rgba(255,255,255,.10), rgba(215,170,85,.08) 30%, transparent 68%);
-}
-
-/* =========================================================
-   INTRO / DISCOVERY — WHITE EDITORIAL PANEL
-   ========================================================= */
-.discover.section {
-  background: var(--jic-white);
-  color: var(--jic-ink);
-  position: relative;
-}
-
-.discover.section::before {
-  content: "JANUSHAN ICE CREAM";
-  position: absolute;
-  top: 38px;
-  right: clamp(24px, 7vw, 120px);
-  color: rgba(3,16,42,.045);
-  font-size: clamp(32px, 6vw, 92px);
-  font-weight: 950;
-  letter-spacing: -.06em;
-  pointer-events: none;
-}
-
-.discover .section-kicker {
-  color: #9a722d;
-}
-
-.discover .section h2,
-.discover h2 {
-  color: var(--jic-deep-navy);
-}
-
-.discover h2 em {
-  color: var(--jic-navy-soft);
-}
-
-.feature-grid article {
-  border: 1px solid var(--jic-border);
-  background: var(--jic-off-white);
-  box-shadow: 0 14px 45px rgba(3,16,42,.055);
-  transition: transform .3s ease, box-shadow .3s ease, border-color .3s ease;
-}
-
-.feature-grid article:hover {
-  transform: translateY(-6px);
-  border-color: rgba(215,170,85,.48);
-  box-shadow: 0 24px 60px rgba(3,16,42,.10);
-}
-
-.feature-grid strong {
-  color: var(--jic-gold);
-}
-
-/* =========================================================
-   PRODUCTS — PREMIUM MENU / PRODUCT-FIRST DISCOVERY
-   ========================================================= */
-.product-universe {
-  position: relative;
-  background:
-    radial-gradient(circle at 50% 0%, rgba(25,65,119,.65), transparent 35%),
-    var(--jic-deep-navy);
-  color: var(--jic-white);
-}
-
-.product-universe::before {
-  content: "OUR MENU";
-  display: block;
-  margin-bottom: 14px;
-  color: rgba(255,255,255,.42);
-  font-size: 10px;
-  font-weight: 800;
-  letter-spacing: .28em;
-}
-
-.product-section-head {
-  position: relative;
-  z-index: 2;
-}
-
-.product-section-head h2 {
-  color: var(--jic-white);
-}
-
-.product-section-head h2 em {
-  color: var(--jic-gold-soft);
-}
-
-.product-section-copy {
-  color: rgba(255,255,255,.62);
-}
-
-.product-track {
-  scrollbar-color: rgba(215,170,85,.55) transparent;
-}
-
-.product-card {
-  background: linear-gradient(160deg, rgba(255,255,255,.98), rgba(241,245,250,.98));
-  border: 1px solid rgba(255,255,255,.22);
-  box-shadow: 0 25px 70px rgba(0,0,0,.22);
-  color: var(--jic-ink);
-}
-
-.product-card.is-active {
-  border-color: rgba(215,170,85,.75);
-  box-shadow: 0 30px 90px rgba(0,0,0,.30), 0 0 0 1px rgba(215,170,85,.14);
-}
-
-.product-card .product-index {
-  color: rgba(3,16,42,.40);
-}
-
-.product-card .product-meta small {
-  color: #8a6b32;
-  letter-spacing: .16em;
-}
-
-.product-card .product-meta strong {
-  color: var(--jic-deep-navy);
-}
-
-.product-card .product-price {
-  color: #8b6628;
-  font-weight: 850;
-}
-
-.product-open {
-  color: var(--jic-deep-navy);
-  border-top-color: rgba(3,16,42,.10);
-}
-
-.product-navigation,
-.product-progress {
-  color: rgba(255,255,255,.55);
-}
-
-.product-nav-button {
-  border-color: rgba(255,255,255,.20);
-  background: rgba(255,255,255,.06);
-  color: white;
-}
-
-.product-nav-button:not(:disabled):hover {
-  background: white;
-  color: var(--jic-deep-navy);
-  border-color: white;
-}
-
-.product-progress div {
-  background: rgba(255,255,255,.12);
-}
-
-.product-progress i {
-  background: var(--jic-gold);
-}
-
-/* =========================================================
-   FLAVOUR UNIVERSE — BRAND SIGNATURE
-   ========================================================= */
-.flavour-universe,
-.flavours {
-  background: var(--jic-white);
-  color: var(--jic-ink);
-}
-
-.flavour-universe::after {
-  content: "FIVE SIGNATURE FLAVOURS";
-  position: absolute;
-  right: 5vw;
-  top: 6vw;
-  color: rgba(3,16,42,.035);
-  font-size: clamp(28px, 5vw, 80px);
-  font-weight: 950;
-  letter-spacing: -.06em;
-  pointer-events: none;
-}
-
-.flavour-universe .section-kicker,
-.flavours .section-kicker {
-  color: #9a722d;
-}
-
-.flavour-universe h2,
-.flavours h2 {
-  color: var(--jic-deep-navy);
-}
-
-.flavour-universe h2 em,
-.flavours h2 em {
-  color: #153e73;
-}
-
-.flavour-tabs {
-  border-bottom-color: rgba(3,16,42,.10);
-}
-
-.flavour-tabs button {
-  color: rgba(3,16,42,.55);
-}
-
-.flavour-tabs button.is-active {
-  color: var(--jic-deep-navy);
-}
-
-.flavour-tabs button::after {
-  background: var(--jic-deep-navy);
-}
-
-.flavour-product-halo {
-  box-shadow: 0 30px 80px rgba(3,16,42,.13);
-}
-
-/* =========================================================
-   BUILDER — INTERACTIVE PREMIUM EXPERIENCE
-   ========================================================= */
-.builder {
-  background:
-    radial-gradient(circle at 76% 35%, rgba(36,79,135,.46), transparent 34%),
-    var(--jic-deep-navy);
-  color: var(--jic-white);
-}
-
-.builder .section-kicker {
-  color: var(--jic-gold);
-}
-
-.builder h2,
-.builder h3 {
-  color: var(--jic-white);
-}
-
-.builder h2 em {
-  color: var(--jic-gold-soft);
-}
-
-.builder button {
-  transition: transform .2s ease, border-color .2s ease, background .2s ease;
-}
-
-.builder button:hover {
-  transform: translateY(-2px);
-}
-
-.creation-summary,
-.builder-stage {
-  border-color: rgba(255,255,255,.13);
-  background: rgba(255,255,255,.055);
-  box-shadow: 0 30px 90px rgba(0,0,0,.22);
-  backdrop-filter: blur(18px);
-}
-
-/* =========================================================
-   HERITAGE — INTERNATIONAL BRAND STORY
-   ========================================================= */
-.story-tease,
-.story-timeline {
-  background: var(--jic-white);
-  color: var(--jic-ink);
-}
-
-.story-tease .section-kicker {
-  color: #9a722d;
-}
-
-.story-tease h2 {
-  color: var(--jic-deep-navy);
-}
-
-.story-tease h2 em {
-  color: var(--jic-navy-soft);
-}
-
-.year {
-  color: var(--jic-deep-navy);
-  opacity: .10;
-  font-weight: 950;
-}
-
-/* =========================================================
-   PROMOTIONS / SOCIAL — CAMPAIGN MOMENTS
-   ========================================================= */
-.promotion-ribbon {
-  background: var(--jic-gold) !important;
-  color: var(--jic-deep-navy) !important;
-}
-
-/* =========================================================
-   FIND US / CONTACT — CONVERSION
-   ========================================================= */
-.location-tease,
-.find-janushan,
-.contact-experience {
-  background: var(--jic-deep-navy);
-  color: var(--jic-white);
-}
-
-.location-tease .section-kicker,
-.contact-experience .section-kicker {
-  color: var(--jic-gold);
-}
-
-.location-tease h2,
-.contact-experience h2 {
-  color: white;
-}
-
-/* =========================================================
-   FOOTER — CLEAN GLOBAL-BRAND FINISH
-   ========================================================= */
-.cinematic-footer,
-.footer {
-  background: #010817;
-  border-top: 1px solid rgba(255,255,255,.10);
-}
-
-.cinematic-footer .footer-brand,
-.footer p {
-  color: var(--jic-gold-soft);
-}
-
-/* =========================================================
-   MOBILE — KEEP THE INTERNATIONAL LOOK, NOT A SHRUNK DESKTOP
-   ========================================================= */
-@media (max-width: 900px) {
-  .nav-wrap {
-    padding: 10px 14px;
-  }
-
-  .nav {
-    background: rgba(3,16,42,.88);
-    border-radius: 18px;
-  }
-
-  .discover.section,
-  .product-universe,
-  .flavour-universe,
-  .builder,
-  .story-tease,
-  .location-tease {
-    padding-top: 82px;
-    padding-bottom: 82px;
-  }
-
-  .discover.section::before,
-  .flavour-universe::after,
-  .product-universe::before {
-    display: none;
-  }
-
-  .feature-grid article {
-    min-height: 205px;
-    padding: 26px;
-  }
-
-  .feature-grid h3 {
-    margin-top: 30px;
-  }
-
-  .product-section-head {
-    display: block;
-  }
-
-  .product-section-copy {
-    margin-top: 18px;
-  }
-
-  .product-card {
-    min-width: min(78vw, 330px);
-  }
-
-  .flavour-track {
-    gap: 10px;
-  }
-
-  .flavour-card {
-    min-width: min(78vw, 310px);
-  }
-
-  .story-tease {
-    text-align: center;
-  }
-}
-
-@media (max-width: 560px) {
-  .hero {
-    min-height: 100svh;
-  }
-
-  .hero h1 {
-    letter-spacing: -.045em;
-  }
-
-  .hero-actions {
-    width: 100%;
-  }
-
-  .hero-actions .button {
-    width: 100%;
-  }
-
-  .scoop-stage {
-    width: min(84vw, 390px);
-  }
-
-  .section h2,
-  .product-section-head h2,
-  .flavour-universe h2,
-  .builder h2 {
-    font-size: clamp(38px, 12vw, 58px);
-  }
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .feature-grid article:hover,
-  .hero-actions .button-primary:hover,
-  .builder button:hover {
-    transform: none;
-  }
+  --jic-border: rgba(7,20,38,.10);
+}
+
+body { background: var(--jic-deep-navy); }
+::selection { background: var(--jic-gold); color: var(--jic-deep-navy); }
+
+.section-kicker,.eyebrow { font-family: Inter,ui-sans-serif,system-ui,sans-serif; font-weight:800; letter-spacing:.20em; text-transform:uppercase; }
+.section h2,.product-section-head h2,.flavour-universe h2,.builder h2,.story-tease h2,.location-tease h2 { letter-spacing:-.045em; }
+
+/* HERO */
+.cinematic-hero,.hero {
+  background: radial-gradient(circle at 72% 32%,rgba(39,88,157,.30),transparent 28%),radial-gradient(circle at 80% 78%,rgba(215,170,85,.10),transparent 25%),linear-gradient(135deg,#020a1b 0%,#03102a 48%,#071d41 100%);
+}
+.cinematic-hero::before { content:""; position:absolute; inset:0; pointer-events:none; background:linear-gradient(90deg,rgba(3,16,42,.96) 0%,rgba(3,16,42,.68) 38%,rgba(3,16,42,.08) 74%),linear-gradient(0deg,rgba(1,7,18,.58),transparent 34%); z-index:-1; }
+.hero-copy { max-width:760px; }
+.hero h1 { font-weight:900; text-wrap:balance; }
+.hero h1 span { color:var(--jic-gold-soft); }
+.tagline { color:rgba(255,255,255,.88); }
+.hero-actions .button-primary { background:var(--jic-white); color:var(--jic-deep-navy); box-shadow:0 16px 42px rgba(0,0,0,.20); transition:transform .3s ease,box-shadow .3s ease; }
+.hero-actions .button-primary:hover { transform:translateY(-3px); box-shadow:0 20px 48px rgba(0,0,0,.28); }
+.hero-actions .button-ghost { border-color:rgba(255,255,255,.28); background:rgba(255,255,255,.06); transition:background .3s ease,border-color .3s ease,transform .3s ease; }
+.hero-actions .button-ghost:hover { background:rgba(255,255,255,.11); border-color:rgba(255,255,255,.45); transform:translateY(-2px); }
+.cinematic-hero .scoop-stage { filter:drop-shadow(0 38px 60px rgba(0,0,0,.42)); }
+.cinematic-hero .brand-aura { background:radial-gradient(circle,rgba(255,255,255,.10),rgba(215,170,85,.08) 30%,transparent 68%); }
+
+/* restrained ambient motion */
+.cinematic-hero .brand-aura { animation:jic-breathe 8s ease-in-out infinite; }
+.cinematic-hero .scoop-stage { animation:jic-hero-float 7s ease-in-out infinite; }
+@keyframes jic-breathe { 0%,100%{transform:scale(1);opacity:.78} 50%{transform:scale(1.045);opacity:1} }
+@keyframes jic-hero-float { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-8px)} }
+
+/* DISCOVERY */
+.discover.section { background:var(--jic-white); color:var(--jic-ink); position:relative; }
+.discover.section::before { content:"JANUSHAN ICE CREAM"; position:absolute; top:38px; right:clamp(24px,7vw,120px); color:rgba(3,16,42,.045); font-size:clamp(32px,6vw,92px); font-weight:950; letter-spacing:-.06em; pointer-events:none; }
+.discover .section-kicker { color:#9a722d; }
+.discover h2 { color:var(--jic-deep-navy); }
+.discover h2 em { color:var(--jic-navy-soft); }
+.feature-grid article { border:1px solid var(--jic-border); background:var(--jic-off-white); box-shadow:0 14px 45px rgba(3,16,42,.055); transition:transform .35s ease,box-shadow .35s ease,border-color .35s ease; }
+.feature-grid article:hover { transform:translateY(-6px); border-color:rgba(215,170,85,.48); box-shadow:0 24px 60px rgba(3,16,42,.10); }
+.feature-grid strong { color:var(--jic-gold); }
+
+/* PRODUCTS */
+.product-universe { position:relative; background:radial-gradient(circle at 50% 0%,rgba(25,65,119,.65),transparent 35%),var(--jic-deep-navy); color:var(--jic-white); }
+.product-universe::before { content:"OUR MENU"; display:block; margin-bottom:14px; color:rgba(255,255,255,.42); font-size:10px; font-weight:800; letter-spacing:.28em; }
+.product-section-head { position:relative; z-index:2; }
+.product-section-head h2 { color:var(--jic-white); }
+.product-section-head h2 em { color:var(--jic-gold-soft); }
+.product-section-copy { color:rgba(255,255,255,.62); }
+.product-track { scrollbar-color:rgba(215,170,85,.55) transparent; }
+.product-card { background:linear-gradient(160deg,rgba(255,255,255,.98),rgba(241,245,250,.98)); border:1px solid rgba(255,255,255,.22); box-shadow:0 25px 70px rgba(0,0,0,.22); color:var(--jic-ink); transition:box-shadow .35s ease,border-color .35s ease; }
+.product-card.is-active { border-color:rgba(215,170,85,.75); box-shadow:0 30px 90px rgba(0,0,0,.30),0 0 0 1px rgba(215,170,85,.14); }
+.product-card .product-index { color:rgba(3,16,42,.40); }
+.product-card .product-meta small { color:#8a6b32; letter-spacing:.16em; }
+.product-card .product-meta strong { color:var(--jic-deep-navy); }
+.product-card .product-price { color:#8b6628; font-weight:850; }
+.product-open { color:var(--jic-deep-navy); border-top-color:rgba(3,16,42,.10); }
+.product-navigation,.product-progress { color:rgba(255,255,255,.55); }
+.product-nav-button { border-color:rgba(255,255,255,.20); background:rgba(255,255,255,.06); color:white; transition:background .25s ease,color .25s ease,border-color .25s ease; }
+.product-nav-button:not(:disabled):hover { background:white; color:var(--jic-deep-navy); border-color:white; }
+.product-progress div { background:rgba(255,255,255,.12); }
+.product-progress i { background:var(--jic-gold); }
+
+/* FLAVOURS */
+.flavour-universe,.flavours { background:var(--jic-white); color:var(--jic-ink); }
+.flavour-universe::after { content:"FIVE SIGNATURE FLAVOURS"; position:absolute; right:5vw; top:6vw; color:rgba(3,16,42,.035); font-size:clamp(28px,5vw,80px); font-weight:950; letter-spacing:-.06em; pointer-events:none; }
+.flavour-universe .section-kicker,.flavours .section-kicker { color:#9a722d; }
+.flavour-universe h2,.flavours h2 { color:var(--jic-deep-navy); }
+.flavour-universe h2 em,.flavours h2 em { color:#153e73; }
+.flavour-tabs { border-bottom-color:rgba(3,16,42,.10); }
+.flavour-tabs button { color:rgba(3,16,42,.55); transition:color .25s ease; }
+.flavour-tabs button.is-active { color:var(--jic-deep-navy); }
+.flavour-tabs button::after { background:var(--jic-deep-navy); }
+.flavour-product-halo { box-shadow:0 30px 80px rgba(3,16,42,.13); }
+
+/* BUILDER */
+.builder { background:radial-gradient(circle at 76% 35%,rgba(36,79,135,.46),transparent 34%),var(--jic-deep-navy); color:var(--jic-white); }
+.builder .section-kicker { color:var(--jic-gold); }
+.builder h2,.builder h3 { color:var(--jic-white); }
+.builder h2 em { color:var(--jic-gold-soft); }
+.builder button { transition:transform .25s ease,border-color .25s ease,background .25s ease; }
+.builder button:hover { transform:translateY(-2px); }
+.creation-summary,.builder-stage { border-color:rgba(255,255,255,.13); background:rgba(255,255,255,.055); box-shadow:0 30px 90px rgba(0,0,0,.22); backdrop-filter:blur(18px); }
+
+/* STORY */
+.story-tease,.story-timeline { background:var(--jic-white); color:var(--jic-ink); }
+.story-tease .section-kicker { color:#9a722d; }
+.story-tease h2 { color:var(--jic-deep-navy); }
+.story-tease h2 em { color:var(--jic-navy-soft); }
+.year { color:var(--jic-deep-navy); opacity:.10; font-weight:950; }
+
+/* PROMOTION / CONVERSION */
+.promotion-ribbon { background:var(--jic-gold) !important; color:var(--jic-deep-navy) !important; }
+.location-tease,.find-janushan,.contact-experience { background:var(--jic-deep-navy); color:var(--jic-white); }
+.location-tease .section-kicker,.contact-experience .section-kicker { color:var(--jic-gold); }
+.location-tease h2,.contact-experience h2 { color:white; }
+.cinematic-footer,.footer { background:#010817; border-top:1px solid rgba(255,255,255,.10); }
+.cinematic-footer .footer-brand,.footer p { color:var(--jic-gold-soft); }
+
+/* MOBILE */
+@media (max-width:900px) {
+  .nav-wrap { padding:10px 14px; }
+  .nav { background:rgba(3,16,42,.88); border-radius:18px; }
+  .discover.section,.product-universe,.flavour-universe,.builder,.story-tease,.location-tease { padding-top:82px; padding-bottom:82px; }
+  .discover.section::before,.flavour-universe::after,.product-universe::before { display:none; }
+  .feature-grid article { min-height:205px; padding:26px; }
+  .feature-grid h3 { margin-top:30px; }
+  .product-section-head { display:block; }
+  .product-section-copy { margin-top:18px; }
+  .product-card { min-width:min(78vw,330px); }
+  .flavour-track { gap:10px; }
+  .flavour-card { min-width:min(78vw,310px); }
+  .story-tease { text-align:center; }
+  .cinematic-hero .scoop-stage { animation-duration:8s; }
+}
+@media (max-width:560px) {
+  .hero { min-height:100svh; }
+  .hero h1 { letter-spacing:-.045em; }
+  .hero-actions { width:100%; }
+  .hero-actions .button { width:100%; }
+  .scoop-stage { width:min(84vw,390px); }
+  .section h2,.product-section-head h2,.flavour-universe h2,.builder h2 { font-size:clamp(38px,12vw,58px); }
+}
+@media (prefers-reduced-motion:reduce) {
+  .cinematic-hero .brand-aura,.cinematic-hero .scoop-stage { animation:none; }
+  .feature-grid article:hover,.hero-actions .button-primary:hover,.hero-actions .button-ghost:hover,.builder button:hover { transform:none; }
 }
