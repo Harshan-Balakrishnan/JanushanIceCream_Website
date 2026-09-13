@@ -73,6 +73,11 @@ export default function StoryTimeline() {
             <p className="section-kicker">OUR STORY · SINCE 2004</p>
             <h2>Good ice cream has a history.<br /><em>Ours is still being served.</em></h2>
             <p>From our Vavuniya roots to today&apos;s shop and mobile van, follow the story behind Janushan and the flavours customers keep coming back for.</p>
+            <div className="story-intro-meta" aria-label="Story highlights">
+              <span><strong>04</strong> chapters</span>
+              <span><strong>2004</strong> founded</span>
+              <span><strong>VAVUNIYA</strong> roots</span>
+            </div>
           </header>
 
           {chapters.map((chapter, index) => (
@@ -80,6 +85,7 @@ export default function StoryTimeline() {
               <div className="story-node" aria-hidden="true"><span>{String(index + 1).padStart(2, "0")}</span></div>
               <div className="story-card">
                 <div className="story-card-copy">
+                  <div className="story-chapter-meta"><span>{String(index + 1).padStart(2, "0")}</span><span>OF {String(chapters.length).padStart(2, "0")}</span></div>
                   <span className="story-marker">{chapter.marker}</span>
                   <p className="section-kicker">{chapter.kicker}</p>
                   <h3>{chapter.title}</h3>
