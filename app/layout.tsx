@@ -2,6 +2,7 @@ import type { Metadata, Viewport } from "next";
 import OptionalAnalytics from "@/components/OptionalAnalytics";
 import { SITE_DESCRIPTION, SITE_NAME, SITE_URL } from "@/lib/site";
 import "./globals.css";
+import "./jic-upgrades.css";
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
