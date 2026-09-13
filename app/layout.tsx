@@ -5,6 +5,7 @@ import "./globals.css";
 import "./jic-upgrades.css";
 import "./flavour-mobile.css";
 import "./jic-theme.css";
+import "./contact-premium.css";
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
