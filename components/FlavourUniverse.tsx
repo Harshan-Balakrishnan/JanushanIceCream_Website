@@ -20,6 +20,7 @@ export default function FlavourUniverse() {
   const active = useMemo(() => flavours.find((flavour) => flavour.id === activeId) ?? flavours[0], [activeId]);
 
   const buildWithFlavour = () => {
+    window.dispatchEvent(new CustomEvent("jic:select-flavour", { detail: active.id }));
     document.getElementById("build")?.scrollIntoView({ behavior: reduceMotion ? "auto" : "smooth", block: "start" });
   };
 
