@@ -56,6 +56,12 @@ export default function EntranceExperience() {
           <motion.span className="scoop-contact-light" initial={reduceMotion ? false : { opacity: 0, scaleX: 0.35 }} animate={reduceMotion ? undefined : { opacity: [0, 0.9, 0.32], scaleX: [0.35, 1, 0.82] }} transition={{ duration: 0.65, delay: 1.58, times: [0, 0.45, 1], ease: "easeOut" }} />
         </motion.div>
 
+        <motion.div className="milk-splash" initial={reduceMotion ? false : { opacity: 0, scale: 0.72, y: 12 }} animate={reduceMotion ? undefined : { opacity: [0, 1, 0.88], scale: [0.72, 1.06, 1], y: [12, -3, 0] }} transition={{ duration: 0.9, delay: 1.04, times: [0, 0.55, 1], ease: "easeOut" }}>
+          <span className="milk-puddle" />
+          <i className="milk-drip milk-drip-a" /><i className="milk-drip milk-drip-b" /><i className="milk-drip milk-drip-c" />
+          <i className="milk-drop milk-drop-a" /><i className="milk-drop milk-drop-b" /><i className="milk-drop milk-drop-c" />
+        </motion.div>
+
         <motion.div className="cream-crown" initial={reduceMotion ? false : { opacity: 0, scaleX: 0.25, scaleY: 0.45 }} animate={reduceMotion ? undefined : { opacity: [0, 0, 1, 0.82], scaleX: [0.25, 0.25, 1.08, 1], scaleY: [0.45, 0.45, 1.16, 1] }} transition={{ duration: 0.7, delay: 1.08, ease: "easeOut" }}>
           <span className="cream-lobe lobe-one" /><span className="cream-lobe lobe-two" /><span className="cream-lobe lobe-three" />
         </motion.div>
