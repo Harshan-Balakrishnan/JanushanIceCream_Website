@@ -6,8 +6,15 @@ import { useEffect, useMemo, useRef, useState } from "react";
 import { useCatalogCollection } from "@/hooks/useCatalogCollection";
 import { defaultProducts, type Product } from "@/lib/catalog";
 
+const WHATSAPP_NUMBER = "94776015041";
+
+function orderHref(product: Product) {
+  const message = `Hi Janushan Ice Cream, I would like to order ${product.name} (Rs. ${product.price}/-). Please let me know availability.`;
+  return `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(message)}`;
+}
+
 export default function ProductUniverse() {
-  const { items: products, live } = useCatalogCollection<Product>("products", defaultProducts);
+  const { items: products } = useCatalogCollection<Product>("products", defaultProducts);
   const [selected, setSelected] = useState<Product | null>(null);
   const [active, setActive] = useState(0);
   const trackRef = useRef<HTMLDivElement>(null);
@@ -91,7 +98,6 @@ export default function ProductUniverse() {
       <div className="product-progress" aria-label={`Product ${active + 1} of ${products.length}`}>
         <span>{String(active + 1).padStart(2, "0")}</span><div><i style={{ width: `${products.length ? ((active + 1) / products.length) * 100 : 0}%` }} /></div><span>{String(products.length).padStart(2, "0")}</span>
       </div>
-      <p className="product-source-note" aria-hidden="true">{live ? "Live catalogue." : "Built-in catalogue."}</p>
 
       <AnimatePresence>
         {selected && (
@@ -99,7 +105,7 @@ export default function ProductUniverse() {
             <motion.div className="product-modal" role="dialog" aria-modal="true" aria-labelledby="product-modal-title" initial={reduceMotion ? false : { y: 38, opacity: 0, scale: 0.96 }} animate={reduceMotion ? undefined : { y: 0, opacity: 1, scale: 1 }} exit={reduceMotion ? undefined : { y: 22, opacity: 0, scale: 0.98 }} transition={{ type: "spring", stiffness: 210, damping: 24 }} style={{ "--product-glow": selected.glow } as React.CSSProperties}>
               <button className="modal-close" type="button" onClick={() => setSelected(null)} aria-label="Close product details">×</button>
               <div className="modal-visual"><div className="modal-halo" aria-hidden="true" /><Image src={selected.image} alt={selected.name} fill sizes="(max-width: 800px) 90vw, 48vw" className="modal-product-image" unoptimized={selected.image.startsWith("http")} /></div>
-              <div className="modal-copy"><p className="section-kicker">{selected.eyebrow}</p><h3 id="product-modal-title">{selected.name}</h3><div className="modal-price">Rs. {formatter.format(selected.price)}/-</div><p>{selected.blurb}</p><div className="modal-actions"><a className="button button-primary" href="#flavours" onClick={() => setSelected(null)}>Explore Flavours</a><button className="button button-ghost" type="button" onClick={() => setSelected(null)}>Keep Browsing</button></div><small className="modal-future">Ask us about availability and ordering directly via WhatsApp.</small></div>
+              <div className="modal-copy"><p className="section-kicker">{selected.eyebrow}</p><h3 id="product-modal-title">{selected.name}</h3><div className="modal-price">Rs. {formatter.format(selected.price)}/-</div><p>{selected.blurb}</p><div className="modal-actions"><a className="button button-primary" href={orderHref(selected)} target="_blank" rel="noreferrer">Order on WhatsApp</a><a className="button button-ghost" href="#flavours" onClick={() => setSelected(null)}>Explore Flavours</a></div><small className="modal-future">Send your order request directly to Janushan on WhatsApp.</small></div>
             </motion.div>
           </motion.div>
         )}
