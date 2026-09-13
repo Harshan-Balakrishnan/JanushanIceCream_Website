@@ -4,6 +4,7 @@ import { SITE_DESCRIPTION, SITE_NAME, SITE_URL } from "@/lib/site";
 import "./globals.css";
 import "./jic-upgrades.css";
 import "./flavour-mobile.css";
+import "./jic-theme.css";
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
