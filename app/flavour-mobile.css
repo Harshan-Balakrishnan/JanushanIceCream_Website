@@ -1,0 +1,43 @@
+/* Janushan Ice Cream — mobile flavour universe fixes */
+
+.flavour-tabs { min-width: 0; }
+.flavour-tabs button { min-width: 0; }
+.flavour-stage { min-width: 0; }
+.flavour-scene { min-width: 0; }
+.flavour-product-image { min-width: 0; }
+
+@media (max-width: 900px) {
+  .flavour-shell { display: grid; grid-template-columns: 1fr; gap: 28px; }
+  .flavour-copy { width: 100%; }
+  .flavour-intro { max-width: 680px; }
+  .flavour-tabs { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 9px; width: 100%; }
+  .flavour-tabs button { width: 100%; min-height: 58px; padding: 11px 12px; }
+  .flavour-tabs button:last-child { grid-column: 1 / -1; }
+  .flavour-stage { width: 100%; min-height: 520px; }
+  .flavour-scene { width: 100%; min-height: 480px; overflow: hidden; }
+  .flavour-product-image { width: min(78vw, 390px); height: min(78vw, 390px); max-width: 72%; }
+  .flavour-label { width: min(88%, 360px); max-width: 360px; }
+}
+
+@media (max-width: 560px) {
+  .flavour-shell { gap: 20px; }
+  .flavour-copy h2 { font-size: clamp(42px, 12vw, 62px); line-height: .94; }
+  .flavour-intro { font-size: 13px; line-height: 1.65; }
+  .flavour-tabs { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 7px; }
+  .flavour-tabs button { min-height: 54px; padding: 9px 8px; border-radius: 13px; }
+  .flavour-tabs button span { font-size: 8px; }
+  .flavour-tabs button strong { font-size: 11px; white-space: normal; }
+  .flavour-tabs button:last-child { grid-column: auto; }
+  .flavour-stage { min-height: 500px; }
+  .flavour-scene { min-height: 460px; border-radius: 22px; }
+  .flavour-product-image { width: 250px; height: 250px; max-width: none; top: 31%; }
+  .flavour-label { left: 50%; top: auto; bottom: 18px; transform: translateX(-50%); width: calc(100% - 28px); padding: 14px; border-radius: 17px; }
+  .flavour-label h3 { font-size: 30px; }
+  .flavour-label p { font-size: 11px; line-height: 1.45; }
+  .flavour-explore { width: 100%; min-height: 44px; }
+  .flavour-stage-caption { font-size: 8px; margin-top: 9px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .flavour-product-image, .flavour-label { transition: none !important; }
+}
