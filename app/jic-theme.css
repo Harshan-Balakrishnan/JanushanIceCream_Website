@@ -1,0 +1,92 @@
+/* Janushan Ice Cream — cohesive motion theme */
+
+/* A consistent visual language: deep navy + cream + flavour-led colour. */
+.cinematic-hero,
+.flavour-universe,
+.builder,
+.cinematic-footer {
+  isolation: isolate;
+}
+
+.cinematic-hero {
+  background:
+    radial-gradient(circle at 50% 22%, rgba(243,190,83,.12), transparent 30%),
+    radial-gradient(circle at 12% 70%, rgba(255,95,137,.08), transparent 28%),
+    radial-gradient(circle at 88% 66%, rgba(103,201,141,.07), transparent 28%);
+}
+
+/* Replace the old splash-heavy feeling with a calm floating hero composition. */
+.scoop-stage::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  bottom: 9%;
+  width: min(62vw, 520px);
+  height: 90px;
+  transform: translateX(-50%);
+  border-radius: 50%;
+  background: radial-gradient(ellipse, rgba(243,190,83,.16), transparent 68%);
+  filter: blur(14px);
+  pointer-events: none;
+  z-index: -1;
+}
+
+/* Section-to-section rhythm inspired by modern food-brand sites. */
+.flavour-universe,
+.builder {
+  position: relative;
+  overflow: clip;
+}
+.flavour-universe::before,
+.builder::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: -1;
+  background:
+    linear-gradient(180deg, rgba(255,255,255,.018), transparent 18%, transparent 82%, rgba(255,255,255,.02)),
+    radial-gradient(circle at 82% 16%, color-mix(in srgb, var(--flavour-accent, var(--jic-gold)) 9%, transparent), transparent 28%);
+}
+
+.flavour-tabs button {
+  position: relative;
+  overflow: hidden;
+}
+.flavour-tabs button::after {
+  content: "";
+  position: absolute;
+  inset: auto 14% 0;
+  height: 2px;
+  border-radius: 99px;
+  background: var(--flavour-accent);
+  transform: scaleX(0);
+  transform-origin: center;
+  transition: transform .35s ease;
+}
+.flavour-tabs button.is-active::after { transform: scaleX(1); }
+
+.product-card,
+.creation-summary,
+.builder-stage {
+  will-change: transform;
+}
+
+@keyframes jic-soft-float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-7px); }
+}
+
+.flavour-product-halo {
+  animation: jic-soft-float 7s ease-in-out infinite;
+}
+
+@media (max-width: 700px) {
+  .cinematic-hero { min-height: 760px; }
+  .scoop-stage::after { width: 78vw; height: 70px; bottom: 11%; }
+  .hero-socials { position: relative; z-index: 4; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .flavour-product-halo { animation: none; }
+}
