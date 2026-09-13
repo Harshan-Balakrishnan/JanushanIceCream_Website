@@ -112,6 +112,31 @@ html, body { max-width: 100%; overflow-x: hidden; }
 .product-scroll-hint i { width: 32px; height: 1px; background: linear-gradient(90deg, var(--jic-gold), transparent); }
 .product-source-note { display: none; }
 
+/* Product ordering modal */
+.modal-visual { position: relative; }
+.modal-order-badge {
+  position: absolute;
+  top: 18px;
+  left: 18px;
+  z-index: 5;
+  padding: 8px 11px;
+  border: 1px solid rgba(243,190,83,.5);
+  border-radius: 999px;
+  background: rgba(4,17,40,.72);
+  backdrop-filter: blur(12px);
+  color: var(--jic-gold-soft);
+  font-size: 9px;
+  font-weight: 900;
+  letter-spacing: .13em;
+  text-transform: uppercase;
+}
+.modal-order-note { display: flex; align-items: flex-start; gap: 9px; margin: 18px 0 4px; padding: 11px 13px; border: 1px solid rgba(255,255,255,.1); border-radius: 14px; background: rgba(255,255,255,.045); color: rgba(255,255,255,.72); font-size: 11px; line-height: 1.5; }
+.modal-order-note > span:first-child { color: var(--jic-gold); font-weight: 900; }
+.modal-order-button { display: inline-flex; align-items: center; justify-content: center; gap: 12px; }
+.modal-order-button > span:last-child { font-size: 16px; transition: transform .2s ease; }
+.modal-order-button:hover > span:last-child { transform: translate(2px, -2px); }
+.modal-future { display: block; margin-top: 12px; color: rgba(255,255,255,.48); line-height: 1.55; }
+
 @media (max-width: 700px) {
   .product-section-head { gap: 14px; }
   .product-section-copy { max-width: 42rem; }
@@ -120,6 +145,8 @@ html, body { max-width: 100%; overflow-x: hidden; }
   .product-navigation { align-items: flex-end; }
   .product-scroll-hint { font-size: 9px; }
   .product-nav-button { width: 44px; height: 44px; }
+  .modal-order-badge { top: 12px; left: 12px; font-size: 8px; }
+  .modal-order-note { font-size: 10px; }
 }
 
 /* High-visibility social actions */
