@@ -33,7 +33,7 @@ export default function FlavourUniverse() {
           <div className="flavour-showcase-brand" aria-hidden="true">
             <Image src="/brand/janushan-logo.png" alt="" width={82} height={82} />
           </div>
-          <p className="section-kicker">MORE THAN ICE CREAM · IT'S HAPPINESS</p>
+          <p className="section-kicker">MORE THAN ICE CREAM · IT&apos;S HAPPINESS</p>
           <h2 id="flavour-showcase-title">FLAVOUR <em>UNIVERSE</em></h2>
           <p className="flavour-showcase-intro">Discover the Janushan world — five signature flavours, each with its own character.</p>
         </header>
