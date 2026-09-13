@@ -3,15 +3,6 @@
 import Image from "next/image";
 import { motion, useReducedMotion } from "framer-motion";
 
-const droplets = [
-  { x: -148, y: -35, s: 13, d: 0.98 },
-  { x: -112, y: -78, s: 9, d: 1.02 },
-  { x: -76, y: -104, s: 7, d: 1.06 },
-  { x: 76, y: -102, s: 8, d: 1.04 },
-  { x: 116, y: -72, s: 10, d: 1.0 },
-  { x: 154, y: -32, s: 12, d: 0.96 },
-];
-
 const whatsappHref = "https://wa.me/94776015041?text=Hi%20Janushan%20Ice%20Cream%2C%20I%27d%20like%20to%20place%20an%20order.";
 const instagramHref = "https://www.instagram.com/janushan_ice_cream/";
 const facebookHref = "https://www.facebook.com/janushanicecream";
@@ -33,10 +24,6 @@ export default function EntranceExperience() {
           <motion.div className="premium-scoop" animate={reduceMotion ? undefined : { y: [0, -1.5, 0], rotate: [0, 0.12, 0] }} transition={{ duration: 6, repeat: Infinity, ease: "easeInOut", delay: 2.15 }}><span className="scoop-ridge ridge-a" /><span className="scoop-ridge ridge-b" /><span className="scoop-ridge ridge-c" /><span className="scoop-gloss" /><span className="scoop-rim rim-a" /><span className="scoop-rim rim-b" /><span className="scoop-rim rim-c" /></motion.div>
           <motion.span className="scoop-contact-light" initial={reduceMotion ? false : { opacity: 0, scaleX: 0.35 }} animate={reduceMotion ? undefined : { opacity: [0, 0.9, 0.32], scaleX: [0.35, 1, 0.82] }} transition={{ duration: 0.65, delay: 1.58, times: [0, 0.45, 1], ease: "easeOut" }} />
         </motion.div>
-        <motion.div className="milk-splash" initial={reduceMotion ? false : { opacity: 0, scale: 0.72, y: 12 }} animate={reduceMotion ? undefined : { opacity: [0, 1, 0.88], scale: [0.72, 1.06, 1], y: [12, -3, 0] }} transition={{ duration: 0.9, delay: 1.04, times: [0, 0.55, 1], ease: "easeOut" }}><span className="milk-puddle" /><i className="milk-drip milk-drip-a" /><i className="milk-drip milk-drip-b" /><i className="milk-drip milk-drip-c" /><i className="milk-drop milk-drop-a" /><i className="milk-drop milk-drop-b" /><i className="milk-drop milk-drop-c" /></motion.div>
-        <motion.div className="cream-crown" initial={reduceMotion ? false : { opacity: 0, scaleX: 0.25, scaleY: 0.45 }} animate={reduceMotion ? undefined : { opacity: [0, 0, 1, 0.82], scaleX: [0.25, 0.25, 1.08, 1], scaleY: [0.45, 0.45, 1.16, 1] }} transition={{ duration: 0.7, delay: 1.08, ease: "easeOut" }}><span className="cream-lobe lobe-one" /><span className="cream-lobe lobe-two" /><span className="cream-lobe lobe-three" /></motion.div>
-        {droplets.map((drop, index) => <motion.span className="splash-drop" key={index} style={{ width: drop.s, height: drop.s }} initial={reduceMotion ? false : { opacity: 0, x: 0, y: 30, scale: 0.2 }} animate={reduceMotion ? undefined : { opacity: [0, 1, 0], x: [0, drop.x * 0.55, drop.x], y: [30, drop.y, drop.y + 44], scale: [0.2, 1, 0.72] }} transition={{ duration: 1.02, delay: drop.d, ease: "easeOut" }} />)}
-        <motion.div className="impact-ring premium-impact" initial={reduceMotion ? false : { opacity: 0, scaleX: 0.15, scaleY: 0.45 }} animate={reduceMotion ? undefined : { opacity: [0, 0.95, 0], scaleX: [0.15, 1.05, 1.65], scaleY: [0.45, 1, 0.75] }} transition={{ duration: 0.76, delay: 1.03, ease: "easeOut" }} />
         <motion.div className="cone premium-cone" initial={reduceMotion ? false : { scaleY: 1, y: 0 }} animate={reduceMotion ? undefined : { scaleY: [1, 1, 0.95, 1.015, 1], y: [0, 0, 8, -2, 0] }} transition={{ duration: 0.55, delay: 1.06, times: [0, 0.2, 0.45, 0.72, 1] }}><span className="cone-lip" /><span className="cone-shine" /><span className="cone-grid cone-grid-a" /><span className="cone-grid cone-grid-b" /></motion.div>
         <motion.div className="gold-dust" initial={reduceMotion ? false : { opacity: 0 }} animate={reduceMotion ? undefined : { opacity: [0, 0, 1, 0.55] }} transition={{ duration: 2.2, delay: 1.25 }}>{Array.from({ length: 12 }).map((_, index) => <i key={index} />)}</motion.div>
       </div>
