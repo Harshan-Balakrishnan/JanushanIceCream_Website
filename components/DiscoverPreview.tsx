@@ -11,13 +11,13 @@ export default function DiscoverPreview() {
   return (
     <>
       <section className="discover section" id="discover">
-        <p className="section-kicker">WELCOME TO JANUSHAN</p>
-        <h2>Fresh scoops. <em>Happy moments.</em></h2>
-        <p className="section-intro">Discover Janushan Ice Cream — proudly serving Vavuniya since 2004. Explore our favourite treats, choose your flavour, build your own creation and find the easiest way to order.</p>
+        <p className="section-kicker">THE JANUSHAN EXPERIENCE</p>
+        <h2>Made for moments.<br /><em>Remembered by flavour.</em></h2>
+        <p className="section-intro">Since 2004, Janushan Ice Cream has been part of everyday moments in Vavuniya. Explore the menu, discover your flavour, create your own scoop and order your favourite the easy way.</p>
         <div className="feature-grid">
-          <article><strong>01</strong><h3>Choose</h3><p>Browse our ice creams, cones and special treats for your next scoop.</p></article>
-          <article><strong>02</strong><h3>Build</h3><p>Mix your favourite base, flavour, topping and sauce into a custom creation.</p></article>
-          <article><strong>03</strong><h3>Order</h3><p>Ready to enjoy? Send your selection straight to Janushan on WhatsApp.</p></article>
+          <article><strong>01</strong><h3>Discover</h3><p>Explore our signature ice creams, cones and special treats through a premium product-first menu.</p></article>
+          <article><strong>02</strong><h3>Create</h3><p>Choose your base, flavour, scoops, toppings and sauce to make a creation that is yours.</p></article>
+          <article><strong>03</strong><h3>Enjoy</h3><p>When you know what you want, order directly through WhatsApp or find us in Vavuniya.</p></article>
         </div>
       </section>
 
