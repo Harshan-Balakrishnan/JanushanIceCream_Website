@@ -693,3 +693,90 @@ button, a { -webkit-tap-highlight-color: transparent; }
       rgba(255, 221, 143, 0.08)
     );
 }
+
+
+/* Site polish — accessibility, conversion and mobile quality */
+:root { --whatsapp: #25d366; }
+html { scroll-padding-top: 108px; }
+[id] { scroll-margin-top: 108px; }
+button, a, input, select, textarea { font: inherit; }
+button:focus-visible, a:focus-visible, input:focus-visible, select:focus-visible, textarea:focus-visible {
+  outline: 3px solid var(--gold);
+  outline-offset: 4px;
+}
+::selection { background: var(--gold); color: var(--ink); }
+
+.button-whatsapp {
+  border-color: rgba(37,211,102,.55);
+  color: #d9ffe7;
+  background: rgba(37,211,102,.08);
+}
+.button-whatsapp:hover { background: rgba(37,211,102,.16); }
+
+.quick-order {
+  position: fixed;
+  right: 24px;
+  bottom: 24px;
+  z-index: 60;
+  display: flex;
+  align-items: center;
+  gap: 11px;
+  min-height: 58px;
+  padding: 8px 16px 8px 10px;
+  border: 1px solid rgba(37,211,102,.42);
+  border-radius: 999px;
+  background: rgba(3,13,29,.88);
+  color: #f5fff8;
+  box-shadow: 0 16px 38px rgba(0,0,0,.3), 0 0 0 1px rgba(255,255,255,.04);
+  backdrop-filter: blur(16px);
+}
+.quick-order > span:first-child {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  background: var(--whatsapp);
+  color: #06250f;
+  font-size: 20px;
+  font-weight: 900;
+}
+.quick-order small {
+  display: block;
+  font-size: 8px;
+  letter-spacing: .18em;
+  color: #9ff1b9;
+  font-weight: 900;
+}
+.quick-order strong { display: block; font-size: 12px; margin-top: 2px; }
+
+.modal-actions { display: flex; flex-wrap: wrap; gap: 10px; }
+
+.flavour-explore {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  border: 0;
+  border-bottom: 1px solid rgba(255,255,255,.5);
+  background: none;
+  color: inherit;
+  padding: 0 0 7px;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+@media (max-width: 700px) {
+  .quick-order {
+    right: 14px;
+    bottom: 14px;
+    min-height: 52px;
+    padding-right: 13px;
+  }
+  .quick-order > span:first-child {
+    width: 36px;
+    height: 36px;
+    font-size: 18px;
+  }
+  .quick-order small { font-size: 7px; }
+  .modal-actions .button { width: 100%; }
+}
