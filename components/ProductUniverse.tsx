@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
-import { useEffect, useMemo, useState } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 import { useCatalogCollection } from "@/hooks/useCatalogCollection";
 import { defaultProducts, type Product } from "@/lib/catalog";
 
@@ -11,6 +11,7 @@ export default function ProductUniverse() {
   const { items: products, live } = useCatalogCollection<Product>("products", defaultProducts);
   const [selected, setSelected] = useState<Product | null>(null);
   const [active, setActive] = useState(0);
+  const modalCloseRef = useRef<HTMLButtonElement>(null);
   const reduceMotion = useReducedMotion();
   const formatter = useMemo(() => new Intl.NumberFormat("en-LK"), []);
 
@@ -22,6 +23,7 @@ export default function ProductUniverse() {
       if (event.key === "Escape") setSelected(null);
     };
     window.addEventListener("keydown", onKey);
+    window.setTimeout(() => modalCloseRef.current?.focus(), 0);
     return () => {
       document.body.style.overflow = previous;
       window.removeEventListener("keydown", onKey);
@@ -68,7 +70,6 @@ export default function ProductUniverse() {
                   fill
                   sizes="(max-width: 700px) 76vw, 370px"
                   className="product-photo"
-                  unoptimized={product.image.startsWith("http")}
                 />
               </span>
               <span className="product-meta">
@@ -113,10 +114,10 @@ export default function ProductUniverse() {
               transition={{ type: "spring", stiffness: 210, damping: 24 }}
               style={{ "--product-glow": selected.glow } as React.CSSProperties}
             >
-              <button className="modal-close" type="button" onClick={() => setSelected(null)} aria-label="Close product details">×</button>
+<button ref={modalCloseRef} className="modal-close" type="button" onClick={() => setSelected(null)} aria-label="Close product details">×</button>
               <div className="modal-visual">
                 <div className="modal-halo" aria-hidden="true" />
-                <Image src={selected.image} alt={selected.name} fill sizes="(max-width: 800px) 90vw, 48vw" className="modal-product-image" unoptimized={selected.image.startsWith("http")} />
+                <Image src={selected.image} alt={selected.name} fill sizes="(max-width: 800px) 90vw, 48vw" className="modal-product-image" />
               </div>
               <div className="modal-copy">
                 <p className="section-kicker">{selected.eyebrow}</p>
@@ -124,8 +125,16 @@ export default function ProductUniverse() {
                 <div className="modal-price">Rs. {formatter.format(selected.price)}/-</div>
                 <p>{selected.blurb}</p>
                 <div className="modal-actions">
-                  <a className="button button-primary" href="#flavours" onClick={() => setSelected(null)}>Explore Flavours</a>
-                  <button className="button button-ghost" type="button" onClick={() => setSelected(null)}>Keep Browsing</button>
+                  <a
+                    className="button button-primary"
+                    href={`https://wa.me/94776015041?text=${encodeURIComponent(`Hi Janushan Ice Cream! I would like to ask/order about ${selected.name} (Rs. ${selected.price}).`)}`}
+                    target="_blank"
+                    rel="noreferrer"
+                    onClick={() => setSelected(null)}
+                  >
+                    Ask on WhatsApp ↗
+                  </a>
+                  <a className="button button-ghost" href="#flavours" onClick={() => setSelected(null)}>Explore Flavours</a>
                 </div>
                 <small className="modal-future">Product details can be managed from the Janushan Control Room when Firebase is connected.</small>
               </div>
