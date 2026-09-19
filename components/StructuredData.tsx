@@ -15,6 +15,9 @@ export default function StructuredData() {
     priceRange: "Rs.",
     servesCuisine: "Ice cream and desserts",
     menu: `${SITE_URL}/#menu`,
+    priceRange: "Rs.",
+    servesCuisine: "Ice cream and desserts",
+    menu: `${SITE_URL}/#menu`,
     address: {
       "@type": "PostalAddress",
       streetAddress: "No:256/4, Janushan Ice Cream, Kali Kovil Road, Nelukkulam",
