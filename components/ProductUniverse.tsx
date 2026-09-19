@@ -17,7 +17,21 @@ export default function ProductUniverse() {
   const formatter = useMemo(() => new Intl.NumberFormat("en-LK"), []);
 
   useEffect(() => {
-    if (reduceMotion || products.length < 2) return;
+    const track = trackRef.current;
+    if (!track) return;
+    const onScroll = () => {
+      const firstCard = track.querySelector<HTMLElement>(".product-card");
+      if (!firstCard) return;
+      const step = firstCard.offsetWidth + 18;
+      setActive(Math.min(products.length - 1, Math.max(0, Math.round(track.scrollLeft / step))));
+    };
+    track.addEventListener("scroll", onScroll, { passive: true });
+    onScroll();
+    return () => track.removeEventListener("scroll", onScroll);
+  }, [products.length]);
+
+  useEffect(() => {
+    if (reduceMotion || selected || products.length < 2) return;
     const track = trackRef.current;
     if (!track) return;
 
