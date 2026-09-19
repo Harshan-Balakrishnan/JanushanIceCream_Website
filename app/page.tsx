@@ -19,7 +19,7 @@ export default function Home() {
         rel="noreferrer"
         aria-label="Ask Janushan Ice Cream on WhatsApp"
       >
-        <span aria-hidden="true">◔</span>
+        <span aria-hidden="true">WA</span>
         <span><small>QUICK ORDER</small><strong>WhatsApp</strong></span>
       </a>
     </main>
