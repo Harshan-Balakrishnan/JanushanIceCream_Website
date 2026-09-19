@@ -152,7 +152,7 @@ export default function FlavourUniverse() {
                 <span>{active.kicker}</span>
                 <h3>{active.name}</h3>
                 <p>{active.note}</p>
-                <button type="button" className="flavour-explore">Explore {active.name} <i aria-hidden="true">↗</i></button>
+                <a href="#menu" className="flavour-explore">View the menu <i aria-hidden="true">↗</i></a>
               </motion.div>
             </motion.div>
           </AnimatePresence>
