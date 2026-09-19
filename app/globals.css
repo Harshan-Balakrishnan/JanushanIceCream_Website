@@ -785,84 +785,79 @@ button:focus-visible, a:focus-visible, input:focus-visible, select:focus-visible
 
 
 /* =========================================================
-   JANUSHAN BLUE MILK IDENTITY
-   Inspired by the supplied abstract blue-wave reference.
-   The vector asset keeps the effect crisp and lightweight.
+   JANUSHAN BLUE IDENTITY + REAL MILK PHOTOGRAPHIC TREATMENT
+   The milk is an actual photorealistic image asset, not a CSS shape.
    ========================================================= */
 
 .cinematic-hero {
+  position: relative;
   background:
-    linear-gradient(180deg, rgba(1,5,35,.12), rgba(1,5,35,.2)),
-    url("/brand/blue-milk-wave.svg") center center / cover no-repeat;
+    radial-gradient(circle at 18% 18%, rgba(46,105,255,.34), transparent 30%),
+    radial-gradient(circle at 78% 30%, rgba(15,56,232,.38), transparent 34%),
+    linear-gradient(145deg, #02083d 0%, #0824d8 52%, #02052e 100%);
 }
 
 .cinematic-hero::before {
   content: "";
   position: absolute;
   inset: 0;
-  z-index: -1;
+  z-index: 0;
   pointer-events: none;
   background:
-    radial-gradient(circle at 18% 24%, rgba(38,78,255,.42), transparent 27%),
-    radial-gradient(circle at 80% 42%, rgba(12,39,207,.3), transparent 34%),
-    linear-gradient(120deg, rgba(1,5,43,.45), transparent 42%, rgba(1,5,43,.35));
-  mix-blend-mode: screen;
+    radial-gradient(circle at 50% 8%, rgba(70,140,255,.25), transparent 30%),
+    linear-gradient(110deg, rgba(1,5,43,.35), transparent 45%, rgba(1,5,43,.2));
 }
 
-.milk-wave-hero {
+.cinematic-hero::after {
+  content: "";
   position: absolute;
-  left: -4%;
-  right: -4%;
-  bottom: -2px;
-  height: 165px;
+  left: -5%;
+  right: -5%;
+  bottom: -3%;
+  height: 43%;
   z-index: 1;
   pointer-events: none;
-  overflow: hidden;
-  filter: drop-shadow(0 -18px 35px rgba(255,255,255,.05));
+  background: url("/brand/real-milk-splash.svg") center bottom / 100% auto no-repeat;
+  opacity: .94;
+  filter: drop-shadow(0 -12px 28px rgba(255,255,255,.08));
 }
 
-.milk-wave-hero::before {
-  content: "";
-  position: absolute;
-  left: -8%;
-  right: -8%;
-  bottom: -125px;
-  height: 250px;
-  border-radius: 50% 50% 0 0 / 72% 72% 0 0;
-  background:
-    radial-gradient(ellipse at 22% 38%, rgba(255,255,255,.98) 0 5%, transparent 6%),
-    radial-gradient(ellipse at 51% 22%, rgba(255,255,255,.95) 0 4%, transparent 5%),
-    radial-gradient(ellipse at 78% 42%, rgba(255,255,255,.98) 0 5%, transparent 6%),
-    linear-gradient(180deg, #fffdf8 0%, #fff7e8 68%, #f2dfba 100%);
-  box-shadow: 0 -12px 42px rgba(255,255,255,.12);
+.cinematic-hero .scoop-stage {
+  z-index: 2;
 }
 
-.milk-wave-hero::after {
-  content: "";
-  position: absolute;
-  left: 7%;
-  right: 7%;
-  bottom: 48px;
+.hero-socials {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: 18px;
+}
+
+.hero-socials a {
+  width: 42px;
   height: 42px;
+  display: grid;
+  place-items: center;
+  border: 1px solid rgba(255,255,255,.18);
   border-radius: 50%;
-  background: radial-gradient(ellipse, rgba(255,255,255,.7), transparent 72%);
-  filter: blur(10px);
-  opacity: .45;
+  background: rgba(3,12,57,.34);
+  color: rgba(255,255,255,.9);
+  box-shadow: 0 10px 28px rgba(0,0,0,.18);
+  backdrop-filter: blur(12px);
+  transition: transform .2s ease, border-color .2s ease, background .2s ease;
 }
 
-.milk-drip {
-  position: absolute;
-  bottom: 42px;
-  width: 22px;
-  height: 78px;
-  border-radius: 0 0 18px 18px;
-  background: linear-gradient(180deg, #fffdf8, #f6e7c9);
-  box-shadow: 0 10px 18px rgba(0,0,0,.06);
+.hero-socials a:hover {
+  transform: translateY(-2px);
+  border-color: rgba(255,226,158,.6);
+  background: rgba(255,255,255,.1);
 }
-.milk-drip-a { left: 18%; height: 54px; width: 18px; }
-.milk-drip-b { left: 37%; height: 92px; width: 25px; }
-.milk-drip-c { left: 66%; height: 64px; width: 20px; }
-.milk-drip-d { left: 83%; height: 100px; width: 27px; }
+
+.hero-socials svg {
+  width: 19px;
+  height: 19px;
+  fill: currentColor;
+}
 
 .discover {
   position: relative;
@@ -908,17 +903,15 @@ button:focus-visible, a:focus-visible, input:focus-visible, select:focus-visible
   position: relative;
   overflow: hidden;
   background:
-    linear-gradient(180deg, rgba(2,8,61,.18), rgba(2,8,61,.28)),
-    url("/brand/blue-milk-wave.svg") center bottom / cover no-repeat;
+    radial-gradient(circle at 50% 0%, rgba(34,76,255,.35), transparent 35%),
+    linear-gradient(180deg,#06148f 0%,#02083d 60%,#01052e 100%);
 }
 
 .cinematic-footer::before {
   content: "";
   position: absolute;
   inset: 0;
-  background:
-    radial-gradient(circle at 50% 15%, rgba(34,76,255,.3), transparent 28%),
-    linear-gradient(180deg, rgba(2,8,61,.25), rgba(2,8,61,.7));
+  background: radial-gradient(circle at 50% 20%, rgba(60,120,255,.18), transparent 30%);
   pointer-events: none;
 }
 
@@ -995,43 +988,288 @@ button:focus-visible, a:focus-visible, input:focus-visible, select:focus-visible
   box-shadow: 0 18px 48px rgba(0,0,0,.35), 0 0 30px rgba(20,60,255,.14);
 }
 
-@media (max-width: 760px) {
-  .milk-wave-hero { height: 110px; }
-  .milk-wave-hero::before {
-    bottom: -94px;
-    height: 190px;
+@media (max-width: 900px) {
+  .cinematic-hero::after {
+    height: 34%;
+    bottom: -1%;
+    background-size: 135% auto;
+    background-position: center bottom;
   }
-  .milk-drip { bottom: 27px; }
-  .cinematic-hero {
-    background-position: 62% center;
+
+  .hero-copy {
+    margin-top: -16px;
   }
+
+  .hero-socials {
+    justify-content: center;
+    margin-top: 14px;
+  }
+
+  .cinematic-hero .scoop-stage {
+    min-height: clamp(390px, 92vw, 500px);
+    padding-bottom: 18px;
+  }
+}
+
+@media (max-width: 768px) {
+  .nav-wrap { padding: 10px 12px; }
+  .nav { height: 60px; padding: 7px 8px 7px 10px; border-radius: 18px; }
+  .brand-mark { gap: 7px; font-size: 10px; letter-spacing: .12em; }
+  .brand-mark img { width: 46px; height: 46px; }
+  .nav-cta { display: none; }
+
+  .hero {
+    min-height: auto;
+    padding: 98px 24px 82px;
+    grid-template-columns: 1fr;
+  }
+
+  .cinematic-hero .scoop-stage {
+    width: min(82vw, 390px);
+    min-height: 430px;
+    margin-top: 8px;
+  }
+
+  .hero-copy {
+    max-width: 620px;
+    margin-top: -8px;
+  }
+
+  .logo-shell {
+    width: 88px;
+    height: 88px;
+    margin-bottom: 18px;
+  }
+
+  .logo-shell img { width: 76px; height: 76px; }
+
+  .eyebrow {
+    font-size: 10px;
+    letter-spacing: .18em;
+  }
+
+  .hero h1 {
+    font-size: clamp(52px, 13.5vw, 82px);
+    line-height: .82;
+    letter-spacing: -.045em;
+  }
+
+  .tagline {
+    font-size: clamp(24px, 5.5vw, 32px);
+    margin: 18px 0 25px;
+  }
+
+  .hero-actions {
+    width: min(430px, 100%);
+    gap: 10px;
+  }
+
+  .hero-actions .button {
+    min-height: 50px;
+    padding-inline: 18px;
+  }
+
+  .hero-text-link { font-size: 10px; }
+
+  .section {
+    padding: 82px 20px;
+  }
+
+  .section h2 {
+    font-size: clamp(40px, 11vw, 60px);
+  }
+
+  .section-intro { font-size: 16px; line-height: 1.65; }
+
+  .feature-grid {
+    gap: 12px;
+    margin-top: 36px;
+  }
+
+  .feature-grid article {
+    min-height: auto;
+    padding: 25px 22px;
+    border-radius: 22px;
+  }
+
+  .feature-grid h3 {
+    font-size: 27px;
+    margin-top: 34px;
+  }
+
+  .flavour-track {
+    grid-template-columns: repeat(5, minmax(205px, 1fr));
+    gap: 10px;
+    margin-top: 34px;
+  }
+
+  .flavour-card {
+    min-width: 205px;
+    min-height: 390px;
+    border-radius: 24px;
+    padding: 24px 20px;
+  }
+
   .footer-socials {
     grid-template-columns: 1fr;
     width: min(430px, 100%);
   }
-  .footer-socials a { justify-content: flex-start; padding-left: 20px; }
-  .footer-actions { width: 100%; }
-  .footer-actions a { width: min(430px, 100%); text-align: center; }
+
+  .footer-socials a {
+    justify-content: flex-start;
+    padding-left: 20px;
+  }
+
+  .footer-actions {
+    width: 100%;
+  }
+
+  .footer-actions a {
+    width: min(430px, 100%);
+    text-align: center;
+  }
 }
 
-@media (max-width: 460px) {
-  .milk-wave-hero { height: 82px; }
-  .milk-wave-hero::before { bottom: -75px; height: 155px; }
-  .milk-drip { bottom: 18px; }
-  .milk-drip-b { height: 62px; }
-  .milk-drip-d { height: 68px; }
+@media (max-width: 412px) {
   .hero {
     padding-left: 18px;
     padding-right: 18px;
+    padding-bottom: 72px;
   }
+
+  .cinematic-hero::after {
+    height: 29%;
+    background-size: 160% auto;
+  }
+
+  .cinematic-hero .scoop-stage {
+    width: min(88vw, 360px);
+    min-height: 350px;
+  }
+
+  .premium-scoop {
+    width: 190px;
+  }
+
+  .premium-scoop-wrap {
+    top: 13%;
+  }
+
+  .premium-cone {
+    width: 145px;
+    height: 200px;
+  }
+
   .hero h1 {
-    font-size: clamp(48px, 17vw, 72px);
-    line-height: .8;
+    font-size: clamp(48px, 17vw, 68px);
+    line-height: .84;
   }
-  .hero-actions { width: 100%; }
-  .hero-actions .button { width: 100%; }
-  .logo-shell { width: 92px; height: 92px; }
-  .logo-shell img { width: 80px; height: 80px; }
+
+  .tagline {
+    font-size: 24px;
+    margin: 16px 0 22px;
+  }
+
+  .hero-actions .button {
+    width: 100%;
+  }
+
+  .hero-socials {
+    margin-top: 12px;
+    gap: 9px;
+  }
+
+  .hero-socials a {
+    width: 40px;
+    height: 40px;
+  }
+
+  .hero-socials svg {
+    width: 18px;
+    height: 18px;
+  }
+
+  .section { padding: 72px 18px; }
+  .section h2 { font-size: clamp(38px, 12vw, 52px); }
+  .flavour-card { min-width: 188px; min-height: 360px; }
+}
+
+@media (max-width: 390px) {
+  .nav-wrap { padding-inline: 8px; }
+  .brand-mark span { display: none; }
+  .nav { padding-left: 7px; }
+  .brand-mark img { width: 48px; height: 48px; }
+
+  .hero {
+    padding-top: 92px;
+  }
+
+  .cinematic-hero .scoop-stage {
+    width: 92vw;
+    min-height: 320px;
+    margin-top: 0;
+  }
+
+  .premium-scoop {
+    width: 174px;
+  }
+
+  .premium-cone {
+    width: 132px;
+    height: 182px;
+  }
+
+  .logo-shell {
+    width: 82px;
+    height: 82px;
+  }
+
+  .logo-shell img { width: 70px; height: 70px; }
+
+  .eyebrow { font-size: 9px; }
+
+  .hero h1 {
+    font-size: clamp(45px, 17.5vw, 62px);
+  }
+
+  .tagline { font-size: 22px; }
+}
+
+@media (max-width: 375px) {
+  .hero {
+    padding-left: 15px;
+    padding-right: 15px;
+  }
+
+  .cinematic-hero::after {
+    height: 25%;
+    background-size: 180% auto;
+  }
+
+  .cinematic-hero .scoop-stage {
+    min-height: 300px;
+  }
+
+  .premium-scoop {
+    width: 162px;
+  }
+
+  .premium-cone {
+    width: 122px;
+    height: 168px;
+  }
+
+  .hero h1 {
+    font-size: 48px;
+  }
+
+  .tagline {
+    font-size: 21px;
+  }
+
+  .button {
+    min-height: 48px;
+  }
 }
 
 .hero-text-link {
@@ -1044,7 +1282,8 @@ button:focus-visible, a:focus-visible, input:focus-visible, select:focus-visible
   text-transform: uppercase;
   border-bottom: 1px solid rgba(255,255,255,.22);
 }
-.hero-text-link:hover { color: #fffdf8; border-color: var(--gold-soft); }
-@media (max-width: 460px) {
-  .hero-text-link { margin-top: 2px; }
+
+.hero-text-link:hover {
+  color: #fffdf8;
+  border-color: var(--gold-soft);
 }
