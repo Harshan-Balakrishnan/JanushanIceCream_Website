@@ -114,7 +114,7 @@ export default function ProductUniverse() {
               transition={{ type: "spring", stiffness: 210, damping: 24 }}
               style={{ "--product-glow": selected.glow } as React.CSSProperties}
             >
-<button ref={modalCloseRef} className="modal-close" type="button" onClick={() => setSelected(null)} aria-label="Close product details">×</button>
+              <button ref={modalCloseRef} className="modal-close" type="button" onClick={() => setSelected(null)} aria-label="Close product details">×</button>
               <div className="modal-visual">
                 <div className="modal-halo" aria-hidden="true" />
                 <Image src={selected.image} alt={selected.name} fill sizes="(max-width: 800px) 90vw, 48vw" className="modal-product-image" />
