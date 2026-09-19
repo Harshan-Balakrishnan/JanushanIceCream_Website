@@ -811,15 +811,16 @@ button:focus-visible, a:focus-visible, input:focus-visible, select:focus-visible
 .cinematic-hero::after {
   content: "";
   position: absolute;
-  left: -5%;
-  right: -5%;
-  bottom: -3%;
-  height: 43%;
+  right: -2%;
+  bottom: -1%;
+  width: min(64vw, 820px);
+  height: min(70%, 720px);
   z-index: 1;
   pointer-events: none;
-  background: url("/brand/real-milk-splash.svg") center bottom / 100% auto no-repeat;
-  opacity: .94;
-  filter: drop-shadow(0 -12px 28px rgba(255,255,255,.08));
+  background: url("/brand/janushan-milk-hero.webp") right bottom / contain no-repeat;
+  opacity: .96;
+  mix-blend-mode: screen;
+  filter: drop-shadow(0 18px 35px rgba(0,0,0,.2));
 }
 
 .cinematic-hero .scoop-stage {
@@ -990,10 +991,12 @@ button:focus-visible, a:focus-visible, input:focus-visible, select:focus-visible
 
 @media (max-width: 900px) {
   .cinematic-hero::after {
-    height: 34%;
-    bottom: -1%;
-    background-size: 135% auto;
-    background-position: center bottom;
+    width: min(88vw, 620px);
+    height: 58%;
+    right: -8%;
+    bottom: -2%;
+    background-size: contain;
+    background-position: right bottom;
   }
 
   .hero-copy {
@@ -1138,8 +1141,10 @@ button:focus-visible, a:focus-visible, input:focus-visible, select:focus-visible
   }
 
   .cinematic-hero::after {
-    height: 29%;
-    background-size: 160% auto;
+    width: 108vw;
+    height: 48%;
+    right: -18%;
+    background-size: contain;
   }
 
   .cinematic-hero .scoop-stage {
@@ -1242,8 +1247,9 @@ button:focus-visible, a:focus-visible, input:focus-visible, select:focus-visible
   }
 
   .cinematic-hero::after {
-    height: 25%;
-    background-size: 180% auto;
+    width: 116vw;
+    height: 43%;
+    right: -25%;
   }
 
   .cinematic-hero .scoop-stage {
@@ -1286,4 +1292,106 @@ button:focus-visible, a:focus-visible, input:focus-visible, select:focus-visible
 .hero-text-link:hover {
   color: #fffdf8;
   border-color: var(--gold-soft);
+}
+
+
+.product-track-wrap {
+  position: relative;
+}
+
+.product-track-arrow {
+  position: absolute;
+  top: 50%;
+  z-index: 5;
+  width: 48px;
+  height: 48px;
+  display: grid;
+  place-items: center;
+  border: 1px solid rgba(255,255,255,.2);
+  border-radius: 50%;
+  background: rgba(2,8,61,.78);
+  color: #fff;
+  font-size: 22px;
+  line-height: 1;
+  cursor: pointer;
+  transform: translateY(-50%);
+  box-shadow: 0 14px 35px rgba(0,0,0,.28);
+  backdrop-filter: blur(12px);
+  transition: transform .2s ease, background .2s ease, border-color .2s ease;
+}
+.product-track-arrow:hover {
+  transform: translateY(-50%) scale(1.06);
+  background: rgba(8,36,216,.92);
+  border-color: rgba(255,228,162,.65);
+}
+.product-track-arrow-left { left: clamp(8px, 2vw, 30px); }
+.product-track-arrow-right { right: clamp(8px, 2vw, 30px); }
+
+@media (max-width: 900px) {
+  .product-track-arrow {
+    width: 44px;
+    height: 44px;
+  }
+}
+
+@media (max-width: 600px) {
+  .product-track-arrow {
+    width: 40px;
+    height: 40px;
+    top: 46%;
+    font-size: 19px;
+  }
+  .product-track-arrow-left { left: 6px; }
+  .product-track-arrow-right { right: 6px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .product-track-arrow { display: none; }
+}
+
+/* Footer: keep the final screen compact instead of vertically centering a huge content stack. */
+.cinematic-footer {
+  min-height: auto;
+  justify-content: flex-start;
+  padding: 92px clamp(18px, 4vw, 48px) 32px;
+}
+.footer-logo {
+  width: min(220px, 52vw);
+  height: auto;
+  margin-top: 8px;
+}
+.cinematic-footer h2 {
+  max-width: 820px;
+}
+.footer-line {
+  margin: 0;
+}
+.footer-bottom {
+  position: relative;
+  inset: auto;
+  width: min(1100px, 100%);
+  margin-top: 42px;
+}
+@media (max-width: 600px) {
+  .cinematic-footer {
+    padding-top: 74px;
+  }
+  .footer-cone {
+    transform: scale(.78);
+    margin-bottom: -58px;
+  }
+  .footer-logo {
+    width: 170px;
+  }
+  .cinematic-footer h2 {
+    font-size: clamp(44px, 13vw, 66px);
+  }
+  .footer-line {
+    font-size: 17px;
+  }
+  .footer-bottom {
+    margin-top: 34px;
+    gap: 8px;
+    flex-direction: column;
+  }
 }
