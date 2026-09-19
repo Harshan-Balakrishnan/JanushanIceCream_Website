@@ -1,6 +1,8 @@
 :root {
-  --navy: #041128;
-  --navy-2: #071b3d;
+  --navy: #02083d;
+  --navy-2: #06148f;
+  --royal-blue: #0824d8;
+  --electric-blue: #153dff;
   --gold: #f3be53;
   --gold-soft: #ffe4a2;
   --cream: #fff7e8;
@@ -10,8 +12,8 @@
 }
 
 * { box-sizing: border-box; }
-html { scroll-behavior: smooth; background: var(--navy); }
-body { margin: 0; color: var(--white); background: var(--navy); font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; }
+html { scroll-behavior: smooth; background: #02083d; }
+body { margin: 0; color: var(--white); background: #02083d; font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; }
 a { color: inherit; text-decoration: none; }
 button, a { -webkit-tap-highlight-color: transparent; }
 
@@ -779,4 +781,255 @@ button:focus-visible, a:focus-visible, input:focus-visible, select:focus-visible
   }
   .quick-order small { font-size: 7px; }
   .modal-actions .button { width: 100%; }
+}
+
+
+/* =========================================================
+   JANUSHAN BLUE MILK IDENTITY
+   Inspired by the supplied abstract blue-wave reference.
+   The vector asset keeps the effect crisp and lightweight.
+   ========================================================= */
+
+.cinematic-hero {
+  background:
+    linear-gradient(180deg, rgba(1,5,35,.12), rgba(1,5,35,.2)),
+    url("/brand/blue-milk-wave.svg") center center / cover no-repeat;
+}
+
+.cinematic-hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  background:
+    radial-gradient(circle at 18% 24%, rgba(38,78,255,.42), transparent 27%),
+    radial-gradient(circle at 80% 42%, rgba(12,39,207,.3), transparent 34%),
+    linear-gradient(120deg, rgba(1,5,43,.45), transparent 42%, rgba(1,5,43,.35));
+  mix-blend-mode: screen;
+}
+
+.milk-wave-hero {
+  position: absolute;
+  left: -4%;
+  right: -4%;
+  bottom: -2px;
+  height: 165px;
+  z-index: 1;
+  pointer-events: none;
+  overflow: hidden;
+  filter: drop-shadow(0 -18px 35px rgba(255,255,255,.05));
+}
+
+.milk-wave-hero::before {
+  content: "";
+  position: absolute;
+  left: -8%;
+  right: -8%;
+  bottom: -125px;
+  height: 250px;
+  border-radius: 50% 50% 0 0 / 72% 72% 0 0;
+  background:
+    radial-gradient(ellipse at 22% 38%, rgba(255,255,255,.98) 0 5%, transparent 6%),
+    radial-gradient(ellipse at 51% 22%, rgba(255,255,255,.95) 0 4%, transparent 5%),
+    radial-gradient(ellipse at 78% 42%, rgba(255,255,255,.98) 0 5%, transparent 6%),
+    linear-gradient(180deg, #fffdf8 0%, #fff7e8 68%, #f2dfba 100%);
+  box-shadow: 0 -12px 42px rgba(255,255,255,.12);
+}
+
+.milk-wave-hero::after {
+  content: "";
+  position: absolute;
+  left: 7%;
+  right: 7%;
+  bottom: 48px;
+  height: 42px;
+  border-radius: 50%;
+  background: radial-gradient(ellipse, rgba(255,255,255,.7), transparent 72%);
+  filter: blur(10px);
+  opacity: .45;
+}
+
+.milk-drip {
+  position: absolute;
+  bottom: 42px;
+  width: 22px;
+  height: 78px;
+  border-radius: 0 0 18px 18px;
+  background: linear-gradient(180deg, #fffdf8, #f6e7c9);
+  box-shadow: 0 10px 18px rgba(0,0,0,.06);
+}
+.milk-drip-a { left: 18%; height: 54px; width: 18px; }
+.milk-drip-b { left: 37%; height: 92px; width: 25px; }
+.milk-drip-c { left: 66%; height: 64px; width: 20px; }
+.milk-drip-d { left: 83%; height: 100px; width: 27px; }
+
+.discover {
+  position: relative;
+  overflow: hidden;
+  background:
+    radial-gradient(circle at 85% 0%, rgba(19,61,255,.08), transparent 28%),
+    linear-gradient(180deg, #fffdf8 0%, #fff7e8 100%);
+}
+
+.discover::before {
+  content: "";
+  position: absolute;
+  top: -65px;
+  left: 0;
+  right: 0;
+  height: 100px;
+  background: #fffdf8;
+  border-radius: 50% 50% 0 0 / 100% 100% 0 0;
+  box-shadow: 0 -12px 35px rgba(255,255,255,.1);
+}
+
+.product-universe {
+  background:
+    radial-gradient(circle at 80% 14%, rgba(30,73,255,.34), transparent 24%),
+    radial-gradient(circle at 14% 72%, rgba(25,57,224,.24), transparent 29%),
+    linear-gradient(145deg, #02083d 0%, #06148f 48%, #02052e 100%);
+}
+
+.builder {
+  background:
+    radial-gradient(circle at 78% 42%, color-mix(in srgb,var(--builder-flavour) 18%,transparent), transparent 28%),
+    radial-gradient(circle at 12% 78%, rgba(25,61,255,.18), transparent 28%),
+    linear-gradient(145deg,#02083d 0%,#071b78 52%,#01052e 100%);
+}
+
+.story-world {
+  background:
+    radial-gradient(circle at 82% 28%, rgba(22,61,255,.2), transparent 28%),
+    linear-gradient(180deg,#02083d 0%,#06145e 30%,#07132e 72%,#02052e 100%);
+}
+
+.cinematic-footer {
+  position: relative;
+  overflow: hidden;
+  background:
+    linear-gradient(180deg, rgba(2,8,61,.18), rgba(2,8,61,.28)),
+    url("/brand/blue-milk-wave.svg") center bottom / cover no-repeat;
+}
+
+.cinematic-footer::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(circle at 50% 15%, rgba(34,76,255,.3), transparent 28%),
+    linear-gradient(180deg, rgba(2,8,61,.25), rgba(2,8,61,.7));
+  pointer-events: none;
+}
+
+.cinematic-footer > * {
+  position: relative;
+  z-index: 2;
+}
+
+.footer-socials {
+  width: min(920px, 100%);
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+  margin: 28px auto 8px;
+}
+
+.footer-socials a {
+  min-height: 66px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 11px;
+  padding: 12px 18px;
+  border: 1px solid rgba(255,255,255,.13);
+  border-radius: 18px;
+  background: rgba(2,8,61,.32);
+  backdrop-filter: blur(14px);
+  color: rgba(255,255,255,.8);
+  transition: transform .25s ease, border-color .25s ease, background .25s ease;
+}
+
+.footer-socials a:hover {
+  transform: translateY(-3px);
+  border-color: rgba(255,226,158,.45);
+  background: rgba(255,255,255,.08);
+}
+
+.footer-socials span {
+  width: 31px;
+  height: 31px;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  border: 1px solid rgba(255,255,255,.22);
+  color: #fff7e8;
+  font-size: 16px;
+  font-weight: 900;
+}
+
+.footer-socials strong {
+  font-size: 11px;
+  letter-spacing: .06em;
+}
+
+.footer-actions {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 18px;
+}
+
+.footer-order {
+  border: 1px solid rgba(37,211,102,.38);
+  border-radius: 999px;
+  padding: 14px 20px;
+  font-size: 11px;
+  font-weight: 900;
+  color: #d8ffe4;
+  background: rgba(37,211,102,.07);
+}
+
+.quick-order {
+  box-shadow: 0 18px 48px rgba(0,0,0,.35), 0 0 30px rgba(20,60,255,.14);
+}
+
+@media (max-width: 760px) {
+  .milk-wave-hero { height: 110px; }
+  .milk-wave-hero::before {
+    bottom: -94px;
+    height: 190px;
+  }
+  .milk-drip { bottom: 27px; }
+  .cinematic-hero {
+    background-position: 62% center;
+  }
+  .footer-socials {
+    grid-template-columns: 1fr;
+    width: min(430px, 100%);
+  }
+  .footer-socials a { justify-content: flex-start; padding-left: 20px; }
+  .footer-actions { width: 100%; }
+  .footer-actions a { width: min(430px, 100%); text-align: center; }
+}
+
+@media (max-width: 460px) {
+  .milk-wave-hero { height: 82px; }
+  .milk-wave-hero::before { bottom: -75px; height: 155px; }
+  .milk-drip { bottom: 18px; }
+  .milk-drip-b { height: 62px; }
+  .milk-drip-d { height: 68px; }
+  .hero {
+    padding-left: 18px;
+    padding-right: 18px;
+  }
+  .hero h1 {
+    font-size: clamp(48px, 17vw, 72px);
+    line-height: .8;
+  }
+  .hero-actions { width: 100%; }
+  .hero-actions .button { width: 100%; }
+  .logo-shell { width: 92px; height: 92px; }
+  .logo-shell img { width: 80px; height: 80px; }
 }
