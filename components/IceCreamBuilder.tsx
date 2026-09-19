@@ -50,6 +50,7 @@ export default function IceCreamBuilder() {
   const activeFlavour = useMemo(() => flavours.find((item) => item.id === flavour) ?? flavours[0], [flavour]);
   const activeSauce = useMemo(() => sauces.find((item) => item.id === sauce) ?? sauces[0], [sauce]);
   const creationName = `${scoops === 1 ? "Single" : scoops === 2 ? "Double" : "Triple"} ${activeFlavour.name} ${bases.find((item) => item.id === base)?.name}`;
+  const orderText = `Hi Janushan Ice Cream! I'd like to ask about ordering this creation: ${creationName} with ${toppings.find((item) => item.id === topping)?.name}${sauce !== "none" ? ` and ${activeSauce.name} sauce` : ""}.`;
 
   const shareCreation = async () => {
     const text = `My Janushan creation: ${creationName} with ${toppings.find((item) => item.id === topping)?.name}${sauce !== "none" ? ` and ${activeSauce.name} sauce` : ""}.`;
@@ -148,6 +149,7 @@ export default function IceCreamBuilder() {
             <div className="creation-actions">
               <button type="button" className="button button-primary" onClick={() => { setSaved(true); window.setTimeout(() => setSaved(false), 1600); }}>{saved ? "Saved ✓" : "Save Creation"}</button>
               <button type="button" className="button button-ghost" onClick={shareCreation}>Share</button>
+              <a className="button button-whatsapp" href={`https://wa.me/94776015041?text=${encodeURIComponent(orderText)}`} target="_blank" rel="noreferrer">Ask to Order ↗</a>
             </div>
             <small>Concept preview only. Ordering will be connected when the Janushan backend/admin system is introduced.</small>
           </div>
