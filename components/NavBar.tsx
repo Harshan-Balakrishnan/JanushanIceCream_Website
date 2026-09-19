@@ -19,9 +19,14 @@ export default function NavBar() {
 
   useEffect(() => {
     if (!open) return;
+    const previous = document.body.style.overflow;
     const close = (event: KeyboardEvent) => event.key === "Escape" && setOpen(false);
+    document.body.style.overflow = "hidden";
     window.addEventListener("keydown", close);
-    return () => window.removeEventListener("keydown", close);
+    return () => {
+      document.body.style.overflow = previous;
+      window.removeEventListener("keydown", close);
+    };
   }, [open]);
 
   return (
@@ -47,7 +52,7 @@ export default function NavBar() {
           <span />
         </button>
       </nav>
-      <div id="mobile-navigation" className={`mobile-navigation ${open ? "open" : ""}`} aria-hidden={!open}>
+      <div id="mobile-navigation" className={`mobile-navigation ${open ? "open" : ""}`} aria-hidden={!open} aria-label="Mobile navigation">
         {links.map(([label, href], index) => (
           <a key={href} href={href} tabIndex={open ? 0 : -1} onClick={() => setOpen(false)}>
             <small>{String(index + 1).padStart(2, "0")}</small>
