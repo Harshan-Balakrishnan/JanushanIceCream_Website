@@ -817,8 +817,8 @@ button:focus-visible, a:focus-visible, input:focus-visible, select:focus-visible
   height: min(70%, 720px);
   z-index: 1;
   pointer-events: none;
-  background: url("/brand/janushan-milk-hero.webp") right bottom / contain no-repeat;
-  opacity: .96;
+  background: url("/brand/janushan-milk-hero.webp") 54% 44% / 118% auto no-repeat;
+  opacity: .98;
   mix-blend-mode: screen;
   filter: drop-shadow(0 18px 35px rgba(0,0,0,.2));
 }
@@ -995,8 +995,8 @@ button:focus-visible, a:focus-visible, input:focus-visible, select:focus-visible
     height: 58%;
     right: -8%;
     bottom: -2%;
-    background-size: contain;
-    background-position: right bottom;
+    background-size: 132% auto;
+    background-position: 54% 42%;
   }
 
   .hero-copy {
@@ -1144,7 +1144,8 @@ button:focus-visible, a:focus-visible, input:focus-visible, select:focus-visible
     width: 108vw;
     height: 48%;
     right: -18%;
-    background-size: contain;
+    background-size: 150% auto;
+    background-position: 56% 42%;
   }
 
   .cinematic-hero .scoop-stage {
@@ -1247,9 +1248,11 @@ button:focus-visible, a:focus-visible, input:focus-visible, select:focus-visible
   }
 
   .cinematic-hero::after {
-    width: 116vw;
-    height: 43%;
-    right: -25%;
+    width: 120vw;
+    height: 42%;
+    right: -27%;
+    background-size: 160% auto;
+    background-position: 56% 43%;
   }
 
   .cinematic-hero .scoop-stage {
