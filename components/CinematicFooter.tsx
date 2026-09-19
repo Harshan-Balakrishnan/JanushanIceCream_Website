@@ -11,8 +11,31 @@ export default function CinematicFooter() {
       <p className="footer-kicker">JANUSHAN ICE CREAM · SINCE 2004</p>
       <h2>A Scoop of <em>Happiness.</em></h2>
       <p className="footer-line">Made fresh. Served with love.</p>
-      <a className="footer-top" href="#home">Back to the top ↑</a>
-      <div className="footer-bottom"><span>© Janushan Ice Cream</span><span>Made in Sri Lanka</span></div>
+
+      <div className="footer-socials" aria-label="Janushan Ice Cream social links">
+        <a href="https://www.instagram.com/janushan_ice_cream/" target="_blank" rel="noreferrer" aria-label="Follow Janushan Ice Cream on Instagram">
+          <span aria-hidden="true">◎</span>
+          <strong>Instagram</strong>
+        </a>
+        <a href="https://www.facebook.com/janushanicecream" target="_blank" rel="noreferrer" aria-label="Follow Janushan Ice Cream on Facebook">
+          <span aria-hidden="true">f</span>
+          <strong>Facebook</strong>
+        </a>
+        <a href="https://www.google.com/search?q=Janushan+Ice+Cream+Vavuniya" target="_blank" rel="noreferrer" aria-label="Review Janushan Ice Cream on Google">
+          <span aria-hidden="true">★</span>
+          <strong>Review us on Google</strong>
+        </a>
+      </div>
+
+      <div className="footer-actions">
+        <a className="footer-top" href="#home">Back to the top ↑</a>
+        <a className="footer-order" href="https://wa.me/94776015041?text=Hi%20Janushan%20Ice%20Cream!%20I'd%20like%20to%20place%20an%20order." target="_blank" rel="noreferrer">Order on WhatsApp ↗</a>
+      </div>
+
+      <div className="footer-bottom">
+        <span>© Janushan Ice Cream · Since 2004</span>
+        <span>Vavuniya · Sri Lanka</span>
+      </div>
     </footer>
   );
 }
