@@ -21,6 +21,12 @@ export default function EntranceExperience() {
       <div className="ambient ambient-two" />
       <div className="cinema-vignette" aria-hidden="true" />
       <div className="stars" aria-hidden="true" />
+      <div className="milk-wave-hero" aria-hidden="true">
+        <span className="milk-drip milk-drip-a" />
+        <span className="milk-drip milk-drip-b" />
+        <span className="milk-drip milk-drip-c" />
+        <span className="milk-drip milk-drip-d" />
+      </div>
 
       <motion.div
         className="brand-aura"
