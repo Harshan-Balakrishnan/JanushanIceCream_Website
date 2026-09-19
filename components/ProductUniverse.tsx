@@ -12,8 +12,42 @@ export default function ProductUniverse() {
   const [selected, setSelected] = useState<Product | null>(null);
   const [active, setActive] = useState(0);
   const modalCloseRef = useRef<HTMLButtonElement>(null);
+  const trackRef = useRef<HTMLDivElement>(null);
   const reduceMotion = useReducedMotion();
   const formatter = useMemo(() => new Intl.NumberFormat("en-LK"), []);
+
+  useEffect(() => {
+    if (reduceMotion || products.length < 2) return;
+    const track = trackRef.current;
+    if (!track) return;
+
+    let timer: number | undefined;
+    const advance = () => {
+      const max = track.scrollWidth - track.clientWidth;
+      const next = Math.min(track.scrollLeft + track.clientWidth * 0.82, max);
+      track.scrollTo({ left: next <= 8 ? 0 : next, behavior: "smooth" });
+    };
+    const start = () => {
+      window.clearInterval(timer);
+      timer = window.setInterval(advance, 4200);
+    };
+
+    start();
+    const pause = () => window.clearInterval(timer);
+    const resume = () => start();
+    track.addEventListener("mouseenter", pause);
+    track.addEventListener("mouseleave", resume);
+    track.addEventListener("focusin", pause);
+    track.addEventListener("focusout", resume);
+
+    return () => {
+      window.clearInterval(timer);
+      track.removeEventListener("mouseenter", pause);
+      track.removeEventListener("mouseleave", resume);
+      track.removeEventListener("focusin", pause);
+      track.removeEventListener("focusout", resume);
+    };
+  }, [products.length, reduceMotion]);
 
   useEffect(() => {
     if (!selected) return;
@@ -44,7 +78,13 @@ export default function ProductUniverse() {
       </div>
 
       <div className="product-track-wrap">
-        <div className="product-track" role="list" aria-label="Janushan Ice Cream products">
+        <button
+          className="product-track-arrow product-track-arrow-left"
+          type="button"
+          aria-label="Previous menu item"
+          onClick={() => trackRef.current?.scrollBy({ left: -(trackRef.current.clientWidth * 0.82), behavior: "smooth" })}
+        >←</button>
+        <div ref={trackRef} className="product-track" role="list" aria-label="Janushan Ice Cream products">
           {products.map((product, index) => (
             <motion.button
               type="button"
@@ -81,6 +121,12 @@ export default function ProductUniverse() {
             </motion.button>
           ))}
         </div>
+        <button
+          className="product-track-arrow product-track-arrow-right"
+          type="button"
+          aria-label="Next menu item"
+          onClick={() => trackRef.current?.scrollBy({ left: trackRef.current.clientWidth * 0.82, behavior: "smooth" })}
+        >→</button>
       </div>
 
       <div className="product-progress" aria-hidden="true">
