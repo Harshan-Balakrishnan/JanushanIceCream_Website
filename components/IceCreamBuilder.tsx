@@ -52,6 +52,14 @@ export default function IceCreamBuilder() {
   const creationName = `${scoops === 1 ? "Single" : scoops === 2 ? "Double" : "Triple"} ${activeFlavour.name} ${bases.find((item) => item.id === base)?.name}`;
   const orderText = `Hi Janushan Ice Cream! I'd like to ask about ordering this creation: ${creationName} with ${toppings.find((item) => item.id === topping)?.name}${sauce !== "none" ? ` and ${activeSauce.name} sauce` : ""}.`;
 
+  const saveCreation = () => {
+    localStorage.setItem("janushan-last-creation", JSON.stringify({
+      base, flavour, scoops, topping, sauce, creationName,
+    }));
+    setSaved(true);
+    window.setTimeout(() => setSaved(false), 1800);
+  };
+
   const shareCreation = async () => {
     const text = `My Janushan creation: ${creationName} with ${toppings.find((item) => item.id === topping)?.name}${sauce !== "none" ? ` and ${activeSauce.name} sauce` : ""}.`;
     try {
@@ -147,7 +155,7 @@ export default function IceCreamBuilder() {
               <p>{toppings.find((item) => item.id === topping)?.name} · {activeSauce.name === "No Sauce" ? "No sauce" : `${activeSauce.name} sauce`}</p>
             </div>
             <div className="creation-actions">
-              <button type="button" className="button button-primary" onClick={() => { setSaved(true); window.setTimeout(() => setSaved(false), 1600); }}>{saved ? "Saved ✓" : "Save Creation"}</button>
+              <button type="button" className="button button-primary" onClick={saveCreation}>{saved ? "Saved ✓" : "Save Creation"}</button>
               <button type="button" className="button button-ghost" onClick={shareCreation}>Share</button>
               <a className="button button-whatsapp" href={`https://wa.me/94776015041?text=${encodeURIComponent(orderText)}`} target="_blank" rel="noreferrer">Ask to Order ↗</a>
             </div>
