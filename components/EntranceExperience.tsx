@@ -242,8 +242,9 @@ export default function EntranceExperience() {
         <h1>JANUSHAN<br />ICE<br/>CREAM<br/></h1>
         <p className="tagline">A Scoop of Happiness.</p>
         <div className="hero-actions">
-          <a className="button button-primary" href="#discover">Discover Janushan</a>
-          <a className="button button-ghost" href="#flavours">Explore Flavours</a>
+          <a className="button button-primary" href="#menu">View Menu</a>
+          <a className="button button-ghost" href="https://wa.me/94776015041?text=Hi%20Janushan%20Ice%20Cream!%20I'd%20like%20to%20ask%20about%20your%20menu." target="_blank" rel="noreferrer">Order on WhatsApp ↗</a>
+          <a className="hero-text-link" href="#flavours">Explore Flavours ↓</a>
         </div>
       </motion.div>
 
