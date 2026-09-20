@@ -799,19 +799,18 @@ body {
   grid-template-columns: minmax(0, .94fr) minmax(420px, 1.06fr);
   gap: clamp(12px, 3vw, 60px);
   padding: 116px clamp(24px, 6.5vw, 105px) 70px;
-  background:
-    radial-gradient(circle at 72% 35%, rgba(93,183,255,.22), transparent 28%),
-    linear-gradient(120deg, rgba(2,12,75,.72), rgba(4,33,143,.34) 52%, rgba(2,11,67,.72));
+  background: #0626a5;
 }
 
 .hero-backdrop {
   position: absolute;
   inset: 0;
-  z-index: -5;
+  z-index: -1;
   background:
     linear-gradient(90deg, rgba(2,13,77,.58) 0%, rgba(3,21,101,.18) 46%, rgba(2,10,67,.25) 100%),
     linear-gradient(0deg, rgba(1,10,60,.28), transparent 36%),
     url("/brand/janushan-hero-banner.webp") center / cover no-repeat,
+    url("/og/og-default.png") center / cover no-repeat,
     #0626a5;
   transform: scale(1.01);
 }
@@ -1188,6 +1187,7 @@ body {
     background:
       linear-gradient(0deg, rgba(2,10,72,.74), rgba(2,16,92,.18) 62%),
       url("/brand/janushan-hero-banner.webp") center / cover no-repeat,
+      url("/og/og-default.png") center / cover no-repeat,
       #0626a5;
   }
 
