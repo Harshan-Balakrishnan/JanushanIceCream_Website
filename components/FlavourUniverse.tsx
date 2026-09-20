@@ -84,9 +84,9 @@ export default function FlavourUniverse() {
 
       <div className="flavour-shell section">
         <div className="flavour-copy">
-          <p className="section-kicker">FLAVOUR UNIVERSE</p>
-          <h2 id="flavour-title">Five flavours.<br /><em>Five worlds.</em></h2>
-          <p className="flavour-intro">Choose a flavour and watch the atmosphere transform around it. Every world keeps Janushan recognizable while giving each flavour its own personality.</p>
+          <p className="section-kicker">FIND YOUR FLAVOUR</p>
+          <h2 id="flavour-title">Five flavours.<br /><em>One happy mood.</em></h2>
+          <p className="flavour-intro">Tap a flavour and let the scene change. From bright berries to rich chocolate, every scoop brings its own little world.</p>
 
           <div className="flavour-tabs" role="tablist" aria-label="Choose a Janushan flavour">
             {flavours.map((flavour, index) => {
@@ -157,7 +157,7 @@ export default function FlavourUniverse() {
             </motion.div>
           </AnimatePresence>
 
-          <div className="flavour-stage-caption">Tap a flavour · Watch the world change</div>
+          <div className="flavour-stage-caption">Tap a flavour · Let the scene change</div>
         </div>
       </div>
     </section>
