@@ -76,13 +76,13 @@
 .heroLayout {
   position: relative;
   z-index: 2;
-  width: min(1380px, calc(100% - 80px));
+  width: min(1480px, calc(100% - 72px));
   min-height: 100svh;
   margin: 0 auto;
   display: grid;
-  grid-template-columns: minmax(440px, .82fr) minmax(0, 1fr);
+  grid-template-columns: minmax(540px, .9fr) minmax(0, 1.1fr);
   align-items: center;
-  gap: clamp(30px, 5vw, 90px);
+  gap: clamp(28px, 4vw, 72px);
   padding: 120px 0 70px;
 }
 
@@ -95,7 +95,7 @@
 }
 
 .copy {
-  width: min(650px, 100%);
+  width: min(720px, 100%);
   padding-top: 18px;
 }
 
@@ -132,7 +132,7 @@
 .copy h1 {
   margin: 13px 0 0;
   font-family: Georgia, "Times New Roman", serif;
-  font-size: clamp(58px, 6.4vw, 102px);
+  font-size: clamp(64px, 6.6vw, 112px);
   line-height: .82;
   letter-spacing: -.055em;
   text-shadow: 0 12px 36px rgba(0,0,0,.30);
@@ -142,16 +142,16 @@
   display: block;
   margin-top: 8px;
   font-family: Inter, ui-sans-serif, system-ui, sans-serif;
-  font-size: .28em;
-  line-height: 1;
-  letter-spacing: .33em;
+  font-size: .44em;
+  line-height: .9;
+  letter-spacing: .20em;
   color: #ffe5a5;
 }
 
 .tagline {
   margin: 23px 0 27px;
   font-family: Georgia, "Times New Roman", serif;
-  font-size: clamp(25px, 2.6vw, 38px);
+  font-size: clamp(24px, 2.25vw, 36px);
   line-height: 1.05;
   font-style: italic;
   font-weight: 700;
@@ -241,9 +241,9 @@
 
 .coneStage {
   position: relative;
-  width: min(510px, 100%);
-  height: min(650px, 72vh);
-  min-height: 560px;
+  width: min(620px, 100%);
+  height: min(700px, 76vh);
+  min-height: 600px;
   transform-origin: center bottom;
 }
 
@@ -251,8 +251,8 @@
   position: absolute;
   z-index: 0;
   left: 50%;
-  bottom: 5px;
-  width: 270px;
+  bottom: 18px;
+  width: 320px;
   height: 40px;
   transform: translateX(-50%);
   border-radius: 50%;
@@ -264,9 +264,9 @@
   position: absolute;
   z-index: 2;
   left: 50%;
-  bottom: 18px;
-  width: 190px;
-  height: 315px;
+  bottom: 30px;
+  width: 225px;
+  height: 370px;
   transform: translateX(-50%);
   clip-path: polygon(6% 0, 94% 0, 50% 100%);
   overflow: hidden;
@@ -316,9 +316,9 @@
   position: absolute;
   z-index: 4;
   left: 50%;
-  bottom: 293px;
-  width: 236px;
-  height: 64px;
+  bottom: 340px;
+  width: 280px;
+  height: 72px;
   transform: translateX(-50%);
   filter: drop-shadow(0 9px 10px rgba(0,0,0,.19));
 }
@@ -356,9 +356,9 @@
   position: absolute;
   z-index: 6;
   left: 50%;
-  top: 58px;
-  width: 235px;
-  height: 235px;
+  top: 18px;
+  width: 270px;
+  height: 270px;
   transform: translateX(-50%);
   transform-origin: 50% 92%;
   border-radius: 50% 50% 47% 53% / 48% 46% 54% 52%;
@@ -409,8 +409,8 @@
   position: absolute;
   z-index: 5;
   left: 50%;
-  bottom: 287px;
-  width: 270px;
+  bottom: 334px;
+  width: 315px;
   height: 38px;
   transform: translateX(-50%);
   border-radius: 50%;
@@ -427,18 +427,18 @@
   box-shadow: 0 2px 10px rgba(0,0,0,.15);
 }
 
-.dropOne { bottom: 300px; width: 9px; height: 9px; margin-left: -143px; }
-.dropTwo { bottom: 323px; width: 6px; height: 6px; margin-left: 133px; }
-.dropThree { bottom: 282px; width: 5px; height: 5px; margin-left: 112px; }
-.dropFour { bottom: 310px; width: 7px; height: 7px; margin-left: -111px; }
+.dropOne { bottom: 347px; width: 9px; height: 9px; margin-left: -143px; }
+.dropTwo { bottom: 370px; width: 6px; height: 6px; margin-left: 133px; }
+.dropThree { bottom: 329px; width: 5px; height: 5px; margin-left: 112px; }
+.dropFour { bottom: 357px; width: 7px; height: 7px; margin-left: -111px; }
 
 .ring {
   position: absolute;
   z-index: 1;
   left: 50%;
-  bottom: 270px;
-  width: 330px;
-  height: 75px;
+  bottom: 317px;
+  width: 380px;
+  height: 86px;
   transform: translateX(-50%);
   border: 2px solid rgba(255,239,198,.20);
   border-radius: 50%;
@@ -475,18 +475,18 @@
   }
 
   .copy h1 { font-size: clamp(52px, 6.7vw, 78px); }
-  .coneStage { transform: scale(.88); }
+  .coneStage { transform: scale(.82); }
 }
 
 @media (max-width: 760px) {
   .heroRoot {
-    min-height: 920px;
+    min-height: 980px;
     overflow: hidden;
   }
 
   .heroLayout {
     width: min(100% - 28px, 520px);
-    min-height: 960px;
+    min-height: 980px;
     display: flex;
     flex-direction: column;
     gap: 0;
@@ -496,52 +496,52 @@
   .coneColumn {
     order: 1;
     width: 100%;
-    height: 405px;
-    min-height: 405px;
-    flex: 0 0 405px;
+    height: 430px;
+    min-height: 430px;
+    flex: 0 0 430px;
   }
 
   .coneStage {
     width: min(390px, 96vw);
-    height: 405px;
-    min-height: 405px;
+    height: 430px;
+    min-height: 430px;
     transform: none;
   }
 
   .cone {
-    width: 130px;
-    height: 215px;
-    bottom: 18px;
+    width: 145px;
+    height: 240px;
+    bottom: 14px;
   }
 
   .cream {
-    width: 166px;
-    height: 46px;
-    bottom: 201px;
+    width: 186px;
+    height: 51px;
+    bottom: 219px;
   }
 
   .scoop {
-    width: 178px;
-    height: 178px;
-    top: 10px;
+    width: 184px;
+    height: 184px;
+    top: 0;
   }
 
   .impact {
-    width: 200px;
-    height: 27px;
-    bottom: 195px;
+    width: 220px;
+    height: 29px;
+    bottom: 213px;
   }
 
   .ring {
-    width: 245px;
-    height: 55px;
-    bottom: 182px;
+    width: 270px;
+    height: 60px;
+    bottom: 198px;
   }
 
-  .dropOne { bottom: 207px; margin-left: -105px; }
-  .dropTwo { bottom: 230px; margin-left: 97px; }
-  .dropThree { bottom: 190px; margin-left: 80px; }
-  .dropFour { bottom: 217px; margin-left: -82px; }
+  .dropOne { bottom: 225px; margin-left: -115px; }
+  .dropTwo { bottom: 248px; margin-left: 107px; }
+  .dropThree { bottom: 208px; margin-left: 88px; }
+  .dropFour { bottom: 235px; margin-left: -90px; }
 
   .copyColumn {
     order: 2;
@@ -570,14 +570,14 @@
 
   .copy h1 {
     margin-top: 9px;
-    font-size: clamp(43px, 13.5vw, 66px);
+    font-size: clamp(45px, 13.8vw, 68px);
     line-height: .84;
   }
 
   .copy h1 span {
     margin-top: 6px;
-    font-size: .28em;
-    letter-spacing: .25em;
+    font-size: .40em;
+    letter-spacing: .19em;
   }
 
   .tagline {
@@ -612,65 +612,65 @@
 
 @media (max-width: 430px) {
   .heroRoot {
-    min-height: 940px;
+    min-height: 960px;
   }
 
   .heroLayout {
-    min-height: 940px;
+    min-height: 960px;
     padding-top: 96px;
   }
 
   .coneColumn {
-    height: 365px;
-    min-height: 365px;
-    flex-basis: 365px;
+    height: 385px;
+    min-height: 385px;
+    flex-basis: 385px;
   }
 
   .coneStage {
     width: 350px;
     max-width: 96vw;
-    height: 365px;
-    min-height: 365px;
+    height: 385px;
+    min-height: 385px;
   }
 
   .cone {
-    width: 116px;
-    height: 190px;
-    bottom: 14px;
+    width: 128px;
+    height: 210px;
+    bottom: 12px;
   }
 
   .cream {
-    width: 150px;
-    height: 41px;
-    bottom: 178px;
+    width: 166px;
+    height: 45px;
+    bottom: 191px;
   }
 
   .scoop {
-    width: 162px;
-    height: 162px;
+    width: 166px;
+    height: 166px;
   }
 
   .impact {
-    width: 184px;
-    bottom: 173px;
+    width: 198px;
+    bottom: 185px;
   }
 
   .ring {
-    width: 225px;
-    bottom: 160px;
+    width: 245px;
+    bottom: 172px;
   }
 
-  .dropOne { bottom: 185px; margin-left: -96px; }
-  .dropTwo { bottom: 206px; margin-left: 88px; }
-  .dropThree { bottom: 170px; margin-left: 73px; }
-  .dropFour { bottom: 194px; margin-left: -73px; }
+  .dropOne { bottom: 197px; margin-left: -103px; }
+  .dropTwo { bottom: 218px; margin-left: 96px; }
+  .dropThree { bottom: 182px; margin-left: 80px; }
+  .dropFour { bottom: 206px; margin-left: -80px; }
 
   .copy h1 {
-    font-size: clamp(39px, 14.5vw, 58px);
+    font-size: clamp(41px, 14.8vw, 60px);
   }
 
   .tagline {
-    font-size: 20px;
+    font-size: 21px;
   }
 }
 
