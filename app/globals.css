@@ -1975,3 +1975,37 @@ img, video, canvas, svg {
     height:50px;
   }
 }
+
+
+/* Final brand polish — stronger hero photography + larger closing logo */
+.hero {
+  background:
+    linear-gradient(90deg, rgba(2,12,75,.48) 0%, rgba(2,18,92,.10) 48%, rgba(2,9,60,.08) 100%),
+    linear-gradient(0deg, rgba(2,9,60,.10) 0%, rgba(2,9,60,0) 58%),
+    url("/brand/janushan-hero-banner.webp") center center / cover no-repeat,
+    #0626a5;
+}
+
+@media(max-width:900px) {
+  .hero {
+    background:
+      linear-gradient(0deg, rgba(2,10,72,.16) 0%, rgba(2,16,92,.08) 58%, rgba(2,12,70,.03) 100%),
+      url("/brand/janushan-hero-banner.webp") center center / cover no-repeat,
+      #0626a5;
+  }
+}
+
+.cinematic-footer .footer-logo {
+  width:clamp(180px,24vw,390px);
+  height:auto;
+  margin-top:20px;
+  margin-bottom:8px;
+  filter:drop-shadow(0 16px 38px rgba(0,0,0,.38));
+}
+
+@media(max-width:600px) {
+  .cinematic-footer .footer-logo {
+    width:min(76vw,320px);
+    margin-top:12px;
+  }
+}
