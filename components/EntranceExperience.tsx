@@ -38,7 +38,7 @@ export default function EntranceExperience() {
 
             <p className={styles.eyebrow}>HANDCRAFTED ICE CREAM · SINCE 2004</p>
             <h1>JANUSHAN<span>ICE CREAM</span></h1>
-            <p className={styles.tagline}>Made fresh. Served with happiness.</p>
+            <p className={styles.tagline}>A little happiness in every scoop.</p>
 
             <div className={styles.actions}>
               <a className={styles.primaryButton} href="#menu">View Menu</a>
