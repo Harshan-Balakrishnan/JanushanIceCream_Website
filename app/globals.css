@@ -1828,3 +1828,54 @@ img, video, canvas, svg {
     flex:0 0 auto;
   }
 }
+
+/* Hero readability — keep the supplied banner visible while giving the typography a clean focal layer */
+.hero {
+  background:
+    linear-gradient(90deg, rgba(1,9,58,.56) 0%, rgba(2,18,92,.18) 52%, rgba(2,9,60,.16) 100%),
+    linear-gradient(0deg, rgba(2,9,60,.28), transparent 52%),
+    url("/brand/janushan-hero-banner.webp") center center / cover no-repeat,
+    #0626a5;
+}
+.hero-copy {
+  position:relative;
+  z-index:5;
+}
+.hero h1 {
+  text-shadow:
+    0 3px 8px rgba(0,0,0,.42),
+    0 14px 38px rgba(0,8,60,.42);
+}
+.hero .tagline {
+  max-width:620px;
+  text-shadow:0 2px 8px rgba(0,0,0,.48);
+}
+.hero .eyebrow {
+  text-shadow:0 2px 7px rgba(0,0,0,.42);
+}
+.hero-actions .button {
+  box-shadow:0 12px 30px rgba(0,8,55,.24);
+}
+@media(max-width:900px) {
+  .hero {
+    background:
+      linear-gradient(0deg, rgba(2,10,72,.52) 0%, rgba(2,16,92,.22) 58%, rgba(2,12,70,.10) 100%),
+      url("/brand/janushan-hero-banner.webp") center center / cover no-repeat,
+      #0626a5;
+  }
+  .hero h1 {
+    text-shadow:0 3px 9px rgba(0,0,0,.48),0 12px 30px rgba(0,8,60,.38);
+  }
+}
+@media(max-width:520px) {
+  .hero-copy {
+    max-width:100%;
+  }
+  .hero .tagline {
+    font-size:clamp(15px,4.2vw,18px);
+    line-height:1.5;
+  }
+  .home-social-links {
+    margin-top:16px;
+  }
+}
