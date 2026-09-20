@@ -693,3 +693,610 @@ button, a { -webkit-tap-highlight-color: transparent; }
       rgba(255, 221, 143, 0.08)
     );
 }
+
+
+/* =========================================================
+   2026 BRAND REFRESH — ROYAL BLUE / MILK / WHITE
+   ========================================================= */
+
+:root {
+  --navy: #03115f;
+  --navy-2: #06258e;
+  --blue-bright: #176cff;
+  --blue-soft: #79c8ff;
+  --gold: #f6c96b;
+  --gold-soft: #fff1c7;
+  --cream: #f5f9ff;
+  --white: #ffffff;
+  --ink: #07153d;
+  --line: rgba(255,255,255,.18);
+}
+
+html, body {
+  background: #03115f;
+}
+
+body {
+  overflow-x: hidden;
+}
+
+.nav-wrap {
+  padding: 14px clamp(14px, 3.5vw, 54px);
+}
+
+.nav {
+  height: 70px;
+  padding: 7px 9px 7px 12px;
+  background: rgba(3, 17, 95, .58);
+  border-color: rgba(255,255,255,.22);
+  box-shadow: 0 18px 55px rgba(0, 12, 70, .28);
+}
+
+.brand-mark {
+  gap: 10px;
+  letter-spacing: .12em;
+}
+
+.brand-mark img {
+  width: 54px;
+  height: 54px;
+  filter: drop-shadow(0 5px 18px rgba(0,0,0,.22));
+}
+
+.brand-mark span {
+  display: grid;
+  line-height: 1;
+  gap: 5px;
+}
+
+.brand-mark b {
+  font-size: 12px;
+  font-weight: 950;
+  letter-spacing: .16em;
+}
+
+.brand-mark small {
+  font-size: 8px;
+  letter-spacing: .34em;
+  color: rgba(255,255,255,.64);
+  font-weight: 800;
+}
+
+.nav-links {
+  gap: clamp(15px, 2.2vw, 30px);
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.nav-links a {
+  position: relative;
+}
+
+.nav-links a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 100%;
+  bottom: -8px;
+  height: 1px;
+  background: var(--blue-soft);
+  transition: right .25s ease;
+}
+
+.nav-links a:hover::after {
+  right: 0;
+}
+
+.nav-cta {
+  color: #04135d;
+  background: #fff;
+  border-color: #fff;
+  box-shadow: 0 8px 24px rgba(0,0,0,.16);
+}
+
+.hero {
+  min-height: 100svh;
+  grid-template-columns: minmax(0, .94fr) minmax(420px, 1.06fr);
+  gap: clamp(12px, 3vw, 60px);
+  padding: 116px clamp(24px, 6.5vw, 105px) 70px;
+  background:
+    radial-gradient(circle at 72% 35%, rgba(93,183,255,.22), transparent 28%),
+    linear-gradient(120deg, rgba(2,12,75,.72), rgba(4,33,143,.34) 52%, rgba(2,11,67,.72));
+}
+
+.hero-backdrop {
+  position: absolute;
+  inset: 0;
+  z-index: -5;
+  background:
+    linear-gradient(90deg, rgba(2,13,77,.58) 0%, rgba(3,21,101,.18) 46%, rgba(2,10,67,.25) 100%),
+    linear-gradient(0deg, rgba(1,10,60,.28), transparent 36%),
+    url("/brand/janushan-hero-banner.webp") center / cover no-repeat,
+    #0626a5;
+  transform: scale(1.01);
+}
+
+.ambient,
+.stars,
+.brand-aura {
+  opacity: 0;
+  pointer-events: none;
+}
+
+.cinema-vignette {
+  background:
+    linear-gradient(90deg, rgba(0,11,70,.38), transparent 38%, transparent 74%, rgba(0,8,60,.2)),
+    linear-gradient(0deg, rgba(0,7,55,.25), transparent 38%);
+  mix-blend-mode: normal;
+}
+
+.hero-copy {
+  max-width: 650px;
+  align-self: center;
+  padding-top: 44px;
+}
+
+.logo-shell {
+  width: 88px;
+  height: 88px;
+  margin-bottom: 20px;
+  background: rgba(255,255,255,.12);
+  border-color: rgba(255,255,255,.38);
+  box-shadow: 0 18px 50px rgba(0,17,110,.26);
+}
+
+.logo-shell img {
+  width: 76px;
+  height: 76px;
+}
+
+.cinematic-logo::after {
+  inset: -13px;
+  border-color: rgba(255,255,255,.25);
+  box-shadow: 0 0 34px rgba(111,205,255,.24);
+}
+
+.eyebrow,
+.section-kicker {
+  color: #d9f2ff;
+  letter-spacing: .22em;
+  font-size: 11px;
+}
+
+.hero h1 {
+  display: grid;
+  gap: 3px;
+  margin: 13px 0 0;
+  font-size: clamp(66px, 7.2vw, 112px);
+  line-height: .82;
+  letter-spacing: -.065em;
+  text-shadow: 0 16px 45px rgba(0,12,70,.34);
+}
+
+.hero h1 strong {
+  font: inherit;
+  font-weight: 950;
+}
+
+.hero h1 span {
+  font-family: Inter, ui-sans-serif, system-ui, sans-serif;
+  font-size: clamp(34px, 4.2vw, 62px);
+  font-weight: 900;
+  letter-spacing: .08em;
+  color: #fff;
+  margin: 0;
+}
+
+.tagline {
+  margin: 23px 0 10px;
+  font-size: clamp(24px, 2.6vw, 38px);
+  line-height: 1.08;
+  color: #fff;
+}
+
+.hero-support {
+  max-width: 530px;
+  margin: 0 0 28px;
+  color: rgba(255,255,255,.72);
+  font-size: 15px;
+  line-height: 1.65;
+}
+
+.hero-actions {
+  gap: 10px;
+}
+
+.hero-actions .button span {
+  margin-left: 8px;
+  font-size: 16px;
+}
+
+.button {
+  min-height: 50px;
+  padding: 0 21px;
+  border-radius: 16px;
+}
+
+.button-primary {
+  color: #04135d;
+  background: #fff;
+  box-shadow: 0 12px 30px rgba(0,8,70,.22);
+}
+
+.button-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 16px 36px rgba(0,8,70,.3);
+}
+
+.button-ghost {
+  color: #fff;
+  border-color: rgba(255,255,255,.32);
+  background: rgba(255,255,255,.08);
+  backdrop-filter: blur(12px);
+}
+
+.cinematic-hero .scoop-stage {
+  width: min(46vw, 610px);
+  min-height: 650px;
+  justify-self: center;
+  padding: 0;
+  margin-top: 12px;
+  filter: drop-shadow(0 40px 55px rgba(0,0,0,.28));
+}
+
+.cinematic-scoop-entry {
+  position: absolute;
+  top: 7%;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 8;
+}
+
+.premium-scoop {
+  width: clamp(210px, 22vw, 320px);
+}
+
+.cream-crown {
+  bottom: 40.2%;
+  width: clamp(250px, 20vw, 295px);
+  z-index: 7;
+}
+
+.premium-impact {
+  bottom: 39%;
+  width: clamp(280px, 25vw, 360px);
+  z-index: 6;
+}
+
+.premium-cone {
+  position: absolute;
+  left: 50%;
+  bottom: 7%;
+  transform: translateX(-50%);
+  width: clamp(160px, 17vw, 235px);
+  height: clamp(225px, 23vw, 335px);
+  z-index: 4;
+}
+
+.cone-lip {
+  top: -9px;
+}
+
+.scoop-shadow {
+  bottom: 11%;
+  z-index: 1;
+}
+
+.gold-dust {
+  bottom: 19%;
+  z-index: 2;
+}
+
+.splash-drop {
+  z-index: 9;
+}
+
+.scroll-cue {
+  color: rgba(255,255,255,.7);
+}
+
+.scroll-cue i {
+  background: linear-gradient(#fff, transparent);
+}
+
+/* Blue-and-milk theme for the rest of the experience */
+.discover {
+  background:
+    radial-gradient(circle at 88% 10%, rgba(69,160,255,.12), transparent 24%),
+    #f7fbff;
+  color: var(--ink);
+}
+
+.discover .section-kicker,
+.story-tease .section-kicker,
+.location-tease .section-kicker {
+  color: #0751c9;
+}
+
+.section h2 {
+  letter-spacing: -.052em;
+}
+
+.section h2 em {
+  color: #075ee6;
+}
+
+.feature-grid {
+  gap: 16px;
+}
+
+.feature-grid article {
+  border-color: #d8e8fb;
+  background: rgba(255,255,255,.88);
+  box-shadow: 0 18px 50px rgba(7,70,155,.07);
+  transition: transform .25s ease, box-shadow .25s ease;
+}
+
+.feature-grid article:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 24px 60px rgba(7,70,155,.12);
+}
+
+.feature-grid strong {
+  color: #075ee6;
+}
+
+.feature-grid h3 {
+  margin-top: 42px;
+}
+
+.product-universe {
+  background:
+    radial-gradient(circle at 78% 12%, rgba(79,185,255,.18), transparent 25%),
+    radial-gradient(circle at 12% 72%, rgba(31,92,255,.18), transparent 27%),
+    linear-gradient(145deg,#020a4b,#04228e 50%,#02083c);
+}
+
+.product-card {
+  border-color: rgba(255,255,255,.17);
+  background: linear-gradient(180deg,rgba(255,255,255,.10),rgba(255,255,255,.035));
+}
+
+.product-card:hover {
+  box-shadow: 0 34px 90px rgba(0,8,55,.42);
+}
+
+.product-source-note {
+  color: rgba(255,255,255,.45);
+}
+
+.flavour-universe {
+  background:
+    radial-gradient(circle at 50% 0%, rgba(255,255,255,.08), transparent 35%),
+    #04105f;
+}
+
+.builder {
+  background:
+    radial-gradient(circle at 12% 20%, rgba(91,177,255,.14), transparent 28%),
+    linear-gradient(145deg,#f7fbff,#eef6ff);
+  color: var(--ink);
+}
+
+.story-world {
+  background:
+    radial-gradient(circle at 18% 20%, rgba(61,158,255,.12), transparent 25%),
+    linear-gradient(135deg,#f7fbff,#eaf4ff 55%,#fff);
+  color: var(--ink);
+}
+
+.story-intro p:last-child,
+.story-card-copy > p:last-child {
+  color: #5f6e82;
+}
+
+.story-marker {
+  color: #075ee6;
+}
+
+.story-finale {
+  background: linear-gradient(145deg,#0635b9,#02105e);
+  color: #fff;
+  box-shadow: 0 28px 80px rgba(0,31,120,.22);
+}
+
+.promo-ribbon {
+  background:
+    radial-gradient(circle at 50% 30%, rgba(74,174,255,.18), transparent 42%),
+    #03115f;
+}
+
+.scoop-wall {
+  background: #f7fbff;
+  color: var(--ink);
+}
+
+.scoop-wall .section-kicker {
+  color: #075ee6;
+}
+
+.find-world {
+  background:
+    radial-gradient(circle at 18% 15%, #0b43ad 0, transparent 28%),
+    linear-gradient(145deg,#02083e,#06268f 68%,#02083e);
+}
+
+.contact-world {
+  background: #f7fbff;
+  color: var(--ink);
+}
+
+.contact-copy .section-kicker {
+  color: #075ee6;
+}
+
+.contact-card {
+  border-color: #d4e3f4;
+}
+
+.contact-card:hover {
+  background: #fff;
+}
+
+.cinematic-footer {
+  background:
+    radial-gradient(circle at 50% 42%, #0d4db0 0%, #04195e 34%, #01062e 72%);
+}
+
+.footer-kicker {
+  color: #cceeff;
+}
+
+.footer-line {
+  color: rgba(255,255,255,.7);
+}
+
+.footer-top {
+  border-color: rgba(255,255,255,.26);
+  background: rgba(255,255,255,.05);
+}
+
+/* Mobile: keep the supplied banner visible without crushing the hero */
+@media (max-width: 900px) {
+  .nav {
+    height: 62px;
+  }
+
+  .brand-mark b {
+    font-size: 10px;
+  }
+
+  .brand-mark small {
+    font-size: 7px;
+  }
+
+  .hero {
+    grid-template-columns: 1fr;
+    min-height: 100svh;
+    padding: 102px 20px 48px;
+    gap: 0;
+    background:
+      linear-gradient(0deg, rgba(2,10,72,.74) 0%, rgba(2,16,92,.28) 54%, rgba(2,12,70,.18) 100%);
+  }
+
+  .hero-backdrop {
+    background:
+      linear-gradient(0deg, rgba(2,10,72,.74), rgba(2,16,92,.18) 62%),
+      url("/brand/janushan-hero-banner.webp") center / cover no-repeat,
+      #0626a5;
+  }
+
+  .hero-copy {
+    order: 2;
+    padding-top: 0;
+    margin-top: -6px;
+  }
+
+  .logo-shell {
+    width: 72px;
+    height: 72px;
+    margin-bottom: 14px;
+  }
+
+  .logo-shell img {
+    width: 62px;
+    height: 62px;
+  }
+
+  .hero h1 {
+    font-size: clamp(54px, 16vw, 82px);
+  }
+
+  .hero h1 span {
+    font-size: clamp(27px, 8vw, 43px);
+    letter-spacing: .06em;
+  }
+
+  .tagline {
+    font-size: 24px;
+  }
+
+  .hero-support {
+    max-width: 410px;
+    font-size: 14px;
+    margin-bottom: 22px;
+  }
+
+  .cinematic-hero .scoop-stage {
+    order: 1;
+    width: min(88vw, 430px);
+    min-height: 430px;
+    margin-top: 0;
+  }
+
+  .cinematic-scoop-entry {
+    top: 5%;
+  }
+
+  .premium-scoop {
+    width: clamp(175px, 48vw, 235px);
+  }
+
+  .cream-crown {
+    bottom: 39%;
+    width: 220px;
+  }
+
+  .premium-impact {
+    bottom: 37.5%;
+    width: 270px;
+  }
+
+  .premium-cone {
+    bottom: 5%;
+    width: 155px;
+    height: 220px;
+  }
+
+  .scoop-shadow {
+    bottom: 7%;
+  }
+
+  .gold-dust {
+    bottom: 13%;
+  }
+}
+
+@media (max-width: 520px) {
+  .nav-wrap {
+    padding: 10px 12px;
+  }
+
+  .mobile-navigation {
+    left: 12px;
+    right: 12px;
+    top: 84px;
+  }
+
+  .hero {
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+
+  .hero h1 {
+    font-size: 58px;
+  }
+
+  .hero h1 span {
+    font-size: 29px;
+  }
+
+  .hero-actions {
+    width: 100%;
+    flex-direction: column;
+  }
+
+  .hero-actions .button {
+    width: min(100%, 340px);
+  }
+}
