@@ -3,6 +3,15 @@
 import Image from "next/image";
 import { motion, useReducedMotion } from "framer-motion";
 
+const droplets = [
+  { x: -150, y: -34, s: 12, d: 0.95 },
+  { x: -112, y: -76, s: 8, d: 1.0 },
+  { x: -76, y: -102, s: 6, d: 1.04 },
+  { x: 76, y: -102, s: 7, d: 1.03 },
+  { x: 116, y: -72, s: 9, d: 0.99 },
+  { x: 150, y: -30, s: 11, d: 0.95 },
+];
+
 const socialLinks = [
   {
     label: "Instagram",
@@ -28,17 +37,123 @@ export default function EntranceExperience() {
     <section className="hero cinematic-hero" id="home" aria-label="Janushan Ice Cream introduction">
       <div className="hero-image-overlay" aria-hidden="true" />
 
+      <div className="hero-scoop-stage" aria-hidden="true">
+        <motion.div
+          className="hero-scoop-shadow"
+          initial={reduceMotion ? false : { opacity: 0, scaleX: 0.4 }}
+          animate={reduceMotion ? undefined : { opacity: [0, 0.42, 0.25], scaleX: [0.4, 1, 0.86] }}
+          transition={{ duration: 0.9, delay: 1.0, ease: "easeOut" }}
+        />
+
+        <motion.div
+          className="hero-scoop-entry"
+          initial={reduceMotion ? false : { y: -420, opacity: 0, rotate: -5, scale: 0.82 }}
+          animate={
+            reduceMotion
+              ? undefined
+              : {
+                  y: [-420, -300, -150, -42, 0],
+                  opacity: [0, 0.35, 0.75, 1, 1],
+                  rotate: [-5, -2.5, -0.8, 0, 0],
+                  scale: [0.82, 0.9, 0.96, 1.02, 1],
+                }
+          }
+          transition={{
+            duration: 1.65,
+            times: [0, 0.2, 0.48, 0.78, 1],
+            delay: 0.2,
+            ease: [0.16, 1, 0.3, 1],
+          }}
+        >
+          <span className="hero-scoop-particle particle-1" />
+          <span className="hero-scoop-particle particle-2" />
+          <span className="hero-scoop-particle particle-3" />
+          <span className="hero-scoop-particle particle-4" />
+
+          <motion.span
+            className="hero-scoop-glow"
+            initial={reduceMotion ? false : { opacity: 0, scale: 0.5 }}
+            animate={reduceMotion ? undefined : { opacity: [0, 0.7, 0], scale: [0.5, 1, 1.3] }}
+            transition={{ duration: 1.45, delay: 0.28, ease: "easeOut" }}
+          />
+
+          <motion.div
+            className="hero-premium-scoop"
+            animate={reduceMotion ? undefined : { y: [0, -2, 0], rotate: [0, 0.15, 0] }}
+            transition={{ duration: 5.5, repeat: Infinity, ease: "easeInOut", delay: 2 }}
+          >
+            <span className="scoop-ridge ridge-a" />
+            <span className="scoop-ridge ridge-b" />
+            <span className="scoop-ridge ridge-c" />
+            <span className="scoop-gloss" />
+            <span className="scoop-rim rim-a" />
+            <span className="scoop-rim rim-b" />
+            <span className="scoop-rim rim-c" />
+          </motion.div>
+        </motion.div>
+
+        <motion.div
+          className="hero-cream-crown"
+          initial={reduceMotion ? false : { opacity: 0, scaleX: 0.25, scaleY: 0.4 }}
+          animate={reduceMotion ? undefined : { opacity: [0, 0, 1, 0.95], scaleX: [0.25, 0.25, 1.08, 1], scaleY: [0.4, 0.4, 1.15, 1] }}
+          transition={{ duration: 0.7, delay: 1.1, ease: "easeOut" }}
+        >
+          <span className="cream-lobe lobe-one" />
+          <span className="cream-lobe lobe-two" />
+          <span className="cream-lobe lobe-three" />
+        </motion.div>
+
+        {droplets.map((drop, index) => (
+          <motion.span
+            key={index}
+            className="hero-splash-drop"
+            style={{ width: drop.s, height: drop.s }}
+            initial={reduceMotion ? false : { opacity: 0, x: 0, y: 28, scale: 0.2 }}
+            animate={
+              reduceMotion
+                ? undefined
+                : {
+                    opacity: [0, 1, 0],
+                    x: [0, drop.x * 0.55, drop.x],
+                    y: [28, drop.y, drop.y + 42],
+                    scale: [0.2, 1, 0.7],
+                  }
+            }
+            transition={{ duration: 1.0, delay: drop.d, ease: "easeOut" }}
+          />
+        ))}
+
+        <motion.div
+          className="hero-impact-ring"
+          initial={reduceMotion ? false : { opacity: 0, scaleX: 0.2 }}
+          animate={reduceMotion ? undefined : { opacity: [0, 0.85, 0], scaleX: [0.2, 1, 1.55] }}
+          transition={{ duration: 0.7, delay: 1.02, ease: "easeOut" }}
+        />
+
+        <motion.div
+          className="hero-premium-cone"
+          initial={reduceMotion ? false : { y: 0, scaleY: 1 }}
+          animate={reduceMotion ? undefined : { y: [0, 8, -2, 0], scaleY: [1, 0.94, 1.02, 1] }}
+          transition={{ duration: 0.58, delay: 1.05, times: [0, 0.45, 0.75, 1] }}
+        >
+          <span className="cone-lip" />
+          <span className="cone-shine" />
+          <span className="cone-grid cone-grid-a" />
+          <span className="cone-grid cone-grid-b" />
+        </motion.div>
+      </div>
+
       <motion.div
         className="hero-copy"
-        initial={reduceMotion ? false : { opacity: 0, y: 24 }}
-        animate={reduceMotion ? undefined : { opacity: 1, y: 0 }}
-        transition={{ duration: 0.8, delay: 0.15, ease: [0.22, 1, 0.36, 1] }}
+        initial={reduceMotion ? false : { opacity: 0, x: -24, y: 12, filter: "blur(8px)" }}
+        animate={reduceMotion ? undefined : { opacity: 1, x: 0, y: 0, filter: "blur(0px)" }}
+        transition={{ duration: 0.85, delay: 0.75, ease: [0.22, 1, 0.36, 1] }}
       >
         <motion.div
           className="logo-shell cinematic-logo"
-          initial={reduceMotion ? false : { opacity: 0, scale: 0.82 }}
+          initial={reduceMotion ? false : { opacity: 0, scale: 0.75 }}
           animate={reduceMotion ? undefined : { opacity: 1, scale: 1 }}
-          transition={{ duration: 0.65, delay: 0.28, ease: "easeOut" }}
+          transition={{ duration: 0.65, delay: 0.9, ease: "easeOut" }}
         >
           <Image
             src="/brand/janushan-logo.png"
@@ -49,38 +164,11 @@ export default function EntranceExperience() {
           />
         </motion.div>
 
-        <motion.p
-          className="eyebrow"
-          initial={reduceMotion ? false : { opacity: 0, y: 12 }}
-          animate={reduceMotion ? undefined : { opacity: 1, y: 0 }}
-          transition={{ duration: 0.55, delay: 0.48 }}
-        >
-          PREMIUM ICE CREAM · SINCE 2004
-        </motion.p>
+        <p className="eyebrow">PREMIUM ICE CREAM · SINCE 2004</p>
+        <h1>JANUSHAN<br />ICE CREAM</h1>
+        <p className="tagline">A Scoop of Happiness.</p>
 
-        <motion.h1
-          initial={reduceMotion ? false : { opacity: 0, y: 18 }}
-          animate={reduceMotion ? undefined : { opacity: 1, y: 0 }}
-          transition={{ duration: 0.65, delay: 0.58, ease: "easeOut" }}
-        >
-          JANUSHAN<br />ICE CREAM
-        </motion.h1>
-
-        <motion.p
-          className="tagline"
-          initial={reduceMotion ? false : { opacity: 0, y: 14 }}
-          animate={reduceMotion ? undefined : { opacity: 1, y: 0 }}
-          transition={{ duration: 0.55, delay: 0.72 }}
-        >
-          A Scoop of Happiness.
-        </motion.p>
-
-        <motion.div
-          className="hero-actions"
-          initial={reduceMotion ? false : { opacity: 0, y: 12 }}
-          animate={reduceMotion ? undefined : { opacity: 1, y: 0 }}
-          transition={{ duration: 0.55, delay: 0.86 }}
-        >
+        <div className="hero-actions">
           <a className="button button-primary" href="#menu">View Menu</a>
           <a
             className="button button-ghost"
@@ -91,14 +179,14 @@ export default function EntranceExperience() {
             Order on WhatsApp ↗
           </a>
           <a className="hero-text-link" href="#flavours">Explore Flavours ↓</a>
-        </motion.div>
+        </div>
 
         <motion.div
           className="hero-socials"
           aria-label="Janushan Ice Cream social links"
-          initial={reduceMotion ? false : { opacity: 0, y: 10 }}
+          initial={reduceMotion ? false : { opacity: 0, y: 8 }}
           animate={reduceMotion ? undefined : { opacity: 1, y: 0 }}
-          transition={{ duration: 0.5, delay: 1.02 }}
+          transition={{ duration: 0.5, delay: 1.35 }}
         >
           {socialLinks.map((social) => (
             <a key={social.label} href={social.href} target="_blank" rel="noreferrer" aria-label={social.label}>
@@ -114,7 +202,7 @@ export default function EntranceExperience() {
         aria-label="Scroll to discover Janushan Ice Cream"
         initial={reduceMotion ? false : { opacity: 0 }}
         animate={reduceMotion ? undefined : { opacity: 1 }}
-        transition={{ duration: 0.6, delay: 1.35 }}
+        transition={{ duration: 0.6, delay: 1.65 }}
       >
         <span>SCROLL TO TASTE</span>
         <i />
