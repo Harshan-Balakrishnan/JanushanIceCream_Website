@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
-import { useEffect, useMemo, useState } from "react";
+import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { useCatalogCollection } from "@/hooks/useCatalogCollection";
 import { defaultProducts, type Product } from "@/lib/catalog";
 
@@ -13,6 +13,57 @@ export default function ProductUniverse() {
   const [active, setActive] = useState(0);
   const reduceMotion = useReducedMotion();
   const formatter = useMemo(() => new Intl.NumberFormat("en-LK"), []);
+  const trackRef = useRef<HTMLDivElement>(null);
+  const cardRefs = useRef<(HTMLButtonElement | null)[]>([]);
+  const pauseAutoPlay = useRef(false);
+
+  const goToProduct = useCallback((index: number) => {
+    if (!products.length) return;
+    const next = (index + products.length) % products.length;
+    setActive(next);
+    cardRefs.current[next]?.scrollIntoView({
+      behavior: reduceMotion ? "auto" : "smooth",
+      block: "nearest",
+      inline: "center",
+    });
+  }, [products.length, reduceMotion]);
+
+  useEffect(() => {
+    if (reduceMotion || products.length < 2) return;
+    const timer = window.setInterval(() => {
+      if (!pauseAutoPlay.current) goToProduct(active + 1);
+    }, 4200);
+    return () => window.clearInterval(timer);
+  }, [active, goToProduct, reduceMotion, products.length]);
+
+  useEffect(() => {
+    const track = trackRef.current;
+    if (!track) return;
+    let frame = 0;
+    const onScroll = () => {
+      cancelAnimationFrame(frame);
+      frame = requestAnimationFrame(() => {
+        const center = track.getBoundingClientRect().left + track.clientWidth / 2;
+        let nearest = active;
+        let distance = Number.POSITIVE_INFINITY;
+        cardRefs.current.forEach((card, index) => {
+          if (!card) return;
+          const rect = card.getBoundingClientRect();
+          const nextDistance = Math.abs(rect.left + rect.width / 2 - center);
+          if (nextDistance < distance) {
+            distance = nextDistance;
+            nearest = index;
+          }
+        });
+        if (nearest !== active) setActive(nearest);
+      });
+    };
+    track.addEventListener("scroll", onScroll, { passive: true });
+    return () => {
+      cancelAnimationFrame(frame);
+      track.removeEventListener("scroll", onScroll);
+    };
+  }, [active]);
 
   useEffect(() => {
     if (!selected) return;
