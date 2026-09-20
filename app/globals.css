@@ -2186,3 +2186,43 @@ img, video, canvas, svg {
   }
   .footer-nav a { font-size:10px; }
 }
+
+
+/* Commercial conversion + local discovery polish */
+.hero-trust-row { display:flex; align-items:center; gap:18px; margin:0 0 28px; color:rgba(255,255,255,.84); }
+.hero-trust-row span { display:grid; gap:4px; }
+.hero-trust-row b { font-size:11px; letter-spacing:.08em; text-transform:uppercase; }
+.hero-trust-row small { color:rgba(255,255,255,.55); font-size:10px; }
+.hero-trust-row i { width:1px; height:28px; background:rgba(255,255,255,.2); }
+.modal-order-note { display:block; margin-top:14px; color:rgba(255,255,255,.56); line-height:1.5; }
+.contact-quick-links { display:flex; flex-wrap:wrap; gap:12px; margin-top:26px; }
+.footer-address { max-width:720px; margin:12px auto 0; color:rgba(255,255,255,.5); font-size:12px; line-height:1.6; letter-spacing:.04em; }
+.customer-info { background:#fffdf7; color:var(--ink); display:grid; grid-template-columns:.8fr 1.2fr; gap:70px; align-items:start; }
+.customer-info-head p:last-child { max-width:520px; color:#666b76; line-height:1.7; font-size:17px; }
+.customer-info .section-kicker { color:#b47a13; }
+.faq-list { border-top:1px solid #dfd4bd; }
+.faq-item { border-bottom:1px solid #dfd4bd; }
+.faq-item summary { list-style:none; cursor:pointer; display:grid; grid-template-columns:46px 1fr 28px; gap:18px; align-items:center; padding:24px 0; }
+.faq-item summary::-webkit-details-marker { display:none; }
+.faq-item summary span { color:#b47a13; font-size:11px; letter-spacing:.12em; font-weight:850; }
+.faq-item summary strong { font-family:Georgia,serif; font-size:22px; font-weight:500; }
+.faq-item summary i { font-style:normal; font-size:24px; transition:transform .25s ease; }
+.faq-item[open] summary i { transform:rotate(45deg); }
+.faq-item p { margin:0 46px 24px; max-width:720px; color:#666b76; line-height:1.7; }
+.contact-card strong { overflow-wrap:anywhere; }
+@media (max-width:900px) {
+  .hero-trust-row { gap:10px; justify-content:center; width:100%; }
+  .hero-trust-row b { font-size:9px; }
+  .hero-trust-row small { font-size:9px; }
+  .customer-info { grid-template-columns:1fr; gap:38px; }
+  .faq-item summary { grid-template-columns:30px 1fr 24px; gap:12px; }
+  .faq-item summary strong { font-size:19px; }
+  .faq-item p { margin-left:42px; }
+  .contact-quick-links .button { width:100%; }
+}
+@media (max-width:520px) {
+  .hero-trust-row { gap:8px; }
+  .hero-trust-row i { height:24px; }
+  .hero-trust-row b { font-size:8px; letter-spacing:.04em; }
+  .hero-trust-row small { font-size:8px; }
+}
