@@ -8,10 +8,13 @@ export default function ContactExperience() {
           Have something <em>sweet</em> in mind?
         </h2>
         <p>
-          For product enquiries, shop information or anything Janushan Ice
-          Cream, reach us directly through the contact channels printed on the
-          brand&apos;s packaging.
+          For product enquiries, shop information, availability or orders,
+          reach Janushan Ice Cream directly. For the fastest response, use WhatsApp.
         </p>
+        <div className="contact-quick-links">
+          <a className="button button-primary" href="https://wa.me/94776015041?text=Hi%20Janushan%20Ice%20Cream%20%F0%9F%91%8B%20I%20would%20like%20to%20place%20an%20order." target="_blank" rel="noreferrer">Order via WhatsApp ↗</a>
+          <a className="button button-ghost" href="https://www.google.com/search?q=Janushan+Ice+Cream+Vavuniya" target="_blank" rel="noreferrer">Leave a Google Review ↗</a>
+        </div>
       </div>
 
       <div className="contact-cards">
