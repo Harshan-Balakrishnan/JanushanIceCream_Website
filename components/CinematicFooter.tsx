@@ -10,6 +10,7 @@ export default function CinematicFooter() {
       <p className="footer-kicker">JANUSHAN ICE CREAM · SINCE 2004</p>
       <h2>A Scoop of <em>Happiness.</em></h2>
       <p className="footer-line">Made fresh. Served with love.</p>
+      <p className="footer-address">No: 256/4, Kali Kovil Road, Nelukkulam, Vavuniya, Sri Lanka · 024 222 6041</p>
       <div className="social-links" aria-label="Janushan Ice Cream social links">
         <a className="social-link facebook" href="https://www.facebook.com/janushanicecream" target="_blank" rel="noreferrer" aria-label="Janushan Ice Cream on Facebook">
           <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M13.5 22v-8h2.7l.4-3h-3.1V9.1c0-.9.3-1.5 1.6-1.5h1.7V4.9c-.3 0-1.2-.1-2.3-.1-2.3 0-3.9 1.4-3.9 4v2.2H8v3h2.6v8h2.9Z"/></svg>
@@ -24,8 +25,21 @@ export default function CinematicFooter() {
           <span>Google Reviews</span>
         </a>
       </div>
+      <nav className="footer-nav" aria-label="Footer navigation">
+        <a href="#menu">Menu</a>
+        <a href="#flavours">Flavours</a>
+        <a href="#story">Our Story</a>
+        <a href="#gallery">Gallery</a>
+        <a href="#locations">Find Us</a>
+        <a href="#faq">FAQ</a>
+        <a href="#contact">Contact</a>
+      </nav>
       <a className="footer-top" href="#home">Back to the top ↑</a>
-      <div className="footer-bottom"><span>© Janushan Ice Cream</span><span>Made in Sri Lanka</span></div>
+      <div className="footer-bottom">
+        <span>© 2026 Janushan Ice Cream</span>
+        <span>Made in Sri Lanka</span>
+        <span>All rights reserved.</span>
+      </div>
     </footer>
   );
 }

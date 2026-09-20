@@ -174,9 +174,17 @@ export default function ProductUniverse() {
                 <div className="modal-price">Rs. {formatter.format(selected.price)}/-</div>
                 <p>{selected.blurb}</p>
                 <div className="modal-actions">
-                  <a className="button button-primary" href="#flavours" onClick={() => setSelected(null)}>Explore Flavours</a>
-                  <button className="button button-ghost" type="button" onClick={() => setSelected(null)}>Keep Browsing</button>
+                  <a
+                    className="button button-primary"
+                    href={`https://wa.me/94776015041?text=${encodeURIComponent(`Hi Janushan Ice Cream 👋 I would like to order ${selected.name} (Rs. ${selected.price}/-). Please confirm availability.`) }`}
+                    target="_blank"
+                    rel="noreferrer"
+                  >
+                    Order on WhatsApp ↗
+                  </a>
+                  <a className="button button-ghost" href="#flavours" onClick={() => setSelected(null)}>Explore Flavours</a>
                 </div>
+                <small className="modal-order-note">Quick order: tap WhatsApp and we&apos;ll confirm availability with you.</small>
                 <small className="modal-future">Product details can be managed from the Janushan Control Room when Firebase is connected.</small>
               </div>
             </motion.div>

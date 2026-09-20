@@ -250,6 +250,13 @@ export default function EntranceExperience() {
         <p className="eyebrow">PREMIUM ICE CREAM · SINCE 2004</p>
         <h1 aria-label="Janushan Ice Cream"><b className="hero-brand-initial">J</b>ANUSHAN<br /><b className="hero-brand-initial">I</b>CE<br /><b className="hero-brand-initial">C</b>REAM<br /></h1>
         <p className="tagline">A Scoop of Happiness.</p>
+        <div className="hero-trust-row" aria-label="Janushan Ice Cream highlights">
+          <span><b>Since 2004</b><small>Vavuniya-born</small></span>
+          <i aria-hidden="true" />
+          <span><b>Made in Sri Lanka</b><small>Freshly served</small></span>
+          <i aria-hidden="true" />
+          <span><b>5 signature flavours</b><small>Pick your favourite</small></span>
+        </div>
         <div className="hero-actions">
           <a className="button button-primary" href="#discover">Discover Janushan</a>
           <a className="button button-ghost" href="#flavours">Explore Flavours</a>
