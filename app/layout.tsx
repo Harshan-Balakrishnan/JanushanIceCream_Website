@@ -38,13 +38,13 @@ export const metadata: Metadata = {
     siteName: SITE_NAME,
     title: `${SITE_NAME} | A Scoop of Happiness`,
     description: SITE_DESCRIPTION,
-    images: [{ url: "/og/og-default.png", width: 1200, height: 630, alt: SITE_NAME }],
+    images: [{ url: "/opengraph-image", width: 1200, height: 630, alt: SITE_NAME }],
   },
   twitter: {
     card: "summary_large_image",
     title: `${SITE_NAME} | A Scoop of Happiness`,
     description: SITE_DESCRIPTION,
-    images: ["/og/og-default.png"],
+    images: ["/opengraph-image"],
   },
   robots: { index: true, follow: true },
   other: {
