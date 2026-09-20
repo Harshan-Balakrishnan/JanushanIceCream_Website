@@ -5,6 +5,7 @@ import ScoopWall from "@/components/ScoopWall";
 import PromotionRibbon from "@/components/PromotionRibbon";
 import FindJanushan from "@/components/FindJanushan";
 import ContactExperience from "@/components/ContactExperience";
+import CustomerInfo from "@/components/CustomerInfo";
 
 export default function DiscoverPreview() {
   return (
@@ -32,6 +33,8 @@ export default function DiscoverPreview() {
       <ScoopWall />
 
       <FindJanushan />
+
+      <CustomerInfo />
 
       <ContactExperience />
     </>
