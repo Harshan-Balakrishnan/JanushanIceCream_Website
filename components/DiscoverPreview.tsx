@@ -1,6 +1,5 @@
 import ProductUniverse from "@/components/ProductUniverse";
 import FlavourUniverse from "@/components/FlavourUniverse";
-import IceCreamBuilder from "@/components/IceCreamBuilder";
 import StoryTimeline from "@/components/StoryTimeline";
 import ScoopWall from "@/components/ScoopWall";
 import PromotionRibbon from "@/components/PromotionRibbon";
@@ -25,7 +24,6 @@ export default function DiscoverPreview() {
 
       <FlavourUniverse />
 
-      <IceCreamBuilder />
 
       <StoryTimeline />
 
