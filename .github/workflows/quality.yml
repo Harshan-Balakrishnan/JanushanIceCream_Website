@@ -10,7 +10,7 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 15
     env:
-      NEXT_PUBLIC_SITE_URL: https://janushan.example
+      NEXT_PUBLIC_SITE_URL: https://www.janushanicecream.lk
       NEXT_PUBLIC_FIREBASE_API_KEY: ci-placeholder
       NEXT_PUBLIC_FIREBASE_AUTH_DOMAIN: ci-placeholder.firebaseapp.com
       NEXT_PUBLIC_FIREBASE_PROJECT_ID: ci-placeholder
