@@ -1000,3 +1000,220 @@ img, video, canvas, svg {
     max-width:100%;
   }
 }
+
+
+/* Final readability + social pass — preserve the existing layout */
+.hero {
+  background:
+    linear-gradient(90deg, rgba(2,12,75,.40) 0%, rgba(2,18,92,.10) 50%, rgba(2,9,60,.20) 100%),
+    linear-gradient(0deg, rgba(2,9,60,.20), transparent 48%),
+    url("/brand/janushan-hero-banner.webp") center center / cover no-repeat,
+    #0626a5;
+}
+
+@media(max-width:900px) {
+  .hero {
+    background:
+      linear-gradient(0deg, rgba(2,10,72,.48) 0%, rgba(2,16,92,.12) 58%, rgba(2,12,70,.08) 100%),
+      url("/brand/janushan-hero-banner.webp") center center / cover no-repeat,
+      #0626a5;
+  }
+}
+
+/* Build Your Dream Ice Cream — cream surface with readable ink */
+.builder {
+  color: var(--ink);
+  background:
+    radial-gradient(circle at 12% 20%, rgba(91,177,255,.10), transparent 28%),
+    linear-gradient(145deg,var(--cream),#fffaf1);
+}
+
+.builder .section-kicker,
+.builder-heading .section-kicker {
+  color:#9a6500;
+}
+
+.builder-heading h2,
+.builder-heading h2 em {
+  color:var(--ink);
+}
+
+.builder-heading h2 em {
+  color:#9d3f63;
+}
+
+.builder-heading > p:last-child {
+  color:#5f6470;
+}
+
+.builder-controls fieldset {
+  border-color:#e4d7c2;
+  background:rgba(255,255,255,.68);
+  box-shadow:0 12px 35px rgba(63,45,20,.06);
+}
+
+.builder-controls legend {
+  color:var(--ink);
+}
+
+.builder-options button {
+  color:#3f4652;
+  border-color:#e1d5c3;
+  background:rgba(255,255,255,.72);
+}
+
+.builder-options button i {
+  color:#9a6500;
+}
+
+.builder-options button:hover,
+.builder-options button.is-active {
+  color:var(--ink);
+  background:#fffdf8;
+}
+
+.scoop-counter button {
+  color:var(--ink);
+  border-color:#e1d5c3;
+  background:rgba(255,255,255,.72);
+}
+
+.scoop-counter button small {
+  color:#737985;
+}
+
+.builder-controls select {
+  background:#fffdf8;
+  color:var(--ink);
+  border-color:#e1d5c3;
+}
+
+.creation-summary {
+  border-color:#e4d7c2;
+  background:rgba(255,255,255,.74);
+  box-shadow:0 12px 35px rgba(63,45,20,.06);
+}
+
+.creation-summary h3 {
+  color:var(--ink);
+}
+
+.creation-summary p {
+  color:#626875;
+}
+
+.creation-summary > small {
+  color:#737985;
+  border-top-color:#e4d7c2;
+}
+
+.creation-actions .button-ghost {
+  color:var(--ink);
+  border-color:#d6c7b0;
+  background:rgba(255,255,255,.55);
+}
+
+.builder-stage {
+  border-color:#e2d6c4;
+  box-shadow:0 30px 75px rgba(63,45,20,.12);
+}
+
+/* Our Story — readable dark ink on the new cream surface */
+.story-world {
+  background:
+    radial-gradient(circle at 18% 20%, rgba(61,158,255,.08), transparent 25%),
+    linear-gradient(135deg,var(--cream),#fffaf1 55%,#fffdf8);
+  color:var(--ink);
+}
+
+.story-sticky .section-kicker,
+.story-intro .section-kicker,
+.story-card-copy .section-kicker {
+  color:#9a6500;
+}
+
+.story-sticky-copy {
+  color:#737985;
+}
+
+.story-intro h2,
+.story-card-copy h3 {
+  color:var(--ink);
+}
+
+.story-intro h2 em {
+  color:#9d3f63;
+}
+
+.story-intro > p:last-child,
+.story-card-copy > p:last-child {
+  color:#5f6470;
+}
+
+.story-card {
+  border-color:#e4d7c2;
+  background:rgba(255,255,255,.70);
+  box-shadow:0 30px 75px rgba(63,45,20,.08);
+}
+
+.story-marker {
+  color:rgba(154,101,0,.18);
+}
+
+.story-sticky .story-year {
+  -webkit-text-stroke-color:rgba(154,101,0,.48);
+  text-shadow:0 0 70px rgba(217,155,39,.10);
+}
+
+.story-finale {
+  color:#fff;
+}
+
+/* Social links — recognizable brand colours, icon-only on the hero */
+.home-social-links {
+  display:flex;
+  align-items:center;
+  gap:10px;
+  margin-top:20px;
+}
+
+.home-social-link {
+  width:44px;
+  height:44px;
+  display:inline-grid;
+  place-items:center;
+  border:1px solid rgba(255,255,255,.28);
+  border-radius:50%;
+  background:rgba(255,255,255,.10);
+  backdrop-filter:blur(10px);
+  transition:transform .2s ease, background .2s ease, border-color .2s ease;
+}
+
+.home-social-link:hover {
+  transform:translateY(-2px);
+  background:rgba(255,255,255,.18);
+  border-color:rgba(255,255,255,.48);
+}
+
+.home-social-link svg {
+  width:22px;
+  height:22px;
+  display:block;
+}
+
+.home-social-link.facebook svg { color:#1877F2; }
+.home-social-link.instagram svg { color:#E4405F; }
+.home-social-link.google svg { color:#4285F4; }
+
+.home-social-link:focus-visible {
+  outline:3px solid #ffe4a2;
+  outline-offset:4px;
+}
+
+/* Footer social icons keep their official recognizable colours */
+.cinematic-footer .social-link.facebook svg { color:#1877F2; }
+.cinematic-footer .social-link.instagram svg { color:#E4405F; }
+.cinematic-footer .social-link.google svg { color:#4285F4; }
+.cinematic-footer .social-link {
+  background:rgba(255,255,255,.08);
+}
