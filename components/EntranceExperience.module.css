@@ -482,11 +482,11 @@
 
   .heroLayout {
     width: min(100% - 28px, 520px);
-    min-height: 920px;
+    min-height: 960px;
     display: flex;
     flex-direction: column;
     gap: 0;
-    padding: 76px 0 48px;
+    padding: 104px 0 48px;
   }
 
   .coneColumn {
@@ -608,12 +608,12 @@
 
 @media (max-width: 430px) {
   .heroRoot {
-    min-height: 900px;
+    min-height: 940px;
   }
 
   .heroLayout {
-    min-height: 900px;
-    padding-top: 66px;
+    min-height: 940px;
+    padding-top: 96px;
   }
 
   .coneColumn {
