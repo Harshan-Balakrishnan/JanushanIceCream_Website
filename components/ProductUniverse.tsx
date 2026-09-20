@@ -15,7 +15,6 @@ export default function ProductUniverse() {
   const formatter = useMemo(() => new Intl.NumberFormat("en-LK"), []);
   const trackRef = useRef<HTMLDivElement>(null);
   const cardRefs = useRef<(HTMLButtonElement | null)[]>([]);
-  const pauseAutoPlay = useRef(false);
 
   const goToProduct = useCallback((index: number) => {
     if (!products.length) return;
@@ -28,13 +27,6 @@ export default function ProductUniverse() {
     });
   }, [products.length, reduceMotion]);
 
-  useEffect(() => {
-    if (reduceMotion || products.length < 2) return;
-    const timer = window.setInterval(() => {
-      if (!pauseAutoPlay.current) goToProduct(active + 1);
-    }, 4200);
-    return () => window.clearInterval(timer);
-  }, [active, goToProduct, reduceMotion, products.length]);
 
   useEffect(() => {
     const track = trackRef.current;
@@ -92,19 +84,7 @@ export default function ProductUniverse() {
         </p>
       </div>
 
-      <div
-        className="product-track-wrap"
-        onMouseEnter={() => { pauseAutoPlay.current = true; }}
-        onMouseLeave={() => { pauseAutoPlay.current = false; }}
-        onFocusCapture={() => { pauseAutoPlay.current = true; }}
-        onBlurCapture={(event) => {
-          if (!event.currentTarget.contains(event.relatedTarget as Node | null)) pauseAutoPlay.current = false;
-        }}
-        onTouchStart={() => { pauseAutoPlay.current = true; }}
-        onTouchEnd={() => {
-          window.setTimeout(() => { pauseAutoPlay.current = false; }, 900);
-        }}
-      >
+      <div className="product-track-wrap">
         <button className="product-arrow product-arrow-prev" type="button" onClick={() => goToProduct(active - 1)} aria-label="Previous product">
           <span aria-hidden="true">‹</span>
         </button>
@@ -150,7 +130,6 @@ export default function ProductUniverse() {
         <button className="product-arrow product-arrow-next" type="button" onClick={() => goToProduct(active + 1)} aria-label="Next product">
           <span aria-hidden="true">›</span>
         </button>
-        <div className="product-autoplay-hint" aria-hidden="true"><span /> AUTO MENU</div>
       </div>
 
       <div className="product-progress" aria-hidden="true">
