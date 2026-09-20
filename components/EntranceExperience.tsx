@@ -17,7 +17,6 @@ export default function EntranceExperience() {
 
   return (
     <section className="hero cinematic-hero" id="home" aria-label="Janushan Ice Cream introduction">
-      <div className="hero-backdrop" aria-hidden="true" />
       <div className="ambient ambient-one" />
       <div className="ambient ambient-two" />
       <div className="cinema-vignette" aria-hidden="true" />
