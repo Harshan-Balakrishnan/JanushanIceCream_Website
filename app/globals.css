@@ -1217,3 +1217,393 @@ img, video, canvas, svg {
 .cinematic-footer .social-link {
   background:rgba(255,255,255,.08);
 }
+
+
+/* Menu carousel — guided autoplay with clear previous/next controls */
+.product-track-wrap {
+  position:relative;
+}
+
+.product-arrow {
+  position:absolute;
+  top:50%;
+  z-index:8;
+  width:52px;
+  height:52px;
+  display:grid;
+  place-items:center;
+  transform:translateY(-50%);
+  border:1px solid rgba(255,255,255,.24);
+  border-radius:50%;
+  background:rgba(2,12,55,.72);
+  color:#fff;
+  font-family:Arial,sans-serif;
+  font-size:34px;
+  line-height:1;
+  cursor:pointer;
+  backdrop-filter:blur(12px);
+  box-shadow:0 14px 34px rgba(0,0,0,.25);
+  transition:transform .22s ease,background .22s ease,border-color .22s ease;
+}
+
+.product-arrow:hover {
+  transform:translateY(-50%) scale(1.06);
+  background:rgba(6,38,142,.94);
+  border-color:rgba(255,255,255,.48);
+}
+
+.product-arrow:focus-visible {
+  outline:3px solid #ffe4a2;
+  outline-offset:4px;
+}
+
+.product-arrow-prev { left:clamp(10px,2.2vw,30px); }
+.product-arrow-next { right:clamp(10px,2.2vw,30px); }
+
+.product-autoplay-hint {
+  position:absolute;
+  right:clamp(24px,7vw,120px);
+  bottom:8px;
+  display:flex;
+  align-items:center;
+  gap:7px;
+  color:rgba(255,255,255,.42);
+  font-size:8px;
+  font-weight:900;
+  letter-spacing:.18em;
+  pointer-events:none;
+}
+
+.product-autoplay-hint span {
+  width:6px;
+  height:6px;
+  border-radius:50%;
+  background:#f6c96b;
+  box-shadow:0 0 12px rgba(246,201,107,.8);
+  animation:menuPulse 1.8s ease-in-out infinite;
+}
+
+@keyframes menuPulse {
+  0%,100% { opacity:.35; transform:scale(.75); }
+  50% { opacity:1; transform:scale(1); }
+}
+
+@media(max-width:700px) {
+  .product-arrow {
+    width:44px;
+    height:44px;
+    font-size:29px;
+  }
+
+  .product-arrow-prev { left:8px; }
+  .product-arrow-next { right:8px; }
+
+  .product-autoplay-hint {
+    display:none;
+  }
+
+  .product-track {
+    scroll-padding-inline:44px;
+  }
+}
+
+/* Flavour Universe — mobile becomes a true vertical composition instead of overlapping layers */
+@media(max-width:650px) {
+  .flavour-universe {
+    min-height:auto;
+  }
+
+  .flavour-shell {
+    min-height:auto;
+    width:100%;
+    gap:28px;
+    padding-top:88px;
+    padding-bottom:72px;
+  }
+
+  .flavour-copy {
+    width:100%;
+  }
+
+  .flavour-universe h2 {
+    font-size:clamp(42px,12vw,58px);
+    line-height:.94;
+    margin-bottom:18px;
+  }
+
+  .flavour-intro {
+    max-width:none;
+    font-size:15px;
+    line-height:1.65;
+  }
+
+  .flavour-tabs {
+    margin-top:24px;
+    margin-right:-20px;
+    padding-right:20px;
+    gap:8px;
+    scrollbar-width:none;
+  }
+
+  .flavour-tabs::-webkit-scrollbar { display:none; }
+
+  .flavour-tabs button {
+    min-width:142px;
+    min-height:68px;
+    padding:12px 14px;
+  }
+
+  .flavour-stage {
+    width:100%;
+    min-height:auto;
+    display:block;
+    position:relative;
+    padding-bottom:0;
+  }
+
+  .flavour-scene {
+    width:100%;
+    min-height:auto;
+    display:grid;
+    grid-template-rows:auto auto;
+    gap:18px;
+    align-items:start;
+    justify-items:center;
+  }
+
+  .flavour-product-image {
+    grid-row:1;
+    width:100%;
+    max-width:520px;
+    aspect-ratio:1.28;
+    transform:none;
+    border-radius:32px;
+  }
+
+  .flavour-product-image img {
+    transform:scale(1.04);
+  }
+
+  .flavour-product-halo {
+    width:min(420px,90vw);
+    top:26%;
+  }
+
+  .flavour-orbit {
+    top:27%;
+  }
+
+  .orbit-one {
+    width:min(92vw,520px);
+    height:min(92vw,520px);
+  }
+
+  .orbit-two {
+    width:min(74vw,420px);
+    height:min(74vw,420px);
+  }
+
+  .flavour-label {
+    position:relative;
+    grid-row:2;
+    inset:auto;
+    width:100%;
+    padding:20px;
+    display:grid;
+    grid-template-columns:1fr;
+    gap:0;
+    border-radius:22px;
+    text-align:left;
+  }
+
+  .flavour-label h3 {
+    font-size:clamp(38px,11vw,52px);
+  }
+
+  .flavour-label p {
+    max-width:none;
+    margin-top:11px;
+    font-size:13px;
+    line-height:1.6;
+  }
+
+  .flavour-explore {
+    grid-column:1;
+    grid-row:auto;
+    width:100%;
+    justify-content:center;
+    margin-top:16px;
+  }
+
+  .flavour-stage-caption {
+    position:relative;
+    right:auto;
+    bottom:auto;
+    margin-top:12px;
+    text-align:center;
+  }
+
+  .mixfruit-scoop {
+    width:min(330px,78vw);
+    transform:none;
+    margin:25px auto 35px;
+    grid-row:1;
+  }
+}
+
+/* Our Story — stronger contrast + a restrained chapter reveal */
+.story-world {
+  color:#07153d;
+}
+
+.story-intro > p:last-child,
+.story-card-copy > p:last-child {
+  color:#343b49;
+  font-weight:500;
+}
+
+.story-sticky-copy {
+  color:#4f5663;
+  font-weight:600;
+}
+
+.story-card {
+  background:rgba(255,255,255,.88);
+  border-color:#dfd1bd;
+  box-shadow:0 28px 70px rgba(47,35,19,.10);
+  position:relative;
+}
+
+.story-card::before {
+  content:"";
+  position:absolute;
+  inset:0;
+  border-radius:inherit;
+  pointer-events:none;
+  background:linear-gradient(115deg,transparent 20%,rgba(255,255,255,.72) 45%,transparent 67%);
+  transform:translateX(-120%);
+  opacity:0;
+  transition:transform .9s cubic-bezier(.22,1,.36,1),opacity .4s ease;
+}
+
+.story-chapter:hover .story-card::before {
+  transform:translateX(120%);
+  opacity:.55;
+}
+
+.story-card-copy {
+  position:relative;
+  z-index:2;
+}
+
+.story-card-copy h3 {
+  color:#07153d;
+  text-shadow:0 1px 0 rgba(255,255,255,.7);
+}
+
+.story-marker {
+  color:rgba(145,91,0,.24);
+}
+
+.story-sticky .story-year {
+  -webkit-text-stroke-color:rgba(145,91,0,.58);
+}
+
+.story-visual {
+  background:
+    radial-gradient(circle at 50% 45%,rgba(218,164,65,.17),transparent 55%),
+    linear-gradient(145deg,#fffaf0,#f2e8d7);
+}
+
+@media(max-width:650px) {
+  .story-intro > p:last-child,
+  .story-card-copy > p:last-child {
+    color:#303744;
+    font-size:15.5px;
+    line-height:1.72;
+  }
+
+  .story-card {
+    background:rgba(255,255,255,.94);
+  }
+
+  .story-card-copy h3 {
+    font-size:clamp(34px,9.8vw,42px);
+  }
+
+  .story-visual {
+    min-height:320px;
+  }
+}
+
+/* Quick order — always reachable without disrupting the page */
+.whatsapp-quick-order {
+  position:fixed;
+  right:22px;
+  bottom:22px;
+  z-index:90;
+  display:inline-flex;
+  align-items:center;
+  gap:10px;
+  min-height:54px;
+  padding:0 18px 0 14px;
+  border:1px solid rgba(255,255,255,.2);
+  border-radius:999px;
+  background:#25D366;
+  color:#062b16;
+  box-shadow:0 14px 35px rgba(0,0,0,.24),0 0 0 6px rgba(37,211,102,.10);
+  font-size:12px;
+  font-weight:950;
+  letter-spacing:.03em;
+  text-decoration:none;
+  transition:transform .22s ease,box-shadow .22s ease;
+}
+
+.whatsapp-quick-order:hover {
+  transform:translateY(-3px);
+  box-shadow:0 18px 42px rgba(0,0,0,.28),0 0 0 8px rgba(37,211,102,.12);
+}
+
+.whatsapp-quick-order svg {
+  width:27px;
+  height:27px;
+  flex:0 0 27px;
+}
+
+.whatsapp-quick-order::after {
+  content:"";
+  position:absolute;
+  inset:-7px;
+  border-radius:inherit;
+  border:1px solid rgba(37,211,102,.35);
+  animation:whatsappPulse 2.4s ease-out infinite;
+  pointer-events:none;
+}
+
+@keyframes whatsappPulse {
+  0% { opacity:.65; transform:scale(.96); }
+  75%,100% { opacity:0; transform:scale(1.08); }
+}
+
+@media(max-width:600px) {
+  .whatsapp-quick-order {
+    right:14px;
+    bottom:14px;
+    width:52px;
+    height:52px;
+    min-height:52px;
+    padding:0;
+    justify-content:center;
+  }
+
+  .whatsapp-quick-order span {
+    display:none;
+  }
+}
+
+@media(prefers-reduced-motion:reduce) {
+  .product-autoplay-hint span,
+  .whatsapp-quick-order::after {
+    animation:none;
+  }
+}
