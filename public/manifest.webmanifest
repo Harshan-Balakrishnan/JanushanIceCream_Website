@@ -1,0 +1,18 @@
+{
+  "name": "Janushan Ice Cream",
+  "short_name": "Janushan",
+  "description": "Janushan Ice Cream — A Scoop of Happiness since 2004.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#041128",
+  "theme_color": "#041128",
+  "lang": "en-LK",
+  "icons": [
+    {
+      "src": "/brand/janushan-logo.png",
+      "sizes": "any",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ]
+}
