@@ -36,9 +36,9 @@ export default function EntranceExperience() {
               />
             </div>
 
-            <p className={styles.eyebrow}>PREMIUM ICE CREAM · SINCE 2004</p>
+            <p className={styles.eyebrow}>HANDCRAFTED ICE CREAM · SINCE 2004</p>
             <h1>JANUSHAN<span>ICE CREAM</span></h1>
-            <p className={styles.tagline}>A Scoop of Happiness.</p>
+            <p className={styles.tagline}>Made fresh. Served with happiness.</p>
 
             <div className={styles.actions}>
               <a className={styles.primaryButton} href="#menu">View Menu</a>
@@ -52,7 +52,7 @@ export default function EntranceExperience() {
               </a>
             </div>
 
-            <a className={styles.explore} href="#flavours">Explore flavours ↓</a>
+            <a className={styles.explore} href="#flavours">Discover your flavour ↓</a>
 
             <div className={styles.socials} aria-label="Janushan Ice Cream social links">
               {socials.map((social) => (
