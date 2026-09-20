@@ -12,8 +12,8 @@ export default function DiscoverPreview() {
     <>
       <section className="discover section" id="discover">
         <p className="section-kicker">WELCOME TO OUR WORLD</p>
-        <h2>Ice cream should feel like an <em>experience.</em></h2>
-        <p className="section-intro">Janushan Ice Cream is designed as a digital flavour journey: cinematic movement, product-first presentation and touch-friendly interaction that feels equally natural on a phone or a large screen.</p>
+        <h2>A little more <em>happiness</em> in every scoop.</h2>
+        <p className="section-intro">From a quick cone after school to a family treat, Janushan brings familiar flavours, generous portions and simple moments of happiness to Vavuniya.</p>
         <div className="feature-grid">
           <article><strong>01</strong><h3>Discover</h3><p>Products become immersive stories instead of ordinary cards.</p></article>
           <article><strong>02</strong><h3>Play</h3><p>Flavour, motion and interaction respond naturally to the visitor.</p></article>
