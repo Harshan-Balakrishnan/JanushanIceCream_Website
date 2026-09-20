@@ -7,7 +7,6 @@ const links = [
   ["Discover", "#discover"],
   ["Menu", "#menu"],
   ["Flavours", "#flavours"],
-  ["Build Yours", "#build"],
   ["Our Story", "#story"],
   ["Gallery", "#gallery"],
   ["Find Us", "#locations"],

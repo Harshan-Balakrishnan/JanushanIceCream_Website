@@ -23,7 +23,11 @@ button, a { -webkit-tap-highlight-color: transparent; }
 .nav-links a:hover { color:var(--gold-soft); }
 .nav-cta { border:1px solid rgba(243,190,83,.62); border-radius:14px; padding:14px 20px; font-weight:800; font-size:13px; color:var(--gold-soft); }
 
-.hero { min-height:100svh; position:relative; overflow:hidden; display:grid; grid-template-columns: 1.1fr .9fr; align-items:center; padding:120px clamp(24px,7vw,120px) 72px; isolation:isolate; background: radial-gradient(circle at 18% 20%, #12336b 0, transparent 31%), radial-gradient(circle at 76% 44%, rgba(185,36,78,.18), transparent 28%), linear-gradient(145deg,#020a19 0%,#071a3b 48%,#020816 100%); }
+.hero { min-height:100svh; position:relative; overflow:hidden; display:grid; grid-template-columns: 1.1fr .9fr; align-items:center; padding:120px clamp(24px,7vw,120px) 72px; isolation:isolate; background:
+    linear-gradient(90deg, rgba(2,12,75,.66) 0%, rgba(2,18,92,.28) 48%, rgba(2,9,60,.34) 100%),
+    linear-gradient(0deg, rgba(2,9,60,.42), transparent 42%),
+    url("/brand/janushan-hero-banner.webp") center / cover no-repeat,
+    #0626a5; }
 .hero:after { content:""; position:absolute; inset:auto -10% -35% -10%; height:55%; background: radial-gradient(ellipse at center, rgba(243,190,83,.12), transparent 65%); z-index:-1; }
 .ambient { position:absolute; border-radius:50%; filter:blur(65px); opacity:.42; z-index:-1; }
 .ambient-one { width:340px;height:340px;background:#164f9c;left:-80px;top:26%; }
@@ -692,4 +696,1394 @@ button, a { -webkit-tap-highlight-color: transparent; }
       0 0 18px
       rgba(255, 221, 143, 0.08)
     );
+}
+
+
+/* =========================================================
+   JANUSHAN 2026 — CONTROLLED BRAND THEME
+   Background-first refresh. Original layout/animations preserved.
+   ========================================================= */
+
+:root {
+  --navy: #03115f;
+  --navy-2: #06258e;
+  --gold: #f6c96b;
+  --gold-soft: #fff4d2;
+  --cream: #f7fbff;
+  --white: #ffffff;
+  --ink: #07153d;
+  --line: rgba(255,255,255,.18);
+}
+
+/* Keep the original hero geometry intact; only improve its visual surface. */
+.hero {
+  background:
+    linear-gradient(90deg, rgba(2,12,75,.66) 0%, rgba(2,18,92,.28) 48%, rgba(2,9,60,.34) 100%),
+    linear-gradient(0deg, rgba(2,9,60,.42), transparent 42%),
+    url("/brand/janushan-hero-banner.webp") center / cover no-repeat,
+    #0626a5;
+}
+
+.hero:after {
+  background: linear-gradient(to top, rgba(1,8,55,.28), transparent 70%);
+}
+
+.ambient,
+.ambient-one,
+.ambient-two,
+.stars,
+.brand-aura {
+  opacity: 0 !important;
+}
+
+.hero-copy {
+  max-width: 700px;
+}
+
+.eyebrow,
+.section-kicker {
+  color: #d9f2ff;
+}
+
+.hero h1 {
+  color: #fff;
+  text-shadow: 0 10px 36px rgba(0,8,60,.42);
+}
+
+.tagline {
+  color: #fff;
+}
+
+.button-primary {
+  color: #06145d;
+  background: #fff;
+  box-shadow: 0 10px 34px rgba(0,12,70,.22);
+}
+
+.button-ghost {
+  color: #fff;
+  border-color: rgba(255,255,255,.35);
+  background: rgba(2,20,100,.16);
+  backdrop-filter: blur(10px);
+}
+
+.nav {
+  background: rgba(3,17,95,.58);
+  border-color: rgba(255,255,255,.18);
+}
+
+.nav-links a:hover {
+  color: #cceeff;
+}
+
+.nav-cta {
+  color: #04135d;
+  background: #fff;
+  border-color: #fff;
+}
+
+.discover {
+  background:
+    radial-gradient(circle at 90% 5%, rgba(69,160,255,.12), transparent 24%),
+    #f7fbff;
+}
+
+.discover .section-kicker,
+.flavours .section-kicker,
+.story-tease .section-kicker,
+.location-tease .section-kicker {
+  color: #0751c9;
+}
+
+.section h2 em {
+  color: #075ee6;
+}
+
+.feature-grid article {
+  border-color: #d8e8fb;
+  background: rgba(255,255,255,.92);
+  box-shadow: 0 18px 50px rgba(7,70,155,.07);
+}
+
+.flavours {
+  background:
+    radial-gradient(circle at 50% 0%, rgba(62,161,255,.14), transparent 32%),
+    #04105f;
+}
+
+.product-universe {
+  background:
+    radial-gradient(circle at 78% 12%, rgba(79,185,255,.18), transparent 25%),
+    linear-gradient(145deg,#020a4b,#04228e 50%,#02083c);
+}
+
+.builder {
+  background:
+    radial-gradient(circle at 12% 20%, rgba(91,177,255,.14), transparent 28%),
+    linear-gradient(145deg,#f7fbff,#eef6ff);
+}
+
+.story-world {
+  background:
+    radial-gradient(circle at 18% 20%, rgba(61,158,255,.12), transparent 25%),
+    linear-gradient(135deg,#f7fbff,#eaf4ff 55%,#fff);
+}
+
+.story-finale {
+  background: linear-gradient(145deg,#0635b9,#02105e);
+}
+
+.scoop-wall {
+  background: #f7fbff;
+}
+
+.find-world {
+  background:
+    radial-gradient(circle at 18% 15%,#0b43ad 0,transparent 28%),
+    linear-gradient(145deg,#02083e,#06268f 68%,#02083e);
+}
+
+.contact-world {
+  background: #f7fbff;
+}
+
+.cinematic-footer {
+  background:
+    radial-gradient(circle at 50% 42%,#0d4db0 0%,#04195e 34%,#01062e 72%);
+}
+
+@media(max-width:900px) {
+  .hero {
+    background:
+      linear-gradient(0deg, rgba(2,10,72,.70) 0%, rgba(2,16,92,.25) 55%, rgba(2,12,70,.12) 100%),
+      url("/brand/janushan-hero-banner.webp") center / cover no-repeat,
+      #0626a5;
+  }
+}
+
+
+/* Janushan readability pass — warm cream light surfaces, no layout changes */
+:root {
+  --cream: #fff8ec;
+  --cream-2: #fff4df;
+  --cream-line: #eadfce;
+  --ink: #07153d;
+}
+
+.discover,
+.scoop-wall,
+.contact-world,
+.builder,
+.story-world {
+  background-color: var(--cream);
+}
+
+.discover {
+  background:
+    radial-gradient(circle at 90% 5%, rgba(69,160,255,.10), transparent 24%),
+    var(--cream);
+}
+
+.builder {
+  background:
+    radial-gradient(circle at 12% 20%, rgba(91,177,255,.10), transparent 28%),
+    linear-gradient(145deg,var(--cream),#fffaf1);
+}
+
+.story-world {
+  background:
+    radial-gradient(circle at 18% 20%, rgba(61,158,255,.10), transparent 25%),
+    linear-gradient(135deg,var(--cream),#fffaf1 55%,#fffdf8);
+}
+
+.scoop-wall,
+.contact-world {
+  background: var(--cream);
+}
+
+.feature-grid article {
+  background: rgba(255,252,245,.94);
+  border-color: var(--cream-line);
+}
+
+.social-links {
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  flex-wrap:wrap;
+  gap:12px;
+  margin:24px 0 10px;
+}
+
+.social-link {
+  display:inline-flex;
+  align-items:center;
+  gap:9px;
+  min-height:44px;
+  padding:10px 14px;
+  border:1px solid rgba(255,255,255,.20);
+  border-radius:999px;
+  color:#fff;
+  background:rgba(255,255,255,.07);
+  transition:transform .2s ease, background .2s ease, border-color .2s ease;
+}
+
+.social-link:hover {
+  transform:translateY(-2px);
+  background:rgba(255,255,255,.12);
+  border-color:rgba(255,255,255,.34);
+}
+
+.social-link svg {
+  width:20px;
+  height:20px;
+  flex:0 0 20px;
+}
+
+.social-link span {
+  font-size:12px;
+  font-weight:800;
+  letter-spacing:.03em;
+}
+
+@media(max-width:600px) {
+  .social-links {
+    gap:9px;
+    padding-inline:16px;
+  }
+
+  .social-link {
+    min-width:44px;
+    width:44px;
+    height:44px;
+    padding:0;
+    justify-content:center;
+  }
+
+  .social-link span {
+    display:none;
+  }
+}
+
+/* Prevent horizontal overflow on narrow phones without changing section structure. */
+html, body {
+  max-width:100%;
+  overflow-x:hidden;
+}
+
+img, video, canvas, svg {
+  max-width:100%;
+}
+
+@media(max-width:900px) {
+  .hero {
+    min-height:100svh;
+    grid-template-columns:1fr;
+    padding:108px 20px 48px;
+  }
+
+  .hero-copy {
+    width:min(100%, 680px);
+  }
+}
+
+@media(max-width:520px) {
+  .hero {
+    padding:96px 16px 36px;
+  }
+
+  .hero h1 {
+    font-size:clamp(2.8rem, 14vw, 4.5rem);
+  }
+
+  .hero-copy {
+    max-width:100%;
+  }
+}
+
+
+/* Final readability + social pass — preserve the existing layout */
+.hero {
+  background:
+    linear-gradient(90deg, rgba(2,12,75,.40) 0%, rgba(2,18,92,.10) 50%, rgba(2,9,60,.20) 100%),
+    linear-gradient(0deg, rgba(2,9,60,.20), transparent 48%),
+    url("/brand/janushan-hero-banner.webp") center center / cover no-repeat,
+    #0626a5;
+}
+
+@media(max-width:900px) {
+  .hero {
+    background:
+      linear-gradient(0deg, rgba(2,10,72,.48) 0%, rgba(2,16,92,.12) 58%, rgba(2,12,70,.08) 100%),
+      url("/brand/janushan-hero-banner.webp") center center / cover no-repeat,
+      #0626a5;
+  }
+}
+
+/* Build Your Dream Ice Cream — cream surface with readable ink */
+.builder {
+  color: var(--ink);
+  background:
+    radial-gradient(circle at 12% 20%, rgba(91,177,255,.10), transparent 28%),
+    linear-gradient(145deg,var(--cream),#fffaf1);
+}
+
+.builder .section-kicker,
+.builder-heading .section-kicker {
+  color:#9a6500;
+}
+
+.builder-heading h2,
+.builder-heading h2 em {
+  color:var(--ink);
+}
+
+.builder-heading h2 em {
+  color:#9d3f63;
+}
+
+.builder-heading > p:last-child {
+  color:#5f6470;
+}
+
+.builder-controls fieldset {
+  border-color:#e4d7c2;
+  background:rgba(255,255,255,.68);
+  box-shadow:0 12px 35px rgba(63,45,20,.06);
+}
+
+.builder-controls legend {
+  color:var(--ink);
+}
+
+.builder-options button {
+  color:#3f4652;
+  border-color:#e1d5c3;
+  background:rgba(255,255,255,.72);
+}
+
+.builder-options button i {
+  color:#9a6500;
+}
+
+.builder-options button:hover,
+.builder-options button.is-active {
+  color:var(--ink);
+  background:#fffdf8;
+}
+
+.scoop-counter button {
+  color:var(--ink);
+  border-color:#e1d5c3;
+  background:rgba(255,255,255,.72);
+}
+
+.scoop-counter button small {
+  color:#737985;
+}
+
+.builder-controls select {
+  background:#fffdf8;
+  color:var(--ink);
+  border-color:#e1d5c3;
+}
+
+.creation-summary {
+  border-color:#e4d7c2;
+  background:rgba(255,255,255,.74);
+  box-shadow:0 12px 35px rgba(63,45,20,.06);
+}
+
+.creation-summary h3 {
+  color:var(--ink);
+}
+
+.creation-summary p {
+  color:#626875;
+}
+
+.creation-summary > small {
+  color:#737985;
+  border-top-color:#e4d7c2;
+}
+
+.creation-actions .button-ghost {
+  color:var(--ink);
+  border-color:#d6c7b0;
+  background:rgba(255,255,255,.55);
+}
+
+.builder-stage {
+  border-color:#e2d6c4;
+  box-shadow:0 30px 75px rgba(63,45,20,.12);
+}
+
+/* Our Story — readable dark ink on the new cream surface */
+.story-world {
+  background:
+    radial-gradient(circle at 18% 20%, rgba(61,158,255,.08), transparent 25%),
+    linear-gradient(135deg,var(--cream),#fffaf1 55%,#fffdf8);
+  color:var(--ink);
+}
+
+.story-sticky .section-kicker,
+.story-intro .section-kicker,
+.story-card-copy .section-kicker {
+  color:#9a6500;
+}
+
+.story-sticky-copy {
+  color:#737985;
+}
+
+.story-intro h2,
+.story-card-copy h3 {
+  color:var(--ink);
+}
+
+.story-intro h2 em {
+  color:#9d3f63;
+}
+
+.story-intro > p:last-child,
+.story-card-copy > p:last-child {
+  color:#5f6470;
+}
+
+.story-card {
+  border-color:#e4d7c2;
+  background:rgba(255,255,255,.70);
+  box-shadow:0 30px 75px rgba(63,45,20,.08);
+}
+
+.story-marker {
+  color:rgba(154,101,0,.18);
+}
+
+.story-sticky .story-year {
+  -webkit-text-stroke-color:rgba(154,101,0,.48);
+  text-shadow:0 0 70px rgba(217,155,39,.10);
+}
+
+.story-finale {
+  color:#fff;
+}
+
+/* Social links — recognizable brand colours, icon-only on the hero */
+.home-social-links {
+  display:flex;
+  align-items:center;
+  gap:10px;
+  margin-top:20px;
+}
+
+.home-social-link {
+  width:44px;
+  height:44px;
+  display:inline-grid;
+  place-items:center;
+  border:1px solid rgba(255,255,255,.28);
+  border-radius:50%;
+  background:rgba(255,255,255,.10);
+  backdrop-filter:blur(10px);
+  transition:transform .2s ease, background .2s ease, border-color .2s ease;
+}
+
+.home-social-link:hover {
+  transform:translateY(-2px);
+  background:rgba(255,255,255,.18);
+  border-color:rgba(255,255,255,.48);
+}
+
+.home-social-link svg {
+  width:22px;
+  height:22px;
+  display:block;
+}
+
+.home-social-link.facebook svg { color:#1877F2; }
+.home-social-link.instagram svg { color:#E4405F; }
+.home-social-link.google svg { color:#4285F4; }
+
+.home-social-link:focus-visible {
+  outline:3px solid #ffe4a2;
+  outline-offset:4px;
+}
+
+/* Footer social icons keep their official recognizable colours */
+.cinematic-footer .social-link.facebook svg { color:#1877F2; }
+.cinematic-footer .social-link.instagram svg { color:#E4405F; }
+.cinematic-footer .social-link.google svg { color:#4285F4; }
+.cinematic-footer .social-link {
+  background:rgba(255,255,255,.08);
+}
+
+
+/* Menu carousel — guided autoplay with clear previous/next controls */
+.product-track-wrap {
+  position:relative;
+}
+
+.product-arrow {
+  position:absolute;
+  top:50%;
+  z-index:8;
+  width:52px;
+  height:52px;
+  display:grid;
+  place-items:center;
+  transform:translateY(-50%);
+  border:1px solid rgba(255,255,255,.24);
+  border-radius:50%;
+  background:rgba(2,12,55,.72);
+  color:#fff;
+  font-family:Arial,sans-serif;
+  font-size:34px;
+  line-height:1;
+  cursor:pointer;
+  backdrop-filter:blur(12px);
+  box-shadow:0 14px 34px rgba(0,0,0,.25);
+  transition:transform .22s ease,background .22s ease,border-color .22s ease;
+}
+
+.product-arrow:hover {
+  transform:translateY(-50%) scale(1.06);
+  background:rgba(6,38,142,.94);
+  border-color:rgba(255,255,255,.48);
+}
+
+.product-arrow:focus-visible {
+  outline:3px solid #ffe4a2;
+  outline-offset:4px;
+}
+
+.product-arrow-prev { left:clamp(10px,2.2vw,30px); }
+.product-arrow-next { right:clamp(10px,2.2vw,30px); }
+
+.product-autoplay-hint {
+  position:absolute;
+  right:clamp(24px,7vw,120px);
+  bottom:8px;
+  display:flex;
+  align-items:center;
+  gap:7px;
+  color:rgba(255,255,255,.42);
+  font-size:8px;
+  font-weight:900;
+  letter-spacing:.18em;
+  pointer-events:none;
+}
+
+.product-autoplay-hint span {
+  width:6px;
+  height:6px;
+  border-radius:50%;
+  background:#f6c96b;
+  box-shadow:0 0 12px rgba(246,201,107,.8);
+  animation:menuPulse 1.8s ease-in-out infinite;
+}
+
+@keyframes menuPulse {
+  0%,100% { opacity:.35; transform:scale(.75); }
+  50% { opacity:1; transform:scale(1); }
+}
+
+@media(max-width:700px) {
+  .product-arrow {
+    width:44px;
+    height:44px;
+    font-size:29px;
+  }
+
+  .product-arrow-prev { left:8px; }
+  .product-arrow-next { right:8px; }
+
+  .product-autoplay-hint {
+    display:none;
+  }
+
+  .product-track {
+    scroll-padding-inline:44px;
+  }
+}
+
+/* Flavour Universe — mobile becomes a true vertical composition instead of overlapping layers */
+@media(max-width:650px) {
+  .flavour-universe {
+    min-height:auto;
+  }
+
+  .flavour-shell {
+    min-height:auto;
+    width:100%;
+    gap:28px;
+    padding-top:88px;
+    padding-bottom:72px;
+  }
+
+  .flavour-copy {
+    width:100%;
+  }
+
+  .flavour-universe h2 {
+    font-size:clamp(42px,12vw,58px);
+    line-height:.94;
+    margin-bottom:18px;
+  }
+
+  .flavour-intro {
+    max-width:none;
+    font-size:15px;
+    line-height:1.65;
+  }
+
+  .flavour-tabs {
+    margin-top:24px;
+    margin-right:-20px;
+    padding-right:20px;
+    gap:8px;
+    scrollbar-width:none;
+  }
+
+  .flavour-tabs::-webkit-scrollbar { display:none; }
+
+  .flavour-tabs button {
+    min-width:142px;
+    min-height:68px;
+    padding:12px 14px;
+  }
+
+  .flavour-stage {
+    width:100%;
+    min-height:auto;
+    display:block;
+    position:relative;
+    padding-bottom:0;
+  }
+
+  .flavour-scene {
+    width:100%;
+    min-height:auto;
+    display:grid;
+    grid-template-rows:auto auto;
+    gap:18px;
+    align-items:start;
+    justify-items:center;
+  }
+
+  .flavour-product-image {
+    grid-row:1;
+    width:100%;
+    max-width:520px;
+    aspect-ratio:1.28;
+    transform:none;
+    border-radius:32px;
+  }
+
+  .flavour-product-image img {
+    transform:scale(1.04);
+  }
+
+  .flavour-product-halo {
+    width:min(420px,90vw);
+    top:26%;
+  }
+
+  .flavour-orbit {
+    top:27%;
+  }
+
+  .orbit-one {
+    width:min(92vw,520px);
+    height:min(92vw,520px);
+  }
+
+  .orbit-two {
+    width:min(74vw,420px);
+    height:min(74vw,420px);
+  }
+
+  .flavour-label {
+    position:relative;
+    grid-row:2;
+    inset:auto;
+    width:100%;
+    padding:20px;
+    display:grid;
+    grid-template-columns:1fr;
+    gap:0;
+    border-radius:22px;
+    text-align:left;
+  }
+
+  .flavour-label h3 {
+    font-size:clamp(38px,11vw,52px);
+  }
+
+  .flavour-label p {
+    max-width:none;
+    margin-top:11px;
+    font-size:13px;
+    line-height:1.6;
+  }
+
+  .flavour-explore {
+    grid-column:1;
+    grid-row:auto;
+    width:100%;
+    justify-content:center;
+    margin-top:16px;
+  }
+
+  .flavour-stage-caption {
+    position:relative;
+    right:auto;
+    bottom:auto;
+    margin-top:12px;
+    text-align:center;
+  }
+
+  .mixfruit-scoop {
+    width:min(330px,78vw);
+    transform:none;
+    margin:25px auto 35px;
+    grid-row:1;
+  }
+}
+
+/* Our Story — stronger contrast + a restrained chapter reveal */
+.story-world {
+  color:#07153d;
+}
+
+.story-intro > p:last-child,
+.story-card-copy > p:last-child {
+  color:#343b49;
+  font-weight:500;
+}
+
+.story-sticky-copy {
+  color:#4f5663;
+  font-weight:600;
+}
+
+.story-card {
+  background:rgba(255,255,255,.88);
+  border-color:#dfd1bd;
+  box-shadow:0 28px 70px rgba(47,35,19,.10);
+  position:relative;
+}
+
+.story-card::before {
+  content:"";
+  position:absolute;
+  inset:0;
+  border-radius:inherit;
+  pointer-events:none;
+  background:linear-gradient(115deg,transparent 20%,rgba(255,255,255,.72) 45%,transparent 67%);
+  transform:translateX(-120%);
+  opacity:0;
+  transition:transform .9s cubic-bezier(.22,1,.36,1),opacity .4s ease;
+}
+
+.story-chapter:hover .story-card::before {
+  transform:translateX(120%);
+  opacity:.55;
+}
+
+.story-card-copy {
+  position:relative;
+  z-index:2;
+}
+
+.story-card-copy h3 {
+  color:#07153d;
+  text-shadow:0 1px 0 rgba(255,255,255,.7);
+}
+
+.story-marker {
+  color:rgba(145,91,0,.24);
+}
+
+.story-sticky .story-year {
+  -webkit-text-stroke-color:rgba(145,91,0,.58);
+}
+
+.story-visual {
+  background:
+    radial-gradient(circle at 50% 45%,rgba(218,164,65,.17),transparent 55%),
+    linear-gradient(145deg,#fffaf0,#f2e8d7);
+}
+
+@media(max-width:650px) {
+  .story-intro > p:last-child,
+  .story-card-copy > p:last-child {
+    color:#303744;
+    font-size:15.5px;
+    line-height:1.72;
+  }
+
+  .story-card {
+    background:rgba(255,255,255,.94);
+  }
+
+  .story-card-copy h3 {
+    font-size:clamp(34px,9.8vw,42px);
+  }
+
+  .story-visual {
+    min-height:320px;
+  }
+}
+
+/* Quick order — always reachable without disrupting the page */
+.whatsapp-quick-order {
+  position:fixed;
+  right:22px;
+  bottom:22px;
+  z-index:90;
+  display:inline-flex;
+  align-items:center;
+  gap:10px;
+  min-height:54px;
+  padding:0 18px 0 14px;
+  border:1px solid rgba(255,255,255,.2);
+  border-radius:999px;
+  background:#25D366;
+  color:#062b16;
+  box-shadow:0 14px 35px rgba(0,0,0,.24),0 0 0 6px rgba(37,211,102,.10);
+  font-size:12px;
+  font-weight:950;
+  letter-spacing:.03em;
+  text-decoration:none;
+  transition:transform .22s ease,box-shadow .22s ease;
+}
+
+.whatsapp-quick-order:hover {
+  transform:translateY(-3px);
+  box-shadow:0 18px 42px rgba(0,0,0,.28),0 0 0 8px rgba(37,211,102,.12);
+}
+
+.whatsapp-quick-order svg {
+  width:27px;
+  height:27px;
+  flex:0 0 27px;
+}
+
+.whatsapp-quick-order::after {
+  content:"";
+  position:absolute;
+  inset:-7px;
+  border-radius:inherit;
+  border:1px solid rgba(37,211,102,.35);
+  animation:whatsappPulse 2.4s ease-out infinite;
+  pointer-events:none;
+}
+
+@keyframes whatsappPulse {
+  0% { opacity:.65; transform:scale(.96); }
+  75%,100% { opacity:0; transform:scale(1.08); }
+}
+
+@media(max-width:600px) {
+  .whatsapp-quick-order {
+    right:14px;
+    bottom:14px;
+    width:52px;
+    height:52px;
+    min-height:52px;
+    padding:0;
+    justify-content:center;
+  }
+
+  .whatsapp-quick-order span {
+    display:none;
+  }
+}
+
+@media(prefers-reduced-motion:reduce) {
+  .product-autoplay-hint span,
+  .whatsapp-quick-order::after {
+    animation:none;
+  }
+}
+
+/* Final polish — clearer carousel focus and resilient flavour layouts */
+.product-track-wrap::before,
+.product-track-wrap::after {
+  content:"";
+  position:absolute;
+  top:0;
+  bottom:24px;
+  width:clamp(22px,4vw,64px);
+  z-index:4;
+  pointer-events:none;
+}
+.product-track-wrap::before {
+  left:0;
+  background:linear-gradient(90deg,rgba(2,10,75,.92),transparent);
+}
+.product-track-wrap::after {
+  right:0;
+  background:linear-gradient(270deg,rgba(2,10,75,.92),transparent);
+}
+.product-card:focus-visible {
+  outline:3px solid rgba(255,255,255,.86);
+  outline-offset:4px;
+}
+.product-card.is-active {
+  border-color:rgba(255,255,255,.30);
+  box-shadow:0 30px 78px rgba(0,0,0,.28),0 0 0 1px color-mix(in srgb,var(--product-glow) 28%,transparent);
+}
+.product-arrow {
+  user-select:none;
+  -webkit-tap-highlight-color:transparent;
+}
+.product-arrow span {
+  display:block;
+  transform:translateY(-1px);
+}
+.product-progress i {
+  transition:width .45s cubic-bezier(.22,1,.36,1);
+}
+
+@media (min-width:651px) and (max-width:1050px) {
+  .flavour-shell {
+    padding-top:86px;
+    padding-bottom:82px;
+  }
+  .flavour-stage {
+    min-height:590px;
+  }
+  .flavour-scene {
+    min-height:560px;
+  }
+  .flavour-product-image {
+    width:min(700px,88vw);
+    transform:translateY(-12px);
+  }
+  .flavour-label {
+    left:3%;
+    right:3%;
+    bottom:12px;
+  }
+  .flavour-stage-caption {
+    right:3%;
+  }
+}
+
+@media(max-width:650px) {
+  .product-track-wrap::before,
+  .product-track-wrap::after {
+    width:18px;
+  }
+  .product-card.is-active {
+    box-shadow:0 22px 55px rgba(0,0,0,.25),0 0 0 1px color-mix(in srgb,var(--product-glow) 24%,transparent);
+  }
+  .flavour-product-image {
+    box-shadow:0 26px 58px rgba(0,0,0,.28);
+  }
+  .flavour-tabs button:focus-visible {
+    outline:2px solid rgba(255,255,255,.9);
+    outline-offset:2px;
+  }
+  .story-card-copy {
+    padding-right:2px;
+  }
+  .story-card-copy > p:last-child {
+    max-width:60ch;
+  }
+}
+
+@media(prefers-reduced-motion:reduce) {
+  .product-progress i {
+    transition:none;
+  }
+}
+
+/* Final mobile fit — keep the flavour universe fully inside the viewport */
+@media (max-width:650px) {
+  .flavour-universe {
+    width:100%;
+    max-width:100%;
+    overflow:hidden;
+  }
+  .flavour-shell {
+    width:100%;
+    max-width:100%;
+    box-sizing:border-box;
+    padding-left:16px;
+    padding-right:16px;
+    padding-top:76px;
+    padding-bottom:60px;
+    gap:22px;
+  }
+  .flavour-copy {
+    min-width:0;
+  }
+  .flavour-universe h2 {
+    font-size:clamp(38px,11vw,52px);
+    line-height:.92;
+    overflow-wrap:anywhere;
+  }
+  .flavour-intro {
+    font-size:14px;
+    line-height:1.6;
+  }
+  .flavour-tabs {
+    width:calc(100% + 16px);
+    max-width:none;
+    margin-right:-16px;
+    padding-right:16px;
+    box-sizing:border-box;
+  }
+  .flavour-stage {
+    width:100%;
+    max-width:100%;
+    min-width:0;
+    min-height:0;
+    box-sizing:border-box;
+    overflow:visible;
+  }
+  .flavour-scene {
+    width:100%;
+    min-width:0;
+    min-height:0;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    justify-content:flex-start;
+    gap:14px;
+  }
+  .flavour-orbit,
+  .flavour-product-halo {
+    top:30%;
+    pointer-events:none;
+  }
+  .orbit-one {
+    width:min(96vw,430px);
+    height:min(96vw,430px);
+  }
+  .orbit-two {
+    width:min(76vw,340px);
+    height:min(76vw,340px);
+  }
+  .flavour-product-halo {
+    width:min(76vw,340px);
+  }
+  .flavour-product-image {
+    width:100%;
+    max-width:100%;
+    height:auto;
+    aspect-ratio:1.35;
+    transform:none;
+    border-radius:24px;
+    overflow:hidden;
+    flex:0 0 auto;
+  }
+  .flavour-product-image img {
+    object-fit:cover;
+    transform:scale(1.01);
+  }
+  .flavour-label {
+    position:relative;
+    left:auto;
+    right:auto;
+    bottom:auto;
+    width:100%;
+    max-width:100%;
+    box-sizing:border-box;
+    padding:18px;
+    border-radius:20px;
+    display:flex;
+    flex-direction:column;
+    align-items:stretch;
+    gap:0;
+  }
+  .flavour-label h3 {
+    font-size:clamp(36px,10.5vw,48px);
+  }
+  .flavour-label p {
+    font-size:13px;
+    line-height:1.58;
+  }
+  .flavour-explore {
+    width:100%;
+    min-height:46px;
+    justify-content:center;
+    margin-top:14px;
+  }
+  .flavour-stage-caption {
+    position:relative;
+    right:auto;
+    bottom:auto;
+    width:100%;
+    margin-top:8px;
+    text-align:center;
+  }
+  .mixfruit-scoop {
+    width:min(78vw,300px);
+    margin:8px auto 12px;
+    transform:none;
+    flex:0 0 auto;
+  }
+}
+
+/* Hero readability — keep the supplied banner visible while giving the typography a clean focal layer */
+.hero {
+  background:
+    linear-gradient(90deg, rgba(1,9,58,.56) 0%, rgba(2,18,92,.18) 52%, rgba(2,9,60,.16) 100%),
+    linear-gradient(0deg, rgba(2,9,60,.28), transparent 52%),
+    url("/brand/janushan-hero-banner.webp") center center / cover no-repeat,
+    #0626a5;
+}
+.hero-copy {
+  position:relative;
+  z-index:5;
+}
+.hero h1 {
+  text-shadow:
+    0 3px 8px rgba(0,0,0,.42),
+    0 14px 38px rgba(0,8,60,.42);
+}
+.hero .tagline {
+  max-width:620px;
+  text-shadow:0 2px 8px rgba(0,0,0,.48);
+}
+.hero .eyebrow {
+  text-shadow:0 2px 7px rgba(0,0,0,.42);
+}
+.hero-actions .button {
+  box-shadow:0 12px 30px rgba(0,8,55,.24);
+}
+@media(max-width:900px) {
+  .hero {
+    background:
+      linear-gradient(0deg, rgba(2,10,72,.52) 0%, rgba(2,16,92,.22) 58%, rgba(2,12,70,.10) 100%),
+      url("/brand/janushan-hero-banner.webp") center center / cover no-repeat,
+      #0626a5;
+  }
+  .hero h1 {
+    text-shadow:0 3px 9px rgba(0,0,0,.48),0 12px 30px rgba(0,8,60,.38);
+  }
+}
+@media(max-width:520px) {
+  .hero-copy {
+    max-width:100%;
+  }
+  .hero .tagline {
+    font-size:clamp(15px,4.2vw,18px);
+    line-height:1.5;
+  }
+  .home-social-links {
+    margin-top:16px;
+  }
+}
+
+
+/* Final hero polish — stronger banner presence + highly visible social links */
+.hero {
+  background:
+    linear-gradient(90deg, rgba(2,12,75,.58) 0%, rgba(2,18,92,.18) 48%, rgba(2,9,60,.16) 100%),
+    linear-gradient(0deg, rgba(2,9,60,.22), transparent 48%),
+    url("/brand/janushan-hero-banner.webp") center center / cover no-repeat,
+    #0626a5;
+  background-blend-mode:normal;
+}
+
+.home-social-links {
+  display:flex;
+  align-items:center;
+  flex-wrap:wrap;
+  gap:12px;
+  margin-top:22px;
+}
+
+.home-social-links::before {
+  content:"FOLLOW JANUSHAN";
+  color:rgba(255,255,255,.86);
+  font-size:10px;
+  font-weight:900;
+  letter-spacing:.18em;
+  margin-right:3px;
+}
+
+.home-social-link {
+  width:52px;
+  height:52px;
+  display:inline-grid;
+  place-items:center;
+  border:1px solid rgba(255,255,255,.42);
+  border-radius:50%;
+  background:rgba(255,255,255,.16);
+  backdrop-filter:blur(12px);
+  box-shadow:
+    0 10px 28px rgba(0,0,0,.24),
+    0 0 0 4px rgba(255,255,255,.035);
+  transition:transform .22s ease, background .22s ease, border-color .22s ease, box-shadow .22s ease;
+}
+
+.home-social-link:hover {
+  transform:translateY(-3px) scale(1.04);
+  background:rgba(255,255,255,.25);
+  border-color:rgba(255,255,255,.72);
+  box-shadow:
+    0 14px 34px rgba(0,0,0,.28),
+    0 0 0 5px rgba(255,255,255,.055);
+}
+
+.home-social-link svg {
+  width:25px;
+  height:25px;
+  display:block;
+  filter:drop-shadow(0 2px 4px rgba(0,0,0,.18));
+}
+
+.home-social-link:focus-visible {
+  outline:3px solid #ffe4a2;
+  outline-offset:5px;
+}
+
+@media(max-width:900px) {
+  .hero {
+    background:
+      linear-gradient(0deg, rgba(2,10,72,.30) 0%, rgba(2,16,92,.14) 58%, rgba(2,12,70,.06) 100%),
+      url("/brand/janushan-hero-banner.webp") center center / cover no-repeat,
+      #0626a5;
+  }
+
+  .home-social-links {
+    justify-content:center;
+    gap:11px;
+  }
+}
+
+@media(max-width:520px) {
+  .home-social-links {
+    width:100%;
+    justify-content:center;
+    margin-top:18px;
+  }
+
+  .home-social-links::before {
+    width:100%;
+    margin:0 0 2px;
+  }
+
+  .home-social-link {
+    width:50px;
+    height:50px;
+  }
+}
+
+
+/* Final brand polish — stronger hero photography + larger closing logo */
+.hero {
+  background:
+    linear-gradient(90deg, rgba(2,12,75,.48) 0%, rgba(2,18,92,.10) 48%, rgba(2,9,60,.08) 100%),
+    linear-gradient(0deg, rgba(2,9,60,.10) 0%, rgba(2,9,60,0) 58%),
+    url("/brand/janushan-hero-banner.webp") center center / cover no-repeat,
+    #0626a5;
+}
+
+@media(max-width:900px) {
+  .hero {
+    background:
+      linear-gradient(0deg, rgba(2,10,72,.16) 0%, rgba(2,16,92,.08) 58%, rgba(2,12,70,.03) 100%),
+      url("/brand/janushan-hero-banner.webp") center center / cover no-repeat,
+      #0626a5;
+  }
+}
+
+.cinematic-footer .footer-logo {
+  width:clamp(180px,24vw,390px);
+  height:auto;
+  margin-top:20px;
+  margin-bottom:8px;
+  filter:drop-shadow(0 16px 38px rgba(0,0,0,.38));
+}
+
+@media(max-width:600px) {
+  .cinematic-footer .footer-logo {
+    width:min(76vw,320px);
+    margin-top:12px;
+  }
+}
+
+
+/* Final interaction + trust polish */
+.hero-brand-word {
+  display:inline-block;
+  transition:color .3s ease, text-shadow .3s ease;
+}
+.hero-brand-initial {
+  color:inherit;
+  font:inherit;
+  font-weight:inherit;
+  transition:color .3s ease, text-shadow .3s ease;
+}
+.hero h1:hover .hero-brand-initial {
+  color:var(--gold-soft);
+  text-shadow:0 0 18px rgba(255,213,108,.28);
+}
+
+.hero-actions .button {
+  transition:
+    transform .22s ease,
+    background .22s ease,
+    border-color .22s ease,
+    color .22s ease,
+    box-shadow .22s ease;
+}
+.hero-actions .button-primary:hover {
+  color:#120c01;
+  background:linear-gradient(135deg,#fff0bb,#f3be53);
+  border-color:#ffe4a2;
+  box-shadow:0 14px 38px rgba(243,190,83,.38),0 0 0 4px rgba(255,228,162,.08);
+  transform:translateY(-2px);
+}
+.hero-actions .button-ghost:hover {
+  color:#fff4d2;
+  background:rgba(243,190,83,.13);
+  border-color:rgba(255,228,162,.68);
+  box-shadow:0 12px 32px rgba(0,0,0,.22);
+  transform:translateY(-2px);
+}
+
+.cinematic-footer .footer-bottom {
+  gap:16px;
+}
+.cinematic-footer .footer-bottom::after {
+  content:"All rights reserved.";
+  color:rgba(255,255,255,.26);
+  font-size:9px;
+  letter-spacing:.1em;
+  order:2;
+}
+@media(max-width:600px) {
+  .cinematic-footer .footer-bottom {
+    flex-wrap:wrap;
+    justify-content:center;
+    gap:8px 18px;
+  }
+  .cinematic-footer .footer-bottom::after {
+    width:100%;
+    order:3;
+  }
+}
+
+.nav-cta {
+  transition:
+    transform .22s ease,
+    background .22s ease,
+    border-color .22s ease,
+    color .22s ease,
+    box-shadow .22s ease;
+}
+.nav-cta:hover {
+  color:#1b1304;
+  background:linear-gradient(135deg,#ffe39a,#d99a28);
+  border-color:#ffe4a2;
+  box-shadow:0 10px 28px rgba(243,190,83,.22);
+  transform:translateY(-1px);
 }

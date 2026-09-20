@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
-import { useEffect, useMemo, useState } from "react";
+import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { useCatalogCollection } from "@/hooks/useCatalogCollection";
 import { defaultProducts, type Product } from "@/lib/catalog";
 
@@ -13,6 +13,49 @@ export default function ProductUniverse() {
   const [active, setActive] = useState(0);
   const reduceMotion = useReducedMotion();
   const formatter = useMemo(() => new Intl.NumberFormat("en-LK"), []);
+  const trackRef = useRef<HTMLDivElement>(null);
+  const cardRefs = useRef<(HTMLButtonElement | null)[]>([]);
+
+  const goToProduct = useCallback((index: number) => {
+    if (!products.length) return;
+    const next = (index + products.length) % products.length;
+    setActive(next);
+    cardRefs.current[next]?.scrollIntoView({
+      behavior: reduceMotion ? "auto" : "smooth",
+      block: "nearest",
+      inline: "center",
+    });
+  }, [products.length, reduceMotion]);
+
+
+  useEffect(() => {
+    const track = trackRef.current;
+    if (!track) return;
+    let frame = 0;
+    const onScroll = () => {
+      cancelAnimationFrame(frame);
+      frame = requestAnimationFrame(() => {
+        const center = track.getBoundingClientRect().left + track.clientWidth / 2;
+        let nearest = active;
+        let distance = Number.POSITIVE_INFINITY;
+        cardRefs.current.forEach((card, index) => {
+          if (!card) return;
+          const rect = card.getBoundingClientRect();
+          const nextDistance = Math.abs(rect.left + rect.width / 2 - center);
+          if (nextDistance < distance) {
+            distance = nextDistance;
+            nearest = index;
+          }
+        });
+        if (nearest !== active) setActive(nearest);
+      });
+    };
+    track.addEventListener("scroll", onScroll, { passive: true });
+    return () => {
+      cancelAnimationFrame(frame);
+      track.removeEventListener("scroll", onScroll);
+    };
+  }, [active]);
 
   useEffect(() => {
     if (!selected) return;
@@ -42,7 +85,10 @@ export default function ProductUniverse() {
       </div>
 
       <div className="product-track-wrap">
-        <div className="product-track" role="list" aria-label="Janushan Ice Cream products">
+        <button className="product-arrow product-arrow-prev" type="button" onClick={() => goToProduct(active - 1)} aria-label="Previous product">
+          <span aria-hidden="true">‹</span>
+        </button>
+        <div ref={trackRef} className="product-track" role="list" aria-label="Janushan Ice Cream products">
           {products.map((product, index) => (
             <motion.button
               type="button"
@@ -58,7 +104,8 @@ export default function ProductUniverse() {
               whileHover={reduceMotion ? undefined : { y: -10, rotateX: 2, rotateY: index % 2 ? -2 : 2 }}
               whileTap={reduceMotion ? undefined : { scale: 0.985 }}
               transition={{ type: "spring", stiffness: 250, damping: 24 }}
-              style={{ "--product-glow": product.glow } as React.CSSProperties}
+              ref={(node) => { cardRefs.current[index] = node; }}
+              style={Object.assign({} as React.CSSProperties, { "--product-glow": product.glow })}
             >
               <span className="product-index">0{index + 1}</span>
               <span className="product-image-shell">
@@ -80,6 +127,9 @@ export default function ProductUniverse() {
             </motion.button>
           ))}
         </div>
+        <button className="product-arrow product-arrow-next" type="button" onClick={() => goToProduct(active + 1)} aria-label="Next product">
+          <span aria-hidden="true">›</span>
+        </button>
       </div>
 
       <div className="product-progress" aria-hidden="true">
