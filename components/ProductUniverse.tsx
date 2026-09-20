@@ -108,7 +108,7 @@ export default function ProductUniverse() {
         <button className="product-arrow product-arrow-prev" type="button" onClick={() => goToProduct(active - 1)} aria-label="Previous product">
           <span aria-hidden="true">‹</span>
         </button>
-        <div className="product-track" role="list" aria-label="Janushan Ice Cream products">
+        <div ref={trackRef} className="product-track" role="list" aria-label="Janushan Ice Cream products">
           {products.map((product, index) => (
             <motion.button
               type="button"
@@ -124,7 +124,8 @@ export default function ProductUniverse() {
               whileHover={reduceMotion ? undefined : { y: -10, rotateX: 2, rotateY: index % 2 ? -2 : 2 }}
               whileTap={reduceMotion ? undefined : { scale: 0.985 }}
               transition={{ type: "spring", stiffness: 250, damping: 24 }}
-              style={{ "--product-glow": product.glow } as React.CSSProperties}
+              ref={(node) => { cardRefs.current[index] = node; }}
+              style={{ "--product-glow": product.glow } as React.CSSProperties>
             >
               <span className="product-index">0{index + 1}</span>
               <span className="product-image-shell">
