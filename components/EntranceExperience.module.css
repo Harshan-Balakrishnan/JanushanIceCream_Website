@@ -80,7 +80,7 @@
   min-height: 100svh;
   margin: 0 auto;
   display: grid;
-  grid-template-columns: minmax(0, 1fr) minmax(440px, .82fr);
+  grid-template-columns: minmax(440px, .82fr) minmax(0, 1fr);
   align-items: center;
   gap: clamp(30px, 5vw, 90px);
   padding: 120px 0 70px;
@@ -88,6 +88,8 @@
 
 .copyColumn {
   min-width: 0;
+  grid-column: 2;
+  grid-row: 1;
   display: flex;
   align-items: center;
 }
@@ -230,6 +232,8 @@
 
 .coneColumn {
   min-width: 0;
+  grid-column: 1;
+  grid-row: 1;
   min-height: 620px;
   display: grid;
   place-items: center;
@@ -352,9 +356,9 @@
   position: absolute;
   z-index: 6;
   left: 50%;
-  top: 18px;
-  width: 255px;
-  height: 255px;
+  top: 58px;
+  width: 235px;
+  height: 235px;
   transform: translateX(-50%);
   transform-origin: 50% 92%;
   border-radius: 50% 50% 47% 53% / 48% 46% 54% 52%;
@@ -466,11 +470,11 @@
 @media (max-width: 1050px) {
   .heroLayout {
     width: min(100% - 44px, 900px);
-    grid-template-columns: minmax(0, .95fr) minmax(360px, .85fr);
+    grid-template-columns: minmax(360px, .85fr) minmax(0, .95fr);
     gap: 20px;
   }
 
-  .copy h1 { font-size: clamp(52px, 7vw, 78px); }
+  .copy h1 { font-size: clamp(52px, 6.7vw, 78px); }
   .coneStage { transform: scale(.88); }
 }
 
