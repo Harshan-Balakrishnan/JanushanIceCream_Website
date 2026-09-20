@@ -2191,3 +2191,298 @@ button:focus-visible, a:focus-visible, input:focus-visible, select:focus-visible
     animation: none;
   }
 }
+
+
+/* =========================================================
+   HERO FINAL PASS — composition + supplied banner
+   ========================================================= */
+
+.cinematic-hero {
+  min-height: 100svh !important;
+  height: 100svh;
+  padding: 0 !important;
+  display: block !important;
+  overflow: hidden;
+  position: relative;
+  isolation: isolate;
+  background-color: #071caa !important;
+  background-image: url("/brand/janushan-home-hero.webp") !important;
+  background-repeat: no-repeat !important;
+  background-position: center center !important;
+  background-size: cover !important;
+}
+
+.cinematic-hero .hero-image-overlay {
+  z-index: 1;
+  background:
+    linear-gradient(90deg, rgba(2,8,61,.10), transparent 42%, rgba(2,8,61,.06)),
+    linear-gradient(180deg, rgba(2,8,61,.02), transparent 65%, rgba(2,8,61,.10)) !important;
+}
+
+.cinematic-hero .hero-copy {
+  z-index: 10;
+  width: min(660px, 47vw);
+  height: 100%;
+  min-height: 0;
+  margin: 0;
+  padding: clamp(135px, 17vh, 175px) 0 80px clamp(30px, 7vw, 110px);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  text-align: left;
+}
+
+.cinematic-hero .hero-copy .logo-shell {
+  width: 82px;
+  height: 82px;
+  margin: 0 0 16px;
+  background: rgba(255,255,255,.10);
+  border-color: rgba(255,255,255,.38);
+  box-shadow: 0 12px 38px rgba(0,0,0,.18);
+}
+
+.cinematic-hero .hero-copy .logo-shell img {
+  width: 70px;
+  height: 70px;
+}
+
+.cinematic-hero .hero-copy .eyebrow {
+  color: #fff;
+  font-size: 11px;
+  letter-spacing: .18em;
+}
+
+.cinematic-hero .hero-copy h1 {
+  margin: 11px 0 0;
+  color: #fff;
+  font-size: clamp(58px, 6.3vw, 98px);
+  line-height: .84;
+  letter-spacing: -.055em;
+  text-shadow: 0 7px 25px rgba(0,0,0,.32);
+}
+
+.cinematic-hero .hero-copy .tagline {
+  margin: 20px 0 26px;
+  color: #fff;
+  font-size: clamp(25px, 2.5vw, 37px);
+  text-shadow: 0 5px 18px rgba(0,0,0,.30);
+}
+
+.cinematic-hero .hero-copy .hero-actions {
+  gap: 10px;
+  max-width: 620px;
+  justify-content: flex-start;
+}
+
+.cinematic-hero .hero-copy .button {
+  box-shadow: 0 12px 34px rgba(0,0,0,.20);
+}
+
+.cinematic-hero .hero-copy .button-primary {
+  background: linear-gradient(135deg,#fff0b9,#f0b94d);
+}
+
+.cinematic-hero .hero-copy .button-ghost {
+  background: rgba(4,15,75,.20);
+  border-color: rgba(255,255,255,.42);
+  backdrop-filter: blur(8px);
+}
+
+.cinematic-hero .hero-text-link {
+  color: #fff;
+  border-color: rgba(255,255,255,.40);
+}
+
+.cinematic-hero .hero-socials {
+  margin-top: 15px;
+}
+
+.hero-scoop-stage {
+  z-index: 7 !important;
+  right: clamp(12px, 5vw, 90px) !important;
+  bottom: -4px !important;
+  width: min(48vw, 620px) !important;
+  height: min(82vh, 690px) !important;
+  pointer-events: none;
+  filter: drop-shadow(0 28px 38px rgba(0,0,0,.24)) !important;
+}
+
+.hero-scoop-entry {
+  top: 1% !important;
+  left: 50%;
+}
+
+.hero-premium-cone {
+  bottom: 0 !important;
+}
+
+.hero-cream-crown {
+  bottom: 37.5% !important;
+}
+
+.hero-impact-ring {
+  bottom: 36.2% !important;
+}
+
+.hero-splash-drop {
+  bottom: 41% !important;
+}
+
+.hero-scoop-shadow {
+  bottom: 29% !important;
+}
+
+@media (max-width: 900px) {
+  .cinematic-hero {
+    height: auto;
+    min-height: 860px !important;
+    background-position: center center !important;
+    background-size: cover !important;
+  }
+
+  .cinematic-hero .hero-image-overlay {
+    background:
+      linear-gradient(180deg, rgba(2,8,61,.02) 0%, transparent 45%, rgba(2,8,61,.10) 100%) !important;
+  }
+
+  .cinematic-hero .hero-copy {
+    width: min(620px, calc(100% - 28px));
+    height: auto;
+    min-height: 860px;
+    margin: 0 auto;
+    padding: 475px 0 70px;
+    justify-content: flex-start;
+    align-items: center;
+    text-align: center;
+  }
+
+  .cinematic-hero .hero-copy .logo-shell {
+    width: 70px;
+    height: 70px;
+    margin-bottom: 11px;
+  }
+
+  .cinematic-hero .hero-copy .logo-shell img {
+    width: 58px;
+    height: 58px;
+  }
+
+  .cinematic-hero .hero-copy .eyebrow {
+    font-size: 9px;
+    letter-spacing: .14em;
+  }
+
+  .cinematic-hero .hero-copy h1 {
+    margin-top: 9px;
+    font-size: clamp(46px, 14vw, 72px);
+    line-height: .86;
+  }
+
+  .cinematic-hero .hero-copy .tagline {
+    margin: 15px 0 20px;
+    font-size: clamp(23px, 6vw, 31px);
+  }
+
+  .cinematic-hero .hero-copy .hero-actions {
+    width: min(430px,100%);
+    justify-content: center;
+  }
+
+  .hero-scoop-stage {
+    top: 88px !important;
+    right: 50% !important;
+    bottom: auto !important;
+    width: min(94vw, 390px) !important;
+    height: 370px !important;
+    transform: translateX(50%) !important;
+  }
+
+  .hero-scoop-entry {
+    top: 0 !important;
+    width: 158px !important;
+  }
+
+  .hero-premium-cone {
+    width: 120px !important;
+    height: 174px !important;
+    bottom: 0 !important;
+  }
+
+  .hero-cream-crown {
+    width: 215px !important;
+    height: 52px !important;
+    bottom: 146px !important;
+  }
+
+  .hero-impact-ring {
+    width: 260px !important;
+    bottom: 137px !important;
+  }
+
+  .hero-splash-drop {
+    bottom: 180px !important;
+  }
+
+  .hero-scoop-shadow {
+    width: 215px !important;
+    bottom: 18px !important;
+  }
+
+  .cinematic-hero .scroll-cue {
+    display: none;
+  }
+}
+
+@media (max-width: 430px) {
+  .cinematic-hero {
+    min-height: 820px !important;
+  }
+
+  .cinematic-hero .hero-copy {
+    min-height: 820px;
+    padding-top: 450px;
+  }
+
+  .hero-scoop-stage {
+    top: 82px !important;
+    width: 96vw !important;
+    height: 350px !important;
+  }
+
+  .hero-scoop-entry {
+    width: 148px !important;
+  }
+
+  .hero-premium-cone {
+    width: 112px !important;
+    height: 162px !important;
+  }
+
+  .hero-cream-crown {
+    width: 202px !important;
+    height: 48px !important;
+    bottom: 136px !important;
+  }
+
+  .hero-impact-ring {
+    width: 245px !important;
+    bottom: 127px !important;
+  }
+
+  .hero-splash-drop {
+    bottom: 168px !important;
+  }
+
+  .cinematic-hero .hero-copy h1 {
+    font-size: clamp(42px, 14.8vw, 62px);
+  }
+
+  .cinematic-hero .hero-copy .hero-actions {
+    width: 100%;
+  }
+
+  .cinematic-hero .hero-copy .hero-actions .button {
+    width: 100%;
+  }
+}
