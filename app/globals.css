@@ -860,3 +860,143 @@ button, a { -webkit-tap-highlight-color: transparent; }
       #0626a5;
   }
 }
+
+
+/* Janushan readability pass — warm cream light surfaces, no layout changes */
+:root {
+  --cream: #fff8ec;
+  --cream-2: #fff4df;
+  --cream-line: #eadfce;
+  --ink: #07153d;
+}
+
+.discover,
+.scoop-wall,
+.contact-world,
+.builder,
+.story-world {
+  background-color: var(--cream);
+}
+
+.discover {
+  background:
+    radial-gradient(circle at 90% 5%, rgba(69,160,255,.10), transparent 24%),
+    var(--cream);
+}
+
+.builder {
+  background:
+    radial-gradient(circle at 12% 20%, rgba(91,177,255,.10), transparent 28%),
+    linear-gradient(145deg,var(--cream),#fffaf1);
+}
+
+.story-world {
+  background:
+    radial-gradient(circle at 18% 20%, rgba(61,158,255,.10), transparent 25%),
+    linear-gradient(135deg,var(--cream),#fffaf1 55%,#fffdf8);
+}
+
+.scoop-wall,
+.contact-world {
+  background: var(--cream);
+}
+
+.feature-grid article {
+  background: rgba(255,252,245,.94);
+  border-color: var(--cream-line);
+}
+
+.social-links {
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  flex-wrap:wrap;
+  gap:12px;
+  margin:24px 0 10px;
+}
+
+.social-link {
+  display:inline-flex;
+  align-items:center;
+  gap:9px;
+  min-height:44px;
+  padding:10px 14px;
+  border:1px solid rgba(255,255,255,.20);
+  border-radius:999px;
+  color:#fff;
+  background:rgba(255,255,255,.07);
+  transition:transform .2s ease, background .2s ease, border-color .2s ease;
+}
+
+.social-link:hover {
+  transform:translateY(-2px);
+  background:rgba(255,255,255,.12);
+  border-color:rgba(255,255,255,.34);
+}
+
+.social-link svg {
+  width:20px;
+  height:20px;
+  flex:0 0 20px;
+}
+
+.social-link span {
+  font-size:12px;
+  font-weight:800;
+  letter-spacing:.03em;
+}
+
+@media(max-width:600px) {
+  .social-links {
+    gap:9px;
+    padding-inline:16px;
+  }
+
+  .social-link {
+    min-width:44px;
+    width:44px;
+    height:44px;
+    padding:0;
+    justify-content:center;
+  }
+
+  .social-link span {
+    display:none;
+  }
+}
+
+/* Prevent horizontal overflow on narrow phones without changing section structure. */
+html, body {
+  max-width:100%;
+  overflow-x:hidden;
+}
+
+img, video, canvas, svg {
+  max-width:100%;
+}
+
+@media(max-width:900px) {
+  .hero {
+    min-height:100svh;
+    grid-template-columns:1fr;
+    padding:108px 20px 48px;
+  }
+
+  .hero-copy {
+    width:min(100%, 680px);
+  }
+}
+
+@media(max-width:520px) {
+  .hero {
+    padding:96px 16px 36px;
+  }
+
+  .hero h1 {
+    font-size:clamp(2.8rem, 14vw, 4.5rem);
+  }
+
+  .hero-copy {
+    max-width:100%;
+  }
+}
