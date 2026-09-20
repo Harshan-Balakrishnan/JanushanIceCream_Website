@@ -24,8 +24,20 @@ export default function CinematicFooter() {
           <span>Google Reviews</span>
         </a>
       </div>
+      <nav className="footer-nav" aria-label="Footer navigation">
+        <a href="#menu">Menu</a>
+        <a href="#flavours">Flavours</a>
+        <a href="#story">Our Story</a>
+        <a href="#gallery">Gallery</a>
+        <a href="#locations">Find Us</a>
+        <a href="#contact">Contact</a>
+      </nav>
       <a className="footer-top" href="#home">Back to the top ↑</a>
-      <div className="footer-bottom"><span>© Janushan Ice Cream</span><span>Made in Sri Lanka</span></div>
+      <div className="footer-bottom">
+        <span>© 2026 Janushan Ice Cream</span>
+        <span>Made in Sri Lanka</span>
+        <span>All rights reserved.</span>
+      </div>
     </footer>
   );
 }
