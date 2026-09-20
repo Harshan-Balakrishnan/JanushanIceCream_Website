@@ -83,11 +83,11 @@ export default function ProductUniverse() {
       <div className="product-orbit-glow" aria-hidden="true" />
       <div className="product-section-head">
         <div>
-          <p className="section-kicker">CHOOSE YOUR CRAVING</p>
-          <h2 id="craving-title">Scroll into your <em>next favourite.</em></h2>
+          <p className="section-kicker">THE JANUSHAN MENU</p>
+          <h2 id="craving-title">Pick your <em>perfect scoop.</em></h2>
         </div>
         <p className="product-section-copy">
-          Swipe, scroll or tap through the Janushan ice cream menu. Every product stays large, tactile and easy to explore — especially on mobile.
+          From quick treats to generous tubs, explore the Janushan menu with clear prices, rich visuals and one-tap details.
         </p>
       </div>
 
@@ -131,7 +131,7 @@ export default function ProductUniverse() {
                 <strong>{product.name}</strong>
                 <span className="product-price">Rs. {formatter.format(product.price)}/-</span>
               </span>
-              <span className="product-open">Explore <i aria-hidden="true">↗</i></span>
+              <span className="product-open">View details <i aria-hidden="true">↗</i></span>
             </motion.button>
           ))}
         </div>
