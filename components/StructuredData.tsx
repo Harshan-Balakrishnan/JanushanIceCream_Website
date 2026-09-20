@@ -12,6 +12,10 @@ export default function StructuredData() {
     foundingDate: "2004",
     telephone: "+94 24 222 6041",
     email: "ramayabalan08@gmail.com",
+    sameAs: [
+      "https://www.facebook.com/janushanicecream",
+      "https://www.instagram.com/janushan_ice_cream/",
+    ],
     address: {
       "@type": "PostalAddress",
       streetAddress: "No:256/4, Janushan Ice Cream, Kali Kovil Road, Nelukkulam",
