@@ -248,7 +248,7 @@ export default function EntranceExperience() {
           <Image src="/brand/janushan-logo.png" alt="Janushan Ice Cream logo" width={180} height={180} priority />
         </motion.div>
         <p className="eyebrow">PREMIUM ICE CREAM · SINCE 2004</p>
-        <h1 aria-label="Janushan Ice Cream"><span className="hero-brand-word"><b className="hero-brand-initial">J</b>ANUSHAN</span><br /><span className="hero-brand-word"><b className="hero-brand-initial">I</b>CE</span><br/><span className="hero-brand-word"><b className="hero-brand-initial">C</b>REAM</span><br/></h1>
+        <h1 aria-label="Janushan Ice Cream"><b className="hero-brand-initial">J</b>ANUSHAN<br /><b className="hero-brand-initial">I</b>CE<br /><b className="hero-brand-initial">C</b>REAM<br /></h1>
         <p className="tagline">A Scoop of Happiness.</p>
         <div className="hero-actions">
           <a className="button button-primary" href="#discover">Discover Janushan</a>
