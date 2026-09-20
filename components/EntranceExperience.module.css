@@ -52,7 +52,7 @@
 }
 
 .backgroundGlow {
-  width: min(50vw, 760px);
+  width: min(54vw, 820px);
   height: min(50vw, 760px);
   right: -14%;
   top: 12%;
@@ -132,20 +132,40 @@
 .copy h1 {
   margin: 13px 0 0;
   font-family: Georgia, "Times New Roman", serif;
-  font-size: clamp(64px, 6.6vw, 112px);
-  line-height: .82;
+  font-size: clamp(68px, 6.8vw, 116px);
+  line-height: .84;
   letter-spacing: -.055em;
-  text-shadow: 0 12px 36px rgba(0,0,0,.30);
+  text-shadow: 0 14px 40px rgba(0,0,0,.30);
 }
 
-.copy h1 span {
+.brandPrimary,
+.brandSecondary {
   display: block;
+}
+
+.brandPrimary {
+  font-size: 1em;
+  font-weight: 700;
+}
+
+.brandSecondary {
   margin-top: 8px;
-  font-family: Inter, ui-sans-serif, system-ui, sans-serif;
-  font-size: .44em;
+  font-size: .48em;
   line-height: .9;
-  letter-spacing: .20em;
+  font-family: Inter, ui-sans-serif, system-ui, sans-serif;
+  font-weight: 950;
+  letter-spacing: .19em;
   color: #ffe5a5;
+}
+
+.eyebrow b {
+  color: rgba(255,255,255,.45);
+  padding: 0 4px;
+}
+
+.tagline em {
+  color: #fff0bd;
+  font-style: normal;
 }
 
 .tagline {
@@ -241,6 +261,7 @@
 
 .coneStage {
   position: relative;
+  margin-left: -18px;
   width: min(620px, 100%);
   height: min(700px, 76vh);
   min-height: 600px;
@@ -314,7 +335,7 @@
 
 .cream {
   position: absolute;
-  z-index: 4;
+  z-index: 5;
   left: 50%;
   bottom: 340px;
   width: 280px;
@@ -356,9 +377,9 @@
   position: absolute;
   z-index: 6;
   left: 50%;
-  top: 18px;
-  width: 270px;
-  height: 270px;
+  top: 14px;
+  width: 274px;
+  height: 274px;
   transform: translateX(-50%);
   transform-origin: 50% 92%;
   border-radius: 50% 50% 47% 53% / 48% 46% 54% 52%;
@@ -409,8 +430,8 @@
   position: absolute;
   z-index: 5;
   left: 50%;
-  bottom: 334px;
-  width: 315px;
+  bottom: 333px;
+  width: 320px;
   height: 38px;
   transform: translateX(-50%);
   border-radius: 50%;
@@ -679,4 +700,60 @@
   .secondaryButton {
     transition: none;
   }
+}
+
+
+.heroRoot::marker { content: none; }
+
+.coneStage::before {
+  content: "";
+  position: absolute;
+  left: 50%;
+  bottom: 18px;
+  width: 420px;
+  height: 150px;
+  transform: translateX(-50%);
+  border-radius: 50%;
+  background: radial-gradient(ellipse, rgba(255,238,185,.16), transparent 68%);
+  filter: blur(18px);
+  pointer-events: none;
+  z-index: 0;
+}
+
+.coneStage::after {
+  content: "SINCE 2004";
+  position: absolute;
+  left: 50%;
+  bottom: 0;
+  transform: translateX(-50%);
+  color: rgba(255,255,255,.24);
+  font-size: 8px;
+  font-weight: 900;
+  letter-spacing: .32em;
+  white-space: nowrap;
+}
+
+@media (max-width: 1050px) {
+  .coneStage { margin-left: -8px; }
+  .copy h1 { font-size: clamp(54px, 6.8vw, 82px); }
+}
+
+@media (max-width: 760px) {
+  .coneStage { margin-left: 0; }
+  .coneStage::after { display: none; }
+
+  .copy h1 {
+    font-size: clamp(46px, 14vw, 70px);
+  }
+
+  .brandSecondary {
+    margin-top: 5px;
+    font-size: .46em;
+    letter-spacing: .16em;
+  }
+}
+
+@media (max-width: 430px) {
+  .copy h1 { font-size: clamp(42px, 14.6vw, 61px); }
+  .brandSecondary { font-size: .45em; letter-spacing: .14em; }
 }
