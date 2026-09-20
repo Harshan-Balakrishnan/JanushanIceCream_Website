@@ -17,11 +17,11 @@ export default function CinematicFooter() {
           <span>Facebook</span>
         </a>
         <a className="social-link instagram" href="https://www.instagram.com/janushan_ice_cream/" target="_blank" rel="noreferrer" aria-label="Janushan Ice Cream on Instagram">
-          <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3.5" y="3.5" width="17" height="17" rx="4.5" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="12" cy="12" r="4" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="17.4" cy="6.7" r="1.2" fill="currentColor"/></svg>
+          <svg viewBox="0 0 24 24" aria-hidden="true"><defs><linearGradient id="footer-instagram-gradient" x1="0" y1="1" x2="1" y2="0"><stop offset="0" stop-color="#FFDC80"/><stop offset=".35" stop-color="#F77737"/><stop offset=".65" stop-color="#E1306C"/><stop offset="1" stop-color="#833AB4"/></linearGradient></defs><rect x="3.5" y="3.5" width="17" height="17" rx="4.5" fill="none" stroke="url(#footer-instagram-gradient)" stroke-width="2"/><circle cx="12" cy="12" r="4" fill="none" stroke="url(#footer-instagram-gradient)" stroke-width="2"/><circle cx="17.4" cy="6.7" r="1.2" fill="#E1306C"/></svg>
           <span>Instagram</span>
         </a>
         <a className="social-link google" href="https://www.google.com/search?q=Janushan+Ice+Cream+Vavuniya" target="_blank" rel="noreferrer" aria-label="Janushan Ice Cream Google reviews">
-          <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M21.4 12.2c0-.7-.1-1.4-.2-2h-9.2v3.8h5.3a4.5 4.5 0 0 1-2 3v2.5h3.2c1.9-1.7 2.9-4.1 2.9-7.3Z"/><path fill="currentColor" d="M12 21.7c2.7 0 5-.9 6.6-2.4l-3.2-2.5c-.9.6-2 .9-3.4.9-2.6 0-4.8-1.8-5.6-4.2H3.1V16c1.7 3.4 5 5.7 8.9 5.7Z"/><path fill="currentColor" d="M6.4 13.5a5.8 5.8 0 0 1 0-3.1V8H3.1a9.8 9.8 0 0 0 0 8l3.3-2.5Z"/><path fill="currentColor" d="M12 6.2c1.5 0 2.8.5 3.8 1.5l2.8-2.8C17 3.3 14.7 2.3 12 2.3 8.1 2.3 4.8 4.6 3.1 8l3.3 2.5C7.2 8 9.4 6.2 12 6.2Z"/></svg>
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="#4285F4" d="M21.35 12.27c0-.79-.07-1.55-.2-2.27H12v4.3h5.24a4.48 4.48 0 0 1-1.94 2.94v2.45h3.14c1.84-1.69 2.91-4.18 2.91-7.42Z"/><path fill="#34A853" d="M12 21.75c2.63 0 4.84-.87 6.45-2.36l-3.14-2.45c-.87.58-1.98.93-3.31.93-2.54 0-4.69-1.72-5.46-4.03H3.29v2.53A9.75 9.75 0 0 0 12 21.75Z"/><path fill="#FBBC05" d="M6.54 13.84A5.86 5.86 0 0 1 6.23 12c0-.64.11-1.26.31-1.84V7.63H3.29A9.75 9.75 0 0 0 2.25 12c0 1.57.38 3.05 1.04 4.37l3.25-2.53Z"/><path fill="#EA4335" d="M12 6.13c1.43 0 2.71.49 3.72 1.45l2.79-2.79C16.84 3.13 14.63 2.25 12 2.25a9.75 9.75 0 0 0-8.71 5.38l3.25 2.53C7.31 7.85 9.46 6.13 12 6.13Z"/></svg>
           <span>Google Reviews</span>
         </a>
       </div>
