@@ -47,6 +47,11 @@ export const metadata: Metadata = {
     images: ["/og/og-default.png"],
   },
   robots: { index: true, follow: true },
+  other: {
+    "geo.region": "LK-VA",
+    "geo.placename": "Vavuniya, Sri Lanka",
+    "business:contact_data:locality": "Vavuniya",
+  },
 };
 
 export const viewport: Viewport = {
