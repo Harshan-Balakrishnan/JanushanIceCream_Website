@@ -31,6 +31,7 @@ export default function CinematicFooter() {
         <a href="#story">Our Story</a>
         <a href="#gallery">Gallery</a>
         <a href="#locations">Find Us</a>
+        <a href="#faq">FAQ</a>
         <a href="#contact">Contact</a>
       </nav>
       <a className="footer-top" href="#home">Back to the top ↑</a>
