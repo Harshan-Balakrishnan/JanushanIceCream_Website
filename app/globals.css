@@ -1700,3 +1700,131 @@ img, video, canvas, svg {
     transition:none;
   }
 }
+
+/* Final mobile fit — keep the flavour universe fully inside the viewport */
+@media (max-width:650px) {
+  .flavour-universe {
+    width:100%;
+    max-width:100%;
+    overflow:hidden;
+  }
+  .flavour-shell {
+    width:100%;
+    max-width:100%;
+    box-sizing:border-box;
+    padding-left:16px;
+    padding-right:16px;
+    padding-top:76px;
+    padding-bottom:60px;
+    gap:22px;
+  }
+  .flavour-copy {
+    min-width:0;
+  }
+  .flavour-universe h2 {
+    font-size:clamp(38px,11vw,52px);
+    line-height:.92;
+    overflow-wrap:anywhere;
+  }
+  .flavour-intro {
+    font-size:14px;
+    line-height:1.6;
+  }
+  .flavour-tabs {
+    width:calc(100% + 16px);
+    max-width:none;
+    margin-right:-16px;
+    padding-right:16px;
+    box-sizing:border-box;
+  }
+  .flavour-stage {
+    width:100%;
+    max-width:100%;
+    min-width:0;
+    min-height:0;
+    box-sizing:border-box;
+    overflow:visible;
+  }
+  .flavour-scene {
+    width:100%;
+    min-width:0;
+    min-height:0;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    justify-content:flex-start;
+    gap:14px;
+  }
+  .flavour-orbit,
+  .flavour-product-halo {
+    top:30%;
+    pointer-events:none;
+  }
+  .orbit-one {
+    width:min(96vw,430px);
+    height:min(96vw,430px);
+  }
+  .orbit-two {
+    width:min(76vw,340px);
+    height:min(76vw,340px);
+  }
+  .flavour-product-halo {
+    width:min(76vw,340px);
+  }
+  .flavour-product-image {
+    width:100%;
+    max-width:100%;
+    height:auto;
+    aspect-ratio:1.35;
+    transform:none;
+    border-radius:24px;
+    overflow:hidden;
+    flex:0 0 auto;
+  }
+  .flavour-product-image img {
+    object-fit:cover;
+    transform:scale(1.01);
+  }
+  .flavour-label {
+    position:relative;
+    left:auto;
+    right:auto;
+    bottom:auto;
+    width:100%;
+    max-width:100%;
+    box-sizing:border-box;
+    padding:18px;
+    border-radius:20px;
+    display:flex;
+    flex-direction:column;
+    align-items:stretch;
+    gap:0;
+  }
+  .flavour-label h3 {
+    font-size:clamp(36px,10.5vw,48px);
+  }
+  .flavour-label p {
+    font-size:13px;
+    line-height:1.58;
+  }
+  .flavour-explore {
+    width:100%;
+    min-height:46px;
+    justify-content:center;
+    margin-top:14px;
+  }
+  .flavour-stage-caption {
+    position:relative;
+    right:auto;
+    bottom:auto;
+    width:100%;
+    margin-top:8px;
+    text-align:center;
+  }
+  .mixfruit-scoop {
+    width:min(78vw,300px);
+    margin:8px auto 12px;
+    transform:none;
+    flex:0 0 auto;
+  }
+}
