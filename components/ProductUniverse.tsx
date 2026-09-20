@@ -125,7 +125,7 @@ export default function ProductUniverse() {
               whileTap={reduceMotion ? undefined : { scale: 0.985 }}
               transition={{ type: "spring", stiffness: 250, damping: 24 }}
               ref={(node) => { cardRefs.current[index] = node; }}
-              style={{ "--product-glow": product.glow } as React.CSSProperties>
+              style={Object.assign({} as React.CSSProperties, { "--product-glow": product.glow })}
             >
               <span className="product-index">0{index + 1}</span>
               <span className="product-image-shell">
