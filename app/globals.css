@@ -1607,3 +1607,96 @@ img, video, canvas, svg {
     animation:none;
   }
 }
+
+/* Final polish — clearer carousel focus and resilient flavour layouts */
+.product-track-wrap::before,
+.product-track-wrap::after {
+  content:"";
+  position:absolute;
+  top:0;
+  bottom:24px;
+  width:clamp(22px,4vw,64px);
+  z-index:4;
+  pointer-events:none;
+}
+.product-track-wrap::before {
+  left:0;
+  background:linear-gradient(90deg,rgba(2,10,75,.92),transparent);
+}
+.product-track-wrap::after {
+  right:0;
+  background:linear-gradient(270deg,rgba(2,10,75,.92),transparent);
+}
+.product-card:focus-visible {
+  outline:3px solid rgba(255,255,255,.86);
+  outline-offset:4px;
+}
+.product-card.is-active {
+  border-color:rgba(255,255,255,.30);
+  box-shadow:0 30px 78px rgba(0,0,0,.28),0 0 0 1px color-mix(in srgb,var(--product-glow) 28%,transparent);
+}
+.product-arrow {
+  user-select:none;
+  -webkit-tap-highlight-color:transparent;
+}
+.product-arrow span {
+  display:block;
+  transform:translateY(-1px);
+}
+.product-progress i {
+  transition:width .45s cubic-bezier(.22,1,.36,1);
+}
+
+@media (min-width:651px) and (max-width:1050px) {
+  .flavour-shell {
+    padding-top:86px;
+    padding-bottom:82px;
+  }
+  .flavour-stage {
+    min-height:590px;
+  }
+  .flavour-scene {
+    min-height:560px;
+  }
+  .flavour-product-image {
+    width:min(700px,88vw);
+    transform:translateY(-12px);
+  }
+  .flavour-label {
+    left:3%;
+    right:3%;
+    bottom:12px;
+  }
+  .flavour-stage-caption {
+    right:3%;
+  }
+}
+
+@media(max-width:650px) {
+  .product-track-wrap::before,
+  .product-track-wrap::after {
+    width:18px;
+  }
+  .product-card.is-active {
+    box-shadow:0 22px 55px rgba(0,0,0,.25),0 0 0 1px color-mix(in srgb,var(--product-glow) 24%,transparent);
+  }
+  .flavour-product-image {
+    box-shadow:0 26px 58px rgba(0,0,0,.28);
+  }
+  .flavour-tabs button:focus-visible {
+    outline:2px solid rgba(255,255,255,.9);
+    outline-offset:2px;
+  }
+  .story-card-copy {
+    padding-right:2px;
+  }
+  .story-card-copy > p:last-child {
+    max-width:60ch;
+  }
+}
+
+@media(prefers-reduced-motion:reduce) {
+  .product-progress i {
+    transition:none;
+  }
+}
