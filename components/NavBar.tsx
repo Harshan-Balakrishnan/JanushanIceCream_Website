@@ -29,7 +29,7 @@ export default function NavBar() {
       <nav className="nav" aria-label="Primary navigation">
         <a className="brand-mark" href="#home" aria-label="Janushan Ice Cream home" onClick={() => setOpen(false)}>
           <Image src="/brand/janushan-logo.png" alt="" width={54} height={54} priority />
-          <span>JANUSHAN ICE CREAM</span>
+          <span><b>JANUSHAN</b><small>ICE CREAM</small></span>
         </a>
         <div className="nav-links">
           {links.map(([label, href]) => <a key={href} href={href}>{label}</a>)}
