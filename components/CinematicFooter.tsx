@@ -6,7 +6,6 @@ export default function CinematicFooter() {
       <div className="footer-stars">{Array.from({ length: 18 }).map((_, i) => <i key={i} />)}</div>
       <div className="footer-orbit footer-orbit-one" />
       <div className="footer-orbit footer-orbit-two" />
-      <div className="footer-cone" aria-hidden="true"><span className="footer-scoop" /><span className="footer-cone-body" /></div>
       <Image src="/brand/Brand Logo.png" alt="Janushan Ice Cream" width={390} height={390} className="footer-logo" />
       <p className="footer-kicker">JANUSHAN ICE CREAM · SINCE 2004</p>
       <h2>A Scoop of <em>Happiness.</em></h2>
