@@ -199,8 +199,23 @@ export default function EntranceExperience() {
         <motion.div
           className="cone premium-cone"
           initial={reduceMotion ? false : { scaleY: 1, y: 0 }}
-          animate={reduceMotion ? undefined : { scaleY: [1, 1, 0.95, 1.015, 1], y: [0, 0, 8, -2, 0] }}
-          transition={{ duration: 0.55, delay: 1.06, times: [0, 0.2, 0.45, 0.72, 1] }}
+          animate={
+            reduceMotion
+              ? undefined
+              : {
+                  scaleY: [1, 1, 0.95, 1.015, 1, 1.008, 1],
+                  y: [0, 0, 8, -2, 0, -2, 0],
+                  rotate: [0, 0, -0.45, 0.3, 0, -0.18, 0],
+                }
+          }
+          transition={{
+            duration: 5.8,
+            delay: 1.06,
+            times: [0, 0.1, 0.2, 0.31, 0.42, 0.68, 1],
+            repeat: Infinity,
+            repeatType: "loop",
+            ease: "easeInOut",
+          }}
         >
           <span className="cone-lip" />
           <span className="cone-shine" />
@@ -233,7 +248,7 @@ export default function EntranceExperience() {
           <Image src="/brand/janushan-logo.png" alt="Janushan Ice Cream logo" width={180} height={180} priority />
         </motion.div>
         <p className="eyebrow">PREMIUM ICE CREAM · SINCE 2004</p>
-        <h1>JANUSHAN<br />ICE<br/>CREAM<br/></h1>
+        <h1 aria-label="Janushan Ice Cream"><span className="hero-brand-word"><b className="hero-brand-initial">J</b>ANUSHAN</span><br /><span className="hero-brand-word"><b className="hero-brand-initial">I</b>CE</span><br/><span className="hero-brand-word"><b className="hero-brand-initial">C</b>REAM</span><br/></h1>
         <p className="tagline">A Scoop of Happiness.</p>
         <div className="hero-actions">
           <a className="button button-primary" href="#discover">Discover Janushan</a>
