@@ -92,7 +92,22 @@ export default function ProductUniverse() {
         </p>
       </div>
 
-      <div className="product-track-wrap">
+      <div
+        className="product-track-wrap"
+        onMouseEnter={() => { pauseAutoPlay.current = true; }}
+        onMouseLeave={() => { pauseAutoPlay.current = false; }}
+        onFocusCapture={() => { pauseAutoPlay.current = true; }}
+        onBlurCapture={(event) => {
+          if (!event.currentTarget.contains(event.relatedTarget as Node | null)) pauseAutoPlay.current = false;
+        }}
+        onTouchStart={() => { pauseAutoPlay.current = true; }}
+        onTouchEnd={() => {
+          window.setTimeout(() => { pauseAutoPlay.current = false; }, 900);
+        }}
+      >
+        <button className="product-arrow product-arrow-prev" type="button" onClick={() => goToProduct(active - 1)} aria-label="Previous product">
+          <span aria-hidden="true">‹</span>
+        </button>
         <div className="product-track" role="list" aria-label="Janushan Ice Cream products">
           {products.map((product, index) => (
             <motion.button
@@ -131,6 +146,10 @@ export default function ProductUniverse() {
             </motion.button>
           ))}
         </div>
+        <button className="product-arrow product-arrow-next" type="button" onClick={() => goToProduct(active + 1)} aria-label="Next product">
+          <span aria-hidden="true">›</span>
+        </button>
+        <div className="product-autoplay-hint" aria-hidden="true"><span /> AUTO MENU</div>
       </div>
 
       <div className="product-progress" aria-hidden="true">
