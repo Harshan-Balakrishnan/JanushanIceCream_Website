@@ -2387,6 +2387,11 @@ img, video, canvas, svg {
   }
 }
 
+@media (prefers-reduced-motion:reduce) {
+  .mascot-peek,
+  .hero-title-mascot-zone h1 {
+    transition:none;
+  }
 
   .hero-title-mascot-zone:hover .hero-title-mascot,
   .hero-title-mascot-zone:focus-within .hero-title-mascot {
