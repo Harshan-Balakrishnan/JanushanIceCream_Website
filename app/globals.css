@@ -2300,6 +2300,37 @@ img, video, canvas, svg {
   overflow:hidden;
 }
 
+/* Hero mascot responsive behavior */
+@media (hover:none), (pointer:coarse) {
+  .hero-title-mascot {
+    opacity:0;
+    transform:translateY(12px) scale(.84) rotate(1deg);
+  }
+
+  .hero-title-mascot-zone:focus .hero-title-mascot,
+  .hero-title-mascot-zone:focus-within .hero-title-mascot,
+  .hero-title-mascot-zone:active .hero-title-mascot {
+    opacity:1;
+    transform:translateY(0) scale(1) rotate(0deg);
+  }
+}
+
+@media (max-width:900px) {
+  .hero-title-mascot {
+    width:clamp(116px,21vw,158px);
+    top:clamp(-76px,-12vw,-48px);
+    right:clamp(2px,1vw,8px);
+  }
+}
+
+@media (max-width:520px) {
+  .hero-title-mascot {
+    width:clamp(96px,25vw,124px);
+    top:clamp(-66px,-14vw,-42px);
+    right:2px;
+  }
+}
+
 @media (prefers-reduced-motion:reduce) {
   .mascot-peek,
   .hero-title-mascot-zone h1 {
