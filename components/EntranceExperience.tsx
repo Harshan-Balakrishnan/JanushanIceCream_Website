@@ -249,7 +249,11 @@ export default function EntranceExperience() {
           <Image src="/brand/janushan-logo.png" alt="Janushan Ice Cream logo" width={180} height={180} priority />
         </motion.div>
         <p className="eyebrow">PREMIUM ICE CREAM · SINCE 2004</p>
-        <div className="hero-title-mascot-zone">
+        <div
+          className="hero-title-mascot-zone"
+          tabIndex={0}
+          aria-label="Janushan Ice Cream mascot interaction"
+        >
           <h1 aria-label="Janushan Ice Cream"><b className="hero-brand-initial">J</b>ANUSHAN<br /><b className="hero-brand-initial">I</b>CE<br /><b className="hero-brand-initial">C</b>REAM<br /></h1>
           <MascotPeek className="hero-title-mascot" />
         </div>
