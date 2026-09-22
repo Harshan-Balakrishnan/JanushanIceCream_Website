@@ -4,7 +4,6 @@ import Image from "next/image";
 import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { useCatalogCollection } from "@/hooks/useCatalogCollection";
-import MascotPeek from "@/components/MascotPeek";
 import { defaultProducts, type Product } from "@/lib/catalog";
 
 
@@ -109,7 +108,6 @@ export default function ProductUniverse() {
               style={Object.assign({} as React.CSSProperties, { "--product-glow": product.glow })}
             >
               <span className="product-index">0{index + 1}</span>
-              <MascotPeek className="product-card-mascot" />
               <span className="product-image-shell">
                 <Image
                   src={product.image}
