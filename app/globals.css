@@ -2228,7 +2228,7 @@ img, video, canvas, svg {
 }
 
 
-/* Mascot hover interactions */
+/* Mascot brand interactions — refined for the Janushan visual system */
 .mascot-peek {
   position:absolute;
   display:block;
@@ -2236,11 +2236,11 @@ img, video, canvas, svg {
   user-select:none;
   z-index:8;
   opacity:0;
-  transform:translateY(10px) scale(.82);
+  transform:translateY(12px) scale(.86);
   transform-origin:50% 100%;
   transition:
-    opacity .22s ease,
-    transform .42s cubic-bezier(.2,.8,.2,1);
+    opacity .2s ease,
+    transform .46s cubic-bezier(.16,1,.3,1);
   will-change:transform,opacity;
 }
 
@@ -2249,10 +2249,10 @@ img, video, canvas, svg {
   width:100%;
   height:auto;
   object-fit:contain;
-  filter:drop-shadow(0 12px 20px rgba(0,0,0,.24));
+  filter:drop-shadow(0 10px 18px rgba(0,0,0,.24));
 }
 
-/* Hero title: JANU peeks down from the upper-right of JANUSHAN. */
+/* Hero: JANU should feel like it is leaning over the JANUSHAN wordmark. */
 .hero-title-mascot-zone {
   position:relative;
   display:inline-block;
@@ -2262,36 +2262,46 @@ img, video, canvas, svg {
 .hero-title-mascot-zone h1 {
   position:relative;
   z-index:2;
-  transition:transform .35s cubic-bezier(.2,.8,.2,1);
+  transition:
+    transform .38s cubic-bezier(.16,1,.3,1),
+    text-shadow .38s ease;
 }
 
 .hero-title-mascot {
-  width:clamp(145px,16vw,225px);
-  top:clamp(-112px,-8vw,-68px);
-  right:clamp(-82px,-5.5vw,-38px);
-  z-index:3;
-  transform:translateY(18px) scale(.82) rotate(2deg);
+  width:clamp(132px,12.5vw,190px);
+  top:clamp(-102px,-7vw,-60px);
+  right:clamp(-48px,-3.5vw,-18px);
+  z-index:4;
+  transform:translateY(24px) scale(.84) rotate(2deg);
   transform-origin:50% 100%;
 }
 
 .hero-title-mascot-zone:hover h1,
 .hero-title-mascot-zone:focus-within h1 {
   transform:translateX(-3px);
+  text-shadow:0 14px 46px rgba(0,0,0,.32);
 }
 
 .hero-title-mascot-zone:hover .hero-title-mascot,
 .hero-title-mascot-zone:focus-within .hero-title-mascot {
   opacity:1;
   transform:translateY(0) scale(1) rotate(0deg);
+  animation:mascot-peek-settle .7s cubic-bezier(.16,1,.3,1);
 }
 
-/* Product cards: JANU peeks down from the upper-left corner. */
+@keyframes mascot-peek-settle {
+  0% { transform:translateY(24px) scale(.84) rotate(2deg); }
+  55% { transform:translateY(-3px) scale(1.025) rotate(-.8deg); }
+  100% { transform:translateY(0) scale(1) rotate(0deg); }
+}
+
+/* Product cards: JANU sits naturally in the upper-left corner of the product image. */
 .product-card .product-card-mascot {
-  width:clamp(105px,31%,142px);
-  top:clamp(6px,2vw,14px);
-  left:clamp(6px,2vw,14px);
-  z-index:7;
-  transform:translateY(-18px) scale(.82) rotate(-3deg);
+  width:clamp(108px,29%,138px);
+  top:6px;
+  left:7px;
+  z-index:8;
+  transform:translateY(-15px) scale(.84) rotate(-3deg);
   transform-origin:50% 0%;
 }
 
@@ -2303,11 +2313,11 @@ img, video, canvas, svg {
 
 .product-card:hover .product-card-mascot .mascot-peek-image,
 .product-card:focus-visible .product-card-mascot .mascot-peek-image {
-  filter:drop-shadow(0 14px 24px rgba(0,0,0,.34));
+  filter:drop-shadow(0 12px 20px rgba(0,0,0,.34));
 }
 
-/* Touch/tablet/mobile: keep the mascots visible because hover does not exist.
-   The active product card gets the mascot so the carousel stays clean. */
+/* Touch devices have no reliable hover state.
+   Keep the hero mascot present and show JANU on the active product card. */
 @media (hover:none), (pointer:coarse) {
   .hero-title-mascot {
     opacity:1;
@@ -2316,7 +2326,7 @@ img, video, canvas, svg {
 
   .product-card .product-card-mascot {
     opacity:0;
-    transform:translateY(-18px) scale(.82) rotate(-3deg);
+    transform:translateY(-15px) scale(.84) rotate(-3deg);
   }
 
   .product-card.is-active .product-card-mascot,
@@ -2326,18 +2336,26 @@ img, video, canvas, svg {
   }
 }
 
-/* Responsive sizing and safe positioning on narrow screens. */
-@media (max-width:700px) {
+/* Tablet and mobile: preserve the peeking relationship without crowding the wordmark. */
+@media (max-width:900px) {
   .hero-title-mascot {
-    width:clamp(112px,31vw,165px);
-    top:clamp(-82px,-18vw,-54px);
-    right:clamp(-42px,-8vw,-18px);
+    width:clamp(118px,22vw,165px);
+    top:clamp(-86px,-13vw,-52px);
+    right:clamp(-30px,-4vw,-12px);
+  }
+}
+
+@media (max-width:520px) {
+  .hero-title-mascot {
+    width:clamp(102px,27vw,132px);
+    top:clamp(-70px,-16vw,-44px);
+    right:clamp(-22px,-3vw,-8px);
   }
 
   .product-card .product-card-mascot {
-    width:clamp(92px,30vw,124px);
-    top:8px;
-    left:8px;
+    width:clamp(92px,30%,116px);
+    top:6px;
+    left:6px;
   }
 }
 
@@ -2345,5 +2363,10 @@ img, video, canvas, svg {
   .mascot-peek,
   .hero-title-mascot-zone h1 {
     transition:none;
+  }
+
+  .hero-title-mascot-zone:hover .hero-title-mascot,
+  .hero-title-mascot-zone:focus-within .hero-title-mascot {
+    animation:none;
   }
 }
