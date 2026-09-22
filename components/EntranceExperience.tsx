@@ -2,6 +2,7 @@
 
 import Image from "next/image";
 import { motion, useReducedMotion } from "framer-motion";
+import MascotPeek from "@/components/MascotPeek";
 
 const droplets = [
   { x: -148, y: -35, s: 13, d: 0.98 },
@@ -248,7 +249,10 @@ export default function EntranceExperience() {
           <Image src="/brand/janushan-logo.png" alt="Janushan Ice Cream logo" width={180} height={180} priority />
         </motion.div>
         <p className="eyebrow">PREMIUM ICE CREAM · SINCE 2004</p>
-        <h1 aria-label="Janushan Ice Cream"><b className="hero-brand-initial">J</b>ANUSHAN<br /><b className="hero-brand-initial">I</b>CE<br /><b className="hero-brand-initial">C</b>REAM<br /></h1>
+        <div className="hero-title-mascot-zone">
+          <h1 aria-label="Janushan Ice Cream"><b className="hero-brand-initial">J</b>ANUSHAN<br /><b className="hero-brand-initial">I</b>CE<br /><b className="hero-brand-initial">C</b>REAM<br /></h1>
+          <MascotPeek className="hero-title-mascot" />
+        </div>
         <p className="tagline">A Scoop of Happiness.</p>
         <div className="hero-trust-row" aria-label="Janushan Ice Cream highlights">
           <span><b>Since 2004</b><small>Vavuniya-born</small></span>
