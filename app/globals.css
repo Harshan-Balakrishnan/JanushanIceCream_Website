@@ -2022,9 +2022,14 @@ img, video, canvas, svg {
   font-weight:inherit;
   transition:color .3s ease, text-shadow .3s ease;
 }
-.hero h1:hover .hero-brand-initial {
-  color:var(--gold-soft);
-  text-shadow:0 0 18px rgba(255,213,108,.28);
+.hero-title-mascot-zone:hover h1 .hero-brand-initial,
+.hero-title-mascot-zone:focus-within h1 .hero-brand-initial {
+  color:#ffd56c;
+  text-shadow:0 0 8px rgba(255,213,108,.72), 0 0 24px rgba(243,190,83,.42);
+  transform:translateY(-1px);
+}
+.hero-brand-initial {
+  display:inline-block;
 }
 
 .hero-actions .button {
@@ -2265,10 +2270,10 @@ img, video, canvas, svg {
 
 .hero-title-mascot {
   width:clamp(122px,10.8vw,172px);
-  top:clamp(-70px,-4.8vw,-42px);
+  top:clamp(-84px,-5.8vw,-54px);
   right:clamp(2px,.7vw,10px);
-  z-index:1;
-  transform:translateY(18px) scale(.84) rotate(1deg);
+  z-index:3;
+  transform:translateY(12px) scale(.84) rotate(1deg);
   transform-origin:50% 100%;
 }
 
@@ -2290,101 +2295,9 @@ img, video, canvas, svg {
   100% { transform:translateY(0) scale(1) rotate(0deg); }
 }
 
-/* Product cards: JANU peeks outside the upper-left edge, never over the product photo. */
+/* Product cards intentionally have no mascot interaction. */
 .product-card {
-  overflow:visible;
-}
-
-.product-card .product-card-mascot {
-  width:clamp(108px,29%,138px);
-  top:clamp(-76px,-4vw,-48px);
-  left:clamp(-34px,-2vw,-18px);
-  z-index:0;
-  transform:translateY(12px) scale(.82) rotate(-6deg);
-  transform-origin:70% 100%;
-}
-
-.product-card .product-image-shell,
-.product-card .product-meta,
-.product-card .product-open,
-.product-card .product-index {
-  position:relative;
-}
-
-.product-card .product-image-shell,
-.product-card .product-meta,
-.product-card .product-open {
-  z-index:2;
-}
-
-.product-card .product-index {
-  z-index:3;
-}
-
-.product-card:hover .product-card-mascot,
-.product-card:focus-visible .product-card-mascot {
-  opacity:1;
-  transform:translateY(0) scale(1) rotate(-3deg);
-}
-
-.product-card:hover .product-card-mascot .mascot-peek-image,
-.product-card:focus-visible .product-card-mascot .mascot-peek-image {
-  filter:drop-shadow(0 12px 20px rgba(0,0,0,.34));
-}
-
-/* Touch devices: reveal only after the card is focused/tapped. */
-@media (hover:none), (pointer:coarse) {
-  .hero-title-mascot {
-    opacity:0;
-    transform:translateY(18px) scale(.84) rotate(1deg);
-  }
-
-  .hero-title-mascot-zone:focus .hero-title-mascot,
-  .hero-title-mascot-zone:focus-within .hero-title-mascot,
-  .hero-title-mascot-zone:active .hero-title-mascot {
-    opacity:1;
-    transform:translateY(0) scale(1) rotate(0deg);
-  }
-
-  .product-card .product-card-mascot {
-    opacity:0;
-    transform:translateY(12px) scale(.82) rotate(-6deg);
-  }
-
-  .product-card:focus .product-card-mascot,
-  .product-card:focus-visible .product-card-mascot,
-  .product-card:active .product-card-mascot {
-    opacity:1;
-    transform:translateY(0) scale(1) rotate(-3deg);
-  }
-}
-
-@media (max-width:900px) {
-  .hero-title-mascot {
-    width:clamp(116px,21vw,158px);
-    top:clamp(-62px,-10vw,-42px);
-    right:clamp(2px,1vw,8px);
-  }
-
-  .product-card .product-card-mascot {
-    width:clamp(104px,30%,128px);
-    top:-58px;
-    left:-22px;
-  }
-}
-
-@media (max-width:520px) {
-  .hero-title-mascot {
-    width:clamp(96px,25vw,124px);
-    top:clamp(-54px,-12vw,-36px);
-    right:2px;
-  }
-
-  .product-card .product-card-mascot {
-    width:clamp(96px,30%,118px);
-    top:-52px;
-    left:-18px;
-  }
+  overflow:hidden;
 }
 
 @media (prefers-reduced-motion:reduce) {
