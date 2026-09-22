@@ -2226,3 +2226,89 @@ img, video, canvas, svg {
   .hero-trust-row b { font-size:8px; letter-spacing:.04em; }
   .hero-trust-row small { font-size:8px; }
 }
+
+
+/* Mascot hover interactions */
+.mascot-peek {
+  position:absolute;
+  display:block;
+  pointer-events:none;
+  user-select:none;
+  z-index:8;
+  opacity:0;
+  transform:translateY(110%) scale(.78) rotate(3deg);
+  transform-origin:50% 100%;
+  transition:
+    opacity .28s ease,
+    transform .48s cubic-bezier(.2,.8,.2,1);
+  will-change:transform,opacity;
+}
+.mascot-peek-image {
+  display:block;
+  width:100%;
+  height:auto;
+  object-fit:contain;
+  filter:drop-shadow(0 12px 20px rgba(0,0,0,.24));
+}
+
+/* Main hero title: JANUSHAN / ICE / CREAM */
+.hero-title-mascot-zone {
+  position:relative;
+  display:inline-block;
+  isolation:isolate;
+}
+.hero-title-mascot-zone h1 {
+  position:relative;
+  z-index:2;
+  transition:transform .35s cubic-bezier(.2,.8,.2,1);
+}
+.hero-title-mascot {
+  width:clamp(170px,18vw,270px);
+  right:clamp(-115px,-8vw,-55px);
+  bottom:clamp(-118px,-7vw,-68px);
+  z-index:1;
+}
+.hero-title-mascot-zone:hover h1 {
+  transform:translateX(-3px);
+}
+.hero-title-mascot-zone:hover .hero-title-mascot,
+.hero-title-mascot-zone:focus-within .hero-title-mascot {
+  opacity:1;
+  transform:translateY(18%) scale(1) rotate(1deg);
+}
+
+/* Menu cards: a small JANU peeking from the lower corner */
+.product-card .product-card-mascot {
+  width:clamp(116px,34%,148px);
+  right:6px;
+  bottom:-18px;
+  z-index:6;
+}
+.product-card:hover .product-card-mascot,
+.product-card:focus-visible .product-card-mascot {
+  opacity:1;
+  transform:translateY(8%) scale(1) rotate(2deg);
+}
+.product-card:hover .product-card-mascot .mascot-peek-image,
+.product-card:focus-visible .product-card-mascot .mascot-peek-image {
+  filter:drop-shadow(0 14px 24px rgba(0,0,0,.34));
+}
+
+/* Avoid hover-only character animation on coarse/touch devices. */
+@media (hover:none), (pointer:coarse) {
+  .hero-title-mascot {
+    display:none;
+  }
+  .product-card .product-card-mascot {
+    opacity:.72;
+    transform:translateY(24%) scale(.9);
+  }
+}
+
+/* Respect accessibility settings. */
+@media (prefers-reduced-motion:reduce) {
+  .mascot-peek,
+  .hero-title-mascot-zone h1 {
+    transition:none;
+  }
+}
