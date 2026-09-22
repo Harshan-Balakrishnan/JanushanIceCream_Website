@@ -2236,13 +2236,14 @@ img, video, canvas, svg {
   user-select:none;
   z-index:8;
   opacity:0;
-  transform:translateY(110%) scale(.78) rotate(3deg);
+  transform:translateY(10px) scale(.82);
   transform-origin:50% 100%;
   transition:
-    opacity .28s ease,
-    transform .48s cubic-bezier(.2,.8,.2,1);
+    opacity .22s ease,
+    transform .42s cubic-bezier(.2,.8,.2,1);
   will-change:transform,opacity;
 }
+
 .mascot-peek-image {
   display:block;
   width:100%;
@@ -2251,61 +2252,95 @@ img, video, canvas, svg {
   filter:drop-shadow(0 12px 20px rgba(0,0,0,.24));
 }
 
-/* Main hero title: JANUSHAN / ICE / CREAM */
+/* Hero title: JANU peeks down from the upper-right of JANUSHAN. */
 .hero-title-mascot-zone {
   position:relative;
   display:inline-block;
   isolation:isolate;
 }
+
 .hero-title-mascot-zone h1 {
   position:relative;
   z-index:2;
   transition:transform .35s cubic-bezier(.2,.8,.2,1);
 }
+
 .hero-title-mascot {
-  width:clamp(170px,18vw,270px);
-  right:clamp(-115px,-8vw,-55px);
-  bottom:clamp(-118px,-7vw,-68px);
-  z-index:1;
+  width:clamp(145px,16vw,225px);
+  top:clamp(-112px,-8vw,-68px);
+  right:clamp(-82px,-5.5vw,-38px);
+  z-index:3;
+  transform:translateY(18px) scale(.82) rotate(2deg);
+  transform-origin:50% 100%;
 }
-.hero-title-mascot-zone:hover h1 {
+
+.hero-title-mascot-zone:hover h1,
+.hero-title-mascot-zone:focus-within h1 {
   transform:translateX(-3px);
 }
+
 .hero-title-mascot-zone:hover .hero-title-mascot,
 .hero-title-mascot-zone:focus-within .hero-title-mascot {
   opacity:1;
-  transform:translateY(18%) scale(1) rotate(1deg);
+  transform:translateY(0) scale(1) rotate(0deg);
 }
 
-/* Menu cards: a small JANU peeking from the lower corner */
+/* Product cards: JANU peeks down from the upper-left corner. */
 .product-card .product-card-mascot {
-  width:clamp(116px,34%,148px);
-  right:6px;
-  bottom:-18px;
-  z-index:6;
+  width:clamp(105px,31%,142px);
+  top:clamp(6px,2vw,14px);
+  left:clamp(6px,2vw,14px);
+  z-index:7;
+  transform:translateY(-18px) scale(.82) rotate(-3deg);
+  transform-origin:50% 0%;
 }
+
 .product-card:hover .product-card-mascot,
 .product-card:focus-visible .product-card-mascot {
   opacity:1;
-  transform:translateY(8%) scale(1) rotate(2deg);
+  transform:translateY(0) scale(1) rotate(0deg);
 }
+
 .product-card:hover .product-card-mascot .mascot-peek-image,
 .product-card:focus-visible .product-card-mascot .mascot-peek-image {
   filter:drop-shadow(0 14px 24px rgba(0,0,0,.34));
 }
 
-/* Avoid hover-only character animation on coarse/touch devices. */
+/* Touch/tablet/mobile: keep the mascots visible because hover does not exist.
+   The active product card gets the mascot so the carousel stays clean. */
 @media (hover:none), (pointer:coarse) {
   .hero-title-mascot {
-    display:none;
+    opacity:1;
+    transform:translateY(0) scale(1) rotate(0deg);
   }
+
   .product-card .product-card-mascot {
-    opacity:.72;
-    transform:translateY(24%) scale(.9);
+    opacity:0;
+    transform:translateY(-18px) scale(.82) rotate(-3deg);
+  }
+
+  .product-card.is-active .product-card-mascot,
+  .product-card:focus-visible .product-card-mascot {
+    opacity:1;
+    transform:translateY(0) scale(1) rotate(0deg);
   }
 }
 
-/* Respect accessibility settings. */
+/* Responsive sizing and safe positioning on narrow screens. */
+@media (max-width:700px) {
+  .hero-title-mascot {
+    width:clamp(112px,31vw,165px);
+    top:clamp(-82px,-18vw,-54px);
+    right:clamp(-42px,-8vw,-18px);
+  }
+
+  .product-card .product-card-mascot {
+    width:clamp(92px,30vw,124px);
+    top:8px;
+    left:8px;
+  }
+}
+
 @media (prefers-reduced-motion:reduce) {
   .mascot-peek,
   .hero-title-mascot-zone h1 {
