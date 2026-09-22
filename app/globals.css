@@ -2228,7 +2228,7 @@ img, video, canvas, svg {
 }
 
 
-/* Mascot brand interactions — refined for the Janushan visual system */
+/* Mascot brand interactions — true edge peeking */
 .mascot-peek {
   position:absolute;
   display:block;
@@ -2236,11 +2236,9 @@ img, video, canvas, svg {
   user-select:none;
   z-index:8;
   opacity:0;
-  transform:translateY(12px) scale(.86);
+  transform:translateY(14px) scale(.84);
   transform-origin:50% 100%;
-  transition:
-    opacity .2s ease,
-    transform .46s cubic-bezier(.16,1,.3,1);
+  transition:opacity .2s ease,transform .46s cubic-bezier(.16,1,.3,1);
   will-change:transform,opacity;
 }
 
@@ -2252,7 +2250,7 @@ img, video, canvas, svg {
   filter:drop-shadow(0 10px 18px rgba(0,0,0,.24));
 }
 
-/* Hero: JANU should feel like it is leaning over the JANUSHAN wordmark. */
+/* Hero: the body peeks behind JANUSHAN and the hands meet the top of the final AN. */
 .hero-title-mascot-zone {
   position:relative;
   display:inline-block;
@@ -2262,53 +2260,71 @@ img, video, canvas, svg {
 .hero-title-mascot-zone h1 {
   position:relative;
   z-index:2;
-  transition:
-    transform .38s cubic-bezier(.16,1,.3,1),
-    text-shadow .38s ease;
+  transition:transform .38s cubic-bezier(.16,1,.3,1);
 }
 
 .hero-title-mascot {
-  width:clamp(128px,11.5vw,178px);
-  top:clamp(-88px,-6vw,-54px);
-  right:clamp(4px,0.8vw,14px);
-  z-index:4;
-  transform:translateY(24px) scale(.84) rotate(2deg);
+  width:clamp(122px,10.8vw,172px);
+  top:clamp(-70px,-4.8vw,-42px);
+  right:clamp(2px,.7vw,10px);
+  z-index:1;
+  transform:translateY(18px) scale(.84) rotate(1deg);
   transform-origin:50% 100%;
 }
 
 .hero-title-mascot-zone:hover h1,
 .hero-title-mascot-zone:focus-within h1 {
-  transform:translateX(-3px);
-  text-shadow:0 14px 46px rgba(0,0,0,.32);
+  transform:translateX(-2px);
 }
 
 .hero-title-mascot-zone:hover .hero-title-mascot,
 .hero-title-mascot-zone:focus-within .hero-title-mascot {
   opacity:1;
   transform:translateY(0) scale(1) rotate(0deg);
-  animation:mascot-peek-settle .7s cubic-bezier(.16,1,.3,1);
+  animation:mascot-peek-settle .68s cubic-bezier(.16,1,.3,1);
 }
 
 @keyframes mascot-peek-settle {
-  0% { transform:translateY(24px) scale(.84) rotate(2deg); }
-  55% { transform:translateY(-3px) scale(1.025) rotate(-.8deg); }
+  0% { transform:translateY(18px) scale(.84) rotate(1deg); }
+  55% { transform:translateY(-2px) scale(1.015) rotate(-.5deg); }
   100% { transform:translateY(0) scale(1) rotate(0deg); }
 }
 
-/* Product cards: JANU sits naturally in the upper-left corner of the product image. */
+/* Product cards: JANU peeks outside the upper-left edge, never over the product photo. */
+.product-card {
+  overflow:visible;
+}
+
 .product-card .product-card-mascot {
   width:clamp(108px,29%,138px);
-  top:6px;
-  left:7px;
-  z-index:8;
-  transform:translateY(-15px) scale(.84) rotate(-3deg);
-  transform-origin:50% 0%;
+  top:clamp(-76px,-4vw,-48px);
+  left:clamp(-34px,-2vw,-18px);
+  z-index:0;
+  transform:translateY(12px) scale(.82) rotate(-6deg);
+  transform-origin:70% 100%;
+}
+
+.product-card .product-image-shell,
+.product-card .product-meta,
+.product-card .product-open,
+.product-card .product-index {
+  position:relative;
+}
+
+.product-card .product-image-shell,
+.product-card .product-meta,
+.product-card .product-open {
+  z-index:2;
+}
+
+.product-card .product-index {
+  z-index:3;
 }
 
 .product-card:hover .product-card-mascot,
 .product-card:focus-visible .product-card-mascot {
   opacity:1;
-  transform:translateY(0) scale(1) rotate(0deg);
+  transform:translateY(0) scale(1) rotate(-3deg);
 }
 
 .product-card:hover .product-card-mascot .mascot-peek-image,
@@ -2316,13 +2332,11 @@ img, video, canvas, svg {
   filter:drop-shadow(0 12px 20px rgba(0,0,0,.34));
 }
 
-/* Touch devices: do not show mascots before interaction.
-   A tap/focus reveals the character, so mobile still gets the interaction
-   without relying on a desktop-only :hover state. */
+/* Touch devices: reveal only after the card is focused/tapped. */
 @media (hover:none), (pointer:coarse) {
   .hero-title-mascot {
     opacity:0;
-    transform:translateY(24px) scale(.84) rotate(2deg);
+    transform:translateY(18px) scale(.84) rotate(1deg);
   }
 
   .hero-title-mascot-zone:focus .hero-title-mascot,
@@ -2334,45 +2348,45 @@ img, video, canvas, svg {
 
   .product-card .product-card-mascot {
     opacity:0;
-    transform:translateY(-15px) scale(.84) rotate(-3deg);
+    transform:translateY(12px) scale(.82) rotate(-6deg);
   }
 
   .product-card:focus .product-card-mascot,
   .product-card:focus-visible .product-card-mascot,
   .product-card:active .product-card-mascot {
     opacity:1;
-    transform:translateY(0) scale(1) rotate(0deg);
+    transform:translateY(0) scale(1) rotate(-3deg);
   }
 }
 
-/* Tablet and mobile: preserve the peeking relationship without crowding the wordmark. */
 @media (max-width:900px) {
   .hero-title-mascot {
-    width:clamp(118px,22vw,165px);
-    top:clamp(-78px,-12vw,-48px);
-    right:clamp(0px,1vw,8px);
+    width:clamp(116px,21vw,158px);
+    top:clamp(-62px,-10vw,-42px);
+    right:clamp(2px,1vw,8px);
+  }
+
+  .product-card .product-card-mascot {
+    width:clamp(104px,30%,128px);
+    top:-58px;
+    left:-22px;
   }
 }
 
 @media (max-width:520px) {
   .hero-title-mascot {
-    width:clamp(100px,26vw,130px);
-    top:clamp(-66px,-15vw,-42px);
-    right:clamp(0px,1vw,5px);
+    width:clamp(96px,25vw,124px);
+    top:clamp(-54px,-12vw,-36px);
+    right:2px;
   }
 
   .product-card .product-card-mascot {
-    width:clamp(92px,30%,116px);
-    top:6px;
-    left:6px;
+    width:clamp(96px,30%,118px);
+    top:-52px;
+    left:-18px;
   }
 }
 
-@media (prefers-reduced-motion:reduce) {
-  .mascot-peek,
-  .hero-title-mascot-zone h1 {
-    transition:none;
-  }
 
   .hero-title-mascot-zone:hover .hero-title-mascot,
   .hero-title-mascot-zone:focus-within .hero-title-mascot {
