@@ -2268,9 +2268,9 @@ img, video, canvas, svg {
 }
 
 .hero-title-mascot {
-  width:clamp(132px,12.5vw,190px);
-  top:clamp(-102px,-7vw,-60px);
-  right:clamp(-48px,-3.5vw,-18px);
+  width:clamp(128px,11.5vw,178px);
+  top:clamp(-88px,-6vw,-54px);
+  right:clamp(4px,0.8vw,14px);
   z-index:4;
   transform:translateY(24px) scale(.84) rotate(2deg);
   transform-origin:50% 100%;
@@ -2316,10 +2316,18 @@ img, video, canvas, svg {
   filter:drop-shadow(0 12px 20px rgba(0,0,0,.34));
 }
 
-/* Touch devices have no reliable hover state.
-   Keep the hero mascot present and show JANU on the active product card. */
+/* Touch devices: do not show mascots before interaction.
+   A tap/focus reveals the character, so mobile still gets the interaction
+   without relying on a desktop-only :hover state. */
 @media (hover:none), (pointer:coarse) {
   .hero-title-mascot {
+    opacity:0;
+    transform:translateY(24px) scale(.84) rotate(2deg);
+  }
+
+  .hero-title-mascot-zone:focus .hero-title-mascot,
+  .hero-title-mascot-zone:focus-within .hero-title-mascot,
+  .hero-title-mascot-zone:active .hero-title-mascot {
     opacity:1;
     transform:translateY(0) scale(1) rotate(0deg);
   }
@@ -2329,8 +2337,9 @@ img, video, canvas, svg {
     transform:translateY(-15px) scale(.84) rotate(-3deg);
   }
 
-  .product-card.is-active .product-card-mascot,
-  .product-card:focus-visible .product-card-mascot {
+  .product-card:focus .product-card-mascot,
+  .product-card:focus-visible .product-card-mascot,
+  .product-card:active .product-card-mascot {
     opacity:1;
     transform:translateY(0) scale(1) rotate(0deg);
   }
@@ -2340,16 +2349,16 @@ img, video, canvas, svg {
 @media (max-width:900px) {
   .hero-title-mascot {
     width:clamp(118px,22vw,165px);
-    top:clamp(-86px,-13vw,-52px);
-    right:clamp(-30px,-4vw,-12px);
+    top:clamp(-78px,-12vw,-48px);
+    right:clamp(0px,1vw,8px);
   }
 }
 
 @media (max-width:520px) {
   .hero-title-mascot {
-    width:clamp(102px,27vw,132px);
-    top:clamp(-70px,-16vw,-44px);
-    right:clamp(-22px,-3vw,-8px);
+    width:clamp(100px,26vw,130px);
+    top:clamp(-66px,-15vw,-42px);
+    right:clamp(0px,1vw,5px);
   }
 
   .product-card .product-card-mascot {
