@@ -2385,33 +2385,37 @@ img, video, canvas, svg {
 }
 
 @keyframes mascot-peek-in-out {
-  0%,100% {
+  0% {
+    opacity:0;
+    transform:translateY(18px) scale(.84) rotate(1deg);
+  }
+  9% {
+    opacity:1;
+    transform:translateY(-2px) scale(1.015) rotate(-.5deg);
+  }
+  16% {
     opacity:1;
     transform:translateY(0) scale(1) rotate(0deg);
   }
-  12% {
-    opacity:1;
-    transform:translateY(-1px) scale(1.008) rotate(-0.2deg);
-  }
-  25% {
+  68% {
     opacity:1;
     transform:translateY(0) scale(1) rotate(0deg);
   }
-  72% {
-    opacity:1;
-    transform:translateY(0) scale(1) rotate(0deg);
+  78% {
+    opacity:.98;
+    transform:translateY(4px) scale(.98) rotate(.25deg);
   }
-  84% {
-    opacity:.96;
-    transform:translateY(3px) scale(.975) rotate(0.25deg);
+  88% {
+    opacity:.72;
+    transform:translateY(11px) scale(.90) rotate(.55deg);
   }
-  92% {
-    opacity:.9;
-    transform:translateY(7px) scale(.94) rotate(0.45deg);
+  94% {
+    opacity:.45;
+    transform:translateY(16px) scale(.86) rotate(.8deg);
   }
   100% {
-    opacity:1;
-    transform:translateY(0) scale(1) rotate(0deg);
+    opacity:0;
+    transform:translateY(18px) scale(.84) rotate(1deg);
   }
 }
 
