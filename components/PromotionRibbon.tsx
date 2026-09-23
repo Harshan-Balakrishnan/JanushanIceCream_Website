@@ -32,7 +32,7 @@ function formatPromotionDate(value?: string) {
 
 export default function PromotionRibbon() {
   const { items } = useCatalogCollection<Promotion>("promotions", []);
-  const [now, setNow] = useState(() => Date.now());
+  const [now, setNow] = useState<number | null>(null);
   const [activeIndex, setActiveIndex] = useState(0);
   const [copied, setCopied] = useState(false);
   const [paused, setPaused] = useState(false);
@@ -46,6 +46,7 @@ export default function PromotionRibbon() {
   );
 
   useEffect(() => {
+    setNow(Date.now());
     const timer = window.setInterval(() => setNow(Date.now()), 30_000);
     return () => window.clearInterval(timer);
   }, []);
@@ -69,7 +70,7 @@ export default function PromotionRibbon() {
     return () => window.clearInterval(timer);
   }, [livePromotions.length, paused]);
 
-  if (!livePromotions.length) return null;
+  if (now === null || !livePromotions.length) return null;
 
   const p = livePromotions[activeIndex];
   const promoCode = p.promoCode?.trim();
