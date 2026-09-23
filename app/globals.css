@@ -2317,7 +2317,10 @@ img, video, canvas, svg {
 
 .hero-title-mascot-zone:hover .hero-title-mascot .mascot-peek-image,
 .hero-title-mascot-zone:focus-within .hero-title-mascot .mascot-peek-image {
-  animation:mascot-life-shadow 3.8s ease-in-out infinite;
+  animation:
+    mascot-life-shadow 3.8s ease-in-out infinite,
+    mascot-character-presence 6.4s ease-in-out infinite;
+  transform-origin:50% 82%;
 }
 
 @keyframes mascot-life-breathe {
@@ -2344,6 +2347,21 @@ img, video, canvas, svg {
   }
   45% {
     filter:drop-shadow(0 13px 22px rgba(0,0,0,.30));
+  }
+}
+
+@keyframes mascot-character-presence {
+  0%,100% {
+    transform:translate3d(0,0,0) rotate(0deg) scale(1);
+  }
+  23% {
+    transform:translate3d(0,-0.8px,0) rotate(-0.25deg) scale(1.002);
+  }
+  49% {
+    transform:translate3d(0,0,0) rotate(0.2deg) scale(1);
+  }
+  72% {
+    transform:translate3d(0,-0.55px,0) rotate(-0.15deg) scale(1.001);
   }
 }
 
