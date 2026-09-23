@@ -202,6 +202,10 @@ const schemas: Record<Tab, TabSchema> = {
         label: "Button text",
       },
       {
+        key: "promoCode",
+        label: "Promo code (optional)",
+      },
+      {
         key: "sortOrder",
         label: "Sort order",
         type: "number",
