@@ -62,7 +62,7 @@ export default function PromotionRibbon() {
           )}
 
           {p.cta && (
-            <a className="button button-primary promo-cta" href="#menu">
+            <a className="button button-primary promo-cta" href={p.ctaUrl?.trim() || "#menu"}>
               {p.cta}
               <span aria-hidden="true">→</span>
             </a>
