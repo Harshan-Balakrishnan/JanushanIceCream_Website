@@ -1,17 +1,32 @@
 "use client";
 
 import Image from "next/image";
+import { useState } from "react";
 import { useCatalogCollection } from "@/hooks/useCatalogCollection";
 import type { Promotion } from "@/lib/catalog";
 
 export default function PromotionRibbon() {
   const { items } = useCatalogCollection<Promotion>("promotions", []);
+  const [copied, setCopied] = useState(false);
 
   // Keep the existing admin/Firestore promotion system intact.
   // The visual redesign only changes presentation and mascot animation.
   if (!items.length) return null;
 
   const p = items[0];
+  const promoCode = p.promoCode?.trim();
+
+  async function copyPromoCode() {
+    if (!promoCode) return;
+
+    try {
+      await navigator.clipboard.writeText(promoCode);
+      setCopied(true);
+      window.setTimeout(() => setCopied(false), 1800);
+    } catch {
+      setCopied(false);
+    }
+  }
 
   return (
     <section className="promo-ribbon section" id="promotions" aria-labelledby="promo-heading">
@@ -27,6 +42,24 @@ export default function PromotionRibbon() {
           </h2>
 
           <p>{p.description}</p>
+
+          {promoCode && (
+            <div className="promo-code-card" aria-label="Promotion promo code">
+              <div>
+                <small>USE PROMO CODE</small>
+                <strong>{promoCode}</strong>
+              </div>
+              <button
+                type="button"
+                className="promo-code-copy"
+                onClick={() => void copyPromoCode()}
+                aria-label={copied ? "Promo code copied" : "Copy promo code"}
+              >
+                <span aria-hidden="true">{copied ? "✓" : "⧉"}</span>
+                {copied ? "Copied" : "Copy"}
+              </button>
+            </div>
+          )}
 
           {p.cta && (
             <a className="button button-primary promo-cta" href="#menu">
