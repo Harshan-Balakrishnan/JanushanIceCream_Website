@@ -202,6 +202,36 @@ const schemas: Record<Tab, TabSchema> = {
         label: "Button text",
       },
       {
+        key: "promoCode",
+        label: "Promo code (optional)",
+      },
+      {
+        key: "ctaUrl",
+        label: "Button link (optional)",
+      },
+      {
+        key: "badge",
+        label: "Badge (optional)",
+      },
+      {
+        key: "offerText",
+        label: "Offer / discount text (optional)",
+      },
+      {
+        key: "startDate",
+        label: "Start date & time (optional)",
+        type: "datetime-local",
+      },
+      {
+        key: "endDate",
+        label: "End date & time (optional)",
+        type: "datetime-local",
+      },
+      {
+        key: "terms",
+        label: "Terms & conditions (optional)",
+      },
+      {
         key: "sortOrder",
         label: "Sort order",
         type: "number",
