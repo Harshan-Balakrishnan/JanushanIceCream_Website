@@ -2389,6 +2389,13 @@ img, video, canvas, svg {
   }
 }
 
+/* Desktop anchor correction — keep JANU's hands seated on the AN of JANUSHAN. */
+@media (min-width:901px) {
+  .hero-title-mascot {
+    top:clamp(-104px,-7vw,-68px);
+  }
+}
+
 @media (max-width:900px) {
   .hero-title-mascot {
     width:clamp(116px,21vw,158px);
