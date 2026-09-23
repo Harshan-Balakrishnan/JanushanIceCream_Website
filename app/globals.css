@@ -2445,12 +2445,8 @@ img, video, canvas, svg {
   }
 }
 
-.hero-title-mascot-zone:hover .hero-title-mascot-head,
-.hero-title-mascot-zone:focus-within .hero-title-mascot-head {
-  animation:mascot-head-reaction 6.8s ease-in-out infinite;
-}
-
-.hero-title-mascot-zone:hover .mascot-peek-head-layer {
+.hero-title-mascot-zone:hover .mascot-peek-head-layer,
+.hero-title-mascot-zone:focus-within .mascot-peek-head-layer {
   animation:mascot-head-reaction 6.8s ease-in-out infinite;
 }
 
