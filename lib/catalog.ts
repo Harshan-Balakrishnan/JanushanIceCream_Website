@@ -36,6 +36,7 @@ export type Promotion = {
   description: string;
   cta: string;
   promoCode?: string;
+  ctaUrl?: string;
   active: boolean;
   sortOrder: number;
 };
