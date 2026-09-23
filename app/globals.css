@@ -2484,3 +2484,81 @@ img, video, canvas, svg {
     animation:none;
   }
 }
+
+
+/* =========================================================
+   JANU PROMOTION MASCOT — living promo showcase
+   ========================================================= */
+
+.promo-ribbon {
+  position: relative;
+  overflow: hidden;
+  text-align: left;
+  padding: clamp(76px, 9vw, 132px) clamp(24px, 7vw, 120px);
+  background:
+    radial-gradient(circle at 72% 48%, rgba(27, 91, 184, .34), transparent 32%),
+    radial-gradient(circle at 18% 22%, rgba(216, 180, 92, .12), transparent 28%),
+    linear-gradient(135deg, #06132b 0%, #0a2b61 52%, #06142d 100%);
+  color: #fff;
+  isolation: isolate;
+}
+.promo-ribbon:before,.promo-ribbon:after{content:"";position:absolute;pointer-events:none;border-radius:50%;filter:blur(2px);opacity:.4}
+.promo-ribbon:before{width:360px;height:360px;right:7%;top:10%;background:radial-gradient(circle,rgba(255,224,145,.16),transparent 68%)}
+.promo-ribbon:after{width:520px;height:180px;left:-120px;bottom:-100px;background:rgba(255,247,232,.08);filter:blur(35px)}
+.promo-ribbon-inner{position:relative;z-index:1;width:min(1280px,100%);margin:0 auto;display:grid;grid-template-columns:minmax(0,.9fr) minmax(420px,1.1fr);align-items:center;gap:clamp(20px,5vw,80px)}
+.promo-copy{position:relative;z-index:2;max-width:650px}
+.promo-kicker{display:inline-flex;align-items:center;gap:10px;color:#ffe39a;font-size:11px;font-weight:900;letter-spacing:.28em;text-transform:uppercase}
+.promo-kicker:before{content:"♛";font-size:16px;letter-spacing:0}
+.promo-copy h2{display:grid;gap:8px;margin:15px 0 22px;font-family:Georgia,"Times New Roman",serif;line-height:.92}
+.promo-heading-accent{display:block;color:#fff;font-family:Inter,ui-sans-serif,system-ui,sans-serif;font-size:clamp(52px,6.5vw,98px);font-weight:950;letter-spacing:-.065em;text-shadow:0 12px 26px rgba(0,0,0,.3)}
+.promo-heading-script{display:block;color:#fff1c9;font-family:Georgia,"Times New Roman",serif;font-size:clamp(25px,3vw,43px);font-style:italic;font-weight:400;letter-spacing:-.025em}
+.promo-heading-script b{color:#ff5d68;font-style:normal;text-shadow:0 0 18px rgba(255,93,104,.25)}
+.promo-copy>p{max-width:610px;margin:0 0 28px;color:rgba(255,255,255,.72);font-size:clamp(15px,1.3vw,18px);line-height:1.75}
+.promo-cta{gap:14px;padding-inline:26px}
+.promo-cta span{font-size:21px;transition:transform .25s ease}
+.promo-cta:hover span,.promo-cta:focus-visible span{transform:translateX(4px)}
+.promo-benefits{display:flex;align-items:center;gap:20px;margin-top:42px}
+.promo-benefits span{display:flex;align-items:center;gap:9px;color:rgba(255,255,255,.78)}
+.promo-benefits b{width:34px;height:34px;display:grid;place-items:center;border:1px solid rgba(255,255,255,.2);border-radius:50%;color:#ffe39a;font-size:17px}
+.promo-benefits small{font-size:11px;line-height:1.2;max-width:76px}
+.promo-benefits i{width:1px;height:34px;background:rgba(255,255,255,.18)}
+.promo-mascot-stage{position:relative;min-height:540px;display:grid;place-items:center;isolation:isolate}
+.promo-mascot-aura{position:absolute;width:min(72%,560px);aspect-ratio:1;border-radius:50%;background:radial-gradient(circle,rgba(255,224,145,.18),rgba(255,224,145,.06) 35%,transparent 70%);filter:blur(10px);animation:promo-mascot-aura 5.5s ease-in-out infinite;pointer-events:none}
+.promo-mascot{position:relative;z-index:2;width:min(100%,680px);height:auto;object-fit:contain;filter:drop-shadow(0 34px 34px rgba(0,0,0,.34));transform-origin:53% 88%;animation:promo-mascot-life 5.8s ease-in-out infinite;will-change:transform}
+.promo-mascot-caption{position:absolute;z-index:3;right:0;bottom:1%;max-width:190px;color:rgba(255,242,204,.9);font-family:Georgia,"Times New Roman",serif;font-size:clamp(14px,1.4vw,19px);font-style:italic;line-height:1.35;transform:rotate(-4deg);text-align:center;pointer-events:none}
+.promo-mascot-spark{position:absolute;z-index:3;color:#ffd04d;font-size:24px;text-shadow:0 0 15px rgba(255,208,77,.55);animation:promo-spark 2.8s ease-in-out infinite;pointer-events:none}
+.spark-one{top:15%;right:23%;animation-delay:-.4s}.spark-two{top:33%;left:13%;font-size:16px;animation-delay:-1.3s}.spark-three{bottom:20%;right:15%;font-size:14px;animation-delay:-2s}
+@keyframes promo-mascot-life{0%,100%{transform:translate3d(0,0,0) rotate(0deg) scale(1)}24%{transform:translate3d(0,-7px,0) rotate(-.45deg) scale(1.006)}48%{transform:translate3d(0,-2px,0) rotate(.35deg) scale(1.01)}72%{transform:translate3d(0,-5px,0) rotate(-.25deg) scale(1.004)}}
+@keyframes promo-mascot-aura{0%,100%{transform:scale(.94);opacity:.72}48%{transform:scale(1.04);opacity:1}}
+@keyframes promo-spark{0%,100%{transform:translate3d(0,5px,0) scale(.8) rotate(-8deg);opacity:.25}45%{transform:translate3d(0,-7px,0) scale(1.08) rotate(8deg);opacity:1}70%{opacity:.65}}
+@media (hover:hover) and (pointer:fine){
+  .promo-mascot-stage:hover .promo-mascot{animation:promo-mascot-attention 1.15s cubic-bezier(.16,1,.3,1) both}
+  .promo-mascot-stage:hover .promo-mascot-spark{animation-duration:1.2s}
+  .promo-mascot-stage:hover .promo-mascot-caption{transform:rotate(-4deg) translateY(-4px)}
+}
+@keyframes promo-mascot-attention{0%{transform:translate3d(0,0,0) rotate(0deg) scale(1)}35%{transform:translate3d(-4px,-9px,0) rotate(-1deg) scale(1.015)}68%{transform:translate3d(4px,-5px,0) rotate(.75deg) scale(1.01)}100%{transform:translate3d(0,-3px,0) rotate(0deg) scale(1.005)}}
+@media (max-width:900px){
+  .promo-ribbon{padding-block:76px}
+  .promo-ribbon-inner{grid-template-columns:1fr;gap:12px}
+  .promo-copy{max-width:720px;margin:0 auto;text-align:center}
+  .promo-copy>p{margin-inline:auto}
+  .promo-benefits{justify-content:center;flex-wrap:wrap}
+  .promo-mascot-stage{min-height:470px;margin-top:-10px}
+  .promo-mascot{width:min(100%,620px)}
+  .promo-mascot-caption{right:7%;bottom:0}
+}
+@media (max-width:520px){
+  .promo-ribbon{padding:66px 18px 78px}
+  .promo-heading-accent{font-size:clamp(42px,15vw,62px)}
+  .promo-heading-script{font-size:clamp(22px,7vw,30px)}
+  .promo-benefits{gap:12px;margin-top:32px}
+  .promo-benefits i{display:none}
+  .promo-mascot-stage{min-height:360px;margin-top:6px}
+  .promo-mascot{width:112%;max-width:none}
+  .promo-mascot-caption{right:2%;bottom:-2%;max-width:150px;font-size:13px}
+  .promo-mascot-spark{font-size:18px}
+}
+@media (prefers-reduced-motion:reduce){
+  .promo-mascot,.promo-mascot-aura,.promo-mascot-spark{animation:none!important}
+  .promo-cta span{transition:none}
+}
