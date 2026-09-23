@@ -2576,3 +2576,20 @@ img, video, canvas, svg {
 @media(max-width:900px){.promo-code-card{margin-inline:auto;text-align:left}.promo-code-card + .promo-cta{margin-top:0}}
 @media(max-width:520px){.promo-code-card{padding:12px;gap:10px}.promo-code-card strong{font-size:15px}.promo-code-copy{padding-inline:12px;min-height:38px}}
 @media(prefers-reduced-motion:reduce){.promo-code-copy{transition:none}}
+
+
+/* Promotion system — offer details, scheduling and carousel controls */
+.promo-offer-text{display:inline-flex;align-items:center;width:max-content;max-width:100%;margin:-4px 0 18px;padding:8px 13px;border:1px solid rgba(255,227,154,.34);border-radius:999px;background:rgba(255,227,154,.09);color:#ffe39a;font-size:12px;font-weight:900;letter-spacing:.08em;text-transform:uppercase;box-shadow:0 8px 24px rgba(0,0,0,.12)}
+.promo-validity{margin:-13px 0 22px!important;color:rgba(255,255,255,.52)!important;font-size:11px!important;line-height:1.5!important}
+.promo-validity strong{color:rgba(255,238,194,.82);font-weight:800}
+.promo-terms{max-width:560px;margin:14px 0 0!important;color:rgba(255,255,255,.43)!important;font-size:10px!important;line-height:1.55!important}
+.promo-carousel-controls{display:flex;align-items:center;gap:12px;margin-top:25px}
+.promo-carousel-controls>button{width:38px;height:38px;display:grid;place-items:center;border:1px solid rgba(255,255,255,.17);border-radius:50%;background:rgba(255,255,255,.05);color:#fff;cursor:pointer;font-size:17px;transition:transform .22s ease,background .22s ease,border-color .22s ease}
+.promo-carousel-controls>button:hover,.promo-carousel-controls>button:focus-visible{transform:translateY(-2px);background:rgba(255,227,154,.12);border-color:rgba(255,227,154,.55);color:#ffe39a}
+.promo-dots{display:flex;align-items:center;gap:7px}
+.promo-dots button{width:7px;height:7px;padding:0;border:0;border-radius:999px;background:rgba(255,255,255,.28);cursor:pointer;transition:width .25s ease,background .25s ease,transform .25s ease}
+.promo-dots button.is-active{width:24px;background:#ffe39a}
+.promo-dots button:hover{transform:scale(1.2)}
+@media(max-width:900px){.promo-offer-text{margin-inline:auto}.promo-validity,.promo-terms{text-align:center;margin-inline:auto!important}.promo-carousel-controls{justify-content:center}}
+@media(max-width:520px){.promo-offer-text{font-size:10px;padding:7px 10px}.promo-carousel-controls{margin-top:20px}.promo-carousel-controls>button{width:35px;height:35px}}
+@media(prefers-reduced-motion:reduce){.promo-carousel-controls>button,.promo-dots button{transition:none}}
