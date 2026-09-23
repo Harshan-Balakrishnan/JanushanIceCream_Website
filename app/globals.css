@@ -2562,3 +2562,17 @@ img, video, canvas, svg {
   .promo-mascot,.promo-mascot-aura,.promo-mascot-spark{animation:none!important}
   .promo-cta span{transition:none}
 }
+
+
+/* Optional promotion promo code — admin controlled */
+.promo-code-card{display:flex;align-items:center;justify-content:space-between;gap:18px;width:min(100%,480px);margin:0 0 24px;padding:13px 14px 13px 18px;border:1px solid rgba(255,227,154,.3);border-radius:18px;background:linear-gradient(135deg,rgba(255,255,255,.09),rgba(255,255,255,.035));box-shadow:inset 0 1px 0 rgba(255,255,255,.08),0 14px 35px rgba(0,0,0,.16);backdrop-filter:blur(12px)}
+.promo-code-card>div{display:grid;gap:5px;min-width:0}
+.promo-code-card small{color:#ffe39a;font-size:9px;font-weight:900;letter-spacing:.2em}
+.promo-code-card strong{overflow:hidden;text-overflow:ellipsis;white-space:nowrap;color:#fff;font-family:ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,monospace;font-size:clamp(16px,2vw,21px);letter-spacing:.12em}
+.promo-code-copy{min-height:40px;padding:0 15px;border:1px solid rgba(255,227,154,.45);border-radius:12px;background:rgba(255,227,154,.1);color:#ffe39a;font:inherit;font-size:12px;font-weight:900;cursor:pointer;display:inline-flex;align-items:center;gap:7px;transition:transform .22s ease,background .22s ease,border-color .22s ease}
+.promo-code-copy:hover,.promo-code-copy:focus-visible{transform:translateY(-2px);background:rgba(255,227,154,.18);border-color:rgba(255,227,154,.72)}
+.promo-code-copy span{font-size:16px}
+.promo-code-card + .promo-cta{margin-top:0}
+@media(max-width:900px){.promo-code-card{margin-inline:auto;text-align:left}.promo-code-card + .promo-cta{margin-top:0}}
+@media(max-width:520px){.promo-code-card{padding:12px;gap:10px}.promo-code-card strong{font-size:15px}.promo-code-copy{padding-inline:12px;min-height:38px}}
+@media(prefers-reduced-motion:reduce){.promo-code-copy{transition:none}}
