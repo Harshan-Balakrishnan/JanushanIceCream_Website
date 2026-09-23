@@ -37,6 +37,11 @@ export type Promotion = {
   cta: string;
   promoCode?: string;
   ctaUrl?: string;
+  badge?: string;
+  offerText?: string;
+  startDate?: string;
+  endDate?: string;
+  terms?: string;
   active: boolean;
   sortOrder: number;
 };
