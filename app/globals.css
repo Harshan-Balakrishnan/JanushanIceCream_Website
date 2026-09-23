@@ -2374,48 +2374,28 @@ img, video, canvas, svg {
   }
 }
 
-/* Character motion — keep JANU's hands anchored while the mascot gently peeks in/out. */
+/* Character motion — peek in on hover, stay visible while hovered, and peek out only when hover/focus ends. */
 .mascot-peek {
   transform-origin:52% 100%;
 }
 
 .hero-title-mascot-zone:hover .hero-title-mascot,
 .hero-title-mascot-zone:focus-within .hero-title-mascot {
-  animation:mascot-peek-in-out 5.8s ease-in-out infinite;
+  animation:mascot-peek-in .68s cubic-bezier(.16,1,.3,1) forwards;
 }
 
-@keyframes mascot-peek-in-out {
+@keyframes mascot-peek-in {
   0% {
     opacity:0;
     transform:translateY(18px) scale(.84) rotate(1deg);
   }
-  9% {
+  55% {
     opacity:1;
     transform:translateY(-2px) scale(1.015) rotate(-.5deg);
   }
-  16% {
-    opacity:1;
-    transform:translateY(0) scale(1) rotate(0deg);
-  }
-  68% {
-    opacity:1;
-    transform:translateY(0) scale(1) rotate(0deg);
-  }
-  78% {
-    opacity:.98;
-    transform:translateY(4px) scale(.98) rotate(.25deg);
-  }
-  88% {
-    opacity:.72;
-    transform:translateY(11px) scale(.90) rotate(.55deg);
-  }
-  94% {
-    opacity:.45;
-    transform:translateY(16px) scale(.86) rotate(.8deg);
-  }
   100% {
-    opacity:0;
-    transform:translateY(18px) scale(.84) rotate(1deg);
+    opacity:1;
+    transform:translateY(0) scale(1) rotate(0deg);
   }
 }
 
