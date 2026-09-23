@@ -40,7 +40,7 @@ export default function PromotionRibbon() {
   const livePromotions = useMemo(
     () =>
       items
-        .filter((promotion) => isPromotionLive(promotion, now))
+        .filter((promotion) => now !== null && isPromotionLive(promotion, now))
         .sort((a, b) => Number(a.sortOrder ?? 0) - Number(b.sortOrder ?? 0)),
     [items, now]
   );
