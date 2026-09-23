@@ -23,15 +23,6 @@ export default function MascotPeek({
         className="mascot-peek-image"
         priority={priority}
       />
-      <Image
-        src="/brand/mascot-peek.png"
-        alt=""
-        width={420}
-        height={350}
-        className="mascot-peek-head-layer"
-        aria-hidden="true"
-      />
-      <span className="mascot-blink" aria-hidden="true" />
     </span>
   );
 }
