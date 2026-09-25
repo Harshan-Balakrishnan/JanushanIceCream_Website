@@ -1,0 +1,130 @@
+.story-finale {
+  position:relative;
+  isolation:isolate;
+  min-height:520px;
+  display:grid;
+  place-items:center;
+  overflow:hidden;
+  background:transparent !important;
+  border:0 !important;
+  box-shadow:none !important;
+}
+
+.story-finale-heart {
+  position:absolute;
+  z-index:0;
+  width:min(590px,92vw);
+  aspect-ratio:1;
+  background:#0635b9;
+  transform:rotate(-45deg) scale(.72);
+  transform-origin:center;
+  border-radius:50% 50% 8% 50%;
+  box-shadow:0 30px 75px rgba(2,25,110,.24),0 0 0 1px rgba(255,255,255,.08) inset;
+}
+
+.story-finale-heart::before,
+.story-finale-heart::after {
+  content:"";
+  position:absolute;
+  width:100%;
+  height:100%;
+  border-radius:50%;
+  background:inherit;
+}
+
+.story-finale-heart::before {
+  top:-50%;
+  left:0;
+}
+
+.story-finale-heart::after {
+  top:0;
+  left:50%;
+}
+
+.story-finale-content {
+  position:relative;
+  z-index:2;
+  width:min(390px,68vw);
+  margin-top:42px;
+  text-align:center;
+  color:#fff;
+  text-shadow:0 3px 14px rgba(0,10,65,.48);
+}
+
+.story-finale-content > span {
+  display:block;
+  margin-bottom:12px;
+  color:#fff4d2;
+  font-size:12px;
+  font-weight:950;
+  letter-spacing:.18em;
+}
+
+.story-finale-content h3 {
+  margin:0;
+  color:#fff;
+  font-family:Georgia,serif;
+  font-size:clamp(25px,3.2vw,39px);
+  line-height:1.12;
+  text-wrap:balance;
+}
+
+.story-finale-content p {
+  margin:18px 0 22px;
+  color:rgba(255,255,255,.88);
+  font-size:11px;
+  font-weight:950;
+  letter-spacing:.2em;
+}
+
+.story-finale-content .button-primary {
+  display:inline-flex;
+  color:#06145d;
+  background:#fff;
+  border-color:#fff;
+  box-shadow:0 12px 28px rgba(0,0,0,.24);
+  text-shadow:none;
+}
+
+.story-finale-content .button-primary:hover {
+  background:#fff4d2;
+  border-color:#fff4d2;
+}
+
+@media (max-width:650px) {
+  .story-finale {
+    min-height:430px;
+  }
+
+  .story-finale-heart {
+    width:min(470px,112vw);
+    transform:rotate(-45deg) scale(.70);
+  }
+
+  .story-finale-content {
+    width:min(290px,64vw);
+    margin-top:34px;
+  }
+
+  .story-finale-content h3 {
+    font-size:clamp(21px,6vw,29px);
+  }
+
+  .story-finale-content p {
+    margin:14px 0 18px;
+    font-size:9px;
+  }
+
+  .story-finale-content .button-primary {
+    min-height:42px;
+    padding-inline:15px;
+    font-size:11px;
+  }
+}
+
+@media (prefers-reduced-motion:reduce) {
+  .story-finale-heart {
+    transform:rotate(-45deg) scale(.72);
+  }
+}
