@@ -2,7 +2,7 @@
 .quick-call,
 .whatsapp-quick-order { display:none !important; }
 
-/* Stable horizontal menu carousel: no layout collapse, no forced first-card offset. */
+/* Desktop carousel: use the full width instead of centering the first card in a huge empty gutter. */
 .product-track-wrap { position:relative; width:100%; min-width:0; }
 .product-track {
   display:flex;
@@ -10,10 +10,10 @@
   min-width:0;
   overflow-x:auto;
   overflow-y:hidden;
-  gap:clamp(16px,2.5vw,28px);
-  padding:24px max(18px, calc((100% - min(370px, 76vw)) / 2)) 32px;
+  gap:clamp(16px,2.2vw,28px);
+  padding:24px clamp(80px,8vw,140px) 32px;
   margin:0;
-  scroll-padding-inline:max(18px, calc((100% - min(370px, 76vw)) / 2));
+  scroll-padding-inline:clamp(80px,8vw,140px);
   scroll-snap-type:x mandatory;
   scroll-behavior:smooth;
   overscroll-behavior-x:contain;
@@ -25,23 +25,66 @@
   flex:0 0 min(370px,76vw);
   width:min(370px,76vw);
   min-width:min(370px,76vw);
-  scroll-snap-align:center;
+  scroll-snap-align:start;
   scroll-snap-stop:always;
 }
 .product-arrow { z-index:5; }
 
-/* Do not let desktop card dimensions collapse on tablets/mobile. */
+/* Tablet: show one strong card at a time without collapsing its width. */
 @media (max-width:900px) {
-  .product-track { gap:16px; padding-top:20px; padding-bottom:28px; }
-  .product-card { flex-basis:min(360px,78vw); width:min(360px,78vw); min-width:min(360px,78vw); }
+  .product-track {
+    gap:16px;
+    padding-top:20px;
+    padding-bottom:28px;
+    padding-left:calc((100% - min(360px,78vw)) / 2);
+    padding-right:calc((100% - min(360px,78vw)) / 2);
+    scroll-padding-inline:calc((100% - min(360px,78vw)) / 2);
+  }
+  .product-card {
+    flex-basis:min(360px,78vw);
+    width:min(360px,78vw);
+    min-width:min(360px,78vw);
+    scroll-snap-align:center;
+  }
 }
+
 @media (max-width:520px) {
   .product-track {
     gap:14px;
     padding-left:calc((100% - min(330px,82vw)) / 2);
     padding-right:calc((100% - min(330px,82vw)) / 2);
+    scroll-padding-inline:calc((100% - min(330px,82vw)) / 2);
   }
-  .product-card { flex-basis:min(330px,82vw); width:min(330px,82vw); min-width:min(330px,82vw); }
+  .product-card {
+    flex-basis:min(330px,82vw);
+    width:min(330px,82vw);
+    min-width:min(330px,82vw);
+  }
+}
+
+/* Small floating call control — icon only, opens the phone dialer. */
+.floating-call-button {
+  position:fixed;
+  right:clamp(16px,2vw,28px);
+  bottom:clamp(16px,2vw,28px);
+  z-index:80;
+  width:52px;
+  height:52px;
+  display:grid;
+  place-items:center;
+  border:1px solid rgba(255,227,154,.55);
+  border-radius:50%;
+  background:linear-gradient(145deg,#0635b9,#041a72);
+  color:#fff4d2;
+  box-shadow:0 12px 30px rgba(0,0,0,.32),0 0 0 4px rgba(255,255,255,.06);
+  transition:transform .2s ease,box-shadow .2s ease;
+}
+.floating-call-button svg { width:21px; height:21px; fill:currentColor; }
+.floating-call-button:hover,
+.floating-call-button:focus-visible { transform:translateY(-3px) scale(1.04); box-shadow:0 16px 34px rgba(0,0,0,.38),0 0 0 5px rgba(255,227,154,.12); }
+.floating-call-button:focus-visible { outline:2px solid #fff4d2; outline-offset:3px; }
+@media (max-width:520px) {
+  .floating-call-button { width:48px; height:48px; right:14px; bottom:14px; }
 }
 
 .story-finale { min-height:560px; display:grid; place-items:center; }
