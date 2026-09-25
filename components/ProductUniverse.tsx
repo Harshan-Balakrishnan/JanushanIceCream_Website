@@ -31,60 +31,87 @@ export default function ProductUniverse() {
   const formatter = useMemo(() => new Intl.NumberFormat("en-LK"), []);
   const trackRef = useRef<HTMLDivElement>(null);
   const cardRefs = useRef<(HTMLButtonElement | null)[]>([]);
+  const activeRef = useRef(0);
+
+  const setActiveProduct = useCallback((index: number) => {
+    activeRef.current = index;
+    setActive(index);
+  }, []);
 
   const goToProduct = useCallback((index: number) => {
     if (!products.length) return;
     const next = (index + products.length) % products.length;
     const track = trackRef.current;
     const card = cardRefs.current[next];
-    setActive(next);
+    setActiveProduct(next);
     if (!track || !card) return;
 
-    // Scroll to the card's exact position instead of scrollIntoView().
-    // scrollIntoView() can move the entire page when the carousel is nested
-    // inside a long section and can also create an unwanted centred first card.
-    const targetLeft = card.offsetLeft - Math.max(0, (track.clientWidth - card.offsetWidth) / 2);
+    const styles = window.getComputedStyle(track);
+    const paddingLeft = parseFloat(styles.paddingLeft) || 0;
+    const isPhone = window.matchMedia("(max-width: 650px)").matches;
+
+    // Desktop/tablet: align the selected card to the carousel's left content edge.
+    // Phone: center one card in the viewport for a deliberate swipe-first experience.
+    const targetLeft = isPhone
+      ? card.offsetLeft - (track.clientWidth - card.offsetWidth) / 2
+      : card.offsetLeft - paddingLeft;
+
     track.scrollTo({
       left: Math.max(0, targetLeft),
       behavior: reduceMotion ? "auto" : "smooth",
     });
-  }, [products.length, reduceMotion]);
+  }, [products.length, reduceMotion, setActiveProduct]);
 
   useEffect(() => {
     const track = trackRef.current;
     if (!track || !products.length) return;
-    setActive(0);
+    setActiveProduct(0);
     requestAnimationFrame(() => track.scrollTo({ left: 0, behavior: "auto" }));
-  }, [products.length]);
+  }, [products.length, setActiveProduct]);
 
   useEffect(() => {
     const track = trackRef.current;
     if (!track) return;
     let frame = 0;
+
     const onScroll = () => {
       cancelAnimationFrame(frame);
       frame = requestAnimationFrame(() => {
-        const center = track.getBoundingClientRect().left + track.clientWidth / 2;
-        let nearest = active;
+        const isPhone = window.matchMedia("(max-width: 650px)").matches;
+        const trackRect = track.getBoundingClientRect();
+        const styles = window.getComputedStyle(track);
+        const paddingLeft = parseFloat(styles.paddingLeft) || 0;
+        const target = isPhone
+          ? trackRect.left + track.clientWidth / 2
+          : trackRect.left + paddingLeft;
+
+        let nearest = activeRef.current;
         let distance = Number.POSITIVE_INFINITY;
+
         cardRefs.current.forEach((card, index) => {
           if (!card) return;
           const rect = card.getBoundingClientRect();
-          const nextDistance = Math.abs(rect.left + rect.width / 2 - center);
+          const point = isPhone ? rect.left + rect.width / 2 : rect.left;
+          const nextDistance = Math.abs(point - target);
           if (nextDistance < distance) {
             distance = nextDistance;
             nearest = index;
           }
         });
-        if (nearest !== active) setActive(nearest);
+
+        if (nearest !== activeRef.current) {
+          activeRef.current = nearest;
+          setActive(nearest);
+        }
       });
     };
+
     track.addEventListener("scroll", onScroll, { passive: true });
     return () => {
       cancelAnimationFrame(frame);
       track.removeEventListener("scroll", onScroll);
     };
-  }, [products.length, active]);
+  }, [products.length]);
 
   useEffect(() => {
     if (!selected) return;
@@ -115,7 +142,7 @@ export default function ProductUniverse() {
       </div>
 
       <div className="product-track-wrap">
-        <button className="product-arrow product-arrow-prev" type="button" onClick={() => goToProduct(active - 1)} aria-label="Previous product"><span aria-hidden="true">‹</span></button>
+        <button className="product-arrow product-arrow-prev" type="button" onClick={() => goToProduct(activeRef.current - 1)} aria-label="Previous product"><span aria-hidden="true">‹</span></button>
         <div ref={trackRef} className="product-track" role="list" aria-label="JIC products">
           {products.map((product, index) => (
             <motion.button
@@ -123,9 +150,9 @@ export default function ProductUniverse() {
               role="listitem"
               className={`product-card ${active === index ? "is-active" : ""}`}
               key={product.id}
-              onFocus={() => setActive(index)}
-              onMouseEnter={() => setActive(index)}
-              onClick={() => { setActive(index); setSelected(product); }}
+              onFocus={() => setActiveProduct(index)}
+              onMouseEnter={() => setActiveProduct(index)}
+              onClick={() => { setActiveProduct(index); setSelected(product); }}
               whileHover={reduceMotion ? undefined : { y: -8, rotateX: 1.5, rotateY: index % 2 ? -1.5 : 1.5 }}
               whileTap={reduceMotion ? undefined : { scale: 0.988 }}
               transition={{ type: "spring", stiffness: 250, damping: 24 }}
@@ -147,7 +174,7 @@ export default function ProductUniverse() {
             </motion.button>
           ))}
         </div>
-        <button className="product-arrow product-arrow-next" type="button" onClick={() => goToProduct(active + 1)} aria-label="Next product"><span aria-hidden="true">›</span></button>
+        <button className="product-arrow product-arrow-next" type="button" onClick={() => goToProduct(activeRef.current + 1)} aria-label="Next product"><span aria-hidden="true">›</span></button>
       </div>
 
       <div className="product-progress" aria-hidden="true">
