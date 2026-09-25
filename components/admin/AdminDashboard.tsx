@@ -46,11 +46,13 @@ import {
   defaultFlavours,
   defaultGallery,
   defaultProducts,
+  defaultStoreSettings,
   type Flavour,
   type GalleryItem,
   type LocationItem,
   type Product,
   type Promotion,
+  type StoreSettings,
 } from "@/lib/catalog";
 
 /* =========================================================
@@ -62,14 +64,16 @@ type Tab =
   | "flavours"
   | "gallery"
   | "promotions"
-  | "locations";
+  | "locations"
+  | "store";
 
 type GenericItem =
   | Product
   | Flavour
   | GalleryItem
   | Promotion
-  | LocationItem;
+  | LocationItem
+  | StoreSettings;
 
 type AdminValue =
   | string
@@ -79,10 +83,16 @@ type AdminValue =
 
 type AdminItem = Record<string, AdminValue>;
 
+type FieldOption = {
+  value: string;
+  label: string;
+};
+
 type FieldSchema = {
   key: string;
   label: string;
   type?: string;
+  options?: FieldOption[];
 };
 
 type TabSchema = {
@@ -124,6 +134,15 @@ const schemas: Record<Tab, TabSchema> = {
       {
         key: "glow",
         label: "Glow colour",
+      },
+      {
+        key: "availability",
+        label: "Stock status",
+        options: [
+          { value: "in-stock", label: "Available today" },
+          { value: "low-stock", label: "Limited today" },
+          { value: "sold-out", label: "Sold out" },
+        ],
       },
       {
         key: "sortOrder",
@@ -270,6 +289,39 @@ const schemas: Record<Tab, TabSchema> = {
       },
     ],
   },
+
+  store: {
+    label: "Store status",
+    collection: "storeSettings",
+    fields: [
+      {
+        key: "status",
+        label: "Current status",
+        options: [
+          { value: "open", label: "Open and serving" },
+          { value: "limited", label: "Limited availability" },
+          { value: "closed", label: "Temporarily closed" },
+        ],
+      },
+      {
+        key: "message",
+        label: "Customer message",
+      },
+      {
+        key: "hours",
+        label: "Hours / availability note",
+      },
+      {
+        key: "whatsapp",
+        label: "WhatsApp number",
+      },
+      {
+        key: "sortOrder",
+        label: "Sort order",
+        type: "number",
+      },
+    ],
+  },
 };
 
 /* =========================================================
@@ -280,6 +332,7 @@ const seedData: Partial<Record<Tab, GenericItem[]>> = {
   products: defaultProducts,
   flavours: defaultFlavours,
   gallery: defaultGallery,
+  store: defaultStoreSettings,
 };
 
 /* =========================================================
@@ -298,12 +351,16 @@ function emptyItem(tab: Tab): AdminItem {
       base[field.key] =
         field.type === "number"
           ? 0
-          : "";
+          : field.options?.[0]?.value ?? "";
     }
   });
 
   if (tab === "products") {
     base.featured = true;
+  }
+
+  if (tab === "store") {
+    base.orderEnabled = true;
   }
 
   return base;
@@ -1354,7 +1411,9 @@ export default function AdminDashboard() {
                     field.key ===
                       "description" ||
                     field.key ===
-                      "address";
+                      "address" ||
+                    field.key ===
+                      "message";
 
                   return (
                     <label
@@ -1381,6 +1440,22 @@ export default function AdminDashboard() {
                             })
                           }
                         />
+                      ) : field.options ? (
+                        <select
+                          value={inputValue}
+                          onChange={(event) =>
+                            setEditing({
+                              ...editing,
+                              [field.key]: event.target.value,
+                            })
+                          }
+                        >
+                          {field.options.map((option) => (
+                            <option key={option.value} value={option.value}>
+                              {option.label}
+                            </option>
+                          ))}
+                        </select>
                       ) : (
                         <input
                           type={
@@ -1493,6 +1568,23 @@ export default function AdminDashboard() {
                     />
 
                     Featured
+                  </label>
+                )}
+
+                {tab === "store" && (
+                  <label>
+                    <input
+                      type="checkbox"
+                      checked={editing.orderEnabled !== false}
+                      onChange={(event) =>
+                        setEditing({
+                          ...editing,
+                          orderEnabled: event.target.checked,
+                        })
+                      }
+                    />
+
+                    Accept WhatsApp orders
                   </label>
                 )}
               </div>
