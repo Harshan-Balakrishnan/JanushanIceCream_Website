@@ -31,5 +31,9 @@ service cloud.firestore {
       allow read: if resource.data.active == true || isAdmin();
       allow write: if isAdmin();
     }
+    match /storeSettings/{id} {
+      allow read: if resource.data.active == true || isAdmin();
+      allow write: if isAdmin();
+    }
   }
 }
