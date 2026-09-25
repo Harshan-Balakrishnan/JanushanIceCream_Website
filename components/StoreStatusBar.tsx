@@ -8,7 +8,7 @@ import {
 
 const defaultSettings = defaultStoreSettings[0];
 
-function whatsappNumber(value: string) {
+function callNumber(value: string) {
   return value.replace(/\D/g, "").replace(/^0/, "94");
 }
 
@@ -25,7 +25,7 @@ export default function StoreStatusBar() {
     limited: "Limited availability",
     closed: "Temporarily closed",
   }[status];
-  const number = whatsappNumber(settings.whatsapp || defaultSettings.whatsapp);
+  const number = callNumber(settings.orderPhone || defaultSettings.orderPhone);
   const message = settings.message?.trim() || defaultSettings.message;
   const hours = settings.hours?.trim();
 
@@ -46,13 +46,9 @@ export default function StoreStatusBar() {
       {orderingAvailable ? (
         <a
           className="store-status-action"
-          href={`https://wa.me/${number}?text=${encodeURIComponent(
-            "Hi Janushan Ice Cream 👋 I would like to place an order. Please confirm today’s availability."
-          )}`}
-          target="_blank"
-          rel="noreferrer"
+          href={`tel:+${number}`}
         >
-          Order on WhatsApp <span aria-hidden="true">↗</span>
+          Call +94 77 601 5041 <span aria-hidden="true">↗</span>
         </a>
       ) : (
         <span className="store-status-closed">
