@@ -17,6 +17,19 @@ function stockLabel(availability?: Product["availability"]) {
   }
 }
 
+function menuBadgeLabel(badge?: Product["menuBadge"]) {
+  switch (badge) {
+    case "new":
+      return "New";
+    case "popular":
+      return "Popular now";
+    case "signature":
+      return "Signature";
+    default:
+      return "";
+  }
+}
+
 export default function ProductUniverse() {
   const { items: products, live } = useCatalogCollection<Product>("products", defaultProducts);
   const [selected, setSelected] = useState<Product | null>(null);
@@ -93,7 +106,7 @@ export default function ProductUniverse() {
           <h2 id="craving-title">Scroll into your <em>next favourite.</em></h2>
         </div>
         <p className="product-section-copy">
-          Swipe, scroll or tap through the Janushan ice cream menu. Every product stays large, tactile and easy to explore — especially on mobile.
+          Swipe, scroll or tap through the JIC menu. Every product stays large, tactile and easy to explore — especially on mobile.
         </p>
       </div>
 
@@ -121,6 +134,11 @@ export default function ProductUniverse() {
               style={Object.assign({} as React.CSSProperties, { "--product-glow": product.glow })}
             >
               <span className="product-index">0{index + 1}</span>
+              {product.menuBadge && (
+                <span className={`product-menu-badge is-${product.menuBadge}`}>
+                  {menuBadgeLabel(product.menuBadge)}
+                </span>
+              )}
               <span className="product-image-shell">
                 <Image
                   src={product.image}
@@ -154,7 +172,7 @@ export default function ProductUniverse() {
         <span>{String(products.length).padStart(2, "0")}</span>
       </div>
 
-      <p className="product-source-note">{live ? "Live from the Janushan admin system." : "Showing built-in Janushan starter content until Firebase is connected."}</p>
+      <p className="product-source-note">{live ? "Live from the JIC admin system." : "Showing built-in JIC starter content until Firebase is connected."}</p>
 
       <AnimatePresence>
         {selected && (
@@ -195,24 +213,18 @@ export default function ProductUniverse() {
                 <div className="modal-actions">
                   <a
                     className="button button-primary"
-                    href={`https://wa.me/94776015041?text=${encodeURIComponent(
-                      selectedSoldOut
-                        ? `Hi Janushan Ice Cream 👋 Please let me know when ${selected.name} is back in stock.`
-                        : `Hi Janushan Ice Cream 👋 I would like to order ${selected.name} (Rs. ${selected.price}/-). Please confirm availability.`
-                    )}`}
-                    target="_blank"
-                    rel="noreferrer"
+                    href="tel:+94776015041"
                   >
-                    {selectedSoldOut ? "Ask when it’s back ↗" : "Order on WhatsApp ↗"}
+                    {selectedSoldOut ? "Call to check availability" : "Call to order +94 77 601 5041"}
                   </a>
                   <a className="button button-ghost" href="#flavours" onClick={() => setSelected(null)}>Explore Flavours</a>
                 </div>
                 <small className="modal-order-note">
                   {selectedSoldOut
-                    ? "This flavour is unavailable right now. Ask us on WhatsApp when it will return."
-                    : "Quick order: tap WhatsApp and we&apos;ll confirm availability with you."}
+                    ? "This flavour is unavailable right now. Call us to check when it will return."
+                    : "Call +94 77 601 5041 to place an order and confirm availability."}
                 </small>
-                <small className="modal-future">Product details can be managed from the Janushan Control Room when Firebase is connected.</small>
+                <small className="modal-future">Product details can be managed from the JIC Control Room when Firebase is connected.</small>
               </div>
             </motion.div>
           </motion.div>
