@@ -5,16 +5,16 @@ export default function CustomerInfo() {
       a: "You can find us at No: 256/4, Kali Kovil Road, Nelukkulam, Vavuniya, Sri Lanka.",
     },
     {
-      q: "Can I order through WhatsApp?",
-      a: "Yes. Send us the products you want on WhatsApp and we can confirm availability with you.",
+      q: "How can I place an order?",
+      a: "Call +94 77 601 5041 to place an order. We will confirm today’s availability with you.",
     },
     {
       q: "What flavours are available?",
-      a: "Our featured flavours include Strawberry, Mango, Chocolate, Vanilla and Mix Fruit. Availability can change, so WhatsApp us for today's options.",
+      a: "Our featured flavours include Strawberry, Mango, Chocolate, Vanilla and Mix Fruit. Availability can change, so call us for today's options.",
     },
     {
       q: "How can I check today's opening hours?",
-      a: "Opening times can change. Call 024 222 6041 or WhatsApp 077 601 5041 before visiting if you need to confirm today's hours.",
+      a: "Opening times can change. Call +94 77 601 5041 before visiting if you need to confirm today's hours.",
     },
   ];
 
