@@ -77,10 +77,10 @@ export type StoreSettings = {
 export const defaultProducts: Product[] = [
   { id:"ice-chock", name:"Ice Chock", price:120, image:"/products/ice-chock.webp", eyebrow:"COLD · CRISP · CHOCOLATE", blurb:"A chilled JIC favourite with a chocolate-forward finish.", glow:"#4aa7ff", active:true, featured:true, menuBadge:"popular", sortOrder:1 },
   { id:"ice-cream-cup", name:"Ice Cream Cup", price:150, image:"/products/ice-cream-cup.webp", eyebrow:"CREAMY · CLASSIC · EASY", blurb:"A familiar JIC cup made for an easy scoop-and-enjoy moment.", glow:"#ff7dad", active:true, featured:true, menuBadge:"new", sortOrder:2 },
-  { id:"cup-cone", name:"Cup Cone", price:150, image:"/products/cup-cone.webp", eyebrow:"CRUNCH · SCOOP · JOY", blurb:"The best of cup comfort and cone crunch in one playful serve.", glow:"#ffb454", active:true, featured:true, sortOrder:3 },
+  { id:"cup-cone", name:"Cup Cone", price:150, image:"/products/cup-cone.webp", eyebrow:"CRUNCH · SCOOP · JOY", blurb:"The best of cup comfort and cone crunch in one playful serve.", glow:"#ffb454", active:true, featured:true, menuBadge:"signature", sortOrder:3 },
   { id:"waffle-cone", name:"Waffle Cone", price:200, image:"/products/waffle-cone.webp", eyebrow:"BOLD · CRUNCHY · LOADED", blurb:"A generous scoop experience wrapped in a crisp waffle cone.", glow:"#f0bf54", active:true, featured:true, menuBadge:"popular", sortOrder:4 },
-  { id:"waffle-boat", name:"Waffle Boat", price:250, image:"/products/waffle-boat.webp", eyebrow:"SHARE · SCOOP · INDULGE", blurb:"A dessert-style JIC serve built for texture, toppings and fun.", glow:"#c97b47", active:true, featured:true, sortOrder:5 },
-  { id:"mini-special", name:"Mini Special", price:500, image:"/products/mini-special.webp", eyebrow:"LAYERED · PLAYFUL · SPECIAL", blurb:"A colourful layered treat for when one scoop simply is not enough.", glow:"#ff6c9f", active:true, featured:true, sortOrder:6 },
+  { id:"waffle-boat", name:"Waffle Boat", price:250, image:"/products/waffle-boat.webp", eyebrow:"SHARE · SCOOP · INDULGE", blurb:"A dessert-style JIC serve built for texture, toppings and fun.", glow:"#c97b47", active:true, featured:true, menuBadge:"new", sortOrder:5 },
+  { id:"mini-special", name:"Mini Special", price:500, image:"/products/mini-special.webp", eyebrow:"LAYERED · PLAYFUL · SPECIAL", blurb:"A colourful layered treat for when one scoop simply is not enough.", glow:"#ff6c9f", active:true, featured:true, menuBadge:"popular", sortOrder:6 },
   { id:"special", name:"Special", price:500, image:"/products/special.webp", eyebrow:"SIGNATURE · GENEROUS · CELEBRATE", blurb:"A JIC signature built to turn an ordinary craving into an occasion.", glow:"#ffd36b", active:true, featured:true, menuBadge:"signature", sortOrder:7 },
 ];
 
