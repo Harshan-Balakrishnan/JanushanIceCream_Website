@@ -50,6 +50,16 @@ export default function ProductUniverse() {
     });
   }, [products.length, reduceMotion]);
 
+  // Always initialise the carousel at product 01 rather than allowing the
+  // first scroll-snap calculation to select product 02.
+  useEffect(() => {
+    const track = trackRef.current;
+    if (!track || !products.length) return;
+    setActive(0);
+    requestAnimationFrame(() => {
+      track.scrollTo({ left: 0, behavior: "auto" });
+    });
+  }, [products.length]);
 
   useEffect(() => {
     const track = trackRef.current;
@@ -59,7 +69,7 @@ export default function ProductUniverse() {
       cancelAnimationFrame(frame);
       frame = requestAnimationFrame(() => {
         const center = track.getBoundingClientRect().left + track.clientWidth / 2;
-        let nearest = active;
+        let nearest = 0;
         let distance = Number.POSITIVE_INFINITY;
         cardRefs.current.forEach((card, index) => {
           if (!card) return;
@@ -70,7 +80,7 @@ export default function ProductUniverse() {
             nearest = index;
           }
         });
-        if (nearest !== active) setActive(nearest);
+        setActive(nearest);
       });
     };
     track.addEventListener("scroll", onScroll, { passive: true });
@@ -78,7 +88,7 @@ export default function ProductUniverse() {
       cancelAnimationFrame(frame);
       track.removeEventListener("scroll", onScroll);
     };
-  }, [active]);
+  }, [products.length]);
 
   useEffect(() => {
     if (!selected) return;
@@ -114,7 +124,7 @@ export default function ProductUniverse() {
         <button className="product-arrow product-arrow-prev" type="button" onClick={() => goToProduct(active - 1)} aria-label="Previous product">
           <span aria-hidden="true">‹</span>
         </button>
-        <div ref={trackRef} className="product-track" role="list" aria-label="Janushan Ice Cream products">
+        <div ref={trackRef} className="product-track" role="list" aria-label="JIC products">
           {products.map((product, index) => (
             <motion.button
               type="button"
@@ -142,7 +152,7 @@ export default function ProductUniverse() {
               <span className="product-image-shell">
                 <Image
                   src={product.image}
-                  alt={`${product.name} from the Janushan Ice Cream menu`}
+                  alt={`${product.name} from the JIC menu`}
                   fill
                   sizes="(max-width: 700px) 76vw, 370px"
                   className="product-photo"
@@ -211,10 +221,7 @@ export default function ProductUniverse() {
                 </span>
                 <p>{selected.blurb}</p>
                 <div className="modal-actions">
-                  <a
-                    className="button button-primary"
-                    href="tel:+94776015041"
-                  >
+                  <a className="button button-primary" href="tel:+94776015041">
                     {selectedSoldOut ? "Call to check availability" : "Call to order +94 77 601 5041"}
                   </a>
                   <a className="button button-ghost" href="#flavours" onClick={() => setSelected(null)}>Explore Flavours</a>
