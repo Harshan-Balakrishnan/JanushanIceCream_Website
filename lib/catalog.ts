@@ -1,3 +1,5 @@
+export type StockStatus = "in-stock" | "low-stock" | "sold-out";
+
 export type Product = {
   id: string;
   name: string;
@@ -8,6 +10,8 @@ export type Product = {
   glow: string;
   active: boolean;
   featured: boolean;
+  /** Optional so existing Firestore products continue to work without a migration. */
+  availability?: StockStatus;
   sortOrder: number;
 };
 
@@ -57,6 +61,17 @@ export type LocationItem = {
   sortOrder: number;
 };
 
+export type StoreSettings = {
+  id: string;
+  status: "open" | "limited" | "closed";
+  message: string;
+  hours: string;
+  whatsapp: string;
+  orderEnabled: boolean;
+  active: boolean;
+  sortOrder: number;
+};
+
 export const defaultProducts: Product[] = [
   { id:"ice-chock", name:"Ice Chock", price:120, image:"/products/ice-chock.webp", eyebrow:"COLD · CRISP · CHOCOLATE", blurb:"A chilled Janushan favourite with a chocolate-forward finish.", glow:"#4aa7ff", active:true, featured:true, sortOrder:1 },
   { id:"ice-cream-cup", name:"Ice Cream Cup", price:150, image:"/products/ice-cream-cup.webp", eyebrow:"CREAMY · CLASSIC · EASY", blurb:"A familiar Janushan cup made for an easy scoop-and-enjoy moment.", glow:"#ff7dad", active:true, featured:true, sortOrder:2 },
@@ -65,6 +80,19 @@ export const defaultProducts: Product[] = [
   { id:"waffle-boat", name:"Waffle Boat", price:250, image:"/products/waffle-boat.webp", eyebrow:"SHARE · SCOOP · INDULGE", blurb:"A dessert-style Janushan serve built for texture, toppings and fun.", glow:"#c97b47", active:true, featured:true, sortOrder:5 },
   { id:"mini-special", name:"Mini Special", price:500, image:"/products/mini-special.webp", eyebrow:"LAYERED · PLAYFUL · SPECIAL", blurb:"A colourful layered treat for when one scoop simply is not enough.", glow:"#ff6c9f", active:true, featured:true, sortOrder:6 },
   { id:"special", name:"Special", price:500, image:"/products/special.webp", eyebrow:"SIGNATURE · GENEROUS · CELEBRATE", blurb:"A Janushan signature built to turn an ordinary craving into an occasion.", glow:"#ffd36b", active:true, featured:true, sortOrder:7 },
+];
+
+export const defaultStoreSettings: StoreSettings[] = [
+  {
+    id: "current",
+    status: "open",
+    message: "We are ready to make your day sweeter.",
+    hours: "Message us to confirm today's availability.",
+    whatsapp: "077 601 5041",
+    orderEnabled: true,
+    active: true,
+    sortOrder: 1,
+  },
 ];
 
 export const defaultFlavours: Flavour[] = [
