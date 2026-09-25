@@ -9,7 +9,7 @@ const chapters = [
     marker: "2004",
     kicker: "WHERE THE STORY BEGINS",
     title: "A name made to last.",
-    copy: "Janushan carries one date proudly across its identity: Since 2004. This chapter gives that beginning room to breathe — simple, confident and unmistakably ours.",
+    copy: "JIC carries one date proudly across its identity: Since 2004. This chapter gives that beginning room to breathe — simple, confident and unmistakably ours.",
     visual: "/brand/brand2004.webp",
     alt: "Janushan Ice Cream logo",
     type: "logo",
@@ -20,14 +20,14 @@ const chapters = [
     title: "From flavour to feeling.",
     copy: "The brand experience is built around the thing people remember most: the scoop itself. Rich flavour worlds, generous servings and a presentation designed to turn a treat into a moment.",
     visual: "/products/company.jpg",
-    alt: "Janushan waffle cone",
+    alt: "JIC waffle cone",
     type: "product",
   },
   {
     marker: "FLAVOUR",
     kicker: "FIVE WORLDS · ONE BRAND",
     title: "Every flavour has a mood.",
-    copy: "Strawberry, Mango, Chocolate, Vanilla and Mix Fruit each get their own atmosphere while staying inside one Janushan visual language.",
+    copy: "Strawberry, Mango, Chocolate, Vanilla and Mix Fruit each get their own atmosphere while staying inside one JIC visual language.",
     visual: "/flavours/All flavour.png",
     alt: "Janushan mango flavour presentation",
     type: "product",
@@ -36,7 +36,7 @@ const chapters = [
     marker: "TODAY",
     kicker: "A SCOOP OF HAPPINESS",
     title: "The story is still being served.",
-    copy: "The website brings the heritage, products and playful side of Janushan into one modern digital experience — made for phones, families and the next generation of customers.",
+    copy: "The website brings the heritage, products and playful side of JIC into one modern digital experience — made for phones, families and the next generation of customers.",
     visual: "/products/special.webp",
     alt: "Janushan special ice cream",
     type: "product",
@@ -59,7 +59,7 @@ export default function StoryTimeline() {
       <div className="story-ambient story-ambient-b" />
       <div className="story-shell">
         <aside className="story-sticky" aria-hidden="true">
-          <p className="section-kicker">THE JANUSHAN STORY</p>
+          <p className="section-kicker">THE JIC STORY</p>
           <motion.div className="story-year" style={{ opacity: yearOpacity }}>2004</motion.div>
           <p className="story-since">SINCE</p>
           <div className="story-seal">
@@ -76,8 +76,8 @@ export default function StoryTimeline() {
 
           <header className="story-intro">
             <p className="section-kicker">OUR STORY · SINCE 2004</p>
-            <h2>Some brands have a timeline.<br /><em>Janushan has a flavour trail.</em></h2>
-            <p>Instead of inventing dates or events, this experience tells the story using the brand facts and product world already established by Janushan.</p>
+            <h2>Some brands have a timeline.<br /><em>JIC has a flavour trail.</em></h2>
+            <p>Instead of inventing dates or events, this experience tells the story using the brand facts and product world already established by JIC.</p>
           </header>
 
           {chapters.map((chapter, index) => (
@@ -112,10 +112,13 @@ export default function StoryTimeline() {
             viewport={{ once: true, amount: 0.45 }}
             transition={{ duration: 0.8 }}
           >
-            <span>2004 → TODAY</span>
-            <h3>One brand. Many flavours.<br />One story still unfolding.</h3>
-            <p>JANUSHAN ICE CREAM</p>
-            <a href="#locations" className="button button-primary">Continue the Journey ↓</a>
+            <span className="story-finale-heart" aria-hidden="true" />
+            <div className="story-finale-content">
+              <span>2004 → TODAY</span>
+              <h3>One brand. Many flavours.<br />One story still unfolding.</h3>
+              <p>JANUSHAN ICE CREAM</p>
+              <a href="#locations" className="button button-primary">Continue the Journey ↓</a>
+            </div>
           </motion.div>
         </div>
       </div>

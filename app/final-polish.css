@@ -1,0 +1,268 @@
+/* Final UI corrections — September 2026 */
+.quick-call,
+.whatsapp-quick-order { display:none !important; }
+
+/* =========================================================
+   MENU CAROUSEL — FINAL DESKTOP / TABLET / MOBILE PASS
+   ========================================================= */
+.product-track-wrap {
+  position:relative;
+  width:100%;
+  min-width:0;
+  margin-top:48px;
+  overflow:visible;
+}
+
+.product-track {
+  display:flex;
+  align-items:stretch;
+  width:100%;
+  min-width:0;
+  box-sizing:border-box;
+  overflow-x:auto;
+  overflow-y:visible;
+  gap:clamp(18px,1.8vw,26px);
+  padding:18px 0 34px;
+  margin:0;
+  scroll-padding-inline:0;
+  scroll-snap-type:x mandatory;
+  scroll-behavior:smooth;
+  overscroll-behavior-x:contain;
+  -webkit-overflow-scrolling:touch;
+  scrollbar-width:none;
+}
+.product-track::-webkit-scrollbar { display:none; }
+
+/* Desktop: three full cards plus a deliberate preview of the next card. */
+.product-card {
+  flex:0 0 clamp(310px,25.5vw,360px);
+  width:clamp(310px,25.5vw,360px);
+  min-width:clamp(310px,25.5vw,360px);
+  min-height:530px;
+  scroll-snap-align:start;
+  scroll-snap-stop:always;
+  border-radius:28px;
+}
+
+.product-image-shell {
+  height:330px;
+}
+.product-meta {
+  padding:0 24px;
+}
+.product-meta strong {
+  font-size:clamp(29px,2.2vw,34px);
+  line-height:1.04;
+  margin:8px 0 10px;
+}
+.product-open {
+  margin-left:24px;
+  margin-right:24px;
+  margin-bottom:20px;
+}
+
+/* Product badge: compact, readable and never allowed to collide with the image index. */
+.product-menu-badge {
+  position:absolute;
+  top:18px;
+  right:18px;
+  z-index:6;
+  display:inline-flex;
+  align-items:center;
+  min-height:28px;
+  padding:6px 10px;
+  border:1px solid rgba(255,255,255,.38);
+  border-radius:999px;
+  background:rgba(3,13,55,.76);
+  color:#fff;
+  backdrop-filter:blur(10px);
+  box-shadow:0 8px 20px rgba(0,0,0,.22);
+  font-size:9px;
+  line-height:1;
+  font-weight:950;
+  letter-spacing:.12em;
+  text-transform:uppercase;
+  white-space:nowrap;
+}
+.product-menu-badge.is-new { color:#fff4d2; border-color:rgba(255,228,162,.58); }
+.product-menu-badge.is-popular { color:#dff1ff; border-color:rgba(118,193,255,.58); }
+.product-menu-badge.is-signature { color:#ffe0ec; border-color:rgba(255,155,195,.54); }
+
+.product-index {
+  top:19px;
+  left:20px;
+  z-index:7;
+}
+
+.product-stock {
+  align-self:flex-start;
+  display:inline-flex;
+  align-items:center;
+  gap:6px;
+  margin-top:10px;
+  min-height:24px;
+  padding:5px 9px;
+  border:1px solid rgba(111,255,196,.24);
+  border-radius:999px;
+  background:rgba(30,176,112,.10);
+  color:#a9ffdc;
+  font-size:8px;
+  font-weight:950;
+  letter-spacing:.09em;
+  text-transform:uppercase;
+}
+.product-stock::before {
+  content:"";
+  width:6px;
+  height:6px;
+  border-radius:50%;
+  background:currentColor;
+  box-shadow:0 0 8px currentColor;
+}
+.product-stock.is-low-stock { color:#ffe29a; border-color:rgba(255,210,100,.28); background:rgba(255,190,50,.08); }
+.product-stock.is-sold-out { color:#ffb2b2; border-color:rgba(255,100,100,.28); background:rgba(255,80,80,.08); }
+
+.product-arrow {
+  width:50px;
+  height:50px;
+  z-index:12;
+}
+.product-arrow-prev { left:-18px; }
+.product-arrow-next { right:-18px; }
+
+.product-progress {
+  margin-top:8px;
+}
+
+/* Desktop edge fades are kept subtle so they do not cover card content. */
+.product-track-wrap::before,
+.product-track-wrap::after {
+  width:34px;
+  top:0;
+  bottom:28px;
+  z-index:4;
+  opacity:.45;
+}
+
+/* Tablet */
+@media (max-width:1050px) {
+  .product-track-wrap { margin-top:38px; }
+  .product-track {
+    gap:16px;
+    padding:16px 0 30px;
+    scroll-padding-inline:0;
+  }
+  .product-card {
+    flex:0 0 min(350px,42vw);
+    width:min(350px,42vw);
+    min-width:min(350px,42vw);
+    min-height:510px;
+  }
+  .product-image-shell { height:300px; }
+  .product-arrow-prev { left:4px; }
+  .product-arrow-next { right:4px; }
+}
+
+/* Phone: one centred card, natural touch swipe, no layout squeeze. */
+@media (max-width:650px) {
+  .product-track-wrap {
+    margin-top:30px;
+    margin-left:-16px;
+    width:calc(100% + 32px);
+  }
+  .product-track {
+    gap:14px;
+    padding:14px 0 28px;
+    scroll-padding-inline:calc((100% - min(330px,82vw)) / 2);
+  }
+  .product-card {
+    flex:0 0 min(330px,82vw);
+    width:min(330px,82vw);
+    min-width:min(330px,82vw);
+    min-height:500px;
+    scroll-snap-align:center;
+    border-radius:25px;
+  }
+  .product-image-shell { height:min(315px,82vw); }
+  .product-meta { padding:0 20px; }
+  .product-meta strong { font-size:30px; }
+  .product-open { margin-left:20px; margin-right:20px; }
+  .product-menu-badge { top:15px; right:15px; }
+  .product-index { top:16px; left:17px; }
+  .product-arrow {
+    width:44px;
+    height:44px;
+    font-size:29px;
+  }
+  .product-arrow-prev { left:8px; }
+  .product-arrow-next { right:8px; }
+  .product-track-wrap::before,
+  .product-track-wrap::after { width:18px; }
+}
+
+@media (max-width:380px) {
+  .product-card {
+    flex-basis:calc(100vw - 40px);
+    width:calc(100vw - 40px);
+    min-width:calc(100vw - 40px);
+  }
+  .product-image-shell { height:275px; }
+  .product-meta strong { font-size:27px; }
+  .product-arrow-prev { left:5px; }
+  .product-arrow-next { right:5px; }
+}
+
+/* Small floating call control — icon only, opens the phone dialer. */
+.floating-call-button {
+  position:fixed;
+  right:clamp(16px,2vw,28px);
+  bottom:clamp(16px,2vw,28px);
+  z-index:80;
+  width:52px;
+  height:52px;
+  display:grid;
+  place-items:center;
+  border:1px solid rgba(255,227,154,.55);
+  border-radius:50%;
+  background:linear-gradient(145deg,#0635b9,#041a72);
+  color:#fff4d2;
+  box-shadow:0 12px 30px rgba(0,0,0,.32),0 0 0 4px rgba(255,255,255,.06);
+  transition:transform .2s ease,box-shadow .2s ease;
+}
+.floating-call-button svg { width:21px; height:21px; fill:currentColor; }
+.floating-call-button:hover,
+.floating-call-button:focus-visible { transform:translateY(-3px) scale(1.04); box-shadow:0 16px 34px rgba(0,0,0,.38),0 0 0 5px rgba(255,227,154,.12); }
+.floating-call-button:focus-visible { outline:2px solid #fff4d2; outline-offset:3px; }
+@media (max-width:520px) {
+  .floating-call-button { width:48px; height:48px; right:14px; bottom:14px; }
+}
+
+/* Story finale — large royal-blue heart */
+.story-finale { min-height:560px; display:grid; place-items:center; }
+.story-finale-heart {
+  width:min(650px,92vw);
+  height:min(590px,84vw);
+  aspect-ratio:auto;
+  transform:none !important;
+  border-radius:0 !important;
+  background:#0635b9 !important;
+  clip-path:polygon(50% 92%,43% 85%,20% 62%,8% 49%,4% 36%,7% 23%,16% 14%,28% 10%,39% 12%,50% 23%,61% 12%,72% 10%,84% 14%,93% 23%,96% 36%,92% 49%,80% 62%,57% 85%);
+  box-shadow:none !important;
+  filter:drop-shadow(0 30px 45px rgba(2,25,110,.24));
+}
+.story-finale-heart::before,
+.story-finale-heart::after { display:none !important; }
+.story-finale-content { width:min(410px,62vw); margin-top:8px; color:#fff; text-shadow:0 3px 14px rgba(0,10,65,.55); }
+.story-finale-content > span { color:#fff4d2; }
+.story-finale-content h3,
+.story-finale-content p { color:#fff; }
+.story-finale-content p { color:rgba(255,255,255,.92); }
+
+.hero-actions a[href="#discover"] { font-size:0; }
+.hero-actions a[href="#discover"]::after { content:"Discover JIC"; font-size:14px; }
+
+@media (max-width:650px) {
+  .story-finale { min-height:470px; }
+  .story-finale-heart { width:min(520px,112vw); height:min(470px,102vw); }
+  .story-finale-content { width:min(300px,62vw); margin-top:2px; }
+}
