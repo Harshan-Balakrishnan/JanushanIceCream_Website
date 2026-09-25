@@ -12,8 +12,8 @@ export default function Home() {
     <main>
       <StructuredData />
       <NavBar />
-      <StoreStatusBar />
       <EntranceExperience />
+      <StoreStatusBar />
       <DiscoverPreview />
       <a
       className="whatsapp-quick-order"
