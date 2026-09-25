@@ -6,6 +6,16 @@ import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { useCatalogCollection } from "@/hooks/useCatalogCollection";
 import { defaultProducts, type Product } from "@/lib/catalog";
 
+function stockLabel(availability?: Product["availability"]) {
+  switch (availability) {
+    case "low-stock":
+      return "Limited today";
+    case "sold-out":
+      return "Sold out";
+    default:
+      return "Available today";
+  }
+}
 
 export default function ProductUniverse() {
   const { items: products, live } = useCatalogCollection<Product>("products", defaultProducts);
@@ -71,6 +81,9 @@ export default function ProductUniverse() {
     };
   }, [selected]);
 
+  const selectedAvailability = selected?.availability ?? "in-stock";
+  const selectedSoldOut = selectedAvailability === "sold-out";
+
   return (
     <section className="product-universe section" id="menu" aria-labelledby="craving-title">
       <div className="product-orbit-glow" aria-hidden="true" />
@@ -122,6 +135,9 @@ export default function ProductUniverse() {
                 <small>{product.eyebrow}</small>
                 <strong>{product.name}</strong>
                 <span className="product-price">Rs. {formatter.format(product.price)}/-</span>
+                <span className={`product-stock is-${product.availability ?? "in-stock"}`}>
+                  {stockLabel(product.availability)}
+                </span>
               </span>
               <span className="product-open">Explore <i aria-hidden="true">↗</i></span>
             </motion.button>
@@ -172,19 +188,30 @@ export default function ProductUniverse() {
                 <p className="section-kicker">{selected.eyebrow}</p>
                 <h3 id="product-modal-title">{selected.name}</h3>
                 <div className="modal-price">Rs. {formatter.format(selected.price)}/-</div>
+                <span className={`product-stock product-stock-modal is-${selectedAvailability}`}>
+                  {stockLabel(selectedAvailability)}
+                </span>
                 <p>{selected.blurb}</p>
                 <div className="modal-actions">
                   <a
                     className="button button-primary"
-                    href={`https://wa.me/94776015041?text=${encodeURIComponent(`Hi Janushan Ice Cream 👋 I would like to order ${selected.name} (Rs. ${selected.price}/-). Please confirm availability.`) }`}
+                    href={`https://wa.me/94776015041?text=${encodeURIComponent(
+                      selectedSoldOut
+                        ? `Hi Janushan Ice Cream 👋 Please let me know when ${selected.name} is back in stock.`
+                        : `Hi Janushan Ice Cream 👋 I would like to order ${selected.name} (Rs. ${selected.price}/-). Please confirm availability.`
+                    )}`}
                     target="_blank"
                     rel="noreferrer"
                   >
-                    Order on WhatsApp ↗
+                    {selectedSoldOut ? "Ask when it’s back ↗" : "Order on WhatsApp ↗"}
                   </a>
                   <a className="button button-ghost" href="#flavours" onClick={() => setSelected(null)}>Explore Flavours</a>
                 </div>
-                <small className="modal-order-note">Quick order: tap WhatsApp and we&apos;ll confirm availability with you.</small>
+                <small className="modal-order-note">
+                  {selectedSoldOut
+                    ? "This flavour is unavailable right now. Ask us on WhatsApp when it will return."
+                    : "Quick order: tap WhatsApp and we&apos;ll confirm availability with you."}
+                </small>
                 <small className="modal-future">Product details can be managed from the Janushan Control Room when Firebase is connected.</small>
               </div>
             </motion.div>
