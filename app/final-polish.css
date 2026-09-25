@@ -2,18 +2,46 @@
 .quick-call,
 .whatsapp-quick-order { display:none !important; }
 
+/* Stable horizontal menu carousel: no layout collapse, no forced first-card offset. */
+.product-track-wrap { position:relative; width:100%; min-width:0; }
 .product-track {
-  padding-left:max(24px, calc((100vw - min(360px, 76vw)) / 2));
-  padding-right:max(24px, calc((100vw - min(360px, 76vw)) / 2));
-  scroll-padding-inline:max(24px, calc((100vw - min(360px, 76vw)) / 2));
+  display:flex;
+  width:100%;
+  min-width:0;
+  overflow-x:auto;
+  overflow-y:hidden;
+  gap:clamp(16px,2.5vw,28px);
+  padding:24px max(18px, calc((100% - min(370px, 76vw)) / 2)) 32px;
+  margin:0;
+  scroll-padding-inline:max(18px, calc((100% - min(370px, 76vw)) / 2));
+  scroll-snap-type:x mandatory;
   scroll-behavior:smooth;
+  overscroll-behavior-x:contain;
+  -webkit-overflow-scrolling:touch;
+  scrollbar-width:none;
 }
-.product-card { scroll-snap-align:center; scroll-snap-stop:always; }
-@media (max-width:650px) {
+.product-track::-webkit-scrollbar { display:none; }
+.product-card {
+  flex:0 0 min(370px,76vw);
+  width:min(370px,76vw);
+  min-width:min(370px,76vw);
+  scroll-snap-align:center;
+  scroll-snap-stop:always;
+}
+.product-arrow { z-index:5; }
+
+/* Do not let desktop card dimensions collapse on tablets/mobile. */
+@media (max-width:900px) {
+  .product-track { gap:16px; padding-top:20px; padding-bottom:28px; }
+  .product-card { flex-basis:min(360px,78vw); width:min(360px,78vw); min-width:min(360px,78vw); }
+}
+@media (max-width:520px) {
   .product-track {
-    padding-left:calc((100vw - min(360px, 76vw)) / 2);
-    padding-right:calc((100vw - min(360px, 76vw)) / 2);
+    gap:14px;
+    padding-left:calc((100% - min(330px,82vw)) / 2);
+    padding-right:calc((100% - min(330px,82vw)) / 2);
   }
+  .product-card { flex-basis:min(330px,82vw); width:min(330px,82vw); min-width:min(330px,82vw); }
 }
 
 .story-finale { min-height:560px; display:grid; place-items:center; }
@@ -36,7 +64,7 @@
 .story-finale-content p { color:#fff; }
 .story-finale-content p { color:rgba(255,255,255,.92); }
 
-/* Visible short-brand wording: use JIC instead of standalone Janushan. */
+/* Short brand reference. Full JANUSHAN ICE CREAM remains where the complete name is intended. */
 .hero-actions a[href="#discover"] { font-size:0; }
 .hero-actions a[href="#discover"]::after { content:"Discover JIC"; font-size:14px; }
 
