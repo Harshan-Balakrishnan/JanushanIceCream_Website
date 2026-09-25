@@ -18,7 +18,7 @@
   background:#0635b9;
   transform:rotate(-45deg) scale(.72);
   transform-origin:center;
-  border-radius:50% 50% 8% 50%;
+  border-radius:0 0 0 50%;
   box-shadow:0 30px 75px rgba(2,25,110,.24),0 0 0 1px rgba(255,255,255,.08) inset;
 }
 
