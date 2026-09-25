@@ -9,10 +9,10 @@ export default function ContactExperience() {
         </h2>
         <p>
           For product enquiries, shop information, availability or orders,
-          reach Janushan Ice Cream directly. For the fastest response, use WhatsApp.
+          reach Janushan Ice Cream directly. For the fastest response, call our order line.
         </p>
         <div className="contact-quick-links">
-          <a className="button button-primary" href="https://wa.me/94776015041?text=Hi%20Janushan%20Ice%20Cream%20%F0%9F%91%8B%20I%20would%20like%20to%20place%20an%20order." target="_blank" rel="noreferrer">Order via WhatsApp ↗</a>
+          <a className="button button-primary" href="tel:+94776015041">Call to order +94 77 601 5041</a>
           <a className="button button-ghost" href="https://www.google.com/search?q=Janushan+Ice+Cream+Vavuniya" target="_blank" rel="noreferrer">Leave a Google Review ↗</a>
         </div>
       </div>
@@ -29,14 +29,12 @@ export default function ContactExperience() {
         </a>
 
         <a
-          href="https://wa.me/94776015041"
-          target="_blank"
-          rel="noreferrer"
+          href="tel:+94776015041"
           className="contact-card"
         >
           <span>02</span>
-          <small>WHATSAPP</small>
-          <strong>077 601 5041</strong>
+          <small>CALL TO ORDER</small>
+          <strong>+94 77 601 5041</strong>
           <i>↗</i>
         </a>
 
