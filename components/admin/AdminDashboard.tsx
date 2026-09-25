@@ -136,6 +136,16 @@ const schemas: Record<Tab, TabSchema> = {
         label: "Glow colour",
       },
       {
+        key: "menuBadge",
+        label: "Menu highlight",
+        options: [
+          { value: "", label: "No label" },
+          { value: "new", label: "New" },
+          { value: "popular", label: "Popular now" },
+          { value: "signature", label: "Signature" },
+        ],
+      },
+      {
         key: "availability",
         label: "Stock status",
         options: [
@@ -312,8 +322,8 @@ const schemas: Record<Tab, TabSchema> = {
         label: "Hours / availability note",
       },
       {
-        key: "whatsapp",
-        label: "WhatsApp number",
+        key: "orderPhone",
+        label: "Order call number",
       },
       {
         key: "sortOrder",
@@ -766,7 +776,7 @@ export default function AdminDashboard() {
 
     if (
       !confirm(
-        `Seed the supplied Janushan ${schema.label.toLowerCase()} into Firestore? Existing matching IDs will be updated.`
+        `Seed the supplied JIC ${schema.label.toLowerCase()} into Firestore? Existing matching IDs will be updated.`
       )
     ) {
       return;
@@ -929,7 +939,7 @@ export default function AdminDashboard() {
             </code>{" "}
             and add your Firebase Web App
             values. The public website still
-            works with its built-in Janushan
+            works with its built-in JIC
             fallback content until Firebase is
             connected.
           </p>
@@ -977,7 +987,7 @@ export default function AdminDashboard() {
           />
 
           <p>
-            JANUSHAN CONTROL ROOM
+            JIC CONTROL ROOM
           </p>
 
           <h1>
@@ -1584,7 +1594,7 @@ export default function AdminDashboard() {
                       }
                     />
 
-                    Accept WhatsApp orders
+                    Accept call orders
                   </label>
                 )}
               </div>
