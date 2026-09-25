@@ -3,6 +3,7 @@ import EntranceExperience from "@/components/EntranceExperience";
 import DiscoverPreview from "@/components/DiscoverPreview";
 import CinematicFooter from "@/components/CinematicFooter";
 import StructuredData from "@/components/StructuredData";
+import StoreStatusBar from "@/components/StoreStatusBar";
 
 export default function Home() {
   const whatsappMessage = encodeURIComponent("Hi Janushan Ice Cream 👋 I would like to place an order.");
@@ -11,6 +12,7 @@ export default function Home() {
     <main>
       <StructuredData />
       <NavBar />
+      <StoreStatusBar />
       <EntranceExperience />
       <DiscoverPreview />
       <a
