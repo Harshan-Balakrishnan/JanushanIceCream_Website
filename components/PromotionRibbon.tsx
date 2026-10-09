@@ -5,18 +5,32 @@ import { useEffect, useMemo, useState } from "react";
 import { useCatalogCollection } from "@/hooks/useCatalogCollection";
 import type { Promotion } from "@/lib/catalog";
 
-function isPromotionLive(promotion: Promotion, now: number) {
-  const start = promotion.startDate?.trim()
-    ? new Date(promotion.startDate).getTime()
-    : Number.NEGATIVE_INFINITY;
-  const end = promotion.endDate?.trim()
-    ? new Date(promotion.endDate).getTime()
-    : Number.POSITIVE_INFINITY;
+function promotionBoundary(value: string | undefined, isEnd = false) {
+  const trimmed = value?.trim();
+  if (!trimmed) return isEnd ? Number.POSITIVE_INFINITY : Number.NEGATIVE_INFINITY;
 
-  return (
-    (!Number.isNaN(start) ? start : Number.NEGATIVE_INFINITY) <= now &&
-    (!Number.isNaN(end) ? end : Number.POSITIVE_INFINITY) > now
-  );
+  // Date-only values from admin forms represent calendar days in the shop's local time.
+  // Treat the end date as exclusive midnight of the following day so the full end date is valid.
+  const dateOnly = /^(\d{4})-(\d{2})-(\d{2})$/.exec(trimmed);
+  if (dateOnly) {
+    const [, year, month, day] = dateOnly.map(Number);
+    const boundary = isEnd
+      ? new Date(year, month - 1, day + 1)
+      : new Date(year, month - 1, day);
+    return boundary.getTime();
+  }
+
+  const timestamp = new Date(trimmed).getTime();
+  if (Number.isNaN(timestamp)) {
+    return isEnd ? Number.POSITIVE_INFINITY : Number.NEGATIVE_INFINITY;
+  }
+  return timestamp;
+}
+
+function isPromotionLive(promotion: Promotion, now: number) {
+  const start = promotionBoundary(promotion.startDate);
+  const end = promotionBoundary(promotion.endDate, true);
+  return start <= now && end > now;
 }
 
 function formatPromotionDate(value?: string) {
