@@ -68,7 +68,8 @@ export default function ProductUniverse() {
     if (sort === "price-low") return [...filtered].sort((a, b) => a.price - b.price || a.sortOrder - b.sortOrder);
     if (sort === "price-high") return [...filtered].sort((a, b) => b.price - a.price || a.sortOrder - b.sortOrder);
     if (sort === "name") return [...filtered].sort((a, b) => a.name.localeCompare(b.name));
-    return [...filtered].sort((a, b) => a.sortOrder - b.sortOrder);
+    // Featured sorting must respect the admin-managed featured flag, then retain the configured order.
+    return [...filtered].sort((a, b) => Number(b.featured) - Number(a.featured) || a.sortOrder - b.sortOrder);
   }, [products, category, search, sort]);
 
   const setActiveProduct = useCallback((index: number) => {
@@ -205,7 +206,7 @@ export default function ProductUniverse() {
         <p className="product-section-copy">Find your favourite faster. Filter the menu, search by name, or sort by price — then tap any treat for details.</p>
       </div>
 
-      <div className="product-menu-tools" aria-label="Product menu controls">
+      <div className="product-menu-tools" role="group" aria-label="Product menu controls">
         <div className="product-category-list" role="group" aria-label="Filter products by category">
           {availableCategories.map((item) => (
             <button
@@ -301,7 +302,7 @@ export default function ProductUniverse() {
           <button className="button button-primary" type="button" onClick={() => { setSearch(""); setCategory("All"); setSort("featured"); }}>Show all products</button>
         </div>
       )}
-      <p className="product-source-note">{live ? "Live from the JIC admin system." : "Showing built-in JIC starter content until Firebase is connected."}</p>
+      <p className="product-source-note">{live ? "Live from the JIC admin system." : "Showing the built-in JIC menu because live catalogue data is unavailable."}</p>
 
       <AnimatePresence>
         {selected && (
