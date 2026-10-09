@@ -100,7 +100,6 @@ export default function ProductUniverse() {
     const track = trackRef.current;
     if (!track) return;
     setActiveProduct(0);
-    cardRefs.current = [];
     requestAnimationFrame(() => track.scrollTo({ left: 0, behavior: "auto" }));
   }, [visibleProducts, setActiveProduct]);
 
