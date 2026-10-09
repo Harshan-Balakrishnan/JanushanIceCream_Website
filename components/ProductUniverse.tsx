@@ -49,6 +49,7 @@ export default function ProductUniverse() {
   const trackRef = useRef<HTMLDivElement>(null);
   const cardRefs = useRef<(HTMLButtonElement | null)[]>([]);
   const activeRef = useRef(0);
+  const modalRef = useRef<HTMLDivElement>(null);
 
   const availableCategories = useMemo(
     () => menuCategories.filter((item) => item === "All" || products.some((product) => categoryForProduct(product) === item)),
@@ -146,15 +147,47 @@ export default function ProductUniverse() {
 
   useEffect(() => {
     if (!selected) return;
-    const previous = document.body.style.overflow;
+    const previousOverflow = document.body.style.overflow;
+    const previouslyFocused = document.activeElement instanceof HTMLElement
+      ? document.activeElement
+      : null;
     document.body.style.overflow = "hidden";
+    modalRef.current?.querySelector<HTMLElement>(".modal-close")?.focus();
+
     const onKey = (event: KeyboardEvent) => {
-      if (event.key === "Escape") setSelected(null);
+      if (event.key === "Escape") {
+        setSelected(null);
+        return;
+      }
+      if (event.key !== "Tab" || !modalRef.current) return;
+
+      const focusable = Array.from(
+        modalRef.current.querySelectorAll<HTMLElement>(
+          'a[href], button:not([disabled]), select:not([disabled]), input:not([disabled]), [tabindex]:not([tabindex="-1"])',
+        ),
+      ).filter((element) => element.getAttribute("aria-hidden") !== "true");
+
+      if (!focusable.length) {
+        event.preventDefault();
+        return;
+      }
+
+      const first = focusable[0];
+      const last = focusable[focusable.length - 1];
+      if (event.shiftKey && document.activeElement === first) {
+        event.preventDefault();
+        last.focus();
+      } else if (!event.shiftKey && document.activeElement === last) {
+        event.preventDefault();
+        first.focus();
+      }
     };
+
     window.addEventListener("keydown", onKey);
     return () => {
-      document.body.style.overflow = previous;
+      document.body.style.overflow = previousOverflow;
       window.removeEventListener("keydown", onKey);
+      previouslyFocused?.focus();
     };
   }, [selected]);
 
@@ -273,7 +306,7 @@ export default function ProductUniverse() {
       <AnimatePresence>
         {selected && (
           <motion.div className="product-modal-backdrop" role="presentation" initial={reduceMotion ? { opacity: 1 } : { opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} onMouseDown={(event) => { if (event.target === event.currentTarget) setSelected(null); }}>
-            <motion.div className="product-modal" role="dialog" aria-modal="true" aria-labelledby="product-modal-title" initial={reduceMotion ? false : { y: 38, opacity: 0, scale: 0.96 }} animate={reduceMotion ? undefined : { y: 0, opacity: 1, scale: 1 }} exit={reduceMotion ? undefined : { y: 22, opacity: 0, scale: 0.98 }} transition={{ type: "spring", stiffness: 210, damping: 24 }} style={{ "--product-glow": selected.glow } as React.CSSProperties}>
+            <motion.div ref={modalRef} className="product-modal" role="dialog" aria-modal="true" aria-labelledby="product-modal-title" initial={reduceMotion ? false : { y: 38, opacity: 0, scale: 0.96 }} animate={reduceMotion ? undefined : { y: 0, opacity: 1, scale: 1 }} exit={reduceMotion ? undefined : { y: 22, opacity: 0, scale: 0.98 }} transition={{ type: "spring", stiffness: 210, damping: 24 }} style={{ "--product-glow": selected.glow } as React.CSSProperties}>
               <button className="modal-close" type="button" onClick={() => setSelected(null)} aria-label="Close product details">×</button>
               <div className="modal-visual"><div className="modal-halo" aria-hidden="true" /><Image src={selected.image} alt={selected.name} fill sizes="(max-width: 800px) 90vw, 48vw" className="modal-product-image" unoptimized={selected.image.startsWith("http")} /></div>
               <div className="modal-copy">
