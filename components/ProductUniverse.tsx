@@ -6,6 +6,20 @@ import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { useCatalogCollection } from "@/hooks/useCatalogCollection";
 import { defaultProducts, type Product } from "@/lib/catalog";
 
+type MenuCategory = "All" | "Cups" | "Cones" | "Specials" | "Ice Pops & Chock" | "Other";
+type MenuSort = "featured" | "price-low" | "price-high" | "name";
+
+const menuCategories: MenuCategory[] = ["All", "Cups", "Cones", "Specials", "Ice Pops & Chock", "Other"];
+
+function categoryForProduct(product: Product): Exclude<MenuCategory, "All"> {
+  const text = `${product.name} ${product.eyebrow}`.toLowerCase();
+  if (/popsicle|ice pop|ice cube|ice chock|\bchock\b/.test(text)) return "Ice Pops & Chock";
+  if (/cone|waffle boat/.test(text)) return "Cones";
+  if (/special|mega/.test(text)) return "Specials";
+  if (/cup|\bml\b|\blitre\b|\bliter\b|\bkg\b/.test(text)) return "Cups";
+  return "Other";
+}
+
 function stockLabel(availability?: Product["availability"]) {
   switch (availability) {
     case "low-stock": return "Limited today";
@@ -27,11 +41,34 @@ export default function ProductUniverse() {
   const { items: products, live } = useCatalogCollection<Product>("products", defaultProducts);
   const [selected, setSelected] = useState<Product | null>(null);
   const [active, setActive] = useState(0);
+  const [category, setCategory] = useState<MenuCategory>("All");
+  const [search, setSearch] = useState("");
+  const [sort, setSort] = useState<MenuSort>("featured");
   const reduceMotion = useReducedMotion();
   const formatter = useMemo(() => new Intl.NumberFormat("en-LK"), []);
   const trackRef = useRef<HTMLDivElement>(null);
   const cardRefs = useRef<(HTMLButtonElement | null)[]>([]);
   const activeRef = useRef(0);
+
+  const availableCategories = useMemo(
+    () => menuCategories.filter((item) => item === "All" || products.some((product) => categoryForProduct(product) === item)),
+    [products],
+  );
+
+  const visibleProducts = useMemo(() => {
+    const term = search.trim().toLocaleLowerCase();
+    const filtered = products.filter((product) => {
+      const matchesCategory = category === "All" || categoryForProduct(product) === category;
+      const matchesSearch = !term || [product.name, product.eyebrow, product.blurb]
+        .some((value) => value.toLocaleLowerCase().includes(term));
+      return matchesCategory && matchesSearch;
+    });
+
+    if (sort === "price-low") return [...filtered].sort((a, b) => a.price - b.price || a.sortOrder - b.sortOrder);
+    if (sort === "price-high") return [...filtered].sort((a, b) => b.price - a.price || a.sortOrder - b.sortOrder);
+    if (sort === "name") return [...filtered].sort((a, b) => a.name.localeCompare(b.name));
+    return [...filtered].sort((a, b) => a.sortOrder - b.sortOrder);
+  }, [products, category, search, sort]);
 
   const setActiveProduct = useCallback((index: number) => {
     activeRef.current = index;
@@ -39,8 +76,8 @@ export default function ProductUniverse() {
   }, []);
 
   const goToProduct = useCallback((index: number) => {
-    if (!products.length) return;
-    const next = (index + products.length) % products.length;
+    if (!visibleProducts.length) return;
+    const next = (index + visibleProducts.length) % visibleProducts.length;
     const track = trackRef.current;
     const card = cardRefs.current[next];
     setActiveProduct(next);
@@ -49,9 +86,6 @@ export default function ProductUniverse() {
     const styles = window.getComputedStyle(track);
     const paddingLeft = parseFloat(styles.paddingLeft) || 0;
     const isPhone = window.matchMedia("(max-width: 650px)").matches;
-
-    // Desktop/tablet: align the selected card to the carousel's left content edge.
-    // Phone: center one card in the viewport for a deliberate swipe-first experience.
     const targetLeft = isPhone
       ? card.offsetLeft - (track.clientWidth - card.offsetWidth) / 2
       : card.offsetLeft - paddingLeft;
@@ -60,14 +94,15 @@ export default function ProductUniverse() {
       left: Math.max(0, targetLeft),
       behavior: reduceMotion ? "auto" : "smooth",
     });
-  }, [products.length, reduceMotion, setActiveProduct]);
+  }, [visibleProducts.length, reduceMotion, setActiveProduct]);
 
   useEffect(() => {
     const track = trackRef.current;
-    if (!track || !products.length) return;
+    if (!track) return;
     setActiveProduct(0);
+    cardRefs.current = [];
     requestAnimationFrame(() => track.scrollTo({ left: 0, behavior: "auto" }));
-  }, [products.length, setActiveProduct]);
+  }, [visibleProducts, setActiveProduct]);
 
   useEffect(() => {
     const track = trackRef.current;
@@ -81,13 +116,10 @@ export default function ProductUniverse() {
         const trackRect = track.getBoundingClientRect();
         const styles = window.getComputedStyle(track);
         const paddingLeft = parseFloat(styles.paddingLeft) || 0;
-        const target = isPhone
-          ? trackRect.left + track.clientWidth / 2
-          : trackRect.left + paddingLeft;
+        const target = isPhone ? trackRect.left + track.clientWidth / 2 : trackRect.left + paddingLeft;
 
         let nearest = activeRef.current;
         let distance = Number.POSITIVE_INFINITY;
-
         cardRefs.current.forEach((card, index) => {
           if (!card) return;
           const rect = card.getBoundingClientRect();
@@ -111,7 +143,7 @@ export default function ProductUniverse() {
       cancelAnimationFrame(frame);
       track.removeEventListener("scroll", onScroll);
     };
-  }, [products.length]);
+  }, [visibleProducts.length]);
 
   useEffect(() => {
     if (!selected) return;
@@ -138,50 +170,105 @@ export default function ProductUniverse() {
           <p className="section-kicker">CHOOSE YOUR CRAVING</p>
           <h2 id="craving-title">Scroll into your <em>next favourite.</em></h2>
         </div>
-        <p className="product-section-copy">Swipe, scroll or tap through the JIC menu. Every product stays large, tactile and easy to explore — especially on mobile.</p>
+        <p className="product-section-copy">Find your favourite faster. Filter the menu, search by name, or sort by price — then tap any treat for details.</p>
       </div>
 
-      <div className="product-track-wrap">
-        <button className="product-arrow product-arrow-prev" type="button" onClick={() => goToProduct(activeRef.current - 1)} aria-label="Previous product"><span aria-hidden="true">‹</span></button>
-        <div ref={trackRef} className="product-track" role="list" aria-label="JIC products">
-          {products.map((product, index) => (
-            <motion.button
+      <div className="product-menu-tools" aria-label="Product menu controls">
+        <div className="product-category-list" role="group" aria-label="Filter products by category">
+          {availableCategories.map((item) => (
+            <button
+              className={`product-category-chip ${category === item ? "is-selected" : ""}`}
               type="button"
-              role="listitem"
-              className={`product-card ${active === index ? "is-active" : ""}`}
-              key={product.id}
-              onFocus={() => setActiveProduct(index)}
-              onMouseEnter={() => setActiveProduct(index)}
-              onClick={() => { setActiveProduct(index); setSelected(product); }}
-              whileHover={reduceMotion ? undefined : { y: -8, rotateX: 1.5, rotateY: index % 2 ? -1.5 : 1.5 }}
-              whileTap={reduceMotion ? undefined : { scale: 0.988 }}
-              transition={{ type: "spring", stiffness: 250, damping: 24 }}
-              ref={(node) => { cardRefs.current[index] = node; }}
-              style={{ "--product-glow": product.glow } as React.CSSProperties}
+              key={item}
+              aria-pressed={category === item}
+              onClick={() => setCategory(item)}
             >
-              <span className="product-index">{String(index + 1).padStart(2, "0")}</span>
-              {product.menuBadge && <span className={`product-menu-badge is-${product.menuBadge}`}>{menuBadgeLabel(product.menuBadge)}</span>}
-              <span className="product-image-shell">
-                <Image src={product.image} alt={`${product.name} from the JIC menu`} fill sizes="(max-width: 700px) 82vw, (max-width: 1200px) 34vw, 360px" className="product-photo" unoptimized={product.image.startsWith("http")} />
-              </span>
-              <span className="product-meta">
-                <small>{product.eyebrow}</small>
-                <strong>{product.name}</strong>
-                <span className="product-price">Rs. {formatter.format(product.price)}/-</span>
-                <span className={`product-stock is-${product.availability ?? "in-stock"}`}>{stockLabel(product.availability)}</span>
-              </span>
-              <span className="product-open">Explore <i aria-hidden="true">↗</i></span>
-            </motion.button>
+              {item}
+              {item === "All" && <span>{products.length}</span>}
+            </button>
           ))}
         </div>
-        <button className="product-arrow product-arrow-next" type="button" onClick={() => goToProduct(activeRef.current + 1)} aria-label="Next product"><span aria-hidden="true">›</span></button>
+        <div className="product-menu-fields">
+          <label className="product-search">
+            <span className="product-search-icon" aria-hidden="true">⌕</span>
+            <span className="sr-only">Search products</span>
+            <input
+              type="search"
+              value={search}
+              onChange={(event) => setSearch(event.target.value)}
+              placeholder="Search the menu"
+              autoComplete="off"
+            />
+            {search && <button type="button" onClick={() => setSearch("")} aria-label="Clear product search">×</button>}
+          </label>
+          <label className="product-sort">
+            <span>Sort</span>
+            <select value={sort} onChange={(event) => setSort(event.target.value as MenuSort)} aria-label="Sort products">
+              <option value="featured">Featured</option>
+              <option value="price-low">Price: low to high</option>
+              <option value="price-high">Price: high to low</option>
+              <option value="name">Name: A to Z</option>
+            </select>
+          </label>
+        </div>
       </div>
 
-      <div className="product-progress" aria-hidden="true">
-        <span>{String(active + 1).padStart(2, "0")}</span>
-        <div><i style={{ width: `${((active + 1) / products.length) * 100}%` }} /></div>
-        <span>{String(products.length).padStart(2, "0")}</span>
-      </div>
+      <p className="product-results-count" aria-live="polite">
+        {visibleProducts.length === 1 ? "1 treat" : `${visibleProducts.length} treats`} {category !== "All" ? `in ${category}` : "on the menu"}
+      </p>
+
+      {visibleProducts.length > 0 ? (
+        <>
+          <div className="product-track-wrap">
+            <button className="product-arrow product-arrow-prev" type="button" onClick={() => goToProduct(activeRef.current - 1)} aria-label="Previous product" disabled={visibleProducts.length < 2}><span aria-hidden="true">‹</span></button>
+            <div ref={trackRef} className="product-track" role="list" aria-label="JIC products">
+              {visibleProducts.map((product, index) => (
+                <motion.button
+                  type="button"
+                  role="listitem"
+                  className={`product-card ${active === index ? "is-active" : ""}`}
+                  key={product.id}
+                  onFocus={() => setActiveProduct(index)}
+                  onMouseEnter={() => setActiveProduct(index)}
+                  onClick={() => { setActiveProduct(index); setSelected(product); }}
+                  whileHover={reduceMotion ? undefined : { y: -8, rotateX: 1.5, rotateY: index % 2 ? -1.5 : 1.5 }}
+                  whileTap={reduceMotion ? undefined : { scale: 0.988 }}
+                  transition={{ type: "spring", stiffness: 250, damping: 24 }}
+                  ref={(node) => { cardRefs.current[index] = node; }}
+                  style={{ "--product-glow": product.glow } as React.CSSProperties}
+                >
+                  <span className="product-index">{String(index + 1).padStart(2, "0")}</span>
+                  {product.menuBadge && <span className={`product-menu-badge is-${product.menuBadge}`}>{menuBadgeLabel(product.menuBadge)}</span>}
+                  <span className="product-image-shell">
+                    <Image src={product.image} alt={`${product.name} from the JIC menu`} fill sizes="(max-width: 700px) 82vw, (max-width: 1200px) 34vw, 360px" className="product-photo" unoptimized={product.image.startsWith("http")} />
+                  </span>
+                  <span className="product-meta">
+                    <small>{product.eyebrow}</small>
+                    <strong>{product.name}</strong>
+                    <span className="product-price">Rs. {formatter.format(product.price)}/-</span>
+                    <span className={`product-stock is-${product.availability ?? "in-stock"}`}>{stockLabel(product.availability)}</span>
+                  </span>
+                  <span className="product-open">Explore <i aria-hidden="true">↗</i></span>
+                </motion.button>
+              ))}
+            </div>
+            <button className="product-arrow product-arrow-next" type="button" onClick={() => goToProduct(activeRef.current + 1)} aria-label="Next product" disabled={visibleProducts.length < 2}><span aria-hidden="true">›</span></button>
+          </div>
+
+          <div className="product-progress" aria-hidden="true">
+            <span>{String(Math.min(active + 1, visibleProducts.length)).padStart(2, "0")}</span>
+            <div><i style={{ width: `${((Math.min(active + 1, visibleProducts.length)) / visibleProducts.length) * 100}%` }} /></div>
+            <span>{String(visibleProducts.length).padStart(2, "0")}</span>
+          </div>
+        </>
+      ) : (
+        <div className="product-empty-state">
+          <span aria-hidden="true">🍦</span>
+          <h3>No treats found</h3>
+          <p>Try another search or choose a different category.</p>
+          <button className="button button-primary" type="button" onClick={() => { setSearch(""); setCategory("All"); setSort("featured"); }}>Show all products</button>
+        </div>
+      )}
       <p className="product-source-note">{live ? "Live from the JIC admin system." : "Showing built-in JIC starter content until Firebase is connected."}</p>
 
       <AnimatePresence>
