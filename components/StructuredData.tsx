@@ -12,7 +12,7 @@ export default function StructuredData() {
     priceRange: "LKR 50–1,500",
     currenciesAccepted: "LKR",
     areaServed: ["Vavuniya", "Nelukkulam"],
-    hasMap: "https://www.google.com/maps/search/?api=1&query=Janushan%20Ice%20Cream%20Nelukkulam%20Vavuniya",
+    hasMap: "https://maps.app.goo.gl/4fgaYc7skrPqs8fu6",
     menu: `${SITE_URL}/#menu`,
     foundingDate: "2004",
     telephone: "+94 77 601 5041",
