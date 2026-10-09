@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 
 const links = [
   ["Discover", "#discover"],
@@ -15,10 +15,15 @@ const links = [
 
 export default function NavBar() {
   const [open, setOpen] = useState(false);
+  const menuButtonRef = useRef<HTMLButtonElement>(null);
 
   useEffect(() => {
     if (!open) return;
-    const close = (event: KeyboardEvent) => event.key === "Escape" && setOpen(false);
+    const close = (event: KeyboardEvent) => {
+      if (event.key !== "Escape") return;
+      setOpen(false);
+      menuButtonRef.current?.focus();
+    };
     window.addEventListener("keydown", close);
     return () => window.removeEventListener("keydown", close);
   }, [open]);
@@ -35,6 +40,7 @@ export default function NavBar() {
         </div>
         <a className="nav-cta" href="#menu">Explore Menu</a>
         <button
+          ref={menuButtonRef}
           className="nav-menu-button"
           type="button"
           aria-expanded={open}
