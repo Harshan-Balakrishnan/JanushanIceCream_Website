@@ -254,11 +254,10 @@ export default function ProductUniverse() {
         <>
           <div className="product-track-wrap">
             <button className="product-arrow product-arrow-prev" type="button" onClick={() => goToProduct(activeRef.current - 1)} aria-label="Previous product" disabled={visibleProducts.length < 2}><span aria-hidden="true">‹</span></button>
-            <div ref={trackRef} className="product-track" role="list" aria-label="JIC products">
+            <div ref={trackRef} className="product-track" role="group" aria-label="JIC products">
               {visibleProducts.map((product, index) => (
                 <motion.button
                   type="button"
-                  role="listitem"
                   className={`product-card ${active === index ? "is-active" : ""}`}
                   key={product.id}
                   onFocus={() => setActiveProduct(index)}
