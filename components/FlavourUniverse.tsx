@@ -94,12 +94,27 @@ export default function FlavourUniverse() {
               return (
                 <button
                   type="button"
+                  id={`flavour-tab-${flavour.id}`}
                   key={flavour.id}
                   role="tab"
+                  tabIndex={selected ? 0 : -1}
                   aria-selected={selected}
                   aria-controls="flavour-stage"
                   className={selected ? "is-active" : ""}
                   onClick={() => setActiveId(flavour.id)}
+                  onKeyDown={(event) => {
+                    let nextIndex = index;
+                    if (event.key === "ArrowRight") nextIndex = (index + 1) % flavours.length;
+                    else if (event.key === "ArrowLeft") nextIndex = (index - 1 + flavours.length) % flavours.length;
+                    else if (event.key === "Home") nextIndex = 0;
+                    else if (event.key === "End") nextIndex = flavours.length - 1;
+                    else return;
+
+                    event.preventDefault();
+                    const nextFlavour = flavours[nextIndex];
+                    setActiveId(nextFlavour.id);
+                    document.getElementById(`flavour-tab-${nextFlavour.id}`)?.focus();
+                  }}
                 >
                   <span>{String(index + 1).padStart(2, "0")}</span>
                   <strong>{flavour.name}</strong>
@@ -110,7 +125,7 @@ export default function FlavourUniverse() {
           </div>
         </div>
 
-        <div className="flavour-stage" id="flavour-stage" role="tabpanel" aria-live="polite">
+        <div className="flavour-stage" id="flavour-stage" role="tabpanel" aria-labelledby={`flavour-tab-${active.id}`} aria-live="polite">
           <AnimatePresence mode="wait">
             <motion.div
               key={active.id}
@@ -152,7 +167,7 @@ export default function FlavourUniverse() {
                 <span>{active.kicker}</span>
                 <h3>{active.name}</h3>
                 <p>{active.note}</p>
-                <button type="button" className="flavour-explore">Explore {active.name} <i aria-hidden="true">↗</i></button>
+                <button type="button" className="flavour-explore" onClick={() => document.getElementById("menu")?.scrollIntoView({ behavior: reduceMotion ? "auto" : "smooth", block: "start" })}>Explore {active.name} <i aria-hidden="true">↗</i></button>
               </motion.div>
             </motion.div>
           </AnimatePresence>

@@ -1,7 +1,7 @@
 "use client";
 import { useCatalogCollection } from "@/hooks/useCatalogCollection";
 import type { LocationItem } from "@/lib/catalog";
-const fallback: LocationItem[] = [{id:"vavuniya",name:"Vavuniya",address:"No-256/4, Janushan Ice Cream, Kali Kovil Road, Nelukkulam, Vavuniya, Sri Lanka",phone:"024 222 6041",whatsapp:"077 601 5041",mapUrl:"",active:true,sortOrder:1}];
+const fallback: LocationItem[] = [{id:"vavuniya",name:"Vavuniya",address:"No. 256/4, Kali Kovil Lane, Nelukkulam, Vavuniya, Sri Lanka",phone:"+94 77 601 5041",whatsapp:"+94 77 601 5041",mapUrl:"",active:true,sortOrder:1}];
 export default function FindJanushan(){
  const {items:locations,live}=useCatalogCollection<LocationItem>("locations",fallback); const loc=locations[0]||fallback[0];
  const maps=loc.mapUrl||`https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(loc.address)}`; const embed=`https://www.google.com/maps?q=${encodeURIComponent(loc.address)}&output=embed`; const tel=loc.phone.replace(/\s/g,""); const orderPhone="94776015041";

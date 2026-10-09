@@ -2,7 +2,7 @@ export default function CustomerInfo() {
   const faqs = [
     {
       q: "Where is Janushan Ice Cream?",
-      a: "You can find us at No: 256/4, Kali Kovil Road, Nelukkulam, Vavuniya, Sri Lanka.",
+      a: "You can find us at No. 256/4, Kali Kovil Lane, Nelukkulam, Vavuniya, Sri Lanka.",
     },
     {
       q: "How can I place an order?",
