@@ -1,26 +1,38 @@
 # JIC Ascension — Test Report
-Date: 2026-10-28. Branch: `jic-ascension/p0-trust-fixes`.
+Date: 2026-10-28
+Current PR head at report edit: `63a97d69dcac57224b03d426a6e3088346058a4b`.
 
-## Source inspection
-Inspected repository manifest, Firebase rules, Next.js headers, Firebase client setup, catalogue hook, product UI, structured data, admin dashboard, environment verifier, CI workflow and deployment guide. Confirmed live homepage shows a catalogue fallback warning; source labels unknown availability as available before the branch fix; structured-data logo path mismatched the tracked asset.
+## Targeted availability tests
+- Command: `node --test tests/product-availability.test.mjs`
+- Result: PASS in an isolated temporary directory containing the same helper and test source copied from the branch.
+- Result summary: 5 tests passed, 0 failed. Covered explicit in-stock, low-stock, sold-out, missing, null and malformed values.
+- Limitation: This isolated run did not execute the full repository's TypeScript compiler or Next.js build.
 
-## Automated checks
-| Check | Result |
+## Current GitHub CI
+- Workflow: Quality Gate, run #222 (ID `40624461275`).
+- Dependency install: PASS (`npm ci` completed).
+- `npm run check`: IN PROGRESS at last inspection.
+- Final workflow conclusion: PENDING; do not infer success from an in-progress job.
+
+## Vercel preview
+- A previous PR commit `a0c3b4f2a9a5388e038ff8fae4403543513bf496` has a READY preview.
+- That preview is stale relative to the current head and is not evidence for the latest changes.
+- Latest commit `63a97d69dcac57224b03d426a6e3088346058a4b`: Vercel deployment BUILDING at last inspection.
+
+## Not run / not verified
+| Check | Status |
 |---|---|
-| `npm ci` | NOT RUN |
-| `npm run typecheck` | NOT RUN |
-| `npm run lint` | NOT RUN |
-| `npm run build` | NOT RUN |
-| `npm run verify:env` | NOT RUN; production environment not accessed |
-| `npm run release:check` | NOT RUN |
-| Firebase Emulator rules tests | NOT RUN |
-| End-to-end/browser tests | NOT RUN |
-| Accessibility scan / manual keyboard audit | NOT RUN |
-| Lighthouse / Core Web Vitals | NOT RUN |
-| Secret/history scan | NOT RUN |
+| Full repository `npm run typecheck` | Pending in Quality Gate |
+| ESLint | Pending in Quality Gate |
+| Full production build | Pending in Quality Gate |
+| Browser/end-to-end tests | NOT RUN |
+| Structured-data URL HTTP check / external validator | NOT VERIFIED |
+| Firebase Emulator Suite rules tests | NOT RUN |
+| Production Firebase configuration/rules parity | BLOCKED by access |
+| Lighthouse / Core Web Vitals | NOT MEASURED |
+| Accessibility manual audit | NOT RUN |
+| Full secret/history scan | NOT RUN |
 | Production smoke test | NOT RUN |
 
-The prior repository report describes an earlier dependency-install failure due to DNS/network restrictions. That is historical documentation, not a test executed in this audit.
-
 ## Gate
-Release readiness: BLOCKED pending dependency-backed checks, diagnosis of the live catalogue issue, Firebase rules verification and production smoke tests.
+PR readiness remains BLOCKED pending current-head CI results, preview verification, and clear resolution or explicit owner-accepted blocking status for the live catalogue issue.
