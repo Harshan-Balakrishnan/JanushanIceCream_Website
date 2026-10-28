@@ -224,7 +224,7 @@
   place-items:center;
   border:1px solid rgba(255,227,154,.55);
   border-radius:50%;
-  background:linear-gradient(145deg,#0635b9,#041a72);
+  background:linear-gradient(145deg,var(--jic-royal-blue),#041a72);
   color:#fff4d2;
   box-shadow:0 12px 30px rgba(0,0,0,.32),0 0 0 4px rgba(255,255,255,.06);
   transition:transform .2s ease,box-shadow .2s ease;
@@ -245,7 +245,7 @@
   aspect-ratio:auto;
   transform:none !important;
   border-radius:0 !important;
-  background:#0635b9 !important;
+  background:var(--jic-royal-blue) !important;
   clip-path:polygon(50% 92%,43% 85%,20% 62%,8% 49%,4% 36%,7% 23%,16% 14%,28% 10%,39% 12%,50% 23%,61% 12%,72% 10%,84% 14%,93% 23%,96% 36%,92% 49%,80% 62%,57% 85%);
   box-shadow:none !important;
   filter:drop-shadow(0 30px 45px rgba(2,25,110,.24));
@@ -454,4 +454,5 @@
 
 @media (prefers-reduced-motion:reduce) {
   .product-category-chip { transition:none; }
+  .product-track { scroll-behavior:auto; }
 }
