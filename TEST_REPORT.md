@@ -1,30 +1,32 @@
 # JIC Ascension — Test Report
 Date: 2026-10-28
-Current PR head at report edit: `63a97d69dcac57224b03d426a6e3088346058a4b`.
+Validated commit: `0df3340a04faae9c7ed1ccf471e08618623938d1`.
+
+## Automated quality gate — PASS
+- Workflow: GitHub Actions Quality Gate run #224 (ID `40624552761`).
+- `npm ci`: PASS.
+- `npm run check`: PASS.
+- The project's `check` script executes TypeScript checking, ESLint, the availability regression tests, and the production Next.js build.
+- Workflow conclusion: `success`.
+- The Vercel deployment for the same commit reached READY: deployment `dpl_8M5JwgiaM4189YmqBn2GDMvAu9gS`.
 
 ## Targeted availability tests
-- Command: `node --test tests/product-availability.test.mjs`
-- Result: PASS in an isolated temporary directory containing the same helper and test source copied from the branch.
-- Result summary: 5 tests passed, 0 failed. Covered explicit in-stock, low-stock, sold-out, missing, null and malformed values.
-- Limitation: This isolated run did not execute the full repository's TypeScript compiler or Next.js build.
+The test suite `tests/product-availability.test.mjs` covers:
+1. Explicit in-stock status and ordering action.
+2. Explicit low-stock status and confirm-stock action.
+3. Explicit sold-out status and check-only action.
+4. Missing availability treated as unknown.
+5. Null and malformed values normalized to unknown.
 
-## Current GitHub CI
-- Workflow: Quality Gate, run #222 (ID `40624461275`).
-- Dependency install: PASS (`npm ci` completed).
-- `npm run check`: IN PROGRESS at last inspection.
-- Final workflow conclusion: PENDING; do not infer success from an in-progress job.
-
-## Vercel preview
-- A previous PR commit `a0c3b4f2a9a5388e038ff8fae4403543513bf496` has a READY preview.
-- That preview is stale relative to the current head and is not evidence for the latest changes.
-- Latest commit `63a97d69dcac57224b03d426a6e3088346058a4b`: Vercel deployment BUILDING at last inspection.
+The isolated Node test run also passed: 5 tests, 0 failures. The authoritative repository-level test result is the passing Quality Gate above.
 
 ## Not run / not verified
 | Check | Status |
 |---|---|
-| Full repository `npm run typecheck` | Pending in Quality Gate |
-| ESLint | Pending in Quality Gate |
-| Full production build | Pending in Quality Gate |
+| Full repository typecheck | PASS via Quality Gate |
+| ESLint | PASS via Quality Gate |
+| Availability unit tests | PASS via Quality Gate |
+| Production build | PASS via Quality Gate |
 | Browser/end-to-end tests | NOT RUN |
 | Structured-data URL HTTP check / external validator | NOT VERIFIED |
 | Firebase Emulator Suite rules tests | NOT RUN |
@@ -35,4 +37,4 @@ Current PR head at report edit: `63a97d69dcac57224b03d426a6e3088346058a4b`.
 | Production smoke test | NOT RUN |
 
 ## Gate
-PR readiness remains BLOCKED pending current-head CI results, preview verification, and clear resolution or explicit owner-accepted blocking status for the live catalogue issue.
+Code-level quality checks pass for the validated commit. Production readiness remains BLOCKED by unresolved live catalogue diagnostics and outstanding Firebase/runtime/browser verification.
