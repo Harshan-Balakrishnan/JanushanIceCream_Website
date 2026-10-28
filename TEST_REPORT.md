@@ -1,27 +1,26 @@
-# Janushan Ice Cream Website — Verification Report
+# JIC Ascension — Test Report
+Date: 2026-10-28. Branch: `jic-ascension/p0-trust-fixes`.
 
-Final consolidation check performed before packaging.
+## Source inspection
+Inspected repository manifest, Firebase rules, Next.js headers, Firebase client setup, catalogue hook, product UI, structured data, admin dashboard, environment verifier, CI workflow and deployment guide. Confirmed live homepage shows a catalogue fallback warning; source labels unknown availability as available before the branch fix; structured-data logo path mismatched the tracked asset.
 
-## Completed checks
+## Automated checks
+| Check | Result |
+|---|---|
+| `npm ci` | NOT RUN |
+| `npm run typecheck` | NOT RUN |
+| `npm run lint` | NOT RUN |
+| `npm run build` | NOT RUN |
+| `npm run verify:env` | NOT RUN; production environment not accessed |
+| `npm run release:check` | NOT RUN |
+| Firebase Emulator rules tests | NOT RUN |
+| End-to-end/browser tests | NOT RUN |
+| Accessibility scan / manual keyboard audit | NOT RUN |
+| Lighthouse / Core Web Vitals | NOT RUN |
+| Secret/history scan | NOT RUN |
+| Production smoke test | NOT RUN |
 
-- Consolidated the Milestone 10 project into one final project folder.
-- Verified required project directories and core Next.js files are present.
-- Verified all JSON configuration files parse correctly.
-- Checked 41 local static asset references; no referenced brand/product/flavour/icon/OG asset was missing.
-- Checked for zero-byte files in `public/`; none were found.
-- Ran a TypeScript syntax pass across the application source. No syntax/type-shape errors were detected beyond expected missing-module errors caused by dependencies being unavailable in this execution environment.
-- Corrected public Firestore catalogue queries so they comply with the supplied Firestore security rules (`active == true`) and do not require a composite sort index.
-- Corrected dynamic Firebase-hosted image handling for public product/gallery images.
-- Added easy Windows setup, run and project-check scripts.
-- Added `START_HERE.md` for simple editing instructions.
-- Added ESLint configuration for the pinned Next.js 15 workflow.
+The prior repository report describes an earlier dependency-install failure due to DNS/network restrictions. That is historical documentation, not a test executed in this audit.
 
-## Full dependency/build verification limitation
-
-A full `npm install` was attempted twice. The execution environment could not resolve `registry.npmjs.org` (`EAI_AGAIN`), so packages could not be downloaded here. Because of that network restriction, `npm run check` could not be executed end-to-end in this environment.
-
-On a normal internet-connected computer, run `CHECK_PROJECT.bat` after the first dependency install. It performs TypeScript checking, linting, and the production Next.js build.
-
-## Firebase
-
-Firebase is optional for simply viewing and editing the public site locally. Without Firebase credentials, the website uses built-in fallback catalogue content. Firebase is required only for the live Admin Control Room/data synchronization features.
+## Gate
+Release readiness: BLOCKED pending dependency-backed checks, diagnosis of the live catalogue issue, Firebase rules verification and production smoke tests.
