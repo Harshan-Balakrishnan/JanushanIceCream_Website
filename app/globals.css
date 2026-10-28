@@ -2621,6 +2621,11 @@ img, video, canvas, svg {
   background:currentColor;
   box-shadow:0 0 0 3px color-mix(in srgb,currentColor 15%,transparent);
 }
+.product-stock.is-unknown{
+  border-color:rgba(183,207,255,.3);
+  background:rgba(88,126,190,.14);
+  color:#d7e4ff;
+}
 .product-stock.is-low-stock{
   border-color:rgba(255,208,108,.32);
   background:rgba(236,172,54,.14);
