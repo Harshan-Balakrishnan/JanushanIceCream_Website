@@ -21,7 +21,7 @@ Scope: Public live website and source files on the repository default branch at 
 - Impact: Visitors could interpret fallback catalogue entries as confirmation of current stock.
 - Additional verified defect: the base `.product-stock` CSS was green even when availability was unknown; removing the `is-in-stock` modifier did not remove the base green styling.
 - Fix implemented on this branch: a typed presentation helper normalizes unknown/malformed values, gives unknown stock a neutral style, and differentiates action wording for in-stock, low-stock, sold-out and unknown states.
-- Tests: five isolated Node tests passed; current repository CI is still running. Browser test NOT RUN.
+- Tests: GitHub Quality Gate run #224 passed for code commit `0df3340a04faae9c7ed1ccf471e08618623938d1`, including TypeScript, lint, availability tests and production build. Later report-only commits are being rechecked by a new workflow run. Browser test NOT RUN.
 
 ### JIC-AUD-003 — Structured-data logo path does not match the repository asset
 - Severity: Low (SEO/brand presentation).
