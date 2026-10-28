@@ -24,7 +24,7 @@ function stockLabel(availability?: Product["availability"]) {
   switch (availability) {
     case "low-stock": return "Limited today";
     case "sold-out": return "Sold out";
-    default: return "Available today";
+    default: return "Call to confirm availability";
   }
 }
 
@@ -192,7 +192,7 @@ export default function ProductUniverse() {
     };
   }, [selected]);
 
-  const selectedAvailability = selected?.availability ?? "in-stock";
+  const selectedAvailability = selected?.availability;
   const selectedSoldOut = selectedAvailability === "sold-out";
 
   return (
@@ -278,7 +278,7 @@ export default function ProductUniverse() {
                     <small>{product.eyebrow}</small>
                     <strong>{product.name}</strong>
                     <span className="product-price">Rs. {formatter.format(product.price)}/-</span>
-                    <span className={`product-stock is-${product.availability ?? "in-stock"}`}>{stockLabel(product.availability)}</span>
+                    <span className={`product-stock${product.availability ? ` is-${product.availability}` : ""}`}>{stockLabel(product.availability)}</span>
                   </span>
                   <span className="product-open">Explore <i aria-hidden="true">↗</i></span>
                 </motion.button>
@@ -313,7 +313,7 @@ export default function ProductUniverse() {
                 <p className="section-kicker">{selected.eyebrow}</p>
                 <h3 id="product-modal-title">{selected.name}</h3>
                 <div className="modal-price">Rs. {formatter.format(selected.price)}/-</div>
-                <span className={`product-stock product-stock-modal is-${selectedAvailability}`}>{stockLabel(selectedAvailability)}</span>
+                <span className={`product-stock product-stock-modal${selectedAvailability ? ` is-${selectedAvailability}` : ""}`}>{stockLabel(selectedAvailability)}</span>
                 <p>{selected.blurb}</p>
                 <div className="modal-actions"><a className="button button-primary" href="tel:+94776015041">{selectedSoldOut ? "Call to check availability" : "Call to order +94 77 601 5041"}</a><a className="button button-ghost" href="#flavours" onClick={() => setSelected(null)}>Explore Flavours</a></div>
                 <small className="modal-order-note">{selectedSoldOut ? "This flavour is unavailable right now. Call us to check when it will return." : "Call +94 77 601 5041 to place an order and confirm availability."}</small>
