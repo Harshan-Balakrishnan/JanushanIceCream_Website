@@ -5,6 +5,7 @@ import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { useCatalogCollection } from "@/hooks/useCatalogCollection";
 import { defaultProducts, type Product } from "@/lib/catalog";
+import { getAvailabilityPresentation } from "@/lib/product-availability.mjs";
 
 type MenuCategory = "All" | "Cups" | "Cones" | "Specials" | "Ice Pops & Chock" | "Other";
 type MenuSort = "featured" | "price-low" | "price-high" | "name";
@@ -18,14 +19,6 @@ function categoryForProduct(product: Product): Exclude<MenuCategory, "All"> {
   if (/special|mega/.test(text)) return "Specials";
   if (/cup|\bml\b|\blitre\b|\bliter\b|\bkg\b/.test(text)) return "Cups";
   return "Other";
-}
-
-function stockLabel(availability?: Product["availability"]) {
-  switch (availability) {
-    case "low-stock": return "Limited today";
-    case "sold-out": return "Sold out";
-    default: return "Available today";
-  }
 }
 
 function menuBadgeLabel(badge?: Product["menuBadge"]) {
@@ -192,8 +185,7 @@ export default function ProductUniverse() {
     };
   }, [selected]);
 
-  const selectedAvailability = selected?.availability ?? "in-stock";
-  const selectedSoldOut = selectedAvailability === "sold-out";
+  const selectedPresentation = getAvailabilityPresentation(selected?.availability);
 
   return (
     <section className="product-universe section" id="menu" aria-labelledby="craving-title">
@@ -278,7 +270,7 @@ export default function ProductUniverse() {
                     <small>{product.eyebrow}</small>
                     <strong>{product.name}</strong>
                     <span className="product-price">Rs. {formatter.format(product.price)}/-</span>
-                    <span className={`product-stock is-${product.availability ?? "in-stock"}`}>{stockLabel(product.availability)}</span>
+                    <span className={`product-stock is-${getAvailabilityPresentation(product.availability).status}`}>{getAvailabilityPresentation(product.availability).label}</span>
                   </span>
                   <span className="product-open">Explore <i aria-hidden="true">↗</i></span>
                 </motion.button>
@@ -301,7 +293,7 @@ export default function ProductUniverse() {
           <button className="button button-primary" type="button" onClick={() => { setSearch(""); setCategory("All"); setSort("featured"); }}>Show all products</button>
         </div>
       )}
-      <p className="product-source-note">{live ? "Live from the JIC admin system." : "Showing the built-in JIC menu because live catalogue data is unavailable."}</p>
+      <p className="product-source-note" role="status" aria-live="polite">{live ? "Live from the JIC admin system." : "Showing the built-in JIC menu because live catalogue data is unavailable."}</p>
 
       <AnimatePresence>
         {selected && (
@@ -313,10 +305,10 @@ export default function ProductUniverse() {
                 <p className="section-kicker">{selected.eyebrow}</p>
                 <h3 id="product-modal-title">{selected.name}</h3>
                 <div className="modal-price">Rs. {formatter.format(selected.price)}/-</div>
-                <span className={`product-stock product-stock-modal is-${selectedAvailability}`}>{stockLabel(selectedAvailability)}</span>
+                <span className={`product-stock product-stock-modal is-${selectedPresentation.status}`}>{selectedPresentation.label}</span>
                 <p>{selected.blurb}</p>
-                <div className="modal-actions"><a className="button button-primary" href="tel:+94776015041">{selectedSoldOut ? "Call to check availability" : "Call to order +94 77 601 5041"}</a><a className="button button-ghost" href="#flavours" onClick={() => setSelected(null)}>Explore Flavours</a></div>
-                <small className="modal-order-note">{selectedSoldOut ? "This flavour is unavailable right now. Call us to check when it will return." : "Call +94 77 601 5041 to place an order and confirm availability."}</small>
+                <div className="modal-actions"><a className="button button-primary" href="tel:+94776015041">{selectedPresentation.actionLabel}</a><a className="button button-ghost" href="#flavours" onClick={() => setSelected(null)}>Explore Flavours</a></div>
+                <small className="modal-order-note">{selectedPresentation.note}</small>
                 <small className="modal-future">Product details can be managed from the JIC Control Room when Firebase is connected.</small>
               </div>
             </motion.div>

@@ -8,10 +8,11 @@
     "start": "next start",
     "lint": "next lint",
     "typecheck": "tsc --noEmit",
-    "check": "npm run typecheck && npm run lint && npm run build",
+    "check": "npm run typecheck && npm run lint && npm run test:availability && npm run build",
     "verify:env": "node scripts/verify-production-env.mjs",
     "release:check": "npm run check && npm run verify:env",
-    "firebase:deploy:rules": "npx firebase-tools deploy --only firestore:rules,storage"
+    "firebase:deploy:rules": "npx firebase-tools deploy --only firestore:rules,storage",
+    "test:availability": "node --test tests/product-availability.test.mjs"
   },
   "dependencies": {
     "dotenv": "^17.4.2",
