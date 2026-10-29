@@ -293,7 +293,7 @@ export default function ProductUniverse() {
           <button className="button button-primary" type="button" onClick={() => { setSearch(""); setCategory("All"); setSort("featured"); }}>Show all products</button>
         </div>
       )}
-      <p className="product-source-note">{live ? "Live from the JIC admin system." : "Showing the built-in JIC menu because live catalogue data is unavailable."}</p>
+      <p className="product-source-note" role="status" aria-live="polite">{live ? "Live from the JIC admin system." : "Showing the built-in JIC menu because live catalogue data is unavailable."}</p>
 
       <AnimatePresence>
         {selected && (
