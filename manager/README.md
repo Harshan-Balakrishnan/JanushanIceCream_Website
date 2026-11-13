@@ -1,16 +1,16 @@
 # Janushan Ice Cream Manager PWA
 
-Bilingual (English/Tamil), mobile-first PWA for five team accounts.
+Bilingual (English/Tamil), mobile-first PWA for up to five individual team accounts.
 
 ## Backend
 Supabase project: `igmntuedldippelbqgnm` (Asia Pacific - Mumbai).
-The database schema and RPC functions were installed separately in Supabase.
-The frontend contains only the Supabase publishable key; never place a service-role key in browser code.
+The database schema and business RPC workflows were installed in Supabase.
+The frontend uses only the Supabase publishable key. Never put a service-role key in browser code.
 
 ## Deploy
-This folder is deployed with the GitHub Actions workflow at `.github/workflows/deploy-manager-pages.yml`.
-In GitHub repository Settings → Pages, set Build and deployment source to **GitHub Actions**. The workflow publishes this folder at:
-`https://harshan-balakrishnan.github.io/JanushanIceCream_Website/` plus `manager/` is not required because the artifact root is this folder.
+This folder is published by `.github/workflows/deploy-manager-pages.yml`.
+In GitHub repository **Settings → Pages**, set Build and deployment source to **GitHub Actions**. Then rerun the workflow if the first run failed because Pages was not enabled.
+The deployment URL is `https://harshan-balakrishnan.github.io/JanushanIceCream_Website/`.
 
 ## First use
 1. Open the published URL and create the owner account.
@@ -21,10 +21,11 @@ In GitHub repository Settings → Pages, set Build and deployment source to **Gi
 6. Install from browser menu → Add to Home screen.
 
 ## Offline
-The app shell is cached. Offline sales are queued in this browser's local storage and replayed on reconnection using idempotent sale IDs. Offline transactions are device-specific until synchronized; do not clear browser data or uninstall before the pending queue syncs. The first sign-in, initial product load and team invitations require internet. Never use the offline queue as a multi-device stock lock: review pending sales and physical counts before closing stock.
+The app shell and Supabase browser library are cached for offline opening. Offline sales are queued in this browser's local storage and replayed on reconnection using idempotent sale IDs. Offline transactions are device-specific until synchronized; do not clear browser data or uninstall before the pending queue syncs. Initial sign-in, product setup, team invitations, expenses, stock receipts and weekly stock counts require internet in this first release. Never use the offline queue as a multi-device stock lock: review pending sales and physical counts before closing stock.
 
-## Known limits in this first build
-- Offline mode queues sales only; expenses and stock receipts currently require internet.
-- The weekly count compares with ledger stock, but a submitted variance does not automatically adjust inventory. Owner should review variance and create an adjustment entry.
-- PWA static hosting needs GitHub Pages enabled once by repository owner.
-- Five people can be assigned accounts; free-plan quotas and Supabase email limits apply.
+## Important limitations
+- Offline queue currently supports sales only; expense and stock-receipt entry require internet.
+- The weekly count compares physical quantities with ledger stock, but a submitted variance does not automatically adjust inventory. Review the difference and enter a correcting stock movement.
+- GitHub Pages must be enabled once by the repository owner.
+- Five total business members are intended; Supabase free-plan quotas and email confirmation limits apply.
+- This is a first operational build; test with sample data before relying on it for daily financial reconciliation.
