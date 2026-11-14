@@ -6,7 +6,7 @@ export default function StructuredData() {
     "@type": "IceCreamShop",
     name: "Janushan Ice Cream",
     url: SITE_URL,
-    logo: `${SITE_URL}/brand/Brand Logo.png`,
+    logo: `${SITE_URL}/brand/janushan-logo.png`,
     image: `${SITE_URL}/og/og-default.png`,
     description: "Janushan Ice Cream in Nelukkulam, Vavuniya — ice cream, cones, cups and dessert treats since 2004.",
     priceRange: "LKR 50–1,500",

@@ -1,27 +1,40 @@
-# Janushan Ice Cream Website — Verification Report
+# JIC Ascension — Test Report
+Date: 2026-10-28
+Validated commit: `0df3340a04faae9c7ed1ccf471e08618623938d1`.
 
-Final consolidation check performed before packaging.
+## Automated quality gate — PASS
+- Workflow: GitHub Actions Quality Gate run #224 (ID `40624552761`).
+- `npm ci`: PASS.
+- `npm run check`: PASS.
+- The project's `check` script executes TypeScript checking, ESLint, the availability regression tests, and the production Next.js build.
+- Workflow conclusion: `success`.
+- The Vercel deployment for the same commit reached READY: deployment `dpl_8M5JwgiaM4189YmqBn2GDMvAu9gS`.
 
-## Completed checks
+## Targeted availability tests
+The test suite `tests/product-availability.test.mjs` covers:
+1. Explicit in-stock status and ordering action.
+2. Explicit low-stock status and confirm-stock action.
+3. Explicit sold-out status and check-only action.
+4. Missing availability treated as unknown.
+5. Null and malformed values normalized to unknown.
 
-- Consolidated the Milestone 10 project into one final project folder.
-- Verified required project directories and core Next.js files are present.
-- Verified all JSON configuration files parse correctly.
-- Checked 41 local static asset references; no referenced brand/product/flavour/icon/OG asset was missing.
-- Checked for zero-byte files in `public/`; none were found.
-- Ran a TypeScript syntax pass across the application source. No syntax/type-shape errors were detected beyond expected missing-module errors caused by dependencies being unavailable in this execution environment.
-- Corrected public Firestore catalogue queries so they comply with the supplied Firestore security rules (`active == true`) and do not require a composite sort index.
-- Corrected dynamic Firebase-hosted image handling for public product/gallery images.
-- Added easy Windows setup, run and project-check scripts.
-- Added `START_HERE.md` for simple editing instructions.
-- Added ESLint configuration for the pinned Next.js 15 workflow.
+The isolated Node test run also passed: 5 tests, 0 failures. The authoritative repository-level test result is the passing Quality Gate above.
 
-## Full dependency/build verification limitation
+## Not run / not verified
+| Check | Status |
+|---|---|
+| Full repository typecheck | PASS via Quality Gate |
+| ESLint | PASS via Quality Gate |
+| Availability unit tests | PASS via Quality Gate |
+| Production build | PASS via Quality Gate |
+| Browser/end-to-end tests | NOT RUN |
+| Structured-data URL HTTP check / external validator | NOT VERIFIED |
+| Firebase Emulator Suite rules tests | NOT RUN |
+| Production Firebase configuration/rules parity | BLOCKED by access |
+| Lighthouse / Core Web Vitals | NOT MEASURED |
+| Accessibility manual audit | NOT RUN |
+| Full secret/history scan | NOT RUN |
+| Production smoke test | NOT RUN |
 
-A full `npm install` was attempted twice. The execution environment could not resolve `registry.npmjs.org` (`EAI_AGAIN`), so packages could not be downloaded here. Because of that network restriction, `npm run check` could not be executed end-to-end in this environment.
-
-On a normal internet-connected computer, run `CHECK_PROJECT.bat` after the first dependency install. It performs TypeScript checking, linting, and the production Next.js build.
-
-## Firebase
-
-Firebase is optional for simply viewing and editing the public site locally. Without Firebase credentials, the website uses built-in fallback catalogue content. Firebase is required only for the live Admin Control Room/data synchronization features.
+## Gate
+Code-level quality checks pass for the validated commit. Production readiness remains BLOCKED by unresolved live catalogue diagnostics and outstanding Firebase/runtime/browser verification.
