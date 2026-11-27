@@ -11,6 +11,7 @@ const links = [
   ["Our Story", "#story"],
   ["Gallery", "#gallery"],
   ["Find Us", "#locations"],
+  ["FAQ", "#faq"],
   ["Contact", "#contact"],
 ] as const;
 
