@@ -7,9 +7,11 @@ const links = [
   ["Discover", "#discover"],
   ["Menu", "#menu"],
   ["Flavours", "#flavours"],
+  ["Scoop Match", "#scoop-match"],
   ["Our Story", "#story"],
   ["Gallery", "#gallery"],
   ["Find Us", "#locations"],
+  ["FAQ", "#faq"],
   ["Contact", "#contact"],
 ] as const;
 

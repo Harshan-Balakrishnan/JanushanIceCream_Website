@@ -1,5 +1,6 @@
 import ProductUniverse from "@/components/ProductUniverse";
 import FlavourUniverse from "@/components/FlavourUniverse";
+import ScoopMatchExperience from "@/components/ScoopMatchExperience";
 import StoryTimeline from "@/components/StoryTimeline";
 import ScoopWall from "@/components/ScoopWall";
 import PromotionRibbon from "@/components/PromotionRibbon";
@@ -22,20 +23,13 @@ export default function DiscoverPreview() {
       </section>
 
       <ProductUniverse />
-
       <FlavourUniverse />
-
-
+      <ScoopMatchExperience />
       <StoryTimeline />
-
       <PromotionRibbon />
-
       <ScoopWall />
-
       <FindJanushan />
-
       <CustomerInfo />
-
       <ContactExperience />
     </>
   );
