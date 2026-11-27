@@ -16,7 +16,7 @@
 
 ## Deliberate limitations
 
-This is a lightweight discovery interaction, not an AI recommendation engine. The result is deterministic and only as accurate as the existing flavour names/descriptions. “Surprise me” rotates by local weekday, not by inventory or customer profile. The customer is told to confirm availability with the team.
+This is a lightweight discovery interaction, not an AI recommendation engine. The result is deterministic and only as accurate as the existing flavour names/descriptions. “Surprise me” cycles through the configured flavour list each time the customer asks for a suggestion; it does not use inventory or a customer profile. Selection is event-driven and deterministic during rendering to avoid server/client hydration mismatches. The customer is told to confirm availability with the team.
 
 ## Validation status
 
