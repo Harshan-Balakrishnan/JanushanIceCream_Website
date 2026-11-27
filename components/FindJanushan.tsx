@@ -31,7 +31,10 @@ export default function FindJanushan() {
   const embed =
     "https://www.google.com/maps?q=8.7563918,80.4542663&z=18&output=embed";
   const tel = loc.phone.replace(/\s/g, "");
-  const orderPhone = "94776015041";
+  const whatsappNumber = loc.whatsapp.replace(/\D/g, "");
+  const whatsappLink = whatsappNumber
+    ? `https://wa.me/${whatsappNumber}?text=${encodeURIComponent("Hello Janushan Ice Cream, I would like to check availability.")}`
+    : null;
 
   return (
     <section className="find-world section" id="locations">
@@ -65,6 +68,11 @@ export default function FindJanushan() {
             <a className="button button-ghost" href={`tel:${tel}`}>
               Call Us
             </a>
+            {whatsappLink && (
+              <a className="button button-ghost" href={whatsappLink} target="_blank" rel="noopener noreferrer">
+                WhatsApp Us ↗
+              </a>
+            )}
           </div>
 
           <div className="location-contact-grid">
@@ -72,9 +80,9 @@ export default function FindJanushan() {
               <small>PHONE</small>
               <strong>{loc.phone}</strong>
             </a>
-            <a href={`tel:+${orderPhone}`}>
-              <small>CALL TO ORDER</small>
-              <strong>+94 77 601 5041</strong>
+            <a href={whatsappLink ?? `tel:${tel}`}>
+              <small>{whatsappLink ? "WHATSAPP / QUICK ENQUIRY" : "CALL TO ORDER"}</small>
+              <strong>{loc.whatsapp || loc.phone}</strong>
             </a>
           </div>
         </article>
