@@ -4,6 +4,7 @@ import { SITE_DESCRIPTION, SITE_NAME, SITE_URL } from "@/lib/site";
 import "./globals.css";
 import "./story-finale.css";
 import "./final-polish.css";
+import "./scoop-match.css";
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
