@@ -48,7 +48,7 @@ export default function StoreStatusBar() {
           className="store-status-action"
           href={`tel:+${number}`}
         >
-          Call +94 77 601 5041 <span aria-hidden="true">↗</span>
+          Call {settings.orderPhone || defaultSettings.orderPhone} <span aria-hidden="true">↗</span>
         </a>
       ) : (
         <span className="store-status-closed">
