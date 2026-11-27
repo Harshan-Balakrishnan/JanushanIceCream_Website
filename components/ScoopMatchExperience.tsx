@@ -21,11 +21,11 @@ const matchWords: Record<Exclude<Mood, "surprise">, string[]> = {
   classic: ["vanilla", "classic", "cream", "milk"],
 };
 
-function findMatch(flavours: Flavour[], mood: Mood): Flavour {
+function findMatch(flavours: Flavour[], mood: Mood, surpriseIndex: number): Flavour {
   const active = flavours.filter((flavour) => flavour.active !== false);
   const options = active.length ? active : defaultFlavours;
   if (mood === "surprise") {
-    return options[new Date().getDay() % options.length];
+    return options[surpriseIndex % options.length];
   }
 
   const ranked = options.map((flavour, index) => {
@@ -52,8 +52,9 @@ export default function ScoopMatchExperience() {
   const { items: flavours } = useCatalogCollection<Flavour>("flavours", defaultFlavours);
   const [mood, setMood] = useState<Mood>("fruity");
   const [revealed, setRevealed] = useState(false);
+  const [surpriseIndex, setSurpriseIndex] = useState(0);
   const reduceMotion = useReducedMotion();
-  const match = useMemo(() => findMatch(flavours, mood), [flavours, mood]);
+  const match = useMemo(() => findMatch(flavours, mood, surpriseIndex), [flavours, mood, surpriseIndex]);
 
   return (
     <section className="scoop-match section" id="scoop-match" aria-labelledby="scoop-match-title">
@@ -98,7 +99,14 @@ export default function ScoopMatchExperience() {
             ))}
           </div>
 
-          <button className="scoop-match-submit" type="button" onClick={() => setRevealed(true)}>
+          <button
+            className="scoop-match-submit"
+            type="button"
+            onClick={() => {
+              if (mood === "surprise") setSurpriseIndex((current) => current + 1);
+              setRevealed(true);
+            }}
+          >
             Find my flavour <span aria-hidden="true">↗</span>
           </button>
 
